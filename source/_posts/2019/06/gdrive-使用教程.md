@@ -1,7 +1,9 @@
 ---
 title: gdrive 使用教程
 date: 2019-06-24 11:39:41
-categories: Linux
+categories:
+- Linux
+- Linux 应用
 tags:
 ---
 gdrive 是一个好用的 Linux 平台 Google Drive 客户端。

@@ -1,7 +1,9 @@
 ---
 title: 为 Ubuntu 18.04 添加清华大学软件源
 date: 2019-06-24 14:55:57
-categories: Linux
+categories:
+- Linux
+- Ubuntu
 tags:
 ---
 Ubuntu 的软件源配置文件为 */etc/apt/sources.list* 。首先将系统自带的该文件做个备份。
