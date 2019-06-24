@@ -1,0 +1,26 @@
+---
+title: 使用清华大学 Pypi 镜像加速 pip 下载
+date: 2019-06-24 16:54:26
+categories: Python
+tags:
+---
+pypi 镜像每 5 分钟同步一次。
+
+## 临时使用
+
+```
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+```
+
+注意，simple 不能少, 是 https 而不是 http 。
+
+## 设为默认
+
+修改 *~/.config/pip/pip.conf* （Linux）， *%APPDATA%\pip\pip.ini* （Windows 10）或 *$HOME/Library/Application Support/pip/pip.conf* （macOS）（没有就创建一个），修改 `index-url` 至  `https://pypi.tuna.tsinghua.edu.cn/simple` ，例如
+
+```
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+```
+
+pip 和 pip3 并存时，只需修改 *~/.pip/pip.conf* 。
