@@ -80,7 +80,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/AlumiK/alumik.github.io.git
-  branch: gh-pages
+  branch: master
 # Search
 search:
   path: search.xml
