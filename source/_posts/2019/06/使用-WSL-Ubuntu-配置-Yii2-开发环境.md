@@ -169,7 +169,7 @@ mount -t drvfs X: /mnt/x -o metadata
 如果发现网页中时间显示不正确，可能是 php 时区错误的问题。在 php.ini 中修改或添加
 
 ```
-data.timezone = “Asia/Shanghai”;
+data.timezone = "Asia/Shanghai";
 ```
 
 即可解决问题。
