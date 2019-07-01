@@ -6,6 +6,8 @@ tags:
 ---
 There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.
 
+<!-- more -->
+
 ## Command Line Arguments
 
 Batch scripts support the concept of command line arguments wherein arguments can be passed to the batch file when invoked. The arguments can be called from the batch files through the variables `%1`, `%2`, `%3`, and so on.
