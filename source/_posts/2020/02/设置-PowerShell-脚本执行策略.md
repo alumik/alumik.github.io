@@ -12,25 +12,25 @@ tags:
 
 脚本的执行策略有如下几种
 
-#### AllSigned
+### AllSigned
 
 - Scripts can run.
 - Requires that all scripts and configuration files be signed by a trusted publisher, including scripts that you write on the local computer.
 - Prompts you before running scripts from publishers that you haven't yet classified as trusted or untrusted.
 - Risks running signed, but malicious, scripts.
 
-#### Bypass
+### Bypass
 
 - Nothing is blocked and there are no warnings or prompts.
 - This execution policy is designed for configurations in which a PowerShell script is built in to a larger application or for configurations in which PowerShell is the foundation for a program that has its own security model.
 
-#### Default
+### Default
 
 - Sets the default execution policy.
 - Restricted for Windows clients.
 - RemoteSigned for Windows servers.
 
-#### RemoteSigned
+### RemoteSigned
 
 - The default execution policy for Windows server computers.
 - Scripts can run.
@@ -39,25 +39,24 @@ tags:
 - Runs scripts that are downloaded from the internet and not signed, if the scripts are unblocked, such as by using the Unblock-File cmdlet.
 - Risks running unsigned scripts from sources other than the internet and signed, but malicious, scripts.
 
-#### Restricted
+### Restricted
 
 - The default execution policy for Windows client computers.
 - Permits individual commands, but does not allow scripts.
 - Prevents running of all script files, including formatting and configuration files (.ps1xml), module script files (.psm1), and PowerShell profiles (.ps1).
 
-#### Undefined
+### Undefined
 
 - There is no execution policy set in the current scope.
 - If the execution policy in all scopes is Undefined, the effective execution policy is Restricted, which is the default execution policy.
 
-#### Unrestricted
+### Unrestricted
 
 - The default execution policy for non-Windows computers and cannot be changed.
 - Unsigned scripts can run. There is a risk of running malicious scripts.
 - Warns the user before running scripts and configuration files that are not from the local intranet zone.
 
-
-## 管理执行策略
+## 更改执行策略
 
 一般来说，使用如下命令后能够正常使用第三方脚本
 
