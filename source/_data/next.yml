@@ -344,8 +344,8 @@ calendar:
 # Set the text alignment in posts / pages.
 text_align:
   # Available values: start | end | left | right | center | justify | justify-all | match-parent
-  desktop: justify
-  mobile: justify
+  desktop: start
+  mobile: start
 
 # Reduce padding / margin indents on devices with narrow width.
 mobile_layout_economy: false
