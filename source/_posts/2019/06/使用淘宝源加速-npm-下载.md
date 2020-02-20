@@ -1,9 +1,7 @@
 ---
 title: 使用淘宝源加速 npm 下载
 date: 2019-06-24 16:50:11
-categories:
-- JavaScript
-- Node.js
+categories: 过期或不适用的文章
 tags:
 ---
 [淘宝 npm 地址](http://npm.taobao.org/)

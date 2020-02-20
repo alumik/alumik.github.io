@@ -1,8 +1,8 @@
 ---
 title: 为网站开启 SSL 访问支持
 date: 2019-06-24 15:30:53
-categories: HTTP 服务器
-tags:
+categories: 网络服务
+tags: SSL
 ---
 ## 系统环境
 

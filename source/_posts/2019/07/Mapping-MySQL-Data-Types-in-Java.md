@@ -1,10 +1,8 @@
 ---
 title: Mapping MySQL Data Types in Java
 date: 2019-07-02 00:00:30
-categories:
-- [Java]
-- [数据库, MySQL/MariaDB]
-tags:
+categories: Java
+tags: MySQL/MariaDB
 ---
 Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.
 

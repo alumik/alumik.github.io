@@ -1,10 +1,10 @@
 ---
 title: WSL (Ubuntu) 上 Apache2 的 Failed to enable APR_TCP_DEFER_ACCEP 问题
 date: 2019-06-24 15:53:26
-categories:
-- [HTTP 服务器, Apache2]
-- [WSL]
+categories: 网络服务
 tags:
+    - Apache2
+    - WSL
 ---
 ## 问题描述
 

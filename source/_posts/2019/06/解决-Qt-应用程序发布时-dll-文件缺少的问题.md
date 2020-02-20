@@ -1,10 +1,8 @@
 ---
 title: 解决 Qt 应用程序发布时 dll 文件缺少的问题
 date: 2019-06-24 16:29:07
-categories:
-- C++
-- Qt
-tags:
+categories: C++
+tags: Qt
 ---
 首先编译一个 release 版本，然后把生成的 exe 拷贝到一个新的文件夹下面。
 

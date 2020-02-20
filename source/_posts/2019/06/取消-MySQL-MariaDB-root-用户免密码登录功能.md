@@ -1,10 +1,8 @@
 ---
 title: 取消 MySQL/MariaDB root 用户免密码登录功能
 date: 2019-06-24 16:45:56
-categories:
-- 数据库
-- MySQL/MariaDB
-tags:
+categories: 数据库管理系统
+tags: MySQL/MariaDB
 ---
 在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入
 

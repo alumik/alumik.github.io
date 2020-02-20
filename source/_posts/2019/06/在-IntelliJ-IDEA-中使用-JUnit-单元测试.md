@@ -3,6 +3,8 @@ title: 在 IntelliJ IDEA 中使用 JUnit 单元测试
 date: 2019-06-24 20:47:40
 categories: Java
 tags:
+    - IntelliJ IDEA
+    - JUnit
 ---
 ## 引用文件
 

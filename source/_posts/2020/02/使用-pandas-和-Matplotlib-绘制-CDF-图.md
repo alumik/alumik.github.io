@@ -2,10 +2,10 @@
 title: 使用 pandas 和 Matplotlib 绘制 CDF 图
 date: 2020-02-19 17:52:45
 updated: 2020-02-20 13:57:41
-categories: 
-- Python
-- 科学计算工具
+categories: Python
 tags:
+    - pandas
+    - Matplotlib
 ---
 ## 所使用的核心方法
 

@@ -1,10 +1,8 @@
 ---
 title: 为 IIS 配置 PHP 支持
 date: 2019-06-24 11:25:57
-categories:
-- PHP
-- [HTTP 服务器, IIS]
-tags:
+categories: 网络服务
+tags: IIS
 ---
 下载 php 并解压。
 

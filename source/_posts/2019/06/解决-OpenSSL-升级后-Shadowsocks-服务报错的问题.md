@@ -1,8 +1,10 @@
 ---
 title: 解决 OpenSSL 升级后 Shadowsocks 服务报错的问题
 date: 2019-06-24 14:15:42
-categories: VPS
-tags:
+categories: 网络服务
+tags: 
+    - Shadowsocks
+    - OpenSSL
 ---
 ## 问题描述
 
@@ -10,28 +12,28 @@ tags:
 
 ```
 Traceback (most recent call last):
-  File "/usr/bin/ssserver", line 9, in
-    load_entry_point('shadowsocks==2.8.2', 'console_scripts', 'ssserver')()
-  File "/usr/lib/python2.7/site-packages/shadowsocks/server.py", line 34, in main
-    config = shell.get_config(False)
-  File "/usr/lib/python2.7/site-packages/shadowsocks/shell.py", line 262, in get_config
-    check_config(config, is_local)
-  File "/usr/lib/python2.7/site-packages/shadowsocks/shell.py", line 124, in check_config
-    encrypt.try_cipher(config['password'], config['method'])
-  File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 44, in try_cipher
-    Encryptor(key, method)
-  File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 83, in __init__
-    random_string(self._method_info[1]))
-  File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 109, in get_cipher
-    return m[2](method, key, iv, op)
-  File "/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py", line 76, in __init__
-    load_openssl()
-  File "/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py", line 52, in load_openssl
-    libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)
-  File "/usr/lib64/python2.7/ctypes/__init__.py", line 373, in __getattr__
-    func = self.__getitem__(name)
-  File "/usr/lib64/python2.7/ctypes/__init__.py", line 378, in __getitem__
-    func = self._FuncPtr((name_or_ordinal, self))
+    File "/usr/bin/ssserver", line 9, in
+        load_entry_point('shadowsocks==2.8.2', 'console_scripts', 'ssserver')()
+    File "/usr/lib/python2.7/site-packages/shadowsocks/server.py", line 34, in main
+        config = shell.get_config(False)
+    File "/usr/lib/python2.7/site-packages/shadowsocks/shell.py", line 262, in get_config
+        check_config(config, is_local)
+    File "/usr/lib/python2.7/site-packages/shadowsocks/shell.py", line 124, in check_config
+        encrypt.try_cipher(config['password'], config['method'])
+    File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 44, in try_cipher
+        Encryptor(key, method)
+    File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 83, in __init__
+        random_string(self._method_info[1]))
+    File "/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py", line 109, in get_cipher
+        return m[2](method, key, iv, op)
+    File "/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py", line 76, in __init__
+        load_openssl()
+    File "/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py", line 52, in load_openssl
+        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)
+    File "/usr/lib64/python2.7/ctypes/__init__.py", line 373, in __getattr__
+        func = self.__getitem__(name)
+    File "/usr/lib64/python2.7/ctypes/__init__.py", line 378, in __getitem__
+        func = self._FuncPtr((name_or_ordinal, self))
 AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
 shadowsocks start failed
 ```

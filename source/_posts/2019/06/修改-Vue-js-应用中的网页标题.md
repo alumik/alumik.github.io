@@ -1,10 +1,8 @@
 ---
 title: 修改 Vue.js 应用中的网页标题
 date: 2019-06-24 17:33:12
-categories:
-- JavaScript
-- Vue.js
-tags:
+categories: JavaScript
+tags: Vue.js
 ---
 ## 配置路由属性
 

@@ -1,8 +1,8 @@
 ---
 title: 将 Fork 出来的 GitHub 仓库与上游仓库同步
 date: 2019-06-24 16:19:59
-categories: Git/GitHub
-tags:
+categories: 版本控制系统
+tags: Git
 ---
 以下步骤均基于文件无冲突的情况，如果出现冲突，需要先解决冲突才能继续。
 

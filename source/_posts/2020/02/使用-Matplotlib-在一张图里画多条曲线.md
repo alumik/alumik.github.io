@@ -1,10 +1,8 @@
 ---
 title: 使用 Matplotlib 在一张图里画多条曲线
 date: 2020-02-20 13:03:12
-categories:
-- Python
-- 科学计算工具
-tags:
+categories: Python
+tags: Matplotlib
 ---
 ## 概要
 

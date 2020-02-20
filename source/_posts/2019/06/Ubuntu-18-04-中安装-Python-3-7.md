@@ -1,9 +1,7 @@
 ---
 title: Ubuntu 18.04 中安装 Python 3.7
 date: 2019-06-24 16:36:24
-categories:
-- [Linux, Ubuntu]
-- Python
+categories: 过期或不适用的文章
 tags:
 ---
 ## 系统准备

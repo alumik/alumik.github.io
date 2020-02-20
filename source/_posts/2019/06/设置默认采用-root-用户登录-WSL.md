@@ -1,8 +1,8 @@
 ---
 title: 设置默认采用 root 用户登录 WSL
 date: 2019-06-24 15:40:21
-categories: WSL
-tags:
+categories: Linux
+tags: WSL
 ---
 在命令行（管理员）中输入以下命令
 

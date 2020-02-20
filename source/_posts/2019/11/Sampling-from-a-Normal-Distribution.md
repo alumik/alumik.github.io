@@ -2,8 +2,8 @@
 title: Sampling from a Normal Distribution
 date: 2019-11-16 21:40:19
 updated: 2020-02-20 14:03:31
-categories: 概率论与数理统计
-tags:
+categories: 数学知识
+tags: 概率论与数理统计
 mathjax: true
 ---
 One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It's also of great importance due to its relation to the [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem).

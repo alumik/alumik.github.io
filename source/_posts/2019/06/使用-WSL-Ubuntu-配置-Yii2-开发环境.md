@@ -1,10 +1,10 @@
 ---
 title: 使用 WSL (Ubuntu) 配置 Yii2 开发环境
 date: 2019-06-24 15:45:27
-categories:
-- [WSL]
-- [PHP, Yii2]
+categories: PHP
 tags:
+    - Yii2
+    - WSL
 ---
 ## 安装 WSL
 

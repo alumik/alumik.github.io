@@ -1,10 +1,8 @@
 ---
 title: 开启 MySQL 远程访问权限
 date: 2019-06-24 15:28:12
-categories:
-- 数据库
-- MySQL/MariaDB
-tags:
+categories: 数据库管理系统
+tags: MySQL/MariaDB
 ---
 ## 授予权限
 

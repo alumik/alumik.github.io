@@ -1,10 +1,8 @@
 ---
 title: Ubuntu 设置 GRUB 默认启动的内核版本
 date: 2019-06-24 20:29:37
-categories:
-- Linux
-- Ubuntu
-tags:
+categories: Linux
+tags: Ubuntu
 ---
 要修改默认的启动内核，可以执行以下操作。
 

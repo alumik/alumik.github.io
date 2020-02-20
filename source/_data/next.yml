@@ -122,9 +122,9 @@ scheme: Gemini
 menu:
   home: / || home
   #about: /about/ || user
-  #tags: /tags/ || tags
   categories: /categories/ || th
-  archives: /archives/ || archive
+  tags: /tags/ || tags
+  #archives: /archives/ || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -261,7 +261,7 @@ symbols_count_time:
   wpm: 275
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
-tag_icon: false
+tag_icon: true
 
 # Reward (Donate)
 # Front-matter variable (unsupport animation).

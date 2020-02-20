@@ -1,8 +1,8 @@
 ---
 title: WordPress 出现 ERR_TOO_MANY_REDIRECTS 错误的解决办法
 date: 2019-06-24 15:38:11
-categories: WordPress
-tags:
+categories: 其他软件问题
+tags: WordPress
 ---
 一种解决方法是指明网站入口文件为 *index.php* 。
 

@@ -1,8 +1,8 @@
 ---
 title: 为 VPS 开启 BBR 加速
 date: 2019-06-24 14:39:36
-categories: VPS
-tags:
+categories: Linux
+tags: 网络加速
 ---
 先执行
 
