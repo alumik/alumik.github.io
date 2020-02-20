@@ -1,12 +1,17 @@
 ---
 title: 使用 Matplotlib 在一张图里画多条曲线
 date: 2020-02-20 13:03:12
+updated: 2020-02-21 03:33:00
 categories: Python
 tags: Matplotlib
 ---
-## 概要
+## 前言
 
-Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。这些颜色采用了 Matplotlib 里的预置颜色。如果你对 Matplotlib 的使用不太熟悉，可以参考[此教程](https://matplotlib.org/tutorials/introductory/pyplot.html)。
+Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。
+
+{% note info %}
+如果你对 Matplotlib 的使用不太熟悉，可以参考[此教程](https://matplotlib.org/tutorials/introductory/pyplot.html)。
+{% endnote %}
 
 ## 将所有曲线画进一个子图
 
@@ -84,16 +89,12 @@ plt.gca().set_prop_cycle(
 
 # Plot several different functions...
 x = np.arange(10)
-labels = []
-handles = []
 for i in range(1, num_plots + 1):
-    handle, = plt.plot(x, i * x + 5 * i)
-    labels.append(f'$y = {i}x + {5 * i}$')
-    handles.append(handle)
+    plt.plot(x, i * x + 5 * i, label=f'$y = {i}x + {5 * i}$')
 
 # I'm basically just demonstrating several different legend options here...
-plt.legend(handles=handles, labels = labels, ncol=4,
-           loc='upper center', bbox_to_anchor=[0.5, 1.1],
+plt.legend(ncol=4, loc='upper center',
+           bbox_to_anchor=[0.5, 1.1],
            columnspacing=1.0, labelspacing=0.0,
            handletextpad=0.0, handlelength=1.5,
            fancybox=True, shadow=True)
@@ -171,7 +172,10 @@ plt.show()
 
 {% asset_img myplot-8.png %}
 
-注意，`type(my_cycler)` 为 `cycler.Cycler` 但 `type(actual_cycler)` 为 `itertools.cycle` 。
+{% note warning %}
+### 注意
+`type(my_cycler)` 为 `cycler.Cycler` 但 `type(actual_cycler)` 为 `itertools.cycle` 。
+{% endnote %}
 
 ---
 
