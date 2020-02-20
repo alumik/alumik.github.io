@@ -108,11 +108,3 @@ search:
   field: post
   format: html
   limit: 10000
-
-# NexT theme
-theme_config:
-
-  # Remove unnecessary files after hexo generate.
-  minify: true
-
-  

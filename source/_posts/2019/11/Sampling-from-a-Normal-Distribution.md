@@ -1,6 +1,7 @@
 ---
 title: Sampling from a Normal Distribution
 date: 2019-11-16 21:40:19
+updated: 2020-02-20 14:03:31
 categories: 概率论与数理统计
 tags:
 mathjax: true
@@ -22,7 +23,7 @@ $$ F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}$$
 
 The CDF doesn't have a nice closed form, so we'll just represent it here using the definition of CDF in terms of its PDF.  We can graph the PDF and CDF (images from [Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)) using various values of the two parameters:
 
-![PDF of Normal Distribution](normal_pdf_cdf.png)
+{% asset_img normal_pdf_cdf.png "PDF of Normal Distribution" %}
 
 The normal distribution is sometimes colloquially known as the "bell curve" because of a it's symmetric hump.  A very common thing to do with a probability distribution is to *sample* from it.  In other words, we want to randomly generate numbers (i.e. \\(x\\) values) such that the values of \\(x\\) are in proportion to the PDF.  So for the standard normal distribution, \\(N \sim (0, 1) \\) (the red curve in the picture above), most of the values would fall close to somewhere around \\(x=0\\).  In fact, 68% will fall within \\([-1, 1]\\), 95% will fall within \\([-2,2]\\) and 99.7% will fall within \\([-3,3]\\).  This corresponds to \\(\sigma, 2\sigma, 3\sigma\\) from the mean, see this [article](https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule) for more details.
 
@@ -46,7 +47,7 @@ Since our goal is to implement sampling from a normal distribution, it would be 
 The basic idea of the test is to first sort the points in the sample and the compute the [empirical CDF](https://en.wikipedia.org/wiki/Empirical_distribution_function). Next, find the largest absolute difference between any point in the empirical CDF and the theoretical reference distribution.  If the two are the same, this difference should be very small. If it's large then we can be confident that the distribution is different.  Further, this difference follows a certain distribution, which allows us to test our null hypothesis of whether our samples were drawn from the reference distribution.  
 The following figure (from [Wikipedia](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test#Kolmogorov_distribution)) shows this more clearly:
 
-![Kolmogorov–Smirnov test](ks_test.png)
+{% asset_img ks_test.png "Kolmogorov–Smirnov test" %}
 
 Fortunately, we don't have to implement this ourselves.  A package is available in [scipy.stats](http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html).  Let's play around with it a bit to see how it works.
 
@@ -135,7 +136,7 @@ pd.DataFrame({'sample_N': samples, 'N(0,1)': reference}).plot(kind='hist', bins=
     sample_N(0,1) vs. N(0, 1): KS=0.0114 with p-value = 0.1499.
     <matplotlib.axes._subplots.AxesSubplot at 0x7f62c4dd4e80>
 
-![png](index_4_2.png)
+{% asset_img index_4_2.png %}
 
 Our KS score is somewhat close to \\(0\\) with a p-value that suggests we can't reject our null hypothesis.  Graphing our implementation of \\(N(0,1)\\) with the reference one shows that we have the roughly the right shape.  No doubt by setting larger \\(N\\) (for both the number of Bernoulli trials and the number of samples drawn), we would get something much closer.  
 
@@ -280,7 +281,7 @@ pd.DataFrame({'sample_N': samples, 'N(0,1)': reference}).plot(kind='hist', bins=
 
     <matplotlib.axes._subplots.AxesSubplot at 0x7f62c509fcc0>
 
-![png](index_7_2.png)
+{% asset_img index_7_2.png %}
 
 As we can see, our Box-Muller method of sampling from \\( N(0,1) \\) generates quite good results.  Our KS test statistic is quite small along with a large p-value (so we can't reject our null hypothesis).  Similarly, the graph shows the expected shape matching our reference distribution.  The one big advantage this method has though is that it's quite fast.  There's no noticeable lag when generating \(N=10000\) samples.
 
