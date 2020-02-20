@@ -1,17 +1,17 @@
 ---
 title: 使用 pandas 和 Matplotlib 绘制 CDF 图
 date: 2020-02-19 17:52:45
-updated: 2020-02-20 13:57:41
+updated: 2020-02-21 03:46:41
 categories: Python
 tags:
     - pandas
     - Matplotlib
 ---
-## 所使用的核心方法
+## 核心方法
 
 `pandas.Series.hist` 和 `matplotlib.pyplot.hist` 可以帮助我们画出想要的 CDF 图。
 
-所用到的几个重要参数说明如下
+所用到的几个重要参数说明如下：
 
 ```
 bins : int or sequence, default 10
@@ -56,27 +56,27 @@ from matplotlib.lines import Line2D
 
 df = pd.read_csv('cdf.csv', header=0)
 fig = plt.figure()
-ax = fig.add_subplot(111)
+ax = fig.add_subplot()
 
 series: pd.Series
-for index, series in df.iteritems():
+for label, series in df.iteritems():
     # 用于隐藏最右边的竖线
     # 将 2 修改为横轴范围外的一处即可（但不可为 inf ）
     bins = sorted(series.drop_duplicates()) + [2]
-    series.hist(label=index, cumulative=True, histtype='step',
+    series.hist(label=label, cumulative=True, histtype='step',
                 density=1, bins=bins, linewidth=2)
 
-plt.title('Empirical CDF')
-plt.xlabel('Value')
-plt.ylabel('Density')
-plt.xlim((0, 1))
-plt.ylim((0, 1))
+ax.set_title('Empirical CDF')
+ax.set_xlabel('Value')
+ax.set_ylabel('Density')
+ax.set_xlim((0, 1))
+ax.set_ylim((0, 1))
 
 handles, labels = ax.get_legend_handles_labels()
 new_handles = [Line2D([], [], c=h.get_edgecolor()) for h in handles]
-plt.legend(handles=new_handles, labels=labels)
+ax.legend(handles=new_handles, labels=labels)
 
-plt.show()
+fig.show()
 ```
 
 ## 绘制结果
