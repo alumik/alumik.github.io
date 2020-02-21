@@ -1,8 +1,9 @@
 ---
 title: 解决 VMware 虚拟机共享文件夹的权限问题
-date: 2019-06-24 20:27:02
 categories: 容器与虚拟机
 tags: VMware Workstation Pro
+abbrlink: 52225
+date: 2019-06-24 20:27:02
 ---
 在文件 */etc/fstab* 中加入新的一行
 

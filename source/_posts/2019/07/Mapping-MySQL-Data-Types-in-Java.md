@@ -1,9 +1,10 @@
 ---
 title: Mapping MySQL Data Types in Java
-date: 2019-07-02 00:00:30
-updated: 2020-02-21 15:17:48
 categories: Java
 tags: MySQL/MariaDB
+abbrlink: 51225
+date: 2019-07-02 00:00:30
+updated: 2020-02-21 15:17:48
 ---
 ## 前言
 

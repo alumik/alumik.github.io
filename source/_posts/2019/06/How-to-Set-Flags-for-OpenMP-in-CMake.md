@@ -1,10 +1,11 @@
 ---
 title: How to Set Flags for OpenMP in CMake
-date: 2019-06-24 21:24:30
 categories: C++
 tags:
-    - OpenMP
-    - CMake
+  - OpenMP
+  - CMake
+abbrlink: 5159
+date: 2019-06-24 21:24:30
 ---
 CMake has a [standard module](https://cmake.org/cmake/help/latest/module/FindOpenMP.html) for testing if the compiler supports OpenMP.
 

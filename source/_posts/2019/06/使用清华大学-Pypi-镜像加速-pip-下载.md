@@ -1,11 +1,12 @@
 ---
 title: 使用清华大学 PyPI 镜像加速 pip 下载
+categories: Python
+tags:
+  - PyPI
+  - 网络加速
+abbrlink: 31558
 date: 2019-06-24 16:54:26
 updated: 2020-02-21 15:14:22
-categories: Python
-tags: 
-    - PyPI
-    - 网络加速
 ---
 PyPI 镜像每 5 分钟同步一次。
 

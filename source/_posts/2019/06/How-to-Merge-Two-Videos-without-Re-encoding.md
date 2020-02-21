@@ -1,10 +1,11 @@
 ---
 title: How to Merge Two Videos without Re-encoding
-date: 2019-06-24 21:07:43
 categories: 其他计算机使用技巧
 tags:
-    - 视频处理
-    - ffmpeg
+  - 多媒体处理
+  - ffmpeg
+abbrlink: 7531
+date: 2019-06-24 21:07:43
 ---
 ## Concatenation of Files with Same Codecs
 

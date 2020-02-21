@@ -1,7 +1,8 @@
 ---
 title: Enable Skia Rendering for Android UI in Android Emulator
-date: 2019-06-24 21:22:52
 categories: Android
+abbrlink: 63805
+date: 2019-06-24 21:22:52
 tags:
 ---
 When using images for API 27 or later, the emulator can render the Android UI with [Skia](https://skia.org/), which can render more smoothly and efficiently.

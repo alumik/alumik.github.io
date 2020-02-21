@@ -1,8 +1,9 @@
 ---
 title: 在 Ubuntu 中安装 Python 3.7
+categories: 过期或不适用的文章
+abbrlink: 62877
 date: 2019-06-24 16:36:24
 updated: 2020-02-21 14:59:44
-categories: 过期或不适用的文章
 tags:
 ---
 {% note danger %}

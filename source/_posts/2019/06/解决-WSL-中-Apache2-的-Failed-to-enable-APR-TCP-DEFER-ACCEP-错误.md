@@ -1,11 +1,12 @@
 ---
 title: 解决 WSL 中 Apache2 的 Failed to enable APR_TCP_DEFER_ACCEP 错误
-date: 2019-06-24 15:53:26
-updated: 2020-02-21 14:49:07
 categories: 网络服务
 tags:
-    - Apache2
-    - WSL
+  - Apache2
+  - WSL
+abbrlink: 50269
+date: 2019-06-24 15:53:26
+updated: 2020-02-21 14:49:07
 ---
 ## 问题描述
 

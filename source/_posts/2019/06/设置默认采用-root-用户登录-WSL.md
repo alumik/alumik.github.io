@@ -1,9 +1,10 @@
 ---
 title: 设置默认采用 root 用户登录 WSL
-date: 2019-06-24 15:40:21
-updated: 2020-02-21 14:25:25
 categories: Linux
 tags: WSL
+abbrlink: 32385
+date: 2019-06-24 15:40:21
+updated: 2020-02-21 14:25:25
 ---
 用管理员身份打开 PowerShell，执行以下命令：
 

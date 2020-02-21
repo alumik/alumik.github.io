@@ -1,7 +1,8 @@
 ---
 title: Python 对齐中文输出
-date: 2019-06-24 17:04:49
 categories: Python
+abbrlink: 64244
+date: 2019-06-24 17:04:49
 tags:
 ---
 ## 问题

@@ -6,7 +6,7 @@
 title: AlumiK
 subtitle: 技术笔记
 description: ~ 记录计算机学习心得的小站 ~
-keywords: ''
+keywords: 计算机技术,软件工程,博客
 author: AlumiK (Zhong Zhenyu)
 language: zh-CN
 timezone: Asia/Shanghai
@@ -15,7 +15,7 @@ timezone: Asia/Shanghai
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://page.alumik.cn
 root: /
-permalink: :year/:month/:title/
+permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
   trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
@@ -62,9 +62,28 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: 未分类
+default_category: 其他计算机使用技巧
 category_map:
+  Android: android
+  C++: cpp
+  Java: java
+  JavaScript: javascript
+  Linux: linux
+  PHP: php
+  Python: python
+  Windows: windows
+  其他计算机使用技巧: uncategorized
+  其他软件问题: software
+  容器与虚拟机: container-and-vm
+  数学知识: math
+  数据库管理系统: dbms
+  版本控制系统: vcs
+  网络服务: web-service
+  过期或不适用的文章: outdated
 tag_map:
+  概率论与数理统计: statistics
+  网络加速: net-speed
+  多媒体处理: multimedia
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -98,16 +117,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/AlumiK/alumik.github.io.git
-  branch: master
-
-# Search
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
+  type: ''
 
 # hexo-renderer-kramed
 kramed:

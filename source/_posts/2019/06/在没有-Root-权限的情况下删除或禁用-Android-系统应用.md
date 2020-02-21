@@ -1,7 +1,8 @@
 ---
 title: 在没有 Root 权限的情况下删除或禁用 Android 系统应用
-date: 2019-06-24 20:28:11
 categories: Android
+abbrlink: 64095
+date: 2019-06-24 20:28:11
 tags:
 ---
 首先安装并配置好 adb 工具，并选择以下命令中的一条执行。

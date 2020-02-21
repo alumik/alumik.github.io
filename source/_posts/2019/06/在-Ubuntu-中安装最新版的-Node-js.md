@@ -1,9 +1,10 @@
 ---
 title: 在 Ubuntu 中安装最新版的 Node.js
-date: 2019-06-24 16:31:34
-updated: 2020-02-20 19:59:56
 categories: JavaScript
 tags: Node.js
+abbrlink: 27806
+date: 2019-06-24 16:31:34
+updated: 2020-02-20 19:59:56
 ---
 ## 卸载已安装的软件包
 

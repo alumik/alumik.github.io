@@ -1,8 +1,9 @@
 ---
 title: Batch Script – Loop
-date: 2019-06-24 20:50:19
 categories: Windows
 tags: Batchfile
+abbrlink: 53398
+date: 2019-06-24 20:50:19
 ---
 `for /l` is your friend:
 

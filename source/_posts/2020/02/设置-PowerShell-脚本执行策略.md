@@ -1,9 +1,10 @@
 ---
 title: 设置 PowerShell 脚本执行策略
-date: 2020-02-19 18:23:11
-updated: 2020-02-21 15:59:03
 categories: Windows
 tags: PowerShell
+abbrlink: 8840
+date: 2020-02-19 18:23:11
+updated: 2020-02-21 15:59:03
 ---
 由于安全权限限制，在 PowerShell 中执行第三方脚本会失败。此时需要手动设置脚本的执行策略。
 

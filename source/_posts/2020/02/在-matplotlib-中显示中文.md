@@ -1,9 +1,10 @@
 ---
 title: 在 Matplotlib 中显示中文
-date: 2020-02-19 17:33:45
-updated: 2020-02-21 12:27:29
 categories: Python
 tags: Matplotlib
+abbrlink: 48958
+date: 2020-02-19 17:33:45
+updated: 2020-02-21 12:27:29
 ---
 在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。
 

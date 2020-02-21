@@ -1,9 +1,10 @@
 ---
 title: 为 IIS 配置 PHP 支持
-date: 2019-06-24 11:25:57
-updated: 2020-02-21 12:44:04
 categories: 网络服务
 tags: IIS
+abbrlink: 61282
+date: 2019-06-24 11:25:57
+updated: 2020-02-21 12:44:04
 ---
 ## 下载
 
