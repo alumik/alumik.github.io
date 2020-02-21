@@ -4,4 +4,7 @@
 
 项目基于 [Hexo](https://hexo.io/) 框架制作。
 
-[网站链接](https://page.alumik.cn)
+## 网站地址
+
+- 主站： [https://pages.alumik.cn](https://pages.alumik.cn)
+- 中国镜像站： [https://alumik.gitee.io](https://alumik.gitee.io)
