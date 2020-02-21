@@ -1,16 +1,17 @@
 ---
 title: 设置默认采用 root 用户登录 WSL
 date: 2019-06-24 15:40:21
+updated: 2020-02-21 14:25:25
 categories: Linux
 tags: WSL
 ---
-在命令行（管理员）中输入以下命令
+用管理员身份打开 PowerShell，执行以下命令：
 
 ```
 <WSL 发行版代号> config --default-user root
 ```
 
-目前可用的发行版不完全列表如下
+目前可用的发行版代号不完全列表如下：
 
 | 发行版代号 | 发行版名称 |
 | - | - |

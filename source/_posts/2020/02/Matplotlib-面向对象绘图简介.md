@@ -224,12 +224,12 @@ fig.savefig("result.png")
 下表展示了一些常用方法的对比：
 
 | 面向对象方式 | `pyplot` 方式 |
-| --------------- | ------------ |
-| ax.set_title()  | plt.title()  |
-| ax.set_xlabel() | plt.xlabel() |
-| ax.set_ylabel() | plt.ylabel() |
-| ax.set_xlim()   | plt.xlim()   |
-| ax.set_ylim()   | plt.ylim()   |
+| - | - |
+| ax.set_title | plt.title |
+| ax.set_xlabel | plt.xlabel |
+| ax.set_ylabel | plt.ylabel |
+| ax.set_xlim | plt.xlim |
+| ax.set_ylim | plt.ylim |
 
 ## 小结
 

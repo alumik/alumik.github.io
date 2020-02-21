@@ -1,9 +1,18 @@
 ---
 title: 使用淘宝源加速 npm 下载
 date: 2019-06-24 16:50:11
+updated: 2020-02-21 15:06:17
 categories: 过期或不适用的文章
 tags:
 ---
+{% note danger %}
+该文章内容已过期或不再适用。
+{% endnote %}
+
+{% note info %}
+npm 现在的下载速度已经足够快，无需再使用镜像源。
+{% endnote %}
+
 [淘宝 npm 地址](http://npm.taobao.org/)
 
 有很多方法来配置 npm 的 registry 地址，下面根据不同情境列出几种比较常用的方法。以淘宝 npm 镜像举例。

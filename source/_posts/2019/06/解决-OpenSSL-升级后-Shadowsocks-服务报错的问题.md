@@ -1,6 +1,7 @@
 ---
 title: 解决 OpenSSL 升级后 Shadowsocks 服务报错的问题
 date: 2019-06-24 14:15:42
+updated: 2020-02-21 13:51:35
 categories: 网络服务
 tags: 
     - Shadowsocks
@@ -38,19 +39,31 @@ AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHE
 shadowsocks start failed
 ```
 
-这个问题是由于在新版 OpenSSL 中，废弃了 `EVP_CIPHER_CTX_cleanup()` 函数，如官网中所说：
+<!-- more -->
 
-> `EVP_CIPHER_CTX` was made opaque in OpenSSL 1.1.0. As a result, `EVP_CIPHER_CTX_reset()` appeared and `EVP_CIPHER_CTX_cleanup()` disappeared. `EVP_CIPHER_CTX_init()` remains as an alias for `EVP_CIPHER_CTX_reset()`.
+## 问题原因
+
+这个问题是由于在新版 OpenSSL 中，废弃了 `EVP_CIPHER_CTX_cleanup()` 函数。
+
+如官网中所说：
+
+{% note info %}
+`EVP_CIPHER_CTX` was made opaque in OpenSSL 1.1.0. As a result, `EVP_CIPHER_CTX_reset()` appeared and `EVP_CIPHER_CTX_cleanup()` disappeared. `EVP_CIPHER_CTX_init()` remains as an alias for `EVP_CIPHER_CTX_reset()`.
+{% endnote %}
 
 实际上， `EVP_CIPHER_CTX_reset()` 函数替代了 `EVP_CIPHER_CTX_cleanup()` 函数。
 
 `EVP_CIPHER_CTX_reset()` 函数说明：
 
-> `EVP_CIPHER_CTX_reset()` clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another `EVP_CipherInit()` / `EVP_CipherUpdate()` / `EVP_CipherFinal()` series of calls.
+{% note info %}
+`EVP_CIPHER_CTX_reset()` clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another `EVP_CipherInit()` / `EVP_CipherUpdate()` / `EVP_CipherFinal()` series of calls.
+{% endnote %}
 
 `EVP_CIPHER_CTX_cleanup()` 函数说明：
 
-> `EVP_CIPHER_CTX_cleanup()` clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.
+{% note info %}
+`EVP_CIPHER_CTX_cleanup()` clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.
+{% endnote %}
 
 可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 `EVP_CIPHER_CTX_reset()` 代替 `EVP_CIPHER_CTX_cleanup()` 问题不大。
 

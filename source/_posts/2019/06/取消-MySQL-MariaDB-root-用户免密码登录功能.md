@@ -1,9 +1,18 @@
 ---
 title: 取消 MySQL/MariaDB root 用户免密码登录功能
 date: 2019-06-24 16:45:56
-categories: 数据库管理系统
-tags: MySQL/MariaDB
+updated: 2020-02-21 15:03:37
+categories: 过期或不适用的文章
+tags:
 ---
+{% note danger %}
+该文章内容已过期或不再适用。
+{% endnote %}
+
+{% note warning %}
+尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。
+{% endnote %}
+
 在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入
 
 ```
@@ -31,9 +40,11 @@ select user, authentication_string, plugin from user;
 
 其中的 `auth_socket` 让你能方便地作为 root 用户从控制台免密码登录。但这同时也禁用了密码登录，而且你不能使用其它客户端进行登录。
 
+<!-- more -->
+
 ## 解决办法
 
-首先，尽量不要登录数据库 root 用户。建议为每个数据库应用建立单独的用户。如果必须要使用数据库 root 用户，则需要做如下修改。注意按照自己的数据库版本选择合适的命令。
+如果必须要使用数据库 root 用户，则需要做如下修改。注意按照自己的数据库版本选择合适的命令。
 
 ### MySQL
 

@@ -315,4 +315,4 @@ List of Notes: [^1], [^2], [^3], [^4], [^5]
 
 **参考链接**
 
-+ http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/
+- http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/

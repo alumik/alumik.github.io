@@ -1,9 +1,18 @@
 ---
-title: Ubuntu 18.04 中安装 Python 3.7
+title: 在 Ubuntu 中安装 Python 3.7
 date: 2019-06-24 16:36:24
+updated: 2020-02-21 14:59:44
 categories: 过期或不适用的文章
 tags:
 ---
+{% note danger %}
+该文章内容已过期或不再适用。
+{% endnote %}
+
+{% note warning %}
+建议使用 [Anaconda](https://www.anaconda.com/) 安装任意版本的 Python 。
+{% endnote %}
+
 ## 系统准备
 
 安装一些必要的依赖包
@@ -28,6 +37,8 @@ apt-cache search
 ```
 apt install git g++ make
 ```
+
+<!-- more -->
 
 ## 安装 pyenv
 

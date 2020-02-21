@@ -6,7 +6,7 @@ tags: WordPress
 ---
 一种解决方法是指明网站入口文件为 *index.php* 。
 
-具体到 Apache2 即是修改网站的配置文件，添加
+具体到 Apache2 ，修改网站的配置文件，添加：
 
 ```apache
 <Directory /var/www/example>

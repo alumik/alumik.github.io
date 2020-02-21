@@ -11,40 +11,35 @@ tags:
 
 `pandas.Series.hist` 和 `matplotlib.pyplot.hist` 可以帮助我们画出想要的 CDF 图。
 
-所用到的几个重要参数说明如下：
-
-```
-bins : int or sequence, default 10
-    Number of histogram bins to be used. If an integer is given, bins + 1
-    bin edges are calculated and returned. If bins is a sequence, gives
-    bin edges, including left edge of first bin and right edge of last
-    bin. In this case, bins is returned unmodified.
-density : bool, default None
-    If True, the first element of the return tuple will be the counts
-    normalized to form a probability density, i.e., the area (or integral)
-    under the histogram will sum to 1. This is achieved by dividing the
-    count by the number of observations times the bin width and not
-    dividing by the total number of observations. If stacked is also True,
-    the sum of the histograms is normalized to 1.
-cumulative : bool, default False
-    If True, then a histogram is computed where each bin gives the counts
-    in that bin plus all bins for smaller values. The last bin gives the
-    total number of datapoints. If normed or density is also True then the
-    histogram is normalized such that the last bin equals 1. If cumulative
-    evaluates to less than 0 (e.g., -1), the direction of accumulation is
-    reversed. In this case, if normed and/or density is also True, then the
-    histogram is normalized such that the first bin equals 1.
-histtype : {'bar', 'barstacked', 'step', 'stepfilled'}, default 'bar'
-    The type of histogram to draw.
-    'bar' is a traditional bar-type histogram. If multiple data are given
-    the bars are arranged side by side.
-    'barstacked' is a bar-type histogram where multiple data are stacked on
-    top of each other.
-    'step' generates a lineplot that is by default unfilled.
-    'stepfilled' generates a lineplot that is by default filled.
-```
+{% asset_img cdf.png %}
 
 <!-- more -->
+
+## 参数说明
+
+### bins
+
+- int or sequence, default 10.
+- Number of histogram bins to be used. If an integer is given, bins + 1 bin edges are calculated and returned. If bins is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, bins is returned unmodified.
+
+### density
+
+- bool, default None.
+- If True, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to 1. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If stacked is also True, the sum of the histograms is normalized to 1.
+
+### cumulative
+
+- bool, default False.
+- If True, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of datapoints. If normed or density is also True then the histogram is normalized such that the last bin equals 1. If cumulative evaluates to less than 0 (e.g., -1), the direction of accumulation is reversed. In this case, if normed and/or density is also True, then the histogram is normalized such that the first bin equals 1.
+
+### histtype
+
+- {'bar', 'barstacked', 'step', 'stepfilled'}, default 'bar'.
+- The type of histogram to draw:
+    - 'bar' is a traditional bar-type histogram. If multiple data are given the bars are arranged side by side.
+    - 'barstacked' is a bar-type histogram where multiple data are stacked on top of each other.
+    - 'step' generates a lineplot that is by default unfilled.
+    - 'stepfilled' generates a lineplot that is by default filled.
 
 ## 完整代码
 
@@ -79,15 +74,9 @@ ax.legend(handles=new_handles, labels=labels)
 fig.show()
 ```
 
-## 绘制结果
-
-{% asset_img cdf.png %}
-
 ## 附：测试数据
 
-cdf.csv
-
-```csv
+```
 Series A,Series B
 0.55,0.6
 0.59,0.632

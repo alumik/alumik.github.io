@@ -6,7 +6,7 @@ tags:
     - Yii2
     - WSL
 ---
-执行下列命令即可
+执行下列命令即可：
 
 ```bash
 umount /mnt/x
