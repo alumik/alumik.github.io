@@ -1,7 +1,7 @@
 ---
 title: 取消 MySQL/MariaDB root 用户免密码登录功能
 categories: 过期或不适用的文章
-abbrlink: 6693
+abbrlink: 18
 date: 2019-06-24 16:45:56
 updated: 2020-02-21 15:03:37
 tags:

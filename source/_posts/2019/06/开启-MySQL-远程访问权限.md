@@ -2,7 +2,7 @@
 title: 开启 MySQL 远程访问权限
 categories: 数据库管理系统
 tags: MySQL/MariaDB
-abbrlink: 34707
+abbrlink: 8
 date: 2019-06-24 15:28:12
 updated: 2020-02-21 14:15:04
 ---

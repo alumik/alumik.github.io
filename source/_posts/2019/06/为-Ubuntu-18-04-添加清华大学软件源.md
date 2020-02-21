@@ -4,7 +4,7 @@ categories: Linux
 tags:
   - Ubuntu
   - 网络加速
-abbrlink: 3493
+abbrlink: 5
 date: 2019-06-24 14:55:57
 updated: 2020-02-20 19:38:08
 ---

@@ -4,7 +4,7 @@ categories: Linux
 tags:
   - Yii2
   - WSL
-abbrlink: 53402
+abbrlink: 7
 date: 2019-06-24 15:26:53
 ---
 执行下列命令即可：

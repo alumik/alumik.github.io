@@ -2,7 +2,7 @@
 title: 在 Matplotlib 中显示中文
 categories: Python
 tags: Matplotlib
-abbrlink: 48958
+abbrlink: 40
 date: 2020-02-19 17:33:45
 updated: 2020-02-21 12:27:29
 ---

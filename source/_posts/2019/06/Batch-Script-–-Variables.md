@@ -2,7 +2,7 @@
 title: Batch Script – Variables
 categories: Windows
 tags: Batchfile
-abbrlink: 57733
+abbrlink: 33
 date: 2019-06-24 20:57:16
 ---
 There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.

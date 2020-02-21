@@ -1,7 +1,7 @@
 ---
 title: 在没有 Root 权限的情况下删除或禁用 Android 系统应用
 categories: Android
-abbrlink: 64095
+abbrlink: 29
 date: 2019-06-24 20:28:11
 tags:
 ---

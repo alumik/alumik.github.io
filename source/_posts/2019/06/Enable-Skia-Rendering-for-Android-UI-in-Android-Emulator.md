@@ -1,7 +1,7 @@
 ---
 title: Enable Skia Rendering for Android UI in Android Emulator
 categories: Android
-abbrlink: 63805
+abbrlink: 36
 date: 2019-06-24 21:22:52
 tags:
 ---

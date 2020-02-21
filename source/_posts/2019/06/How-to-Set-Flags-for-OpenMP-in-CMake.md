@@ -4,7 +4,7 @@ categories: C++
 tags:
   - OpenMP
   - CMake
-abbrlink: 5159
+abbrlink: 37
 date: 2019-06-24 21:24:30
 ---
 CMake has a [standard module](https://cmake.org/cmake/help/latest/module/FindOpenMP.html) for testing if the compiler supports OpenMP.

@@ -2,7 +2,7 @@
 title: 设置 PowerShell 脚本执行策略
 categories: Windows
 tags: PowerShell
-abbrlink: 8840
+abbrlink: 42
 date: 2020-02-19 18:23:11
 updated: 2020-02-21 15:59:03
 ---

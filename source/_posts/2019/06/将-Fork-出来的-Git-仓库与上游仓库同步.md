@@ -2,7 +2,7 @@
 title: 将 Fork 出来的 Git 仓库与上游仓库同步
 categories: 版本控制系统
 tags: Git
-abbrlink: 22980
+abbrlink: 14
 date: 2019-06-24 16:19:59
 updated: 2020-02-21 14:51:17
 ---

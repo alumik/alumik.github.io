@@ -2,7 +2,7 @@
 title: Matplotlib 面向对象绘图简介
 categories: Python
 tags: Matplotlib
-abbrlink: 43545
+abbrlink: 44
 date: 2020-02-20 23:58:48
 updated: 2020-02-21 02:54:00
 ---

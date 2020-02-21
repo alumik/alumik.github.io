@@ -2,7 +2,7 @@
 title: 免费为网站开启 SSL 访问支持
 categories: 网络服务
 tags: SSL
-abbrlink: 27306
+abbrlink: 9
 date: 2019-06-24 15:30:53
 updated: 2020-02-21 14:21:16
 ---

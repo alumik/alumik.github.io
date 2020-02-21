@@ -2,7 +2,7 @@
 title: Vue.js 路由 history mode 中页面无法渲染的原因及解决
 categories: JavaScript
 tags: Vue.js
-abbrlink: 58592
+abbrlink: 21
 date: 2019-06-24 17:00:40
 ---
 ## Vue.js 路由 history mode 中页面无法渲染的原因

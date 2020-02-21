@@ -1,7 +1,7 @@
 ---
 title: 使用淘宝源加速 npm 下载
 categories: 过期或不适用的文章
-abbrlink: 12072
+abbrlink: 19
 date: 2019-06-24 16:50:11
 updated: 2020-02-21 15:06:17
 tags:

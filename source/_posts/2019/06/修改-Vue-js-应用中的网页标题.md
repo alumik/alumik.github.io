@@ -2,7 +2,7 @@
 title: 修改 Vue.js 应用中的网页标题
 categories: JavaScript
 tags: Vue.js
-abbrlink: 44492
+abbrlink: 24
 date: 2019-06-24 17:33:12
 ---
 ## 配置路由属性

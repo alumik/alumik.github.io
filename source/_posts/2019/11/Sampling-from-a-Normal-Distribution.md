@@ -3,7 +3,7 @@ title: Sampling from a Normal Distribution
 categories: 数学知识
 tags: 概率论与数理统计
 mathjax: true
-abbrlink: 9517
+abbrlink: 39
 date: 2019-11-16 21:40:19
 updated: 2020-02-20 14:03:31
 ---

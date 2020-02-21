@@ -74,7 +74,7 @@ category_map:
   Windows: windows
   其他计算机使用技巧: uncategorized
   其他软件问题: software
-  容器与虚拟机: container-and-vm
+  容器与虚拟机: container-vm
   数学知识: math
   数据库管理系统: dbms
   版本控制系统: vcs
@@ -82,7 +82,7 @@ category_map:
   过期或不适用的文章: outdated
 tag_map:
   概率论与数理统计: statistics
-  网络加速: net-speed
+  网络加速: net-booster
   多媒体处理: multimedia
 
 # Metadata elements

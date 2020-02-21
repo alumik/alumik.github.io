@@ -2,7 +2,7 @@
 title: 删除 Git 远程分支删除后本地遗留的垃圾分支信息
 categories: 版本控制系统
 tags: Git
-abbrlink: 15330
+abbrlink: 23
 date: 2019-06-24 17:28:55
 ---
 使用 `git branch -a` 命令可以查看所有本地分支和远程分支（使用 `git branch -r` 可以只查看远程分支）。
