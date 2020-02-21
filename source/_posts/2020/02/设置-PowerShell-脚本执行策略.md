@@ -10,7 +10,7 @@ tags: PowerShell
 
 ## 执行策略
 
-脚本的执行策略有如下几种
+脚本的执行策略有如下几种：
 
 ### AllSigned
 
@@ -58,7 +58,7 @@ tags: PowerShell
 
 ## 更改执行策略
 
-一般来说，使用如下命令后能够正常使用第三方脚本
+一般来说，使用如下命令后能够正常使用第三方脚本：
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser

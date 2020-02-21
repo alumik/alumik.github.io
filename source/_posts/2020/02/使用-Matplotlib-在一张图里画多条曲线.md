@@ -1,7 +1,7 @@
 ---
 title: 使用 Matplotlib 在一张图里画多条曲线
 date: 2020-02-20 13:03:12
-updated: 2020-02-21 03:33:00
+updated: 2020-02-21 12:31:31
 categories: Python
 tags: Matplotlib
 ---
@@ -77,8 +77,8 @@ plt.show()
 否则，你将陷入一个非常混乱的境地！许多人在不同程度上都是色盲，区分众多微妙不同的颜色对于更多的人来说比你意识到的要困难。如果你真的想在一张图上放 20 条线，并且有 20 种相对不同的颜色，可以用如下方法：
 
 ```python
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
 num_plots = 20
 
@@ -107,8 +107,8 @@ plt.show()
 如果你事先不知道要绘制的线条数量，可以在绘制它们之后从图形中获取曲线数量并更改颜色：
 
 ```python
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
 for i in range(1, 10):
     plt.plot(np.array([1, 5]) * i, label=f'$y = {4 * i}x + {i}$')
