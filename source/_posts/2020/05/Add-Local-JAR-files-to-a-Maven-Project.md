@@ -70,6 +70,4 @@ If you'll choose this approach you'll be able to simplify the repository declara
 
 ---
 
-**参考链接**
-
-- https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them
+https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them

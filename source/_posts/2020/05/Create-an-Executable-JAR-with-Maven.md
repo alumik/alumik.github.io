@@ -264,3 +264,9 @@ How to test? In order to compile the project into an executable jar, please run 
 Hopefully, this article gives you some more insights on the topic and you will find your preferred approach depending on your needs.
 
 One quick final note – make sure the licenses of the jars you're bundling don't prohibit this kind of operation. Generally, that won't be the case, but it's something worth considering.
+
+---
+
+**参考链接**
+
+- https://www.baeldung.com/executable-jar-with-maven
