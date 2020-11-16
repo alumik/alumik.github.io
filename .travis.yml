@@ -1,11 +1,11 @@
 sudo: false
 language: node_js
 node_js:
-  - 12
+  - 14
 cache: npm
 branches:
   only:
-    - draft
+    - source
 script:
   - hexo generate
 deploy:
@@ -13,7 +13,8 @@ deploy:
   skip-cleanup: true
   github-token: $GH_TOKEN
   keep-history: true
-  target-branch: master
+  target-branch: main
   on:
-    branch: draft
+    branch: source
   local-dir: public
+  
