@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="~ 记录计算机学习心得的小站 ~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlumiK">
+<meta property="og:url" content="http://pages.alumik.cn/page/2/">
+<meta property="og:site_name" content="AlumiK">
+<meta property="og:description" content="~ 记录计算机学习心得的小站 ~">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="AlumiK (Zhong Zhenyu)">
+<meta property="article:tag" content="计算机技术,软件工程,博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://pages.alumik.cn/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AlumiK</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?33af24983680ccd6ec7199d8b6f8cd5a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AlumiK</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/43/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/43/" class="post-title-link" itemprop="url">使用 Matplotlib 在一张图里画多条曲线</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-20 13:03:12" itemprop="dateCreated datePublished" datetime="2020-02-20T13:03:12+08:00">2020-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 15:59:14" itemprop="dateModified" datetime="2020-02-21T15:59:14+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。</p>
+<div class="note info">
+            <p>如果你对 Matplotlib 的使用不太熟悉，可以参考<a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/introductory/pyplot.html">此教程</a>。</p>
+          </div>
+<h2 id="将所有曲线画进一个子图"><a href="#将所有曲线画进一个子图" class="headerlink" title="将所有曲线画进一个子图"></a>将所有曲线画进一个子图</h2><p>利用 Matplotlib 的默认方式来执行此操作。</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/43/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/42/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/42/" class="post-title-link" itemprop="url">设置 PowerShell 脚本执行策略</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-19 18:23:11" itemprop="dateCreated datePublished" datetime="2020-02-19T18:23:11+08:00">2020-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 15:59:03" itemprop="dateModified" datetime="2020-02-21T15:59:03+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>由于安全权限限制，在 PowerShell 中执行第三方脚本会失败。此时需要手动设置脚本的执行策略。</p>
+<h2 id="执行策略"><a href="#执行策略" class="headerlink" title="执行策略"></a>执行策略</h2><p>脚本的执行策略有如下几种：</p>
+<h3 id="AllSigned"><a href="#AllSigned" class="headerlink" title="AllSigned"></a>AllSigned</h3><ul>
+<li>Scripts can run.</li>
+<li>Requires that all scripts and configuration files be signed by a trusted publisher, including scripts that you write on the local computer.</li>
+<li>Prompts you before running scripts from publishers that you haven&#39;t yet classified as trusted or untrusted.</li>
+<li>Risks running signed, but malicious, scripts.</li>
+</ul>
+<h3 id="Bypass"><a href="#Bypass" class="headerlink" title="Bypass"></a>Bypass</h3><ul>
+<li>Nothing is blocked and there are no warnings or prompts.</li>
+<li>This execution policy is designed for configurations in which a PowerShell script is built in to a larger application or for configurations in which PowerShell is the foundation for a program that has its own security model.</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/42/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/41/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/41/" class="post-title-link" itemprop="url">使用 pandas 和 Matplotlib 绘制 CDF 图</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-19 17:52:45" itemprop="dateCreated datePublished" datetime="2020-02-19T17:52:45+08:00">2020-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 03:46:41" itemprop="dateModified" datetime="2020-02-21T03:46:41+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p><code>pandas.Series.hist</code> 和 <code>matplotlib.pyplot.hist</code> 可以帮助我们画出想要的 CDF 图。</p>
+<img src="/posts/41/cdf.png" class="">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/41/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/40/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/40/" class="post-title-link" itemprop="url">在 Matplotlib 中显示中文</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-19 17:33:45" itemprop="dateCreated datePublished" datetime="2020-02-19T17:33:45+08:00">2020-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 12:27:29" itemprop="dateModified" datetime="2020-02-21T12:27:29+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用来正常显示中文汉字</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用来正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010472607/article/details/82789887">https://blog.csdn.net/u010472607/article/details/82789887</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/39/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/39/" class="post-title-link" itemprop="url">Sampling from a Normal Distribution</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-16 21:40:19" itemprop="dateCreated datePublished" datetime="2019-11-16T21:40:19+08:00">2019-11-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-20 14:03:31" itemprop="dateModified" datetime="2020-02-20T14:03:31+08:00">2020-02-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/math/" itemprop="url" rel="index"><span itemprop="name">数学知识</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It&#39;s also of great importance due to its relation to the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>.</p>
+<p>In this post, we&#39;ll be reviewing the normal distribution and looking at how to draw samples from it using two methods.  The first method using the central limit theorem, and the second method using the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform">Box-Muller transform</a>.  As usual, some brief coverage of the mathematics and code will be included to help drive intuition.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/39/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/38/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/38/" class="post-title-link" itemprop="url">Mapping MySQL Data Types in Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-02 00:00:30" itemprop="dateCreated datePublished" datetime="2019-07-02T00:00:30+08:00">2019-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 15:17:48" itemprop="dateModified" datetime="2020-02-21T15:17:48+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.</p>
+<p>There is no particular reason that the Java data type needs to be exactly isomorphic to the MySQL data type. For example, Java String don&#39;t precisely match any of the MySQL data <code>CHAR</code> type, but it gives enough type information to represent <code>CHAR</code>, <code>VARCHAR</code> or <code>LONGVARCHAR</code> successfully.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/38/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/37/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/37/" class="post-title-link" itemprop="url">How to Set Flags for OpenMP in CMake</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 21:24:30" itemprop="dateCreated datePublished" datetime="2019-06-24T21:24:30+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>CMake has a <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/module/FindOpenMP.html">standard module</a> for testing if the compiler supports OpenMP.</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.14</span>)</span><br><span class="line"><span class="keyword">project</span>(OpenMPTest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">17</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(OpenMPTest main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenMP REQUIRED) <span class="comment"># Find the package</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> <span class="variable">$&#123;OpenMP_CXX_LIBRARIES&#125;</span>) <span class="comment"># Link against it for C++</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave">https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function">https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/36/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/36/" class="post-title-link" itemprop="url">Enable Skia Rendering for Android UI in Android Emulator</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 21:22:52" itemprop="dateCreated datePublished" datetime="2019-06-24T21:22:52+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>When using images for API 27 or later, the emulator can render the Android UI with <a target="_blank" rel="noopener" href="https://skia.org/">Skia</a>, which can render more smoothly and efficiently.</p>
+<p>To enable Skia rendering, use the following commands in adb shell:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">setprop debug.hwui.renderer skiagl</span><br><span class="line">stop</span><br><span class="line">start</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/run/emulator-acceleration#skia-emulator">Configure Emulator Graphics Rendering and Hardware Acceleration</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/35/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/35/" class="post-title-link" itemprop="url">远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 21:19:51" itemprop="dateCreated datePublished" datetime="2019-06-24T21:19:51+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/software/" itemprop="url" rel="index"><span itemprop="name">其他软件问题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问描述"><a href="#问描述" class="headerlink" title="问描述"></a>问描述</h2><p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
+<p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
+<img src="/posts/35/20180726200007776.png" class="" title="修改示例">
+<p>修改之后即可使用。</p>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hezhongla0811/article/details/81226539">https://blog.csdn.net/hezhongla0811/article/details/81226539</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/34/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/34/" class="post-title-link" itemprop="url">How to Merge Two Videos without Re-encoding</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 21:07:43" itemprop="dateCreated datePublished" datetime="2019-06-24T21:07:43+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">其他计算机使用技巧</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within ffmpeg that can be used to concatenate files of the same type: <a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
+<p>The demuxer is more flexible – it requires the same codecs, but different container formats can be used; and it can be used with any container formats, while the concat protocol only works with a select few containers.</p>
+<h3 id="The-Concat-Demuxer"><a href="#The-Concat-Demuxer" class="headerlink" title="The Concat Demuxer"></a>The Concat Demuxer</h3><p>create a text file named vidlist.txt in the following format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip1&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip2&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip3&#39;</span><br></pre></td></tr></table></figure>
+<p>Note that these can be either relative or absolute paths.</p>
+<p>Then issue the command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output</span><br></pre></td></tr></table></figure>
+<p>The files will be stream copied in the order they appear in the vidlist.txt into the output container. the &quot;copy codec&quot; is <strong>blazing fast</strong>.</p>
+<p>Edit: Note that although the docs say you don&#39;t need <code>-safe 0</code> if the paths are relative, my testing indicates it&#39;s a requirement. It&#39;s possible that this may vary with your version of ffmpeg.</p>
+<p>There are tips for auto generating the file available in <a target="_blank" rel="noopener" href="https://trac.ffmpeg.org/wiki/Concatenate">the docs</a>.</p>
+<p>Note: All the clips must already exist or the command will fail because decoding won&#39;t start until the whole list is read.</p>
+<h3 id="The-Concat-Protocol"><a href="#The-Concat-Protocol" class="headerlink" title="The Concat Protocol"></a>The Concat Protocol</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
+<p>Note: as mentioned above the concat protocol is severely limited in what streams and containers it supports so I never use it. The above is only included in an attempt to create a thorough answer. The concat demuxer is a far better choice for most projects.</p>
+<p><strong>An alternative suggestion:</strong> Personally I prefer using the Matroska container due to it&#39;s flexibility and low overhead and join videos with the same encoding using</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvmerge -o output.mkv input1.mkv + input2.mkv</span><br></pre></td></tr></table></figure>
+<h2 id="Concatenation-of-Files-with-Different-Codecs"><a href="#Concatenation-of-Files-with-Different-Codecs" class="headerlink" title="Concatenation of Files with Different Codecs"></a>Concatenation of Files with Different Codecs</h2><p>If your clips don&#39;t use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.</p>
+<p>Note that <a target="_blank" rel="noopener" href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you&#39;ll need to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
+<p>Sources: Experience</p>
+<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-formats.html">https://ffmpeg.org/ffmpeg-formats.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AlumiK (Zhong Zhenyu)"
+      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+  <p class="site-author-name" itemprop="name">AlumiK (Zhong Zhenyu)</p>
+  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlumiK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlumiK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nczzy1997@gmail.com" title="E-Mail → mailto:nczzy1997@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlumiK (Zhong Zhenyu)</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

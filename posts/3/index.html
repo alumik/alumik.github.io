@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="问题描述升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下： 12345678910111213141516171819202122232425Traceback (most recent call last):    File &quot;&#x2F;usr&#x2F;bin&#x2F;ssserver&quot;, line 9, in        load_entry">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决 OpenSSL 升级后 Shadowsocks 服务报错的问题">
+<meta property="og:url" content="http://pages.alumik.cn/posts/3/">
+<meta property="og:site_name" content="AlumiK">
+<meta property="og:description" content="问题描述升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下： 12345678910111213141516171819202122232425Traceback (most recent call last):    File &quot;&#x2F;usr&#x2F;bin&#x2F;ssserver&quot;, line 9, in        load_entry">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-06-24T06:15:42.000Z">
+<meta property="article:modified_time" content="2020-02-21T05:51:35.000Z">
+<meta property="article:author" content="AlumiK (Zhong Zhenyu)">
+<meta property="article:tag" content="Shadowsocks">
+<meta property="article:tag" content="OpenSSL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://pages.alumik.cn/posts/3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>解决 OpenSSL 升级后 Shadowsocks 服务报错的问题 | AlumiK</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?33af24983680ccd6ec7199d8b6f8cd5a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AlumiK</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          解决 OpenSSL 升级后 Shadowsocks 服务报错的问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 14:15:42" itemprop="dateCreated datePublished" datetime="2019-06-24T14:15:42+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 13:51:35" itemprop="dateModified" datetime="2020-02-21T13:51:35+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web-service/" itemprop="url" rel="index"><span itemprop="name">网络服务</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;bin&#x2F;ssserver&quot;, line 9, in</span><br><span class="line">        load_entry_point(&#39;shadowsocks&#x3D;&#x3D;2.8.2&#39;, &#39;console_scripts&#39;, &#39;ssserver&#39;)()</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;server.py&quot;, line 34, in main</span><br><span class="line">        config &#x3D; shell.get_config(False)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;shell.py&quot;, line 262, in get_config</span><br><span class="line">        check_config(config, is_local)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;shell.py&quot;, line 124, in check_config</span><br><span class="line">        encrypt.try_cipher(config[&#39;password&#39;], config[&#39;method&#39;])</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 44, in try_cipher</span><br><span class="line">        Encryptor(key, method)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 83, in __init__</span><br><span class="line">        random_string(self._method_info[1]))</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 109, in get_cipher</span><br><span class="line">        return m[2](method, key, iv, op)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py&quot;, line 76, in __init__</span><br><span class="line">        load_openssl()</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib64&#x2F;python2.7&#x2F;ctypes&#x2F;__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">        func &#x3D; self.__getitem__(name)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib64&#x2F;python2.7&#x2F;ctypes&#x2F;__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">        func &#x3D; self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: &#x2F;usr&#x2F;local&#x2F;ssl&#x2F;lib&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br><span class="line">shadowsocks start failed</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题是由于在新版 OpenSSL 中，废弃了 <code>EVP_CIPHER_CTX_cleanup()</code> 函数。</p>
+<p>如官网中所说：</p>
+<div class="note info">
+            <p><code>EVP_CIPHER_CTX</code> was made opaque in OpenSSL 1.1.0. As a result, <code>EVP_CIPHER_CTX_reset()</code> appeared and <code>EVP_CIPHER_CTX_cleanup()</code> disappeared. <code>EVP_CIPHER_CTX_init()</code> remains as an alias for <code>EVP_CIPHER_CTX_reset()</code>.</p>
+          </div>
+<p>实际上， <code>EVP_CIPHER_CTX_reset()</code> 函数替代了 <code>EVP_CIPHER_CTX_cleanup()</code> 函数。</p>
+<p><code>EVP_CIPHER_CTX_reset()</code> 函数说明：</p>
+<div class="note info">
+            <p><code>EVP_CIPHER_CTX_reset()</code> clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another <code>EVP_CipherInit()</code> / <code>EVP_CipherUpdate()</code> / <code>EVP_CipherFinal()</code> series of calls.</p>
+          </div>
+<p><code>EVP_CIPHER_CTX_cleanup()</code> 函数说明：</p>
+<div class="note info">
+            <p><code>EVP_CIPHER_CTX_cleanup()</code> clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.</p>
+          </div>
+<p>可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 <code>EVP_CIPHER_CTX_reset()</code> 代替 <code>EVP_CIPHER_CTX_cleanup()</code> 问题不大。</p>
+<h2 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h2><p>编辑文件 <em>/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py</em> ，跳转到52行（以 Shadowsocks 2.8.2 版本为例，其他版本搜索一下 cleanup ），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</code> 。</p>
+<p>再次搜索 cleanup （全文件共2处，此处位于111行），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</code> 。</p>
+<p>保存并退出。</p>
+<p>再次尝试启动 Shadowsocks 服务，现在应该能够正常启动了。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Shadowsocks/" rel="tag"><i class="fa fa-tag"></i> Shadowsocks</a>
+              <a href="/tags/OpenSSL/" rel="tag"><i class="fa fa-tag"></i> OpenSSL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/2/" rel="prev" title="gdrive 使用教程">
+      <i class="fa fa-chevron-left"></i> gdrive 使用教程
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/4/" rel="next" title="为 VPS 开启 BBR 加速">
+      为 VPS 开启 BBR 加速 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%8E%9F%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">问题原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">修复方法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AlumiK (Zhong Zhenyu)"
+      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+  <p class="site-author-name" itemprop="name">AlumiK (Zhong Zhenyu)</p>
+  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlumiK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlumiK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nczzy1997@gmail.com" title="E-Mail → mailto:nczzy1997@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlumiK (Zhong Zhenyu)</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="~ 记录计算机学习心得的小站 ~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AlumiK">
+<meta property="og:url" content="http://pages.alumik.cn/">
+<meta property="og:site_name" content="AlumiK">
+<meta property="og:description" content="~ 记录计算机学习心得的小站 ~">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="AlumiK (Zhong Zhenyu)">
+<meta property="article:tag" content="计算机技术,软件工程,博客">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://pages.alumik.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AlumiK</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?33af24983680ccd6ec7199d8b6f8cd5a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AlumiK</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/53/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/53/" class="post-title-link" itemprop="url">Clear, Delete or Disable Windows 10 File Explorer Search History</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-30 15:01:43" itemprop="dateCreated datePublished" datetime="2020-08-30T15:01:43+08:00">2020-08-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a target="_blank" rel="noopener" href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. And for even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
+<img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/53/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/52/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/52/" class="post-title-link" itemprop="url">在插入网线的同时使用 WiFi 上网</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-29 16:20:06" itemprop="dateCreated datePublished" datetime="2020-08-29T16:20:06+08:00">2020-08-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>The following is a step by step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
+<ol>
+<li>Open Network and Sharing Centre (&quot;Network Status&quot; Win10).</li>
+<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; Win10).</li>
+<li>Go to properties of Local Area Network.</li>
+<li>Click on Internet Protocol version 4 and go to it&#39;s properties.</li>
+<li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
+<li>Uncheck it and then enter 2 in that section.</li>
+<li>Now, Do the same for the wireless network but enter 1.</li>
+</ol>
+<p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
+<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/51/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/51/" class="post-title-link" itemprop="url">Colors in JavaScript Console</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-28 19:59:27" itemprop="dateCreated datePublished" datetime="2020-08-28T19:59:27+08:00">2020-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>In Chrome &amp; Firefox (+31) you can add CSS in console.log messages:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%cHello, world!&#x27;</span>, <span class="string">&#x27;background: red; color: green&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>The same can be applied for adding multiple CSS to a command:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c&lt;str1&gt; %c&lt;str2&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str1&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str2&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>Chrome Console API Reference: <a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-devtools/console/console-write#styling_console_output_with_css">Console API Reference</a>.</p>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7505623/colors-in-javascript-console">https://stackoverflow.com/questions/7505623/colors-in-javascript-console</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/50/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/50/" class="post-title-link" itemprop="url">sleep() in JavaScript</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-28 19:50:35" itemprop="dateCreated datePublished" datetime="2020-08-28T19:50:35+08:00">2020-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Taking a break...&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Two seconds later, showing sleep in a loop...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sleep in loop</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>)</span><br><span class="line">      <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo()</span><br></pre></td></tr></table></figure>
+<p>This is it. <code>await sleep(&lt;duration&gt;)</code>.</p>
+<p>Or as a one-liner:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/50/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/49/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/49/" class="post-title-link" itemprop="url">修改 Git 默认文本编辑器为 nano</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-23 00:58:16" itemprop="dateCreated datePublished" datetime="2020-08-23T00:58:16+08:00">2020-08-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vcs/" itemprop="url" rel="index"><span itemprop="name">版本控制系统</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>使用命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/48/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/48/" class="post-title-link" itemprop="url">Change a Git Commit Message</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-23 00:37:43" itemprop="dateCreated datePublished" datetime="2020-08-23T00:37:43+08:00">2020-08-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vcs/" itemprop="url" rel="index"><span itemprop="name">版本控制系统</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive information, or adding additional information.</p>
+<p>This guide explains how to change the message of the most recent or older Git commits.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/48/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/47/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/47/" class="post-title-link" itemprop="url">让 UWP 应用使用系统全局代理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-29 20:05:11" itemprop="dateCreated datePublished" datetime="2020-05-29T20:05:11+08:00">2020-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web-service/" itemprop="url" rel="index"><span itemprop="name">网络服务</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>引用自：<a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows/issues/1963#issuecomment-413378963">#1963 (comment)</a></p>
+<p>以管理员身份启动 PowerShell 后运行下列命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$f</span> <span class="keyword">in</span> <span class="built_in">Get-ChildItem</span> <span class="variable">$env:LOCALAPPDATA</span>\Packages) &#123;CheckNetIsolation.exe LoopbackExempt <span class="literal">-a</span> <span class="string">&quot;-n=<span class="variable">$</span>(<span class="variable">$f</span>.Name)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>如果只需要少量应用：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <code>%LOCALAPPDATA%\Packages</code> 目录中的应用目录名即可。</p>
+<hr>
+<p><strong>参考链接</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/46/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/46/" class="post-title-link" itemprop="url">Create an Executable JAR with Maven</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-22 10:13:43" itemprop="dateCreated datePublished" datetime="2020-05-22T10:13:43+08:00">2020-05-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this quick article we&#39;ll focus on packaging a Maven project into an executable Jar file.</p>
+<p>Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/46/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/45/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/45/" class="post-title-link" itemprop="url">Add Local JAR files to a Maven Project</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-22 09:56:11" itemprop="dateCreated datePublished" datetime="2020-05-22T09:56:11+08:00">2020-05-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Problems-of-popular-approaches"><a href="#Problems-of-popular-approaches" class="headerlink" title="Problems of popular approaches"></a>Problems of popular approaches</h2><p>Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach"></a>Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</h3><p>When you install a dependency to your local repository it remains there. Your distribution artifact will do fine as long as it has access to this repository. The problem is in most cases this repository will reside on your local machine, so there&#39;ll be no way to resolve this dependency on any other machine. Clearly making your artifact depend on a specific machine is not a way to handle things. Otherwise this dependency will have to be locally installed on every machine working with that project which is not any better.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;System Scope&quot; approach"></a>Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</h3><p>The jars you depend on with the &quot;System Scope&quot; approach neither get installed to any repository or attached to your target packages. That&#39;s why your distribution package won&#39;t have a way to resolve that dependency when used. That I believe was the reason why the use of system scope even got deprecated. Anyway you don&#39;t want to rely on a deprecated feature.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/45/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/44/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/44/" class="post-title-link" itemprop="url">Matplotlib 面向对象编程简介</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-20 23:58:48" itemprop="dateCreated datePublished" datetime="2020-02-20T23:58:48+08:00">2020-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 21:40:44" itemprop="dateModified" datetime="2020-02-21T21:40:44+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Matplotlib 中一般有三种绘图方式： <code>matplotlib.pyplot</code> 、 <code>pylab</code> 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。</p>
+<p>官方教程中说：</p>
+<div class="note info">
+            <p>The pyplot API is generally less-flexible than the object-oriented API. Most of the function calls you see here can also be called as methods from an Axes object. We recommend browsing the tutorials and examples to see how this works.</p>
+          </div>
+<p>下图展示了大部分绘图元素：</p>
+<img src="/posts/44/anatomy-of-a-figure.webp" class="" title="Anatomy of a Figure">
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/44/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AlumiK (Zhong Zhenyu)"
+      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+  <p class="site-author-name" itemprop="name">AlumiK (Zhong Zhenyu)</p>
+  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlumiK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlumiK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nczzy1997@gmail.com" title="E-Mail → mailto:nczzy1997@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlumiK (Zhong Zhenyu)</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

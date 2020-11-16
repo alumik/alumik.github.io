@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="核心方法pandas.Series.hist 和 matplotlib.pyplot.hist 可以帮助我们画出想要的 CDF 图。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 pandas 和 Matplotlib 绘制 CDF 图">
+<meta property="og:url" content="http://pages.alumik.cn/posts/41/">
+<meta property="og:site_name" content="AlumiK">
+<meta property="og:description" content="核心方法pandas.Series.hist 和 matplotlib.pyplot.hist 可以帮助我们画出想要的 CDF 图。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pages.alumik.cn/posts/41/cdf.png">
+<meta property="article:published_time" content="2020-02-19T09:52:45.000Z">
+<meta property="article:modified_time" content="2020-02-20T19:46:41.000Z">
+<meta property="article:author" content="AlumiK (Zhong Zhenyu)">
+<meta property="article:tag" content="Matplotlib">
+<meta property="article:tag" content="pandas">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pages.alumik.cn/posts/41/cdf.png">
+
+<link rel="canonical" href="http://pages.alumik.cn/posts/41/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用 pandas 和 Matplotlib 绘制 CDF 图 | AlumiK</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?33af24983680ccd6ec7199d8b6f8cd5a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AlumiK</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/41/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用 pandas 和 Matplotlib 绘制 CDF 图
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-19 17:52:45" itemprop="dateCreated datePublished" datetime="2020-02-19T17:52:45+08:00">2020-02-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 03:46:41" itemprop="dateModified" datetime="2020-02-21T03:46:41+08:00">2020-02-21</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p><code>pandas.Series.hist</code> 和 <code>matplotlib.pyplot.hist</code> 可以帮助我们画出想要的 CDF 图。</p>
+<img src="/posts/41/cdf.png" class="">
+<a id="more"></a>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><h3 id="bins"><a href="#bins" class="headerlink" title="bins"></a>bins</h3><ul>
+<li>int or sequence, default 10.</li>
+<li>Number of histogram bins to be used. If an integer is given, bins + 1 bin edges are calculated and returned. If bins is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, bins is returned unmodified.</li>
+</ul>
+<h3 id="density"><a href="#density" class="headerlink" title="density"></a>density</h3><ul>
+<li>bool, default None.</li>
+<li>If True, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to 1. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If stacked is also True, the sum of the histograms is normalized to 1.</li>
+</ul>
+<h3 id="cumulative"><a href="#cumulative" class="headerlink" title="cumulative"></a>cumulative</h3><ul>
+<li>bool, default False.</li>
+<li>If True, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of datapoints. If normed or density is also True then the histogram is normalized such that the last bin equals 1. If cumulative evaluates to less than 0 (e.g., -1), the direction of accumulation is reversed. In this case, if normed and/or density is also True, then the histogram is normalized such that the first bin equals 1.</li>
+</ul>
+<h3 id="histtype"><a href="#histtype" class="headerlink" title="histtype"></a>histtype</h3><ul>
+<li>{&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;}, default &#39;bar&#39;.</li>
+<li>The type of histogram to draw:<ul>
+<li>&#39;bar&#39; is a traditional bar-type histogram. If multiple data are given the bars are arranged side by side.</li>
+<li>&#39;barstacked&#39; is a bar-type histogram where multiple data are stacked on top of each other.</li>
+<li>&#39;step&#39; generates a lineplot that is by default unfilled.</li>
+<li>&#39;stepfilled&#39; generates a lineplot that is by default filled.</li>
+</ul>
+</li>
+</ul>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;cdf.csv&#x27;</span>, header=<span class="number">0</span>)</span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot()</span><br><span class="line"></span><br><span class="line">series: pd.Series</span><br><span class="line"><span class="keyword">for</span> label, series <span class="keyword">in</span> df.iteritems():</span><br><span class="line">    <span class="comment"># 用于隐藏最右边的竖线</span></span><br><span class="line">    <span class="comment"># 将 2 修改为横轴范围外的一处即可（但不可为 inf ）</span></span><br><span class="line">    bins = <span class="built_in">sorted</span>(series.drop_duplicates()) + [<span class="number">2</span>]</span><br><span class="line">    series.hist(label=label, cumulative=<span class="literal">True</span>, histtype=<span class="string">&#x27;step&#x27;</span>,</span><br><span class="line">                density=<span class="number">1</span>, bins=bins, linewidth=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.set_title(<span class="string">&#x27;Empirical CDF&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Value&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Density&#x27;</span>)</span><br><span class="line">ax.set_xlim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">ax.set_ylim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line">new_handles = [Line2D([], [], c=h.get_edgecolor()) <span class="keyword">for</span> h <span class="keyword">in</span> handles]</span><br><span class="line">ax.legend(handles=new_handles, labels=labels)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+<h2 id="附：测试数据"><a href="#附：测试数据" class="headerlink" title="附：测试数据"></a>附：测试数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">Series A,Series B</span><br><span class="line">0.55,0.6</span><br><span class="line">0.59,0.632</span><br><span class="line">0.717,0.719</span><br><span class="line">0.661,0.725</span><br><span class="line">0.479,0.726</span><br><span class="line">0.741,0.742</span><br><span class="line">0.718,0.742</span><br><span class="line">0.745,0.748</span><br><span class="line">0.61,0.75</span><br><span class="line">0.739,0.764</span><br><span class="line">0.532,0.78</span><br><span class="line">0.8,0.808</span><br><span class="line">0.618,0.811</span><br><span class="line">0.603,0.819</span><br><span class="line">0.792,0.832</span><br><span class="line">0.703,0.834</span><br><span class="line">0.697,0.834</span><br><span class="line">0.764,0.859</span><br><span class="line">0.709,0.862</span><br><span class="line">0.764,0.875</span><br><span class="line">0.8,0.895</span><br><span class="line">0.897,0.897</span><br><span class="line">0.869,0.898</span><br><span class="line">0.902,0.907</span><br><span class="line">0.898,0.908</span><br><span class="line">0.86,0.911</span><br><span class="line">0.888,0.911</span><br><span class="line">0.904,0.927</span><br><span class="line">0.929,0.932</span><br><span class="line">0.932,0.932</span><br><span class="line">0.73,0.933</span><br><span class="line">0.922,0.947</span><br><span class="line">0.944,0.95</span><br><span class="line">0.955,0.95</span><br><span class="line">0.97,1</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Matplotlib/" rel="tag"><i class="fa fa-tag"></i> Matplotlib</a>
+              <a href="/tags/pandas/" rel="tag"><i class="fa fa-tag"></i> pandas</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/40/" rel="prev" title="在 Matplotlib 中显示中文">
+      <i class="fa fa-chevron-left"></i> 在 Matplotlib 中显示中文
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/42/" rel="next" title="设置 PowerShell 脚本执行策略">
+      设置 PowerShell 脚本执行策略 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">核心方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="nav-number">2.</span> <span class="nav-text">参数说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bins"><span class="nav-number">2.1.</span> <span class="nav-text">bins</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#density"><span class="nav-number">2.2.</span> <span class="nav-text">density</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cumulative"><span class="nav-number">2.3.</span> <span class="nav-text">cumulative</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#histtype"><span class="nav-number">2.4.</span> <span class="nav-text">histtype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">完整代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%EF%BC%9A%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">附：测试数据</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AlumiK (Zhong Zhenyu)"
+      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+  <p class="site-author-name" itemprop="name">AlumiK (Zhong Zhenyu)</p>
+  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlumiK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlumiK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nczzy1997@gmail.com" title="E-Mail → mailto:nczzy1997@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlumiK (Zhong Zhenyu)</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

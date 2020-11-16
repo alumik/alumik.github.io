@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Batch Script – Variables">
+<meta property="og:url" content="http://pages.alumik.cn/posts/33/">
+<meta property="og:site_name" content="AlumiK">
+<meta property="og:description" content="There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-06-24T12:57:16.000Z">
+<meta property="article:modified_time" content="2020-11-16T12:47:00.677Z">
+<meta property="article:author" content="AlumiK (Zhong Zhenyu)">
+<meta property="article:tag" content="Batchfile">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://pages.alumik.cn/posts/33/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Batch Script – Variables | AlumiK</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?33af24983680ccd6ec7199d8b6f8cd5a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">AlumiK</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">30</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/33/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Batch Script – Variables
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-06-24 20:57:16" itemprop="dateCreated datePublished" datetime="2019-06-24T20:57:16+08:00">2019-06-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-16 20:47:00" itemprop="dateModified" datetime="2020-11-16T20:47:00+08:00">2020-11-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/windows/" itemprop="url" rel="index"><span itemprop="name">Windows</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.</p>
+<a id="more"></a>
+<h2 id="Command-Line-Arguments"><a href="#Command-Line-Arguments" class="headerlink" title="Command Line Arguments"></a>Command Line Arguments</h2><p>Batch scripts support the concept of command line arguments wherein arguments can be passed to the batch file when invoked. The arguments can be called from the batch files through the variables <code>%1</code>, <code>%2</code>, <code>%3</code>, and so on.</p>
+<p>The following example shows a batch file which accepts 3 command line arguments and <code>echo</code>s them to the command line screen.</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> %<span class="number">1</span></span><br><span class="line"><span class="built_in">echo</span> %<span class="number">2</span></span><br><span class="line"><span class="built_in">echo</span> %<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p>If the above batch script is stored in a file called <em>test.bat</em> and we were to run the batch as</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test.bat 1 2 3</span><br></pre></td></tr></table></figure>
+<p>The above command produces the following output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>If we were to run the batch as</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Example 1 2 3 4</span><br></pre></td></tr></table></figure>
+<p>The output would still remain the same as above. However, the fourth parameter would be ignored.</p>
+<h2 id="Set-Command"><a href="#Set-Command" class="headerlink" title="Set Command"></a>Set Command</h2><p>The other way in which variables can be initialized is via the <code>set</code> command. Following is the syntax of the set command.</p>
+<h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> /A variable-name=value</span><br></pre></td></tr></table></figure>
+<p>where,</p>
+<ul>
+<li><code>variable-name</code> is the name of the variable you want to set.</li>
+<li><code>value</code> is the value which needs to be set against the variable.</li>
+<li><code>/A</code> – This switch is used if the value needs to be numeric in nature.</li>
+</ul>
+<p>The following example shows a simple way the set command can be used.</p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> message=Hello World</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%message%</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>In the above code snippet, a variable called message is defined and set with the value of &quot;Hello World&quot;.</li>
+<li>To display the value of the variable, note that the variable needs to be enclosed in the <code>%</code> sign.</li>
+</ul>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>The above command produces the following output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+<h2 id="Working-with-Numeric-Values"><a href="#Working-with-Numeric-Values" class="headerlink" title="Working with Numeric Values"></a>Working with Numeric Values</h2><p>In batch script, it is also possible to define a variable to hold a numeric value. This can be done by using the <code>/A</code> switch.</p>
+<p>The following code shows a simple way in which numeric values can be set with the <code>/A</code> switch.</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">SET</span> /A a = <span class="number">5</span></span><br><span class="line"><span class="built_in">SET</span> /A b = <span class="number">10</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> + <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>We are first setting the value of 2 variables, <code>a</code> and <code>b</code> to <code>5</code> and <code>10</code> respectively.</li>
+<li>We are adding those values and storing in the variable <code>c</code>.</li>
+<li>Finally, we are displaying the value of the variable <code>c</code>.</li>
+</ul>
+<p>The output of the above program would be <code>15</code>.</p>
+<p>All of the arithmetic operators work in batch files. The following example shows arithmetic operators can be used in batch files.</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">SET</span> /A a = <span class="number">5</span></span><br><span class="line"><span class="built_in">SET</span> /A b = <span class="number">10</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> + <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> - <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%b%</span> / <span class="variable">%a%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%b%</span> * <span class="variable">%a%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br></pre></td></tr></table></figure>
+<p>The above command produces the following output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">15</span><br><span class="line">-5</span><br><span class="line">2</span><br><span class="line">50</span><br></pre></td></tr></table></figure>
+<h2 id="Local-vs-Global-Variables"><a href="#Local-vs-Global-Variables" class="headerlink" title="Local vs Global Variables"></a>Local vs Global Variables</h2><p>In any programming language, there is an option to mark variables as having some sort of scope, i.e. the section of code on which they can be accessed. Normally, variable having a global scope can be accessed anywhere from a program whereas local scoped variables have a defined boundary in which they can be accessed.</p>
+<p>DOS scripting also has a definition for locally and globally scoped variables. By default, variables are global to your entire command prompt session. Call the <code>SETLOCAL</code> command to make variables local to the scope of your script. After calling <code>SETLOCAL</code>, any variable assignments revert upon calling <code>ENDLOCAL</code>, calling <code>EXIT</code>, or when execution reaches the end of file (EOF) in your script. The following example shows the difference when local and global variables are set in the script.</p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> globalvar = <span class="number">5</span></span><br><span class="line"><span class="built_in">SETLOCAL</span></span><br><span class="line"><span class="built_in">set</span> var = <span class="number">13145</span></span><br><span class="line"><span class="built_in">set</span> /A var = <span class="variable">%var%</span> + <span class="number">5</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%var%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%globalvar%</span></span><br><span class="line"><span class="built_in">ENDLOCAL</span></span><br></pre></td></tr></table></figure>
+<p>Few key things to note about the above program.</p>
+<ul>
+<li>The <code>globalvar</code> is defined with a global scope and is available throughout the entire script.</li>
+<li>The <code>var</code> variable is defined in a local scope because it is enclosed between a <code>SETLOCAL</code> and <code>ENDLOCAL</code> block. Hence, this variable will be destroyed as soon the <code>ENDLOCAL</code> statement is executed.</li>
+</ul>
+<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><p>The above command produces the following output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">13150</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<p>You will notice that the command <code>echo %var%</code> will not yield anything because after the <code>ENDLOCAL</code> statement, the <code>var</code> variable will no longer exist.</p>
+<h2 id="Working-with-Environment-Variables"><a href="#Working-with-Environment-Variables" class="headerlink" title="Working with Environment Variables"></a>Working with Environment Variables</h2><p>If you have variables that would be used across batch files, then it is always preferable to use environment variables. Once the environment variable is defined, it can be accessed via the <code>%</code> sign. The following example shows how to see the <code>JAVA_HOME</code> defined on a system. The <code>JAVA_HOME</code> variable is a key component that is normally used by a wide variety of applications.</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%JAVA_HOME%</span></span><br></pre></td></tr></table></figure>
+<p>The output would show the <code>JAVA_HOME</code> directory which would depend from system to system. Following is an example of an output.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Atlassian\Bitbucket\4.0.1\jre</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Batchfile/" rel="tag"><i class="fa fa-tag"></i> Batchfile</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/32/" rel="prev" title="Batch Script – Loop">
+      <i class="fa fa-chevron-left"></i> Batch Script – Loop
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/34/" rel="next" title="How to Merge Two Videos without Re-encoding">
+      How to Merge Two Videos without Re-encoding <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Line-Arguments"><span class="nav-number">1.</span> <span class="nav-text">Command Line Arguments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Command"><span class="nav-number">2.</span> <span class="nav-text">Set Command</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Syntax"><span class="nav-number">2.1.</span> <span class="nav-text">Syntax</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">2.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-number">2.3.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Working-with-Numeric-Values"><span class="nav-number">3.</span> <span class="nav-text">Working with Numeric Values</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Local-vs-Global-Variables"><span class="nav-number">4.</span> <span class="nav-text">Local vs Global Variables</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">4.1.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-1"><span class="nav-number">4.2.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Working-with-Environment-Variables"><span class="nav-number">5.</span> <span class="nav-text">Working with Environment Variables</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="AlumiK (Zhong Zhenyu)"
+      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1591801384.png">
+  <p class="site-author-name" itemprop="name">AlumiK (Zhong Zhenyu)</p>
+  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlumiK" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlumiK" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nczzy1997@gmail.com" title="E-Mail → mailto:nczzy1997@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AlumiK (Zhong Zhenyu)</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
