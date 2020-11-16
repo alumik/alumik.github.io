@@ -1,10 +1,10 @@
-# AlumiK 技术笔记
+# AlumiK's Tech Notes
 
 [![Build Status](https://travis-ci.com/AlumiK/alumik.github.io.svg?branch=draft)](https://travis-ci.com/AlumiK/alumik.github.io)
 
-项目基于 [Hexo](https://hexo.io/) 框架制作。
+AlumiK's notes in information and computer technology.
 
-## 网站地址
+## Visit
 
-- 主站： [https://pages.alumik.cn](https://pages.alumik.cn)
-- 中国镜像站： [https://alumik.gitee.io](https://alumik.gitee.io)
+- Main site: [https://pages.alumik.cn](https://pages.alumik.cn)
+- Mirror site for mainland China: [https://alumik.gitee.io](https://alumik.gitee.io)
