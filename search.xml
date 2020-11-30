@@ -1672,6 +1672,20 @@
       </categories>
   </entry>
   <entry>
+    <title>在 CMake 中添加 MPI 支持</title>
+    <url>/posts/54/</url>
+    <content><![CDATA[<p>CMakeLists.txt 示例</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(MPITest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(MPI REQUIRED)</span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;MPI_INCLUDE_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER mpicxx)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER mpicc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>CMake</tag>
+        <tag>MPI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Sampling from a Normal Distribution</title>
     <url>/posts/39/</url>
     <content><![CDATA[<p>One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It&#39;s also of great importance due to its relation to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>.</p>
