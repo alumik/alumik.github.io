@@ -99,9 +99,7 @@
     <content><![CDATA[<p>When using images for API 27 or later, the emulator can render the Android UI with <a href="https://skia.org/">Skia</a>, which can render more smoothly and efficiently.</p>
 <p>To enable Skia rendering, use the following commands in adb shell:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">su</span><br><span class="line">setprop debug.hwui.renderer skiagl</span><br><span class="line">stop</span><br><span class="line">start</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://developer.android.com/studio/run/emulator-acceleration#skia-emulator">Configure Emulator Graphics Rendering and Hardware Acceleration</a></li>
 </ul>
 ]]></content>
@@ -145,9 +143,7 @@
     <url>/posts/37/</url>
     <content><![CDATA[<p>CMake has a <a href="https://cmake.org/cmake/help/latest/module/FindOpenMP.html">standard module</a> for testing if the compiler supports OpenMP.</p>
 <figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(OpenMPTest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenMP REQUIRED)  <span class="comment"># Find the package</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE OpenMP::OpenMP_CXX)  <span class="comment"># Link against it for C++</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave">https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave</a></li>
 <li><a href="https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function">https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function</a></li>
 </ul>
@@ -384,9 +380,7 @@
 <p>输入以下内容并保存，即可使用清华大学软件源镜像。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 <p>本镜像仅支持 32 位和 64 位 x86 架构的系统，对于 ARM 或 PowerPC 架构请使用 ubuntu-ports 镜像。</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></li>
 </ul>
 ]]></content>
@@ -944,9 +938,7 @@
 <p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
 <img src="/posts/35/20180726200007776.png" class="" title="修改示例">
 <p>修改之后即可使用。</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://blog.csdn.net/hezhongla0811/article/details/81226539">https://blog.csdn.net/hezhongla0811/article/details/81226539</a></li>
 </ul>
 ]]></content>
@@ -1063,9 +1055,7 @@
 <h3 id="DATE-TIME-and-TIMESTAMP"><a href="#DATE-TIME-and-TIMESTAMP" class="headerlink" title="DATE, TIME and TIMESTAMP"></a>DATE, TIME and TIMESTAMP</h3><p>These three MySQL types are related to time. The <code>DATE</code> type represents a date consisting of day, month, and year, the <code>TIME</code> type represents a time consisting of hours, minutes, and seconds and the <code>TIMESTAMP</code> type represents <code>DAT</code>E plus <code>TIME</code> plus a nanosecond field. The standard Java class <code>java.util.Date</code> that provides date and time information but does not match any of these three MySQL date/time types exactly, because it has <code>DATE</code> and <code>TIME</code> information but no nanoseconds.</p>
 <p>That&#39;s why we define three subclasses of <code>java.util.Date</code>. These are:</p>
 <p><code>java.sql.Date</code> for SQL <code>DATE</code> information.<br><code>java.sql.Timefor</code> SQL <code>TIME</code> information.<br><code>java.sql.Timestamp</code> for SQL <code>TIMESTAMP</code> information.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml">https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml</a></li>
 </ul>
 ]]></content>
@@ -1166,9 +1156,7 @@
 </table>
 </div>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>建议按照面向对象编程的方式去绘图：先创建图像，再创建坐标轴，最后在坐标轴上绘图。这种编码方式会让绘图逻辑更加清晰，能够随心所欲地修改图片的每个地方。</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://segmentfault.com/a/1190000020450334?utm_source=tag-newest">https://segmentfault.com/a/1190000020450334?utm_source=tag-newest</a></li>
 <li><a href="https://www.cnblogs.com/linblogs/archive/2018/09/12/9636782.html">https://www.cnblogs.com/linblogs/archive/2018/09/12/9636782.html</a></li>
 <li><a href="https://matplotlib.org/tutorials/introductory/usage.html">https://matplotlib.org/tutorials/introductory/usage.html</a></li>
@@ -1224,9 +1212,7 @@
 <div class="note warning">
             <p><code>my_cycler</code> 的类型为 <code>cycler.Cycler</code> 。<br><code>actual_cycler</code> 的类型为 <code>itertools.cycle</code> 。</p>
           </div>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://stackoverflow.com/questions/4805048/how-to-get-different-colored-lines-for-different-plots-in-a-single-figure">https://stackoverflow.com/questions/4805048/how-to-get-different-colored-lines-for-different-plots-in-a-single-figure</a></li>
 </ul>
 ]]></content>
@@ -1281,9 +1267,7 @@
     <url>/posts/40/</url>
     <content><![CDATA[<p>在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用来正常显示中文汉字</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用来正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://blog.csdn.net/u010472607/article/details/82789887">https://blog.csdn.net/u010472607/article/details/82789887</a></li>
 </ul>
 ]]></content>
@@ -1339,9 +1323,7 @@
 </ul>
 <h2 id="更改执行策略"><a href="#更改执行策略" class="headerlink" title="更改执行策略"></a>更改执行策略</h2><p>一般来说，使用如下命令后能够正常使用第三方脚本：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-ExecutionPolicy</span> <span class="literal">-ExecutionPolicy</span> RemoteSigned <span class="literal">-Scope</span> CurrentUser</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7">https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7</a></li>
 </ul>
 ]]></content>
@@ -1368,9 +1350,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath&#x3D;repo -DcreateChecksum&#x3D;true -Dpackaging&#x3D;jar -Dfile&#x3D;[your-jar] -DgroupId&#x3D;[...] -DartifactId&#x3D;[...] -Dversion&#x3D;[...]</span><br></pre></td></tr></table></figure>
 <p>If you&#39;ll choose this approach you&#39;ll be able to simplify the repository declaration in <code>pom</code> to:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them</a></li>
 </ul>
 ]]></content>
@@ -1456,9 +1436,7 @@
 <p>How to test? In order to compile the project into an executable jar, please run Maven with mvn clean package command.</p>
 <p>Hopefully, this article gives you some more insights on the topic and you will find your preferred approach depending on your needs.</p>
 <p>One quick final note – make sure the licenses of the jars you&#39;re bundling don&#39;t prohibit this kind of operation. Generally, that won&#39;t be the case, but it&#39;s something worth considering.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://www.baeldung.com/executable-jar-with-maven">https://www.baeldung.com/executable-jar-with-maven</a></li>
 </ul>
 ]]></content>
@@ -1478,9 +1456,7 @@
 <p>如果只需要少量应用：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
 <p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <code>%LOCALAPPDATA%\Packages</code> 目录中的应用目录名即可。</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
 </ul>
 ]]></content>
@@ -1541,9 +1517,7 @@
 </ol>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>To change the most recent commit message, use the <code>git commit --amend</code> command. To change an older or multiple commit messages, use <code>git rebase -i HEAD~N</code>.</p>
 <p>Don&#39;t amend pushed commits as it may potentially cause a lot of problems to your colleagues.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://linuxize.com/post/change-git-commit-message/">https://linuxize.com/post/change-git-commit-message/</a></li>
 </ul>
 ]]></content>
@@ -1575,9 +1549,7 @@
 <p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
 <img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
 <p>After you&#39;re done, close out of the Registry and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/">https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/</a></li>
 </ul>
 ]]></content>
@@ -1593,9 +1565,7 @@
 <p>The same can be applied for adding multiple CSS to a command:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c&lt;str1&gt; %c&lt;str2&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str1&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str2&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>Chrome Console API Reference: <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-write#styling_console_output_with_css">Console API Reference</a>.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://stackoverflow.com/questions/7505623/colors-in-javascript-console">https://stackoverflow.com/questions/7505623/colors-in-javascript-console</a></li>
 </ul>
 ]]></content>
@@ -1618,9 +1588,7 @@
 <li><a href="https://ponyfoo.com/articles/es6-promises-in-depth">Promises, a native feature of ES2015</a> (aka ES6). We also use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a> in the definition of the sleep function.</li>
 <li>The <code>async</code>/<code>await</code> feature lets the code explicitly wait for a promise to settle (resolve or reject).</li>
 </ul>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep">https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep</a></li>
 </ul>
 ]]></content>
@@ -1633,9 +1601,7 @@
     <url>/posts/49/</url>
     <content><![CDATA[<p>使用命令</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
 </ul>
 ]]></content>
@@ -1661,9 +1627,7 @@
 </ol>
 <p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
 <p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
 </ul>
 ]]></content>
@@ -1829,9 +1793,7 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 <blockquote id="fn_5">
 <sup>5</sup>. Remember that the rectangular area represented by \((x_1, x_2)\) and \((y_1, y_2)\) is non-rectagular when we transform it into the \(R\) and \(\Theta\) space.  This means that we&#39;re no longer integrating just along \(R\) and \(\Theta\) separately but together along the new oddly shaped area, thus the need to use \(A\) to represent the area.<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
 </blockquote>
-<hr>
-<p><strong>参考链接</strong></p>
-<ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/">http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/</a></li>
 </ul>
 ]]></content>
