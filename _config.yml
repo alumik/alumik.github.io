@@ -86,9 +86,11 @@ category_map:
   网络服务: web-service
   过期或不适用的文章: outdated
 tag_map:
+  shell 脚本: shell-script
+  多媒体处理: multimedia
+  批处理文件: batchfile
   概率论与数理统计: statistics
   网络加速: net-booster
-  多媒体处理: multimedia
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta

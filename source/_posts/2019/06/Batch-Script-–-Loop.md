@@ -1,7 +1,7 @@
 ---
 title: Batch Script – Loop
 categories: Windows
-tags: Batchfile
+tags: 批处理文件
 abbrlink: 32
 date: 2019-06-24 20:50:19
 ---

@@ -3,13 +3,13 @@ title: How to Merge Two Videos without Re-encoding
 categories: 其他计算机使用技巧
 tags:
   - 多媒体处理
-  - ffmpeg
+  - FFmpeg
 abbrlink: 34
 date: 2019-06-24 21:07:43
 ---
 ## Concatenation of Files with Same Codecs
 
-There are two methods within ffmpeg that can be used to concatenate files of the same type: [the concat demuxer & the concat protocol](https://ffmpeg.org/ffmpeg-formats.html#concat)
+There are two methods within FFmpeg that can be used to concatenate files of the same type: [the concat demuxer & the concat protocol](https://ffmpeg.org/ffmpeg-formats.html#concat)
 
 The demuxer is more flexible – it requires the same codecs, but different container formats can be used; and it can be used with any container formats, while the concat protocol only works with a select few containers.
 
@@ -33,7 +33,7 @@ ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output
 
 The files will be stream copied in the order they appear in the vidlist.txt into the output container. the "copy codec" is **blazing fast**.
 
-Edit: Note that although the docs say you don't need `-safe 0` if the paths are relative, my testing indicates it's a requirement. It's possible that this may vary with your version of ffmpeg.
+Edit: Note that although the docs say you don't need `-safe 0` if the paths are relative, my testing indicates it's a requirement. It's possible that this may vary with your version of FFmpeg.
 
 There are tips for auto generating the file available in [the docs](https://trac.ffmpeg.org/wiki/Concatenate).
 
