@@ -1653,12 +1653,12 @@
     <title>Automatic Exit From Bash Shell Script on Error</title>
     <url>/posts/57/</url>
     <content><![CDATA[<p>Use the <code>set -e</code> builtin:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!&#x2F;bin&#x2F;bash</span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"># Any subsequent(*) commands which fail will cause the shell script to exit immediately</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># Any subsequent(*) commands which fail will cause the shell script to exit immediately</span></span><br></pre></td></tr></table></figure>
 <p>Alternatively, you can pass <code>-e</code> on the command line:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
 <p>You can also disable this behavior with <code>set +e</code>.</p>
 <p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o</code> pipefail options like so:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set -euxo pipefail</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
 <p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o</code> (for option) pipefail exits on command pipe failures.</p>
 <p>*Note:</p>
 <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
@@ -1666,6 +1666,12 @@
 <li><a href="https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error">https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>shell 脚本</tag>
+      </tags>
   </entry>
   <entry>
     <title>Use the Same Buffer for MPI sendbuf and recvbuf</title>
@@ -1697,6 +1703,12 @@
 <li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>shell 脚本</tag>
+      </tags>
   </entry>
   <entry>
     <title>Sampling from a Normal Distribution</title>
