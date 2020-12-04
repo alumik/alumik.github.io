@@ -21,8 +21,6 @@ CheckNetIsolation.exe LoopbackExempt –a –n=<App Directory>
 
 将 `<App Directory>` 替换成出现在 `%LOCALAPPDATA%\Packages` 目录中的应用目录名即可。
 
----
-
-**参考链接**
+## 参考链接
 
 - https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908

@@ -11,8 +11,6 @@ abbrlink: 49
 git config --global core.editor "nano"
 ```
 
----
-
-**参考链接**
+## 参考链接
 
 - https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html

@@ -42,8 +42,6 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 
 本镜像仅支持 32 位和 64 位 x86 架构的系统，对于 ARM 或 PowerPC 架构请使用 ubuntu-ports 镜像。
 
----
-
-**参考链接**
+## 参考链接
 
 - https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/

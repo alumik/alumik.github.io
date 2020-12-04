@@ -312,8 +312,6 @@ List of Notes: [^1], [^2], [^3], [^4], [^5]
     
 [^5]: Remember that the rectangular area represented by \\((x_1, x_2)\\) and \\((y_1, y_2)\\) is non-rectagular when we transform it into the \\(R\\) and \\(\Theta\\) space.  This means that we're no longer integrating just along \\(R\\) and \\(\Theta\\) separately but together along the new oddly shaped area, thus the need to use \\(A\\) to represent the area.
 
----
-
-**参考链接**
+## 参考链接
 
 - http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/

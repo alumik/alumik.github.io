@@ -178,8 +178,6 @@ plt.show()
 `actual_cycler` 的类型为 `itertools.cycle` 。
 {% endnote %}
 
----
-
-**参考链接**
+## 参考链接
 
 - https://stackoverflow.com/questions/4805048/how-to-get-different-colored-lines-for-different-plots-in-a-single-figure

@@ -113,8 +113,6 @@ To change the most recent commit message, use the `git commit --amend` command. 
 
 Don't amend pushed commits as it may potentially cause a lot of problems to your colleagues.
 
----
-
-**参考链接**
+## 参考链接
 
 - https://linuxize.com/post/change-git-commit-message/

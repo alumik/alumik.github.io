@@ -80,8 +80,6 @@ That's why we define three subclasses of `java.util.Date`. These are:
 `java.sql.Timefor` SQL `TIME` information.
 `java.sql.Timestamp` for SQL `TIMESTAMP` information.
 
----
-
-**参考链接**
+## 参考链接
 
 - https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml

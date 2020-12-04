@@ -21,9 +21,7 @@ find_package(OpenMP REQUIRED)  # Find the package
 target_link_libraries(${PROJECT_NAME} PRIVATE OpenMP::OpenMP_CXX)  # Link against it for C++
 ```
 
----
-
-**参考链接**
+## 参考链接
 
 + https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave
 + https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function

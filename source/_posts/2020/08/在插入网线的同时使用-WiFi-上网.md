@@ -19,8 +19,6 @@ Save the setting and you'll be able to use wifi even when your ethernet cable is
 
 "Automatic metric" works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See ["An explanation of the Automatic Metric feature for IPv4 routes"](https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes).
 
----
-
-**参考链接**
+## 参考链接
 
 - https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet

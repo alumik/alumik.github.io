@@ -66,8 +66,6 @@ updated: 2020-02-21 15:59:03
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
----
-
-**参考链接**
+## 参考链接
 
 - https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7
