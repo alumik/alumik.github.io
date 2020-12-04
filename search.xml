@@ -1650,6 +1650,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Automatic Exit From Bash Shell Script on Error</title>
+    <url>/posts/57/</url>
+    <content><![CDATA[<p>Use the <code>set -e</code> builtin:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta">#</span><span class="bash"> Any subsequent(*) commands <span class="built_in">which</span> fail will cause the shell script to <span class="built_in">exit</span> immediately</span></span><br></pre></td></tr></table></figure>
+<p>Alternatively, you can pass <code>-e</code> on the command line:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
+<p>You can also disable this behavior with <code>set +e</code>.</p>
+<p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o</code> pipefail options like so:</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">set -euxo pipefail</span><br></pre></td></tr></table></figure>
+<p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o</code> (for option) pipefail exits on command pipe failures.</p>
+<p>*Note:</p>
+<p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error">https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>Use the Same Buffer for MPI sendbuf and recvbuf</title>
+    <url>/posts/55/</url>
+    <content><![CDATA[<p>According to <code>MPI_AllReduce</code> man page and MPI doc <code>MPI_IN_PLACE</code> can be used to specify the same buffer for <code>sendbuf</code> and <code>recvbuf</code> as long as you are working inside the same group.</p>
+<p>The call would look like:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>];</span><br><span class="line"><span class="comment">// Some operation to calculate rho for each process</span></span><br><span class="line">MPI_Allreduce(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381">https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>MPI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mkdir Only if a Directory Does Not Already Exist</title>
+    <url>/posts/56/</url>
+    <content><![CDATA[<p>Try <code>mkdir -p</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
+<p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p foo&#x2F;bar&#x2F;baz</span><br></pre></td></tr></table></figure>
+<p>will create directories <code>foo</code>, <code>foo/bar</code>, and <code>foo/bar/baz</code> if they don&#39;t exist.</p>
+<p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Sampling from a Normal Distribution</title>
     <url>/posts/39/</url>
     <content><![CDATA[<p>One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It&#39;s also of great importance due to its relation to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>.</p>
