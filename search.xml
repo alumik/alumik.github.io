@@ -23,7 +23,7 @@
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>Batchfile</tag>
+        <tag>批处理文件</tag>
       </tags>
   </entry>
   <entry>
@@ -90,7 +90,7 @@
         <category>Windows</category>
       </categories>
       <tags>
-        <tag>Batchfile</tag>
+        <tag>批处理文件</tag>
       </tags>
   </entry>
   <entry>
@@ -110,7 +110,7 @@
   <entry>
     <title>How to Merge Two Videos without Re-encoding</title>
     <url>/posts/34/</url>
-    <content><![CDATA[<h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within ffmpeg that can be used to concatenate files of the same type: <a href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
+    <content><![CDATA[<h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within FFmpeg that can be used to concatenate files of the same type: <a href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
 <p>The demuxer is more flexible – it requires the same codecs, but different container formats can be used; and it can be used with any container formats, while the concat protocol only works with a select few containers.</p>
 <h3 id="The-Concat-Demuxer"><a href="#The-Concat-Demuxer" class="headerlink" title="The Concat Demuxer"></a>The Concat Demuxer</h3><p>create a text file named vidlist.txt in the following format:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip1&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip2&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip3&#39;</span><br></pre></td></tr></table></figure>
@@ -118,7 +118,7 @@
 <p>Then issue the command:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output</span><br></pre></td></tr></table></figure>
 <p>The files will be stream copied in the order they appear in the vidlist.txt into the output container. the &quot;copy codec&quot; is <strong>blazing fast</strong>.</p>
-<p>Edit: Note that although the docs say you don&#39;t need <code>-safe 0</code> if the paths are relative, my testing indicates it&#39;s a requirement. It&#39;s possible that this may vary with your version of ffmpeg.</p>
+<p>Edit: Note that although the docs say you don&#39;t need <code>-safe 0</code> if the paths are relative, my testing indicates it&#39;s a requirement. It&#39;s possible that this may vary with your version of FFmpeg.</p>
 <p>There are tips for auto generating the file available in <a href="https://trac.ffmpeg.org/wiki/Concatenate">the docs</a>.</p>
 <p>Note: All the clips must already exist or the command will fail because decoding won&#39;t start until the whole list is read.</p>
 <h3 id="The-Concat-Protocol"><a href="#The-Concat-Protocol" class="headerlink" title="The Concat Protocol"></a>The Concat Protocol</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
@@ -135,7 +135,7 @@
       </categories>
       <tags>
         <tag>多媒体处理</tag>
-        <tag>ffmpeg</tag>
+        <tag>FFmpeg</tag>
       </tags>
   </entry>
   <entry>
