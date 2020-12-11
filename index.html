@@ -187,6 +187,164 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/59/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/59/" class="post-title-link" itemprop="url">GCC -fPIC Option</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-11 17:10:25 / 修改时间：17:15:38" itemprop="dateCreated datePublished" datetime="2020-12-11T17:10:25+08:00">2020-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Position Independent Code means that the generated machine code is not dependent on being located at a specific address in order to work.</p>
+<p>E.g., jumps would be generated as relative rather than absolute.</p>
+<p>Pseudo-assembly:</p>
+<ul>
+<li><p>PIC: This would work whether the code was at address 100 or 1000</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Non-PIC: This will only work if the code is at address 100</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>If your code is compiled with <code>-fPIC</code>, it&#39;s suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/5311515/gcc-fpic-option">https://stackoverflow.com/questions/5311515/gcc-fpic-option</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/58/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
+      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
+      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AlumiK">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/posts/58/" class="post-title-link" itemprop="url">Set rpath Relative to the Executable</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-12-11 16:54:49 / 修改时间：17:15:38" itemprop="dateCreated datePublished" datetime="2020-12-11T16:54:49+08:00">2020-12-11</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cpp/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path&#x2F;to&#x2F;lib&gt;</span><br></pre></td></tr></table></figure>
+<p>tells the linker where to find the required library at runtime.</p>
+<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
+<p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
+<p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute">https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/57/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,10 +368,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-04 05:01:51 / 修改时间：14:59:16" itemprop="dateCreated datePublished" datetime="2020-12-04T05:01:51+08:00">2020-12-04</time>
+              <time title="创建时间：2020-12-04 05:01:51" itemprop="dateCreated datePublished" datetime="2020-12-04T05:01:51+08:00">2020-12-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -290,10 +454,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-04 04:01:51 / 修改时间：14:59:16" itemprop="dateCreated datePublished" datetime="2020-12-04T04:01:51+08:00">2020-12-04</time>
+              <time title="创建时间：2020-12-04 04:01:51" itemprop="dateCreated datePublished" datetime="2020-12-04T04:01:51+08:00">2020-12-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -366,10 +536,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-12-04 03:01:51 / 修改时间：14:59:16" itemprop="dateCreated datePublished" datetime="2020-12-04T03:01:51+08:00">2020-12-04</time>
+              <time title="创建时间：2020-12-04 03:01:51" itemprop="dateCreated datePublished" datetime="2020-12-04T03:01:51+08:00">2020-12-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -447,7 +623,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -522,7 +698,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -604,7 +780,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -692,7 +868,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -773,7 +949,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
+                <time title="修改时间：2020-12-11 17:15:38" itemprop="dateModified" datetime="2020-12-11T17:15:38+08:00">2020-12-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -803,166 +979,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/50/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/49/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
-      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
-      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AlumiK">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/49/" class="post-title-link" itemprop="url">修改 Git 默认文本编辑器为 nano</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-23 00:58:16" itemprop="dateCreated datePublished" datetime="2020-08-23T00:58:16+08:00">2020-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vcs/" itemprop="url" rel="index"><span itemprop="name">版本控制系统</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>使用命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/48/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
-      <meta itemprop="name" content="AlumiK (Zhong Zhenyu)">
-      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AlumiK">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/posts/48/" class="post-title-link" itemprop="url">Change a Git Commit Message</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-23 00:37:43" itemprop="dateCreated datePublished" datetime="2020-08-23T00:37:43+08:00">2020-08-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-04 14:59:16" itemprop="dateModified" datetime="2020-12-04T14:59:16+08:00">2020-12-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vcs/" itemprop="url" rel="index"><span itemprop="name">版本控制系统</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive information, or adding additional information.</p>
-<p>This guide explains how to change the message of the most recent or older Git commits.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/48/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1052,7 +1068,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">57</span>
+          <span class="site-state-item-count">59</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
