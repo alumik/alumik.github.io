@@ -1777,9 +1777,9 @@
     <title>Recursively Delete All Files of a Specific Extension in the Current Directory</title>
     <url>/posts/61/</url>
     <content><![CDATA[<p>Use find:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.bak&quot;</span> -<span class="built_in">type</span> f -delete</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
 <p>But use it with precaution. Run first:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.bak&quot;</span> -<span class="built_in">type</span> f</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
 <p>to see exactly which files you will remove.</p>
 <p>Also, make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>
 ]]></content>
