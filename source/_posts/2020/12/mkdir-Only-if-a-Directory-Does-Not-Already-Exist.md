@@ -2,7 +2,7 @@
 title: mkdir Only if a Directory Does Not Already Exist
 date: 2020-12-04 04:01:51
 categories: Linux
-tags: shell 脚本
+tags: Shell 脚本
 abbrlink: 56
 ---
 Try `mkdir -p`:

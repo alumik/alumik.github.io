@@ -2,7 +2,7 @@
 title: Automatic Exit From Bash Shell Script on Error
 date: 2020-12-04 05:01:51
 categories: Linux
-tags: shell 脚本
+tags: Shell 脚本
 abbrlink: 57
 ---
 Use the `set -e` builtin:
