@@ -6,7 +6,7 @@ date: 2019-06-24 11:39:41
 tags:
 ---
 {% note danger %}
-该文章内容已过期或不再适用。
+该文章内容**已过期**或**不再适用**。
 {% endnote %}
 
 gdrive 是一个好用的 Linux 平台 Google Drive 客户端。

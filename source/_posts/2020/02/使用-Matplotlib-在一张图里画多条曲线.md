@@ -172,7 +172,7 @@ plt.show()
 
 {% asset_img myplot-8.png %}
 
-{% note warning %}
+{% note info %}
 `my_cycler` 的类型为 `cycler.Cycler` 。
 `actual_cycler` 的类型为 `itertools.cycle` 。
 {% endnote %}
