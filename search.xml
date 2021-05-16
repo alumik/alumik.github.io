@@ -30,16 +30,16 @@
     <title>Batch Script – Variables</title>
     <url>/posts/33/</url>
     <content><![CDATA[<p>There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.</p>
-<span id="more"></span>
 <h2 id="Command-Line-Arguments"><a href="#Command-Line-Arguments" class="headerlink" title="Command Line Arguments"></a>Command Line Arguments</h2><p>Batch scripts support the concept of command line arguments wherein arguments can be passed to the batch file when invoked. The arguments can be called from the batch files through the variables <code>%1</code>, <code>%2</code>, <code>%3</code>, and so on.</p>
 <p>The following example shows a batch file which accepts 3 command line arguments and <code>echo</code>s them to the command line screen.</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> %<span class="number">1</span></span><br><span class="line"><span class="built_in">echo</span> %<span class="number">2</span></span><br><span class="line"><span class="built_in">echo</span> %<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<span id="more"></span>
 <p>If the above batch script is stored in a file called <em>test.bat</em> and we were to run the batch as</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Test.bat 1 2 3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Test.bat 1 2 3</span><br></pre></td></tr></table></figure>
 <p>The above command produces the following output.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
 <p>If we were to run the batch as</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Example 1 2 3 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Example 1 2 3 4</span><br></pre></td></tr></table></figure>
 <p>The output would still remain the same as above. However, the fourth parameter would be ignored.</p>
 <h2 id="Set-Command"><a href="#Set-Command" class="headerlink" title="Set Command"></a>Set Command</h2><p>The other way in which variables can be initialized is via the <code>set</code> command. Following is the syntax of the set command.</p>
 <h3 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> /A variable-name=value</span><br></pre></td></tr></table></figure>
@@ -56,7 +56,7 @@
 <li>To display the value of the variable, note that the variable needs to be enclosed in the <code>%</code> sign.</li>
 </ul>
 <h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>The above command produces the following output.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Hello World</span><br></pre></td></tr></table></figure>
 <h2 id="Working-with-Numeric-Values"><a href="#Working-with-Numeric-Values" class="headerlink" title="Working with Numeric Values"></a>Working with Numeric Values</h2><p>In batch script, it is also possible to define a variable to hold a numeric value. This can be done by using the <code>/A</code> switch.</p>
 <p>The following code shows a simple way in which numeric values can be set with the <code>/A</code> switch.</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">SET</span> /A a = <span class="number">5</span></span><br><span class="line"><span class="built_in">SET</span> /A b = <span class="number">10</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> + <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br></pre></td></tr></table></figure>
@@ -69,7 +69,7 @@
 <p>All of the arithmetic operators work in batch files. The following example shows arithmetic operators can be used in batch files.</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">SET</span> /A a = <span class="number">5</span></span><br><span class="line"><span class="built_in">SET</span> /A b = <span class="number">10</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> + <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%a%</span> - <span class="variable">%b%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%b%</span> / <span class="variable">%a%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br><span class="line"><span class="built_in">SET</span> /A c = <span class="variable">%b%</span> * <span class="variable">%a%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%c%</span></span><br></pre></td></tr></table></figure>
 <p>The above command produces the following output.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">15</span><br><span class="line">-5</span><br><span class="line">2</span><br><span class="line">50</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">15</span><br><span class="line">-5</span><br><span class="line">2</span><br><span class="line">50</span><br></pre></td></tr></table></figure>
 <h2 id="Local-vs-Global-Variables"><a href="#Local-vs-Global-Variables" class="headerlink" title="Local vs Global Variables"></a>Local vs Global Variables</h2><p>In any programming language, there is an option to mark variables as having some sort of scope, i.e. the section of code on which they can be accessed. Normally, variable having a global scope can be accessed anywhere from a program whereas local scoped variables have a defined boundary in which they can be accessed.</p>
 <p>DOS scripting also has a definition for locally and globally scoped variables. By default, variables are global to your entire command prompt session. Call the <code>SETLOCAL</code> command to make variables local to the scope of your script. After calling <code>SETLOCAL</code>, any variable assignments revert upon calling <code>ENDLOCAL</code>, calling <code>EXIT</code>, or when execution reaches the end of file (EOF) in your script. The following example shows the difference when local and global variables are set in the script.</p>
 <h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h3><figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">set</span> globalvar = <span class="number">5</span></span><br><span class="line"><span class="built_in">SETLOCAL</span></span><br><span class="line"><span class="built_in">set</span> var = <span class="number">13145</span></span><br><span class="line"><span class="built_in">set</span> /A var = <span class="variable">%var%</span> + <span class="number">5</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%var%</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%globalvar%</span></span><br><span class="line"><span class="built_in">ENDLOCAL</span></span><br></pre></td></tr></table></figure>
@@ -79,12 +79,12 @@
 <li>The <code>var</code> variable is defined in a local scope because it is enclosed between a <code>SETLOCAL</code> and <code>ENDLOCAL</code> block. Hence, this variable will be destroyed as soon the <code>ENDLOCAL</code> statement is executed.</li>
 </ul>
 <h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><p>The above command produces the following output.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">13150</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">13150</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 <p>You will notice that the command <code>echo %var%</code> will not yield anything because after the <code>ENDLOCAL</code> statement, the <code>var</code> variable will no longer exist.</p>
 <h2 id="Working-with-Environment-Variables"><a href="#Working-with-Environment-Variables" class="headerlink" title="Working with Environment Variables"></a>Working with Environment Variables</h2><p>If you have variables that would be used across batch files, then it is always preferable to use environment variables. Once the environment variable is defined, it can be accessed via the <code>%</code> sign. The following example shows how to see the <code>JAVA_HOME</code> defined on a system. The <code>JAVA_HOME</code> variable is a key component that is normally used by a wide variety of applications.</p>
 <figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">%JAVA_HOME%</span></span><br></pre></td></tr></table></figure>
 <p>The output would show the <code>JAVA_HOME</code> directory which would depend from system to system. Following is an example of an output.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Atlassian\Bitbucket\4.0.1\jre</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Atlassian\Bitbucket\4.0.1\jre</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Windows</category>
@@ -98,8 +98,8 @@
     <url>/posts/36/</url>
     <content><![CDATA[<p>When using images for API 27 or later, the emulator can render the Android UI with <a href="https://skia.org/">Skia</a>, which can render more smoothly and efficiently.</p>
 <p>To enable Skia rendering, use the following commands in adb shell:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">su</span><br><span class="line">setprop debug.hwui.renderer skiagl</span><br><span class="line">stop</span><br><span class="line">start</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">su</span><br><span class="line">setprop debug.hwui.renderer skiagl</span><br><span class="line">stop</span><br><span class="line">start</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://developer.android.com/studio/run/emulator-acceleration#skia-emulator">Configure Emulator Graphics Rendering and Hardware Acceleration</a></li>
 </ul>
 ]]></content>
@@ -108,23 +108,23 @@
       </categories>
   </entry>
   <entry>
-    <title>How to Merge Two Videos without Re-encoding</title>
+    <title>Merge Two Videos without Re-encoding</title>
     <url>/posts/34/</url>
     <content><![CDATA[<h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within FFmpeg that can be used to concatenate files of the same type: <a href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
 <p>The demuxer is more flexible – it requires the same codecs, but different container formats can be used; and it can be used with any container formats, while the concat protocol only works with a select few containers.</p>
 <h3 id="The-Concat-Demuxer"><a href="#The-Concat-Demuxer" class="headerlink" title="The Concat Demuxer"></a>The Concat Demuxer</h3><p>create a text file named vidlist.txt in the following format:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip1&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip2&#39;</span><br><span class="line">file &#39;&#x2F;path&#x2F;to&#x2F;clip3&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">file &#x27;/path/to/clip1&#x27;</span><br><span class="line">file &#x27;/path/to/clip2&#x27;</span><br><span class="line">file &#x27;/path/to/clip3&#x27;</span><br></pre></td></tr></table></figure>
 <p>Note that these can be either relative or absolute paths.</p>
 <p>Then issue the command:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output</span><br></pre></td></tr></table></figure>
 <p>The files will be stream copied in the order they appear in the vidlist.txt into the output container. the &quot;copy codec&quot; is <strong>blazing fast</strong>.</p>
 <p>Edit: Note that although the docs say you don&#39;t need <code>-safe 0</code> if the paths are relative, my testing indicates it&#39;s a requirement. It&#39;s possible that this may vary with your version of FFmpeg.</p>
 <p>There are tips for auto generating the file available in <a href="https://trac.ffmpeg.org/wiki/Concatenate">the docs</a>.</p>
 <p>Note: All the clips must already exist or the command will fail because decoding won&#39;t start until the whole list is read.</p>
-<h3 id="The-Concat-Protocol"><a href="#The-Concat-Protocol" class="headerlink" title="The Concat Protocol"></a>The Concat Protocol</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
+<h3 id="The-Concat-Protocol"><a href="#The-Concat-Protocol" class="headerlink" title="The Concat Protocol"></a>The Concat Protocol</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
 <p>Note: as mentioned above the concat protocol is severely limited in what streams and containers it supports so I never use it. The above is only included in an attempt to create a thorough answer. The concat demuxer is a far better choice for most projects.</p>
 <p><strong>An alternative suggestion:</strong> Personally I prefer using the Matroska container due to it&#39;s flexibility and low overhead and join videos with the same encoding using</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkvmerge -o output.mkv input1.mkv + input2.mkv</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkvmerge -o output.mkv input1.mkv + input2.mkv</span><br></pre></td></tr></table></figure>
 <h2 id="Concatenation-of-Files-with-Different-Codecs"><a href="#Concatenation-of-Files-with-Different-Codecs" class="headerlink" title="Concatenation of Files with Different Codecs"></a>Concatenation of Files with Different Codecs</h2><p>If your clips don&#39;t use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.</p>
 <p>Note that <a href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you&#39;ll need to <a href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
 <p>Sources: Experience</p>
@@ -136,24 +136,6 @@
       <tags>
         <tag>多媒体处理</tag>
         <tag>FFmpeg</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>How to Set Flags for OpenMP in CMake</title>
-    <url>/posts/37/</url>
-    <content><![CDATA[<p>CMake has a <a href="https://cmake.org/cmake/help/latest/module/FindOpenMP.html">standard module</a> for testing if the compiler supports OpenMP.</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(OpenMPTest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenMP REQUIRED)  <span class="comment"># Find the package</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE OpenMP::OpenMP_CXX)  <span class="comment"># Link against it for C++</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave">https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave</a></li>
-<li><a href="https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function">https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>OpenMP</tag>
-        <tag>CMake</tag>
       </tags>
   </entry>
   <entry>
@@ -208,21 +190,39 @@
       </categories>
   </entry>
   <entry>
+    <title>Set Flags for OpenMP in CMake</title>
+    <url>/posts/37/</url>
+    <content><![CDATA[<p>CMake has a <a href="https://cmake.org/cmake/help/latest/module/FindOpenMP.html">standard module</a> for testing if the compiler supports OpenMP.</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(OpenMPTest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenMP REQUIRED)  <span class="comment"># Find the package</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE OpenMP::OpenMP_CXX)  <span class="comment"># Link against it for C++</span></span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave">https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave</a></li>
+<li><a href="https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function">https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>OpenMP</tag>
+        <tag>CMake</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu 设置 GRUB 默认启动的内核版本</title>
     <url>/posts/30/</url>
     <content><![CDATA[<p>要修改默认的启动内核，可以执行以下操作。</p>
 <p>打开文件 <em>/etc/default/grub</em> ，将 <code>GRUB_DEFAULT</code> 的值更改为您希望选择的菜单选项的索引值。</p>
 <p>例如，在启动过程中的 GRUB 菜单中有</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ubuntu</span><br><span class="line">Advanced options for Ubuntu</span><br><span class="line">Windows 10 (loader) (on &#x2F;dev&#x2F;sda1)</span><br><span class="line">system setup</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ubuntu</span><br><span class="line">Advanced options for Ubuntu</span><br><span class="line">Windows 10 (loader) (on /dev/sda1)</span><br><span class="line">system setup</span><br></pre></td></tr></table></figure>
 <p>其中 Advananced options for Ubuntu 子菜单如下所示</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Ubuntu, with Linux 4.13.0-26-generic</span><br><span class="line">Ubuntu, with Linux 4.13.0-26-generic (upstart)</span><br><span class="line">Ubuntu, with Linux 4.13.0-26-generic (recovery mode)</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic (upstart)</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic (recovery mode)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Ubuntu, with Linux 4.13.0-26-generic</span><br><span class="line">Ubuntu, with Linux 4.13.0-26-generic (upstart)</span><br><span class="line">Ubuntu, with Linux 4.13.0-26-generic (recovery mode)</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic (upstart)</span><br><span class="line">Ubuntu, with Linux 4.10.0-42-generic (recovery mode)</span><br></pre></td></tr></table></figure>
 <p>现在，第一个选项是索引 <code>0</code> ，第二个是 <code>1</code> ，第三个是 <code>2</code> ，依此类推。</p>
 <p>例如现在想选择 Advanced options for Ubuntu 子菜单中的 Ubuntu, with Linux 4.10.0-42-generic ，则将 <code>GRUB_DEFAULT</code> 设为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRUB_DEFAULT &#x3D; &quot;1&gt; 3&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">GRUB_DEFAULT = &quot;1&gt; 3&quot;</span><br></pre></td></tr></table></figure>
 <p>使用 &gt; 符号来指定子菜单（注意符号 <code>&gt;</code> 和数字 <code>3</code> 之间有空格，所以需要双引号）。在这种情况下，主菜单中选择第二个选项（索引 1 ），在子菜单中选择第四个选项（索引 3 ）。</p>
 <p>菜单选项来自文件 <em>/boot/grub/grub.cfg</em> （不要编辑这个文件）。</p>
 <p>一旦对 <em>/etc/default/grub</em> 进行了更改，请保存并运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
 <p>来更新 GRUB 配置文件（必须，否则不生效）。重新启动，现在应该默认启动旧的内核版本。</p>
 ]]></content>
       <categories>
@@ -258,7 +258,7 @@
     <title>Vue.js 针对不存在的 URL 的路由配置</title>
     <url>/posts/25/</url>
     <content><![CDATA[<p>利用如下路由配置便可以将所有不存在的 URL 请求都引导到同一个页面（例如 404 页面）。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    path: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    redirect: <span class="string">&#x27;/404&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/404&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>JavaScript</category>
@@ -288,12 +288,12 @@
             <p>该文章内容已过期或不再适用。</p>
           </div>
 <p>gdrive 是一个好用的 Linux 平台 Google Drive 客户端。</p>
-<h2 id="安装-gdrive"><a href="#安装-gdrive" class="headerlink" title="安装 gdrive"></a>安装 gdrive</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">wget -O &#x2F;usr&#x2F;bin&#x2F;gdrive &quot;&#x2F;&#x2F;docs.google.com&#x2F;uc?id&#x3D;0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&amp;export&#x3D;download&quot;</span><br><span class="line">chmod +x &#x2F;usr&#x2F;bin&#x2F;gdrive</span><br></pre></td></tr></table></figure>
-<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gdrive about</span><br></pre></td></tr></table></figure>
+<h2 id="安装-gdrive"><a href="#安装-gdrive" class="headerlink" title="安装 gdrive"></a>安装 gdrive</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O /usr/bin/gdrive &quot;//docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&amp;export=download&quot;</span><br><span class="line">chmod +x /usr/bin/gdrive</span><br></pre></td></tr></table></figure>
+<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gdrive about</span><br></pre></td></tr></table></figure>
 <p>然后会出现一个网址并询问验证码。将地址粘贴到浏览器并登录账号，会返回一串代码。</p>
 <p>将代码粘贴到控制台下，然后会返回你的 Google 账户信息。</p>
 <p>gdrive 会自动将你的 token 保存在用户目录下的 <em>.gdrive</em> 目录中，所以如果不需要了记得把这个文件删掉。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">gdrive help</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gdrive help</span><br></pre></td></tr></table></figure>
 <p>可以查看帮助。</p>
 ]]></content>
       <categories>
@@ -319,7 +319,7 @@
 <img src="/posts/1/08.jpg" class="">
 <p>打开 <em>php.ini</em> ，将 <code>date.timezone</code> 修改为 <code>date.timezone=&quot;Asia/Shanghai&quot;</code> （即修改当前的时区）。</p>
 <p>接着激活需要的扩展选项，即将相应语句前的分号删除，例如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">extension&#x3D;mysqli</span><br><span class="line">extension&#x3D;pdo_mysql</span><br><span class="line">extension&#x3D;gd2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extension=mysqli</span><br><span class="line">extension=pdo_mysql</span><br><span class="line">extension=gd2</span><br></pre></td></tr></table></figure>
 <p>再将 <code>; extension_dir = &quot;ext&quot;</code> 前的分号去掉，保存。</p>
 <h2 id="测试安装结果"><a href="#测试安装结果" class="headerlink" title="测试安装结果"></a>测试安装结果</h2><p>PHP 环境配置好了，我们就可以测试一下了。在 IIS 中建立一个新网站，网站根目录下新建一个 <em>index.php</em> 文件：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> phpinfo(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
@@ -338,36 +338,36 @@
   <entry>
     <title>为 Ubuntu 18.04 编译 4.19.1 版本内核</title>
     <url>/posts/26/</url>
-    <content><![CDATA[<h2 id="下载并解压内核源码"><a href="#下载并解压内核源码" class="headerlink" title="下载并解压内核源码"></a>下载并解压内核源码</h2><p>首先获取 root 权限方便操作</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<div class="note danger">
+            <p>该文章内容已过期或不再适用。</p>
+          </div>
+<h2 id="下载并解压内核源码"><a href="#下载并解压内核源码" class="headerlink" title="下载并解压内核源码"></a>下载并解压内核源码</h2><p>首先获取 root 权限方便操作</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
 <p>从<a href="https://www.kernel.org/">官方网站</a>下载 4.19.1 版本的 Linux 内核源码。此时我们把它放在 <em>~/linux-4.19.1.tar.xz</em> 。</p>
 <p>移动到 <em>/usr/src</em></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;usr&#x2F;src</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /usr/src</span><br></pre></td></tr></table></figure>
 <p>将文件解压到此处</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tar -xvJf ~&#x2F;linux-4.19.1.tar.xz</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -xvJf ~/linux-4.19.1.tar.xz</span><br></pre></td></tr></table></figure>
 <h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><p>运行以下命令安装依赖</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt install g++ make libncurses5-dev libssl-dev build-essential</span><br><span class="line">apt install openssl zlibc minizip libidn11-dev libidn11</span><br><span class="line">apt install bison flex pkg-config libelf-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install g++ make libncurses5-dev libssl-dev build-essential</span><br><span class="line">apt install openssl zlibc minizip libidn11-dev libidn11</span><br><span class="line">apt install bison flex pkg-config libelf-dev</span><br></pre></td></tr></table></figure>
 <h2 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h2><p>复制老的配置文件到目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cp -vi &#x2F;boot&#x2F;config-&#96;uname -r&#96; .config</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cp -vi /boot/config-`uname -r` .config</span><br></pre></td></tr></table></figure>
 <p>配置新版本内核新增特性</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make oldconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make oldconfig</span><br></pre></td></tr></table></figure>
 <p>然后利用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
 <p>编辑配置文件。直接保存退出可以使用默认配置。</p>
 <p>然后运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make -j 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make -j 4</span><br></pre></td></tr></table></figure>
 <p>其中 <code>4</code> 建议设置为 <code>CPU 逻辑核心数 * 2</code> 。</p>
 <p>完成之后运行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">make modules_install</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make modules_install</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>安装新内核。之后重启系统即可自动使用新内核启动。</p>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>内核编译需求的硬盘空间至少为 40GB 。</p>
 ]]></content>
       <categories>
-        <category>Linux</category>
+        <category>过期或不适用的文章</category>
       </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
   </entry>
   <entry>
     <title>为 Ubuntu 20.04 添加清华大学软件源</title>
@@ -378,7 +378,7 @@
 <p>然后新建文件：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>输入以下内容并保存，即可使用清华大学软件源镜像。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 <p>本镜像仅支持 32 位和 64 位 x86 架构的系统，对于 ARM 或 PowerPC 架构请使用 ubuntu-ports 镜像。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></li>
@@ -421,46 +421,46 @@
 <p>接着在 Microsoft Store 里安装 Ubuntu ，安装完成后打开 Ubuntu ，进行初始化配置，此时需要设置一个用户名和密码。</p>
 <h2 id="配置-WSL-环境"><a href="#配置-WSL-环境" class="headerlink" title="配置 WSL 环境"></a>配置 WSL 环境</h2><p>再次打开 Ubuntu ，将系统软件源切换为清华大学软件源（或者其他你偏好的软件源）。</p>
 <p>删除原有软件源：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo rm &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo rm /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>添加新软件源：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <p>在打开的文本编辑器里键入以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
 <p>编辑完成后，使用 <code>Ctrl+O</code> 保存，再使用 <code>Ctrl+X</code> 退出。</p>
 <p>接下来更新系统。注意此步可能需要较长时间。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt dist-upgrade</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt dist-upgrade</span><br></pre></td></tr></table></figure>
 <h2 id="安装必要软件"><a href="#安装必要软件" class="headerlink" title="安装必要软件"></a>安装必要软件</h2><p>首先安装 Apache2 网络服务器：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install apache2</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install apache2</span><br></pre></td></tr></table></figure>
 <p>接下来安装 MariaDB 服务端和客户端：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install mariadb-server mariadb-client</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install mariadb-server mariadb-client</span><br></pre></td></tr></table></figure>
 <p>接下来安装 PHP 和相关组件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install php php-mysql php-zip php-xml php-mbstring</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install php php-mysql php-zip php-xml php-mbstring</span><br></pre></td></tr></table></figure>
 <h2 id="放置并链接项目文件"><a href="#放置并链接项目文件" class="headerlink" title="放置并链接项目文件"></a>放置并链接项目文件</h2><p>将项目文件放置到你想要的位置，如 <em>X:\example</em> ，并建立 Ubuntu 与 Windows 文件的软链接。</p>
 <p>例如，将 Windows 中的 <em>X:\example</em> 链接到 Ubuntu 中的 <em>/var/www/example</em> ：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ln -s &#x2F;mnt&#x2F;x&#x2F;example &#x2F;var&#x2F;www&#x2F;example</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ln -s /mnt/x/example /var/www/example</span><br></pre></td></tr></table></figure>
 <h2 id="配置项目环境"><a href="#配置项目环境" class="headerlink" title="配置项目环境"></a>配置项目环境</h2><p>切换到项目网站根目录，这里是 <em>/var/www/example</em> ：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd &#x2F;var&#x2F;www&#x2F;example</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd /var/www/example</span><br></pre></td></tr></table></figure>
 <p>安装 composer ：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install composer</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install composer</span><br></pre></td></tr></table></figure>
 <p>安装 Yii2 框架文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
 <h2 id="配置网络服务器环境"><a href="#配置网络服务器环境" class="headerlink" title="配置网络服务器环境"></a>配置网络服务器环境</h2><p>在 Apache2 虚拟主机配置文件里配置好网站的虚拟主机。下面是一段示例。</p>
 <p>创建虚拟主机配置文件，注意文件名不要与已有的配置文件冲突：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;apache2&#x2F;sites-available&#x2F;001-example.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apache2/sites-available/001-example.conf</span><br></pre></td></tr></table></figure>
 <p>编辑文件：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="section">&lt;VirtualHost *<span class="number">:80</span>&gt;</span></span><br><span class="line">    <span class="attribute"><span class="nomarkup">ServerName</span></span> example.com</span><br><span class="line">    <span class="attribute"><span class="nomarkup">DocumentRoot</span></span> /var/www/example</span><br><span class="line"><span class="section">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
 <p>启用新建的配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo a2ensite 001-example.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo a2ensite 001-example.conf</span><br></pre></td></tr></table></figure>
 <p>如果 Apache2 服务器未启动，启动 Apache2 服务器：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service apache2 start</span><br></pre></td></tr></table></figure>
 <p>如果 Apache2 服务器已启动，重启 Apache2 服务器：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service apache2 restart</span><br></pre></td></tr></table></figure>
 <h2 id="解决权限问题"><a href="#解决权限问题" class="headerlink" title="解决权限问题"></a>解决权限问题</h2><p>在 Ubuntu 中执行以下指令，注意替换 <code>x</code> 和 <code>X</code> 为你想要的盘符：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo umount &#x2F;mnt&#x2F;x</span><br><span class="line">sudo mount -t drvfs X: &#x2F;mnt&#x2F;x -o metadata</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo umount /mnt/x</span><br><span class="line">sudo mount -t drvfs X: /mnt/x -o metadata</span><br></pre></td></tr></table></figure>
 <p>现在可以尝试在浏览器中打开网站了。</p>
 <h2 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h2><p>如果发现网页中时间显示不正确，可能是 PHP 时区错误的问题。在 <em>php.ini</em> 中修改或添加：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data.timezone &#x3D; &quot;Asia&#x2F;Shanghai&quot;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">data.timezone = &quot;Asia/Shanghai&quot;;</span><br></pre></td></tr></table></figure>
 <p>即可解决问题。</p>
 ]]></content>
       <categories>
@@ -482,11 +482,11 @@
           </div>
 <p><a href="http://npm.taobao.org/">淘宝 npm 地址</a></p>
 <p>有很多方法来配置 npm 的 registry 地址，下面根据不同情境列出几种比较常用的方法。以淘宝 npm 镜像举例。</p>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm --registry https:&#x2F;&#x2F;registry.npm.taobao.org install xxx</span><br></pre></td></tr></table></figure>
-<h2 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install xxx</span><br></pre></td></tr></table></figure>
+<h2 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>配置后可通过下面方式来验证是否成功</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-<h2 id="通过-cnpm-使用"><a href="#通过-cnpm-使用" class="headerlink" title="通过 cnpm 使用"></a>通过 cnpm 使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<h2 id="通过-cnpm-使用"><a href="#通过-cnpm-使用" class="headerlink" title="通过 cnpm 使用"></a>通过 cnpm 使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>过期或不适用的文章</category>
@@ -496,7 +496,7 @@
     <title>使用清华大学 PyPI 镜像加速 pip 下载</title>
     <url>/posts/20/</url>
     <content><![CDATA[<p>PyPI 镜像每 5 分钟同步一次。</p>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple some-package</span><br></pre></td></tr></table></figure>
+<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</span><br></pre></td></tr></table></figure>
 <p>注意，simple 不能少, 是 https 而不是 http 。</p>
 <h2 id="设为默认"><a href="#设为默认" class="headerlink" title="设为默认"></a>设为默认</h2><p>创建或修改：</p>
 <ul>
@@ -505,7 +505,7 @@
 <li><code>$HOME/Library/Application Support/pip/pip.conf</code> (macOS)</li>
 </ul>
 <p>将 <code>index-url</code> 修改为 <code>https://pypi.tuna.tsinghua.edu.cn/simple</code> ，例如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -520,7 +520,7 @@
     <url>/posts/24/</url>
     <content><![CDATA[<h2 id="配置路由属性"><a href="#配置路由属性" class="headerlink" title="配置路由属性"></a>配置路由属性</h2><p>可以简单地在路由中设置 <code>meta</code> 属性。</p>
 <p>例如在 <em>src/router/index.js</em> 中</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">    &#123;</span><br><span class="line">        path: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        name: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        meta: &#123; <span class="attr">title</span>: <span class="string">&#x27;...&#x27;</span> &#125;,</span><br><span class="line">        component: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;...&#x27;</span> &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h2 id="使用路由钩子"><a href="#使用路由钩子" class="headerlink" title="使用路由钩子"></a>使用路由钩子</h2><p>利用路由的 <code>beforeEach</code> 方法修改网站标题。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">document</span>.title = to.meta.title</span><br><span class="line">    next()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -576,11 +576,11 @@
     <content><![CDATA[<p>使用 <code>git branch -a</code> 命令可以查看所有本地分支和远程分支（使用 <code>git branch -r</code> 可以只查看远程分支）。</p>
 <p>发现很多在远程仓库已经删除的分支在本地依然可以看到。</p>
 <span id="more"></span>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git branch -a</span><br><span class="line"></span><br><span class="line">  movtop</span><br><span class="line">  task_develop</span><br><span class="line">* weibo</span><br><span class="line">  remotes&#x2F;origin&#x2F;HEAD -&gt; origin&#x2F;task_develop</span><br><span class="line">  remotes&#x2F;origin&#x2F;develop</span><br><span class="line">  remotes&#x2F;origin&#x2F;fix_composer_repositories_type</span><br><span class="line">  remotes&#x2F;origin&#x2F;join_weixin_module</span><br><span class="line">  remotes&#x2F;origin&#x2F;master</span><br><span class="line">  remotes&#x2F;origin&#x2F;mining-backup</span><br><span class="line">  remotes&#x2F;origin&#x2F;movtop</span><br><span class="line">  remotes&#x2F;origin&#x2F;right</span><br><span class="line">  remotes&#x2F;origin&#x2F;schedule_dev</span><br><span class="line">  remotes&#x2F;origin&#x2F;stuff_web_fix</span><br><span class="line">  remotes&#x2F;origin&#x2F;task_develop</span><br><span class="line">  remotes&#x2F;origin&#x2F;task_idea</span><br><span class="line">  remotes&#x2F;origin&#x2F;task_temp</span><br><span class="line">  remotes&#x2F;origin&#x2F;task_yqj</span><br><span class="line">  remotes&#x2F;origin&#x2F;weibo</span><br><span class="line">  remotes&#x2F;origin&#x2F;weixin_temp</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git branch -a</span><br><span class="line"></span><br><span class="line">  movtop</span><br><span class="line">  task_develop</span><br><span class="line">* weibo</span><br><span class="line">  remotes/origin/HEAD -&gt; origin/task_develop</span><br><span class="line">  remotes/origin/develop</span><br><span class="line">  remotes/origin/fix_composer_repositories_type</span><br><span class="line">  remotes/origin/join_weixin_module</span><br><span class="line">  remotes/origin/master</span><br><span class="line">  remotes/origin/mining-backup</span><br><span class="line">  remotes/origin/movtop</span><br><span class="line">  remotes/origin/right</span><br><span class="line">  remotes/origin/schedule_dev</span><br><span class="line">  remotes/origin/stuff_web_fix</span><br><span class="line">  remotes/origin/task_develop</span><br><span class="line">  remotes/origin/task_idea</span><br><span class="line">  remotes/origin/task_temp</span><br><span class="line">  remotes/origin/task_yqj</span><br><span class="line">  remotes/origin/weibo</span><br><span class="line">  remotes/origin/weixin_temp</span><br></pre></td></tr></table></figure>
 <p>使用命令 <code>git remote show origin</code> ，可以查看 remote 地址，远程分支，还有本地分支与之相对应关系等信息。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line"></span><br><span class="line">* remote origin</span><br><span class="line">  Fetch URL: https:&#x2F;&#x2F;xxx@gitlab.com&#x2F;xxx&#x2F;xxx.git</span><br><span class="line">  Push  URL: https:&#x2F;&#x2F;xxx@gitlab.com&#x2F;xxx&#x2F;xxx.git</span><br><span class="line">  HEAD branch: task_develop</span><br><span class="line">  Remote branches:</span><br><span class="line">    master                                             tracked</span><br><span class="line">    mining-backup                                      tracked</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;develop                        stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;fix_composer_repositories_type stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;join_weixin_module             stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;movtop                         stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;right                          stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;schedule_dev                   stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;stuff_web_fix                  stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;task_temp                      stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    refs&#x2F;remotes&#x2F;origin&#x2F;weibo                          stale (use &#39;git remote prune&#39; to remove)</span><br><span class="line">    task_develop                                       tracked</span><br><span class="line">    task_idea                                          tracked</span><br><span class="line">    task_yqj                                           tracked</span><br><span class="line">    weixin_temp                                        tracked</span><br><span class="line">  Local branches configured for &#39;git pull&#39;:</span><br><span class="line">    movtop       merges with remote movtop</span><br><span class="line">    task_develop merges with remote task_develop</span><br><span class="line">    weibo        merges with remote weibo</span><br><span class="line">  Local ref configured for &#39;git push&#39;:</span><br><span class="line">    task_develop pushes to task_develop (up to date)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote show origin</span><br><span class="line"></span><br><span class="line">* remote origin</span><br><span class="line">  Fetch URL: https://xxx@gitlab.com/xxx/xxx.git</span><br><span class="line">  Push  URL: https://xxx@gitlab.com/xxx/xxx.git</span><br><span class="line">  HEAD branch: task_develop</span><br><span class="line">  Remote branches:</span><br><span class="line">    master                                             tracked</span><br><span class="line">    mining-backup                                      tracked</span><br><span class="line">    refs/remotes/origin/develop                        stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/fix_composer_repositories_type stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/join_weixin_module             stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/movtop                         stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/right                          stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/schedule_dev                   stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/stuff_web_fix                  stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/task_temp                      stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    refs/remotes/origin/weibo                          stale (use &#x27;git remote prune&#x27; to remove)</span><br><span class="line">    task_develop                                       tracked</span><br><span class="line">    task_idea                                          tracked</span><br><span class="line">    task_yqj                                           tracked</span><br><span class="line">    weixin_temp                                        tracked</span><br><span class="line">  Local branches configured for &#x27;git pull&#x27;:</span><br><span class="line">    movtop       merges with remote movtop</span><br><span class="line">    task_develop merges with remote task_develop</span><br><span class="line">    weibo        merges with remote weibo</span><br><span class="line">  Local ref configured for &#x27;git push&#x27;:</span><br><span class="line">    task_develop pushes to task_develop (up to date)</span><br></pre></td></tr></table></figure>
 <p>此时我们可以看到那些远程仓库已经不存在的分支。根据提示，使用 <code>git remote prune origin</code> 命令。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git remote prune origin</span><br><span class="line"></span><br><span class="line">Pruning origin</span><br><span class="line">URL: https:&#x2F;&#x2F;xxx@gitlab.com&#x2F;xxx&#x2F;xxx.git</span><br><span class="line"> * [pruned] origin&#x2F;develop</span><br><span class="line"> * [pruned] origin&#x2F;fix_composer_repositories_type</span><br><span class="line"> * [pruned] origin&#x2F;join_weixin_module</span><br><span class="line"> * [pruned] origin&#x2F;movtop</span><br><span class="line"> * [pruned] origin&#x2F;right</span><br><span class="line"> * [pruned] origin&#x2F;schedule_dev</span><br><span class="line"> * [pruned] origin&#x2F;stuff_web_fix</span><br><span class="line"> * [pruned] origin&#x2F;task_temp</span><br><span class="line"> * [pruned] origin&#x2F;weibo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git remote prune origin</span><br><span class="line"></span><br><span class="line">Pruning origin</span><br><span class="line">URL: https://xxx@gitlab.com/xxx/xxx.git</span><br><span class="line"> * [pruned] origin/develop</span><br><span class="line"> * [pruned] origin/fix_composer_repositories_type</span><br><span class="line"> * [pruned] origin/join_weixin_module</span><br><span class="line"> * [pruned] origin/movtop</span><br><span class="line"> * [pruned] origin/right</span><br><span class="line"> * [pruned] origin/schedule_dev</span><br><span class="line"> * [pruned] origin/stuff_web_fix</span><br><span class="line"> * [pruned] origin/task_temp</span><br><span class="line"> * [pruned] origin/weibo</span><br></pre></td></tr></table></figure>
 <p>这样就删除了那些远程仓库不存在的分支。</p>
 ]]></content>
       <categories>
@@ -603,7 +603,7 @@
 <p>执行完上面命令后接着执行以下命令查看内核是否都删除干净了：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg --get-selections | grep linux</span><br></pre></td></tr></table></figure>
 <p>如果没干净继续删除。有的内核后面会显示是 <code>deinstall</code> ，那需要通过：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dpkg --get-selections | grep deinstall | sed &#39;s&#x2F;deinstall&#x2F;\lpurge&#x2F;&#39; | dpkg --set-selections; dpkg -Pa</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dpkg --get-selections | grep deinstall | sed &#x27;s/deinstall/\lpurge/&#x27; | dpkg --set-selections; dpkg -Pa</span><br></pre></td></tr></table></figure>
 <p>进行删除。</p>
 ]]></content>
       <categories>
@@ -623,11 +623,11 @@
             <p>尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
           </div>
 <p>在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
 <p>免密码使用数据库 root 用户登录数据库。</p>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在 <code>user</code> 表中有一列叫做 <code>plugin</code> ：</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, authentication_string, plugin <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| user | authentication_string | plugin      |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| root | *                     | auth_socket |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">1 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| user | authentication_string | plugin      |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| root | *                     | auth_socket |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">1 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>其中的 <code>auth_socket</code> 让你能方便地作为 root 用户从控制台免密码登录。但这同时也禁用了密码登录，而且你不能使用其它客户端进行登录。</p>
 <span id="more"></span>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>如果必须要使用数据库 root 用户，则需要做如下修改。注意按照自己的数据库版本选择合适的命令。</p>
@@ -649,7 +649,7 @@
 <h2 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h2><h3 id="TestJUnit-java"><a href="#TestJUnit-java" class="headerlink" title="TestJUnit.java"></a>TestJUnit.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertEquals;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJUnit</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String str = <span class="string">&quot;Junit is working fine.&quot;</span>;</span><br><span class="line">        assertEquals(<span class="string">&quot;Junit is working fine.&quot;</span>, str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="TestRunner-java"><a href="#TestRunner-java" class="headerlink" title="TestRunner.java"></a>TestRunner.java</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.junit.runner.JUnitCore;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.Result;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.notification.Failure;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestRunner</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Result result = JUnitCore.runClasses(TestJUnit.class);</span><br><span class="line">    <span class="keyword">for</span> (Failure failure : result.getFailures()) &#123;</span><br><span class="line">        System.out.println(failure.toString());</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(result.wasSuccessful());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>期望输出</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">true</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -665,7 +665,7 @@
     <content><![CDATA[<p>在引导时按住 <code>Shift</code> 键即可进入高级选项菜单。如果想要每次都显示的话可以进行如下修改。</p>
 <p>打开 <em>/etc/default/grub</em> ，将 <code>GRUB_TIMEOUT</code> 设置为 <code>-1</code> 。</p>
 <p>运行命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">update-grub</span><br></pre></td></tr></table></figure>
 <p>完成修改。</p>
 ]]></content>
       <categories>
@@ -682,32 +682,32 @@
             <p>该文章内容已过期或不再适用。</p>
           </div>
 <div class="note warning">
-            <p>建议使用 <a href="https://www.anaconda.com/">Anaconda</a> 安装任意版本的 Python 。</p>
+            <p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
           </div>
 <h2 id="系统准备"><a href="#系统准备" class="headerlink" title="系统准备"></a>系统准备</h2><p>安装一些必要的依赖包</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt install libffi-dev libbz2-dev libssl-dev</span><br><span class="line">apt install libreadline7 libreadline-dev libsqlite3-dev</span><br><span class="line">apt install libncurses5 libncurses5-dev libncursesw5</span><br><span class="line">apt install libgdbm-dev liblzma-dev uuid-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install libffi-dev libbz2-dev libssl-dev</span><br><span class="line">apt install libreadline7 libreadline-dev libsqlite3-dev</span><br><span class="line">apt install libncurses5 libncurses5-dev libncursesw5</span><br><span class="line">apt install libgdbm-dev liblzma-dev uuid-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
 <p>如果 lib 名称不确认的话，可以使用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache search</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt-cache search</span><br></pre></td></tr></table></figure>
 <p>查找。</p>
 <p>另外可能还需要安装 git, g++, make</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt install git g++ make</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install git g++ make</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <h2 id="安装-pyenv"><a href="#安装-pyenv" class="headerlink" title="安装 pyenv"></a>安装 pyenv</h2><p>pyenv 是 shell 脚本编写的，只需要下载然后指定环境变量就可以了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;yyuu&#x2F;pyenv.git ~&#x2F;.pyenv</span><br><span class="line">echo &#39;export PYENV_ROOT&#x3D;&quot;$HOME&#x2F;.pyenv&quot;&#39; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line">echo &#39;export PATH&#x3D;&quot;$PYENV_ROOT&#x2F;bin:$PATH&quot;&#39; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line">echo &#39;eval &quot;$(pyenv init -)&quot;&#39; &gt;&gt; ~&#x2F;.bashrc</span><br><span class="line">exec $SHELL -l</span><br></pre></td></tr></table></figure>
-<h2 id="安装-Python-3-7-0"><a href="#安装-Python-3-7-0" class="headerlink" title="安装 Python 3.7.0"></a>安装 Python 3.7.0</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pyenv install 3.7.0 -v</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone git://github.com/yyuu/pyenv.git ~/.pyenv</span><br><span class="line">echo &#x27;export PYENV_ROOT=&quot;$HOME/.pyenv&quot;&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &#x27;export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &#x27;eval &quot;$(pyenv init -)&quot;&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">exec $SHELL -l</span><br></pre></td></tr></table></figure>
+<h2 id="安装-Python-3-7-0"><a href="#安装-Python-3-7-0" class="headerlink" title="安装 Python 3.7.0"></a>安装 Python 3.7.0</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pyenv install 3.7.0 -v</span><br></pre></td></tr></table></figure>
 <p>安装完成之后，需要使用如下命令对数据库进行更新</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pyenv rehash</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pyenv rehash</span><br></pre></td></tr></table></figure>
 <p>设置全局 Python 版本</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pyenv global 3.7.0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pyenv global 3.7.0</span><br></pre></td></tr></table></figure>
 <p>此时便可以尝试输入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python --version</span><br></pre></td></tr></table></figure>
 <p>验证一下 Python 版本了。</p>
 <h2 id="后续配置"><a href="#后续配置" class="headerlink" title="后续配置"></a>后续配置</h2><p>更新 pip</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br></pre></td></tr></table></figure>
 <p>更新 setuptools</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">python -m pip install --upgrade setuptools</span><br></pre></td></tr></table></figure>
 <p>安装 ipython （可选）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install ipython</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>过期或不适用的文章</category>
@@ -716,25 +716,28 @@
   <entry>
     <title>在 Ubuntu 中安装最新版的 Node.js</title>
     <url>/posts/16/</url>
-    <content><![CDATA[<h2 id="卸载已安装的软件包"><a href="#卸载已安装的软件包" class="headerlink" title="卸载已安装的软件包"></a>卸载已安装的软件包</h2><p>如果以前安装过老版本的 nodejs 和 npm ，先进行卸载。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt remove npm nodejs --purge</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<div class="note danger">
+            <p>该文章内容已过期或不再适用。</p>
+          </div>
+<div class="note warning">
+            <p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Node.js。</p>
+          </div>
+<h2 id="卸载已安装的软件包"><a href="#卸载已安装的软件包" class="headerlink" title="卸载已安装的软件包"></a>卸载已安装的软件包</h2><p>如果以前安装过老版本的 nodejs 和 npm ，先进行卸载。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt remove npm nodejs --purge</span><br></pre></td></tr></table></figure>
 <p>进入 <em>/usr/local/bin</em> 和 <em>/usr/bin</em> 目录中，若有 node 或者 npm 文件，全部删除。</p>
 <h2 id="使用-NodeSource-在线安装"><a href="#使用-NodeSource-在线安装" class="headerlink" title="使用 NodeSource 在线安装"></a>使用 NodeSource 在线安装</h2><p><a href="https://github.com/nodesource/distributions">NodeSource 仓库地址</a></p>
-<h3 id="Node-js-v13-x"><a href="#Node-js-v13-x" class="headerlink" title="Node.js v13.x:"></a>Node.js v13.x:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_13.x | sudo -E bash -</span><br></pre></td></tr></table></figure>
+<h3 id="Node-js-v13-x"><a href="#Node-js-v13-x" class="headerlink" title="Node.js v13.x:"></a>Node.js v13.x:</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -</span><br></pre></td></tr></table></figure>
 <p>为了加快安装速度，可以切换成清华源（此步可跳过）。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;nodesource.list</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list.d/nodesource.list</span><br></pre></td></tr></table></figure>
 <p>将内容修改为：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;nodesource&#x2F;deb_13.x bionic main</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;nodesource&#x2F;deb_13.x bionic main</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_13.x bionic main</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/nodesource/deb_13.x bionic main</span><br></pre></td></tr></table></figure>
 <p>其中， Ubuntu 的版本 <code>bionic</code> 请自行根据实际修改。</p>
 <p>最后安装 nodejs ：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nodejs</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install -y nodejs</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>过期或不适用的文章</category>
       </categories>
-      <tags>
-        <tag>Node.js</tag>
-      </tags>
   </entry>
   <entry>
     <title>在没有 Root 权限的情况下删除或禁用 Android 系统应用</title>
@@ -753,11 +756,11 @@
     <url>/posts/14/</url>
     <content><![CDATA[<p>以下步骤均基于文件无冲突的情况，如果出现冲突，需要先解决冲突才能继续。</p>
 <p>添加上游仓库：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote add upstream &lt;上游仓库 URL&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git remote add upstream &lt;上游仓库 URL&gt;</span><br></pre></td></tr></table></figure>
 <p>拉取上游仓库（可选使用 <code>rebase</code> 参数）：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull --rebase upstream master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git pull --rebase upstream master</span><br></pre></td></tr></table></figure>
 <p>将本地仓库上传到个人远程仓库：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>版本控制系统</category>
@@ -786,7 +789,7 @@
     <title>解决 OpenSSL 升级后 Shadowsocks 服务报错的问题</title>
     <url>/posts/3/</url>
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;bin&#x2F;ssserver&quot;, line 9, in</span><br><span class="line">        load_entry_point(&#39;shadowsocks&#x3D;&#x3D;2.8.2&#39;, &#39;console_scripts&#39;, &#39;ssserver&#39;)()</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;server.py&quot;, line 34, in main</span><br><span class="line">        config &#x3D; shell.get_config(False)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;shell.py&quot;, line 262, in get_config</span><br><span class="line">        check_config(config, is_local)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;shell.py&quot;, line 124, in check_config</span><br><span class="line">        encrypt.try_cipher(config[&#39;password&#39;], config[&#39;method&#39;])</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 44, in try_cipher</span><br><span class="line">        Encryptor(key, method)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 83, in __init__</span><br><span class="line">        random_string(self._method_info[1]))</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;encrypt.py&quot;, line 109, in get_cipher</span><br><span class="line">        return m[2](method, key, iv, op)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py&quot;, line 76, in __init__</span><br><span class="line">        load_openssl()</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;shadowsocks&#x2F;crypto&#x2F;openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes &#x3D; (c_void_p,)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib64&#x2F;python2.7&#x2F;ctypes&#x2F;__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">        func &#x3D; self.__getitem__(name)</span><br><span class="line">    File &quot;&#x2F;usr&#x2F;lib64&#x2F;python2.7&#x2F;ctypes&#x2F;__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">        func &#x3D; self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: &#x2F;usr&#x2F;local&#x2F;ssl&#x2F;lib&#x2F;libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br><span class="line">shadowsocks start failed</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File &quot;/usr/bin/ssserver&quot;, line 9, in</span><br><span class="line">        load_entry_point(&#x27;shadowsocks==2.8.2&#x27;, &#x27;console_scripts&#x27;, &#x27;ssserver&#x27;)()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/server.py&quot;, line 34, in main</span><br><span class="line">        config = shell.get_config(False)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 262, in get_config</span><br><span class="line">        check_config(config, is_local)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 124, in check_config</span><br><span class="line">        encrypt.try_cipher(config[&#x27;password&#x27;], config[&#x27;method&#x27;])</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 44, in try_cipher</span><br><span class="line">        Encryptor(key, method)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 83, in __init__</span><br><span class="line">        random_string(self._method_info[1]))</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 109, in get_cipher</span><br><span class="line">        return m[2](method, key, iv, op)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 76, in __init__</span><br><span class="line">        load_openssl()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">        func = self.__getitem__(name)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">        func = self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br><span class="line">shadowsocks start failed</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题是由于在新版 OpenSSL 中，废弃了 <code>EVP_CIPHER_CTX_cleanup()</code> 函数。</p>
 <p>如官网中所说：</p>
@@ -823,7 +826,7 @@
 <p>接着找到你的 <em>windeployqt.exe</em> 文件，例如 <em>C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe</em> 。</p>
 <p>将 minGW 添加到环境变量，例如路径 <em>C:\Qt\Tools\mingw530_32\bin</em> 。</p>
 <p>打开命令行窗口，然后进入存放你的 exe 文件的文件夹，执行命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe &lt;你的 exe 文件名&gt; --release</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe &lt;你的 exe 文件名&gt; --release</span><br></pre></td></tr></table></figure>
 <p>这样必要的文件就被放进了该文件夹。</p>
 ]]></content>
       <categories>
@@ -837,7 +840,7 @@
     <title>解决 VMware 虚拟机共享文件夹的权限问题</title>
     <url>/posts/28/</url>
     <content><![CDATA[<p>在文件 <em>/etc/fstab</em> 中加入新的一行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.host:&#x2F; &#x2F;mnt&#x2F;hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0</span><br></pre></td></tr></table></figure>
 <p>即可。</p>
 ]]></content>
       <categories>
@@ -851,9 +854,9 @@
     <title>解决 WSL 中 Apache2 的 Failed to enable APR_TCP_DEFER_ACCEP 错误</title>
     <url>/posts/13/</url>
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>WSL 安装 Apache2 后启动服务会报出以下错误：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Invalid argument: AH00076: Failed to enable APR_TCP_DEFER_ACCEP</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Invalid argument: AH00076: Failed to enable APR_TCP_DEFER_ACCEP</span><br></pre></td></tr></table></figure>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>打开 Apache2 配置文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;apache2&#x2F;apache2.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /etc/apache2/apache2.conf</span><br></pre></td></tr></table></figure>
 <p>在文件的最底部添加以下内容：</p>
 <figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"><span class="attribute">AcceptFilter</span> http none</span><br></pre></td></tr></table></figure>
 <p>然后重启 Apache2 。</p>
@@ -884,7 +887,7 @@
     <title>设置默认采用 root 用户登录 WSL</title>
     <url>/posts/11/</url>
     <content><![CDATA[<p>用管理员身份打开 PowerShell，执行以下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;WSL 发行版代号&gt; config --default-user root</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;WSL 发行版代号&gt; config --default-user root</span><br></pre></td></tr></table></figure>
 <p>目前可用的发行版代号不完全列表如下：</p>
 <div class="table-container">
 <table>
@@ -933,8 +936,8 @@
   <entry>
     <title>远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法</title>
     <url>/posts/35/</url>
-    <content><![CDATA[<h2 id="问描述"><a href="#问描述" class="headerlink" title="问描述"></a>问描述</h2><p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
+    <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
 <p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
 <img src="/posts/35/20180726200007776.png" class="" title="修改示例">
 <p>修改之后即可使用。</p>
@@ -952,10 +955,10 @@
   <entry>
     <title>Mapping MySQL Data Types in Java</title>
     <url>/posts/38/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.</p>
+    <content><![CDATA[<p>Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.</p>
 <p>There is no particular reason that the Java data type needs to be exactly isomorphic to the MySQL data type. For example, Java String don&#39;t precisely match any of the MySQL data <code>CHAR</code> type, but it gives enough type information to represent <code>CHAR</code>, <code>VARCHAR</code> or <code>LONGVARCHAR</code> successfully.</p>
 <span id="more"></span>
-<h2 id="对应关系表"><a href="#对应关系表" class="headerlink" title="对应关系表"></a>对应关系表</h2><p>The following table represent the default Java mapping for various common MySQL data types:</p>
+<h2 id="Mapping-Table"><a href="#Mapping-Table" class="headerlink" title="Mapping Table"></a>Mapping Table</h2><p>The following table represent the default Java mapping for various common MySQL data types:</p>
 <div class="table-container">
 <table>
 <thead>
@@ -1044,7 +1047,7 @@
 </tbody>
 </table>
 </div>
-<h2 id="具体解释"><a href="#具体解释" class="headerlink" title="具体解释"></a>具体解释</h2><h3 id="CHAR-VARCHAR-and-LONGVARCHAR"><a href="#CHAR-VARCHAR-and-LONGVARCHAR" class="headerlink" title="CHAR, VARCHAR and LONGVARCHAR"></a>CHAR, VARCHAR and LONGVARCHAR</h3><p>MySQL data types <code>CHAR</code>, <code>VARCHAR</code>, <code>LONGVARCHAR</code> are closely related. <code>CHAR</code> represents a small, fixed-length character string, <code>VARCHAR</code> represents a small, variable-length character string, and <code>LONGVARCHAR</code> represents a large, variable-length character string. There is no need for Java programmer to distinguish these three MySQL data types. These can be expressed identically in Java. These data types could be mapped in Java to either <code>String</code> or <code>char[]</code>. But <code>String</code> seemed more appropriate type for normal use. Java <code>String</code> class provide a method to convert a String into <code>char[]</code> and a constructor for converting a <code>char[]</code> into a <code>String</code>.</p>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><h3 id="CHAR-VARCHAR-and-LONGVARCHAR"><a href="#CHAR-VARCHAR-and-LONGVARCHAR" class="headerlink" title="CHAR, VARCHAR and LONGVARCHAR"></a>CHAR, VARCHAR and LONGVARCHAR</h3><p>MySQL data types <code>CHAR</code>, <code>VARCHAR</code>, <code>LONGVARCHAR</code> are closely related. <code>CHAR</code> represents a small, fixed-length character string, <code>VARCHAR</code> represents a small, variable-length character string, and <code>LONGVARCHAR</code> represents a large, variable-length character string. There is no need for Java programmer to distinguish these three MySQL data types. These can be expressed identically in Java. These data types could be mapped in Java to either <code>String</code> or <code>char[]</code>. But <code>String</code> seemed more appropriate type for normal use. Java <code>String</code> class provide a method to convert a String into <code>char[]</code> and a constructor for converting a <code>char[]</code> into a <code>String</code>.</p>
 <p>The method <code>ResultSet.getString()</code> allocates and returns a new <code>String</code>. It is suitable for retrieving data from <code>CHAR</code>, <code>VARCHAR</code> and <code>LONGVARCHAR</code> fields. This is suitable for retrieving normal data, but <code>LONGVARCHAR</code> MySQL type can be used to store multi-megabyte strings. So that Java programmers needs a way to retrieve the <code>LONGVARCHAR</code> value in chunks. To handle this situation, <code>ResultSet</code> interface have two methods for allowing programmers to retrieve a <code>LONGVARCHAR</code> value as a Java input stream from which they can subsequently read data in whatever size chunks they prefer. These methods are <code>getAsciiStream()</code> and <code>getCharacterStream()</code>, which deliver the data stored in a <code>LONGVARCHAR</code> column as a stream of ASCII or Unicode characters.</p>
 <h3 id="NUMERIC-and-DECIMAL"><a href="#NUMERIC-and-DECIMAL" class="headerlink" title="NUMERIC and DECIMAL"></a>NUMERIC and DECIMAL</h3><p>The <code>NUMERIC</code> and <code>DECIMAL</code> MySQL data types are very similar. They both represent fixed point numbers where absolute precision is required. The most convenient Java mapping for these MySQL data type is <code>java.math.BigDecimal</code>. This Java type provides math operations to allow <code>BigDecimal</code> types to be added, subtracted, multiplied, and divided with other <code>BigDecimal</code> types, with <code>integer</code> types, and with floating point types.</p>
 <p>We also allow access to these MySQL types as simple <code>String</code>s and <code>char[]</code>. Thus, the Java programmers can use the <code>getString()</code> to retrieve the <code>NUMERICAL</code> and <code>DECIMAL</code> results.</p>
@@ -1055,7 +1058,7 @@
 <h3 id="DATE-TIME-and-TIMESTAMP"><a href="#DATE-TIME-and-TIMESTAMP" class="headerlink" title="DATE, TIME and TIMESTAMP"></a>DATE, TIME and TIMESTAMP</h3><p>These three MySQL types are related to time. The <code>DATE</code> type represents a date consisting of day, month, and year, the <code>TIME</code> type represents a time consisting of hours, minutes, and seconds and the <code>TIMESTAMP</code> type represents <code>DAT</code>E plus <code>TIME</code> plus a nanosecond field. The standard Java class <code>java.util.Date</code> that provides date and time information but does not match any of these three MySQL date/time types exactly, because it has <code>DATE</code> and <code>TIME</code> information but no nanoseconds.</p>
 <p>That&#39;s why we define three subclasses of <code>java.util.Date</code>. These are:</p>
 <p><code>java.sql.Date</code> for SQL <code>DATE</code> information.<br><code>java.sql.Timefor</code> SQL <code>TIME</code> information.<br><code>java.sql.Timestamp</code> for SQL <code>TIMESTAMP</code> information.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml">https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml</a></li>
 </ul>
 ]]></content>
@@ -1252,7 +1255,7 @@
 </li>
 </ul>
 <h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;cdf.csv&#x27;</span>, header=<span class="number">0</span>)</span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot()</span><br><span class="line"></span><br><span class="line">series: pd.Series</span><br><span class="line"><span class="keyword">for</span> label, series <span class="keyword">in</span> df.iteritems():</span><br><span class="line">    <span class="comment"># 用于隐藏最右边的竖线</span></span><br><span class="line">    <span class="comment"># 将 2 修改为横轴范围外的一处即可（但不可为 inf ）</span></span><br><span class="line">    bins = <span class="built_in">sorted</span>(series.drop_duplicates()) + [<span class="number">2</span>]</span><br><span class="line">    series.hist(label=label, cumulative=<span class="literal">True</span>, histtype=<span class="string">&#x27;step&#x27;</span>,</span><br><span class="line">                density=<span class="number">1</span>, bins=bins, linewidth=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.set_title(<span class="string">&#x27;Empirical CDF&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Value&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Density&#x27;</span>)</span><br><span class="line">ax.set_xlim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">ax.set_ylim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line">new_handles = [Line2D([], [], c=h.get_edgecolor()) <span class="keyword">for</span> h <span class="keyword">in</span> handles]</span><br><span class="line">ax.legend(handles=new_handles, labels=labels)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
-<h2 id="附：测试数据"><a href="#附：测试数据" class="headerlink" title="附：测试数据"></a>附：测试数据</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Series A,Series B</span><br><span class="line">0.55,0.6</span><br><span class="line">0.59,0.632</span><br><span class="line">0.717,0.719</span><br><span class="line">0.661,0.725</span><br><span class="line">0.479,0.726</span><br><span class="line">0.741,0.742</span><br><span class="line">0.718,0.742</span><br><span class="line">0.745,0.748</span><br><span class="line">0.61,0.75</span><br><span class="line">0.739,0.764</span><br><span class="line">0.532,0.78</span><br><span class="line">0.8,0.808</span><br><span class="line">0.618,0.811</span><br><span class="line">0.603,0.819</span><br><span class="line">0.792,0.832</span><br><span class="line">0.703,0.834</span><br><span class="line">0.697,0.834</span><br><span class="line">0.764,0.859</span><br><span class="line">0.709,0.862</span><br><span class="line">0.764,0.875</span><br><span class="line">0.8,0.895</span><br><span class="line">0.897,0.897</span><br><span class="line">0.869,0.898</span><br><span class="line">0.902,0.907</span><br><span class="line">0.898,0.908</span><br><span class="line">0.86,0.911</span><br><span class="line">0.888,0.911</span><br><span class="line">0.904,0.927</span><br><span class="line">0.929,0.932</span><br><span class="line">0.932,0.932</span><br><span class="line">0.73,0.933</span><br><span class="line">0.922,0.947</span><br><span class="line">0.944,0.95</span><br><span class="line">0.955,0.95</span><br><span class="line">0.97,1</span><br></pre></td></tr></table></figure>
+<h2 id="附：测试数据"><a href="#附：测试数据" class="headerlink" title="附：测试数据"></a>附：测试数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Series A,Series B</span><br><span class="line">0.55,0.6</span><br><span class="line">0.59,0.632</span><br><span class="line">0.717,0.719</span><br><span class="line">0.661,0.725</span><br><span class="line">0.479,0.726</span><br><span class="line">0.741,0.742</span><br><span class="line">0.718,0.742</span><br><span class="line">0.745,0.748</span><br><span class="line">0.61,0.75</span><br><span class="line">0.739,0.764</span><br><span class="line">0.532,0.78</span><br><span class="line">0.8,0.808</span><br><span class="line">0.618,0.811</span><br><span class="line">0.603,0.819</span><br><span class="line">0.792,0.832</span><br><span class="line">0.703,0.834</span><br><span class="line">0.697,0.834</span><br><span class="line">0.764,0.859</span><br><span class="line">0.709,0.862</span><br><span class="line">0.764,0.875</span><br><span class="line">0.8,0.895</span><br><span class="line">0.897,0.897</span><br><span class="line">0.869,0.898</span><br><span class="line">0.902,0.907</span><br><span class="line">0.898,0.908</span><br><span class="line">0.86,0.911</span><br><span class="line">0.888,0.911</span><br><span class="line">0.904,0.927</span><br><span class="line">0.929,0.932</span><br><span class="line">0.932,0.932</span><br><span class="line">0.73,0.933</span><br><span class="line">0.922,0.947</span><br><span class="line">0.944,0.95</span><br><span class="line">0.955,0.95</span><br><span class="line">0.97,1</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -1265,7 +1268,10 @@
   <entry>
     <title>在 Matplotlib 中显示中文</title>
     <url>/posts/40/</url>
-    <content><![CDATA[<p>在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。</p>
+    <content><![CDATA[<div class="note warning">
+            <p>本方法可能不适用于非 Windows 系统。</p>
+          </div>
+<p>在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用来正常显示中文汉字</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用来正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://blog.csdn.net/u010472607/article/details/82789887">https://blog.csdn.net/u010472607/article/details/82789887</a></li>
@@ -1344,13 +1350,13 @@
 <h2 id="The-static-in-project-repository-solution"><a href="#The-static-in-project-repository-solution" class="headerlink" title="The static in-project repository solution"></a>The static in-project repository solution</h2><p>After putting this in your <code>pom</code>:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>for each artifact with a group id of form x.y.z Maven will include the following location inside your project dir in its search for artifacts:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">repo&#x2F;</span><br><span class="line">| - x&#x2F;</span><br><span class="line">|   | - y&#x2F;</span><br><span class="line">|   |   | - z&#x2F;</span><br><span class="line">|   |   |   | - $&#123;artifactId&#125;&#x2F;</span><br><span class="line">|   |   |   |   | - $&#123;version&#125;&#x2F;</span><br><span class="line">|   |   |   |   |   | - $&#123;artifactId&#125;-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">repo/</span><br><span class="line">| - x/</span><br><span class="line">|   | - y/</span><br><span class="line">|   |   | - z/</span><br><span class="line">|   |   |   | - $&#123;artifactId&#125;/</span><br><span class="line">|   |   |   |   | - $&#123;version&#125;/</span><br><span class="line">|   |   |   |   |   | - $&#123;artifactId&#125;-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
 <p>To elaborate more on this you can read <a href="http://blog.dub.podval.org/2010/01/maven-in-project-repository.html">this blog post</a>.</p>
 <h2 id="Use-Maven-to-install-to-project-repo"><a href="#Use-Maven-to-install-to-project-repo" class="headerlink" title="Use Maven to install to project repo"></a>Use Maven to install to project repo</h2><p>Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under <code>repo</code> folder execute:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath&#x3D;repo -DcreateChecksum&#x3D;true -Dpackaging&#x3D;jar -Dfile&#x3D;[your-jar] -DgroupId&#x3D;[...] -DartifactId&#x3D;[...] -Dversion&#x3D;[...]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=[your-jar] -DgroupId=[...] -DartifactId=[...] -Dversion=[...]</span><br></pre></td></tr></table></figure>
 <p>If you&#39;ll choose this approach you&#39;ll be able to simplify the repository declaration in <code>pom</code> to:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them</a></li>
 </ul>
 ]]></content>
@@ -1366,13 +1372,13 @@
     <url>/posts/46/</url>
     <content><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this quick article we&#39;ll focus on packaging a Maven project into an executable Jar file.</p>
 <p>Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
-<span id="more"></span>
 <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>In order to create an executable jar, we don&#39;t need any additional dependencies. We just need to create Maven Java project, and have at least one class with the <code>main(…)</code> method.</p>
 <p>In our example, we created Java class named <code>ExecutableMavenJar</code>.</p>
 <p>We also need to make sure that our <code>pom.xml</code> contains the the following elements:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baeldung<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>core-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>The most important aspect here is the type – to create an executable jar, double check the configuration uses a <code>jar</code> type.</p>
 <p>Now we can start using the various solutions.</p>
+<span id="more"></span>
 <h3 id="Manual-Configuration"><a href="#Manual-Configuration" class="headerlink" title="Manual Configuration"></a>Manual Configuration</h3><p>Let&#39;s start with a manual approach – with the help of the <code>maven-dependency-plugin</code>.</p>
 <p>First, we&#39;ll copy all required dependencies into the folder that we&#39;ll specify:</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>prepare-package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    $&#123;project.build.directory&#125;/libs</span><br><span class="line">                <span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -1400,7 +1406,7 @@
 </ul>
 <h3 id="Apache-Maven-Shade-Plugin"><a href="#Apache-Maven-Shade-Plugin" class="headerlink" title="Apache Maven Shade Plugin"></a>Apache Maven Shade Plugin</h3><p>Apache Maven Shade Plugin provides the capability to package the artifact in an uber-jar, which consists of all dependencies required to run the project. Moreover, it supports shading – i.e. rename – the packages of some of the dependencies.</p>
 <p>Let&#39;s take a look at the configuration:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shadedArtifactAttached</span>&gt;</span>true<span class="tag">&lt;/<span class="name">shadedArtifactAttached</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">transformers</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">transformer</span> <span class="attr">implementation</span>=</span></span><br><span class="line"><span class="tag">                      &quot;<span class="attr">org.apache.maven.plugins.shade.resource.ManifestResourceTransformer</span>&quot;&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.baeldung.executable.ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">transformer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">transformers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shadedArtifactAttached</span>&gt;</span>true<span class="tag">&lt;/<span class="name">shadedArtifactAttached</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">transformers</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">transformer</span> <span class="attr">implementation</span>=</span></span><br><span class="line"><span class="tag">                      <span class="string">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.baeldung.executable.ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">transformer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">transformers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>There are three main parts of this configuration:</p>
 <p>First, <code>&lt;shadedArtifactAttached&gt;</code> marks all dependencies to be packaged into the jar.</p>
 <p>Second, we need to specify <a href="https://maven.apache.org/plugins/maven-shade-plugin/usage.html">the transformer implementation</a>; we used the standard one in our example.</p>
@@ -1436,7 +1442,7 @@
 <p>How to test? In order to compile the project into an executable jar, please run Maven with mvn clean package command.</p>
 <p>Hopefully, this article gives you some more insights on the topic and you will find your preferred approach depending on your needs.</p>
 <p>One quick final note – make sure the licenses of the jars you&#39;re bundling don&#39;t prohibit this kind of operation. Generally, that won&#39;t be the case, but it&#39;s something worth considering.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://www.baeldung.com/executable-jar-with-maven">https://www.baeldung.com/executable-jar-with-maven</a></li>
 </ul>
 ]]></content>
@@ -1476,22 +1482,22 @@
 <li><p><a href="https://linuxize.com/post/linux-cd-command/">Navigate</a> to the repository directory in your terminal.</p>
 </li>
 <li><p>Run the following command to amend (change) the message of the latest commit:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <p> What the command does is overwriting the most recent commit with the new one.</p>
 <p> The <code>-m</code> option allows you to write the new message on the command line without opening an editor session.</p>
 </li>
 </ol>
 <p>Before changing the commit message, you can also add other changes you previously forgot:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="Pushed-commit"><a href="#Pushed-commit" class="headerlink" title="Pushed commit"></a>Pushed commit</h3><p>The amended (changed) commit is a new entity with a different SHA-1. The previous commit will no longer exist in the current branch.<br>Generally, you should avoid amending a commit that is already pushed as it may cause issues to people who based their work on this commit. It is a good idea to consult your fellow developers before changing a pushed commit.</p>
 <p>If you changed the message of most recently pushed commit, you would have to force push it.</p>
 <ol>
 <li><p>Navigate to the repository.</p>
 </li>
 <li><p>Amend the message of the latest pushed commit:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <p> Force push to update the history of the remote repository:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Changing-an-Older-or-Multiple-Commits"><a href="#Changing-an-Older-or-Multiple-Commits" class="headerlink" title="Changing an Older or Multiple Commits"></a>Changing an Older or Multiple Commits</h2><p>If you need to change the message of an older or multiple commits, you can use an interactive <code>git rebase</code> to change one or more older commits.</p>
@@ -1500,19 +1506,19 @@
 <li><p>Navigate to the repository containing the commit message you want to change.</p>
 </li>
 <li><p>Type <code>git rebase -i HEAD~N</code>, where <code>N</code> is the number of commits to perform a rebase on. For example, if you want to change the 4th and the 5th latest commits you would type:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
 <p> The command will display the latest <code>X</code> commits in your <a href="https://linuxize.com/post/how-to-use-nano-text-editor/">default text editor</a>:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Move to the lines of the commit message you want to change and replace <code>pick</code> with <code>reword</code>:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Save the changes and close the editor.</p>
 </li>
 <li><p>For each chosen commit, a new text editor window will open. Change the commit message, save the file, and close the editor.</p>
 </li>
 <li><p>Force push the changes to the remote repository:</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>To change the most recent commit message, use the <code>git commit --amend</code> command. To change an older or multiple commit messages, use <code>git rebase -i HEAD~N</code>.</p>
@@ -1549,7 +1555,7 @@
 <p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
 <img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
 <p>After you&#39;re done, close out of the Registry and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/">https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/</a></li>
 </ul>
 ]]></content>
@@ -1565,12 +1571,35 @@
 <p>The same can be applied for adding multiple CSS to a command:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c&lt;str1&gt; %c&lt;str2&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str1&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str2&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>Chrome Console API Reference: <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-write#styling_console_output_with_css">Console API Reference</a>.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/7505623/colors-in-javascript-console">https://stackoverflow.com/questions/7505623/colors-in-javascript-console</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use Wireless Internet Without Taking Your Ethernet Cable Out</title>
+    <url>/posts/52/</url>
+    <content><![CDATA[<p>The following is a step by step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
+<ol>
+<li>Open Network and Sharing Centre (&quot;Network Status&quot; Win10).</li>
+<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; Win10).</li>
+<li>Go to properties of Local Area Network.</li>
+<li>Click on Internet Protocol version 4 and go to it&#39;s properties.</li>
+<li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
+<li>Uncheck it and then enter 2 in that section.</li>
+<li>Now, Do the same for the wireless network but enter 1.</li>
+</ol>
+<p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
+<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows</category>
       </categories>
   </entry>
   <entry>
@@ -1588,7 +1617,7 @@
 <li><a href="https://ponyfoo.com/articles/es6-promises-in-depth">Promises, a native feature of ES2015</a> (aka ES6). We also use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a> in the definition of the sleep function.</li>
 <li>The <code>async</code>/<code>await</code> feature lets the code explicitly wait for a promise to settle (resolve or reject).</li>
 </ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep">https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep</a></li>
 </ul>
 ]]></content>
@@ -1600,7 +1629,7 @@
     <title>修改 Git 默认文本编辑器为 nano</title>
     <url>/posts/49/</url>
     <content><![CDATA[<p>使用命令</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
 </ul>
@@ -1611,29 +1640,6 @@
       <tags>
         <tag>Git</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>在插入网线的同时使用 WiFi 上网</title>
-    <url>/posts/52/</url>
-    <content><![CDATA[<p>The following is a step by step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
-<ol>
-<li>Open Network and Sharing Centre (&quot;Network Status&quot; Win10).</li>
-<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; Win10).</li>
-<li>Go to properties of Local Area Network.</li>
-<li>Click on Internet Protocol version 4 and go to it&#39;s properties.</li>
-<li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
-<li>Uncheck it and then enter 2 in that section.</li>
-<li>Now, Do the same for the wireless network but enter 1.</li>
-</ol>
-<p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
-<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
   </entry>
   <entry>
     <title>在 CMake 中添加 MPI 支持</title>
@@ -1655,14 +1661,15 @@
     <content><![CDATA[<p>Use the <code>set -e</code> builtin:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># Any subsequent(*) commands which fail will cause the shell script to exit immediately</span></span><br></pre></td></tr></table></figure>
 <p>Alternatively, you can pass <code>-e</code> on the command line:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
 <p>You can also disable this behavior with <code>set +e</code>.</p>
 <p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o</code> pipefail options like so:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
 <p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o</code> (for option) pipefail exits on command pipe failures.</p>
-<p>*Note:</p>
-<p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<div class="note warning">
+            <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
+          </div>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error">https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error</a></li>
 </ul>
 ]]></content>
@@ -1681,14 +1688,14 @@
 <p>Pseudo-assembly:</p>
 <ul>
 <li><p>PIC: This would work whether the code was at address 100 or 1000</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Non-PIC: This will only work if the code is at address 100</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>If your code is compiled with <code>-fPIC</code>, it&#39;s suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/5311515/gcc-fpic-option">https://stackoverflow.com/questions/5311515/gcc-fpic-option</a></li>
 </ul>
 ]]></content>
@@ -1700,12 +1707,12 @@
     <title>Set rpath Relative to the Executable</title>
     <url>/posts/58/</url>
     <content><![CDATA[<p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path&#x2F;to&#x2F;lib&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path/to/lib&gt;</span><br></pre></td></tr></table></figure>
 <p>tells the linker where to find the required library at runtime.</p>
 <p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
 <p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
 <p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute">https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute</a></li>
 </ul>
 ]]></content>
@@ -1719,7 +1726,7 @@
     <content><![CDATA[<p>According to <code>MPI_AllReduce</code> man page and MPI doc <code>MPI_IN_PLACE</code> can be used to specify the same buffer for <code>sendbuf</code> and <code>recvbuf</code> as long as you are working inside the same group.</p>
 <p>The call would look like:</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>];</span><br><span class="line"><span class="comment">// Some operation to calculate rho for each process</span></span><br><span class="line"><span class="built_in">MPI_Allreduce</span>(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381">https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381</a></li>
 </ul>
 ]]></content>
@@ -1734,12 +1741,12 @@
     <title>mkdir Only if a Directory Does Not Already Exist</title>
     <url>/posts/56/</url>
     <content><![CDATA[<p>Try <code>mkdir -p</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
 <p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir -p foo&#x2F;bar&#x2F;baz</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo/bar/baz</span><br></pre></td></tr></table></figure>
 <p>will create directories <code>foo</code>, <code>foo/bar</code>, and <code>foo/bar/baz</code> if they don&#39;t exist.</p>
 <p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
 </ul>
 ]]></content>
@@ -1751,10 +1758,24 @@
       </tags>
   </entry>
   <entry>
-    <title>Git 强制拉取远程仓库</title>
+    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
     <url>/posts/63/</url>
-    <content><![CDATA[<p>使用如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fetch --all;</span><br><span class="line">git reset --hard origin&#x2F;main;</span><br><span class="line">git pull;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<div class="note danger">
+            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
+          </div>
+<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
+<p>Then, reset the current branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
+<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
+<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>And then to reapply these uncommitted changes:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files">https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>版本控制系统</category>
@@ -1764,16 +1785,19 @@
       </tags>
   </entry>
   <entry>
-    <title>How to Make MySQL Table Name Case Insensitive</title>
+    <title>Make MySQL Table Name Case Insensitive</title>
     <url>/posts/64/</url>
     <content><![CDATA[<p>Open terminal and edit <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
 <p>Underneath the <code>[mysqld]</code> section, add:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lower_case_table_names &#x3D; 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
 <p>Restart MySQL:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
 <p>Then check it here:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu">https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>数据库管理系统</category>
@@ -1786,7 +1810,10 @@
     <title>Put a Reference for a Graphic in Beamer</title>
     <url>/posts/62/</url>
     <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
-<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">    &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">    \includegraphics[width=\linewidth]&#123;example-image&#125;\\[-1ex]</span><br><span class="line">    &#123;\tiny Source: \cite&#123;foo12&#125;&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer">https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>LaTeX</category>
@@ -1795,12 +1822,17 @@
   <entry>
     <title>Recursively Delete All Files of a Specific Extension in the Current Directory</title>
     <url>/posts/61/</url>
-    <content><![CDATA[<p>Use find:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>Use <code>find</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
 <p>But use it with precaution. Run first:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
 <p>to see exactly which files you will remove.</p>
-<p>Also, make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>
+<div class="note danger">
+            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>
+          </div>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di">https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Linux</category>
@@ -1826,7 +1858,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p>In the specific case of following symlinks, you could also do this:</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="subst">$(readlink -f <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink">https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink</a></li>
 </ul>
 ]]></content>
@@ -1850,7 +1882,7 @@
 <h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all of the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
 <p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. And more basic shells like dash don&#39;t have arrays at all.</p>
 <p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever&#39;s in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine">https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine</a></li>
 </ul>
 ]]></content>
@@ -1866,9 +1898,9 @@
     <url>/posts/39/</url>
     <content><![CDATA[<p>One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It&#39;s also of great importance due to its relation to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>.</p>
 <p>In this post, we&#39;ll be reviewing the normal distribution and looking at how to draw samples from it using two methods.  The first method using the central limit theorem, and the second method using the <a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform">Box-Muller transform</a>.  As usual, some brief coverage of the mathematics and code will be included to help drive intuition.</p>
-<span id="more"></span>
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Normal-Distribution"><a href="#Normal-Distribution" class="headerlink" title="Normal Distribution"></a>Normal Distribution</h3><p>Let&#39;s start off first by covering some basics.  A normal distribution (also known as a Gaussian distribution) \(N \sim (\mu, \sigma)\) has probability density function (PDF) and cumulative density function (CDF) shown here parameterized by its mean (\(\mu\)) and standard deviation (\(\sigma\)) <a href="#fn-1"><sup>[1]</sup></a>:</p>
-<script type="math/tex; mode=display">f_N(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \tag{1}</script><script type="math/tex; mode=display">F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}</script><p>The CDF doesn&#39;t have a nice closed form, so we&#39;ll just represent it here using the definition of CDF in terms of its PDF.  We can graph the PDF and CDF (images from <a href="https://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>) using various values of the two parameters:</p>
+<script type="math/tex; mode=display">f_N(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \tag{1}</script><script type="math/tex; mode=display">F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}</script><span id="more"></span>
+<p>The CDF doesn&#39;t have a nice closed form, so we&#39;ll just represent it here using the definition of CDF in terms of its PDF.  We can graph the PDF and CDF (images from <a href="https://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>) using various values of the two parameters:</p>
 <img src="/posts/39/normal_pdf_cdf.png" class="" title="PDF of Normal Distribution">
 <p>The normal distribution is sometimes colloquially known as the &quot;bell curve&quot; because of a it&#39;s symmetric hump.  A very common thing to do with a probability distribution is to <em>sample</em> from it.  In other words, we want to randomly generate numbers (i.e. \(x\) values) such that the values of \(x\) are in proportion to the PDF.  So for the standard normal distribution, \(N \sim (0, 1) \) (the red curve in the picture above), most of the values would fall close to somewhere around \(x=0\).  In fact, 68% will fall within \([-1, 1]\), 95% will fall within \([-2,2]\) and 99.7% will fall within \([-3,3]\).  This corresponds to \(\sigma, 2\sigma, 3\sigma\) from the mean, see this <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule">article</a> for more details.</p>
 <h3 id="Central-Limit-Theorem"><a href="#Central-Limit-Theorem" class="headerlink" title="Central Limit Theorem"></a>Central Limit Theorem</h3><p>The central limit theorem (CLT) is quite a surprising result relating the sample average of \(n\) <a href="https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables">independent and identically distributed</a> (i.i.d.) random variables and a normal distribution.  To state it more precisely: </p>
@@ -2005,7 +2037,7 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 <blockquote id="fn_5">
 <sup>5</sup>. Remember that the rectangular area represented by \((x_1, x_2)\) and \((y_1, y_2)\) is non-rectagular when we transform it into the \(R\) and \(\Theta\) space.  This means that we&#39;re no longer integrating just along \(R\) and \(\Theta\) separately but together along the new oddly shaped area, thus the need to use \(A\) to represent the area.<a href="#reffn_5" title="Jump back to footnote [5] in the text."> &#8617;</a>
 </blockquote>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/">http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/</a></li>
 </ul>
 ]]></content>

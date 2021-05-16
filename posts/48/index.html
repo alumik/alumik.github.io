@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -24,12 +24,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Change a Git Commit Message">
 <meta property="og:url" content="http://pages.alumik.cn/posts/48/">
-<meta property="og:site_name" content="工具人之家">
+<meta property="og:site_name" content="突突唧之家">
 <meta property="og:description" content="When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive info">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-22T16:37:43.000Z">
-<meta property="article:modified_time" content="2021-05-15T08:34:53.252Z">
-<meta property="article:author" content="钟震宇">
+<meta property="article:modified_time" content="2021-05-16T14:23:04.325Z">
+<meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Change a Git Commit Message | 工具人之家</title>
+  <title>Change a Git Commit Message | 突突唧之家</title>
   
 
 
@@ -106,7 +106,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">工具人之家</h1>
+      <h1 class="site-title">突突唧之家</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">技术笔记</p>
@@ -131,7 +131,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">33</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">32</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -193,13 +193,13 @@
     <link itemprop="mainEntityOfPage" href="http://pages.alumik.cn/posts/48/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
-      <meta itemprop="name" content="钟震宇">
-      <meta itemprop="description" content="~ 记录计算机学习心得的小站 ~">
+      <meta itemprop="image" content="data:image/jpeg;base64,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">
+      <meta itemprop="name" content="闪现开心心">
+      <meta itemprop="description" content="抽奖工具号🤣">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="工具人之家">
+      <meta itemprop="name" content="突突唧之家">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -220,7 +220,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-15 16:34:53" itemprop="dateModified" datetime="2021-05-15T16:34:53+08:00">2021-05-15</time>
+                <time title="修改时间：2021-05-16 22:23:04" itemprop="dateModified" datetime="2021-05-16T22:23:04+08:00">2021-05-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,22 +252,22 @@
 <li><p><a target="_blank" rel="noopener" href="https://linuxize.com/post/linux-cd-command/">Navigate</a> to the repository directory in your terminal.</p>
 </li>
 <li><p>Run the following command to amend (change) the message of the latest commit:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <p> What the command does is overwriting the most recent commit with the new one.</p>
 <p> The <code>-m</code> option allows you to write the new message on the command line without opening an editor session.</p>
 </li>
 </ol>
 <p>Before changing the commit message, you can also add other changes you previously forgot:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <h3 id="Pushed-commit"><a href="#Pushed-commit" class="headerlink" title="Pushed commit"></a>Pushed commit</h3><p>The amended (changed) commit is a new entity with a different SHA-1. The previous commit will no longer exist in the current branch.<br>Generally, you should avoid amending a commit that is already pushed as it may cause issues to people who based their work on this commit. It is a good idea to consult your fellow developers before changing a pushed commit.</p>
 <p>If you changed the message of most recently pushed commit, you would have to force push it.</p>
 <ol>
 <li><p>Navigate to the repository.</p>
 </li>
 <li><p>Amend the message of the latest pushed commit:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
 <p> Force push to update the history of the remote repository:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Changing-an-Older-or-Multiple-Commits"><a href="#Changing-an-Older-or-Multiple-Commits" class="headerlink" title="Changing an Older or Multiple Commits"></a>Changing an Older or Multiple Commits</h2><p>If you need to change the message of an older or multiple commits, you can use an interactive <code>git rebase</code> to change one or more older commits.</p>
@@ -276,19 +276,19 @@
 <li><p>Navigate to the repository containing the commit message you want to change.</p>
 </li>
 <li><p>Type <code>git rebase -i HEAD~N</code>, where <code>N</code> is the number of commits to perform a rebase on. For example, if you want to change the 4th and the 5th latest commits you would type:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
 <p> The command will display the latest <code>X</code> commits in your <a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-use-nano-text-editor/">default text editor</a>:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Move to the lines of the commit message you want to change and replace <code>pick</code> with <code>reword</code>:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Save the changes and close the editor.</p>
 </li>
 <li><p>For each chosen commit, a new text editor window will open. Change the commit message, save the file, and close the editor.</p>
 </li>
 <li><p>Force push the changes to the remote repository:</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>To change the most recent commit message, use the <code>git commit --amend</code> command. To change an older or multiple commit messages, use <code>git rebase -i HEAD~N</code>.</p>
@@ -386,10 +386,10 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="钟震宇"
-      src="https://portrait.gitee.com/uploads/avatars/user/1774/5322710_AlumiK_1605847874.png">
-  <p class="site-author-name" itemprop="name">钟震宇</p>
-  <div class="site-description" itemprop="description">~ 记录计算机学习心得的小站 ~</div>
+    <img class="site-author-image" itemprop="image" alt="闪现开心心"
+      src="data:image/jpeg;base64,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">
+  <p class="site-author-name" itemprop="name">闪现开心心</p>
+  <div class="site-description" itemprop="description">抽奖工具号🤣</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -408,7 +408,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -454,7 +454,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">钟震宇</span>
+  <span class="author" itemprop="copyrightHolder">闪现开心心</span>
 </div>
 
         
