@@ -16,6 +16,6 @@ stop
 start
 ```
 
-## 参考链接
+## References
 
 + [Configure Emulator Graphics Rendering and Hardware Acceleration](https://developer.android.com/studio/run/emulator-acceleration#skia-emulator)

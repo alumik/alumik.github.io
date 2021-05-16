@@ -31,6 +31,6 @@ Pseudo-assembly:
 
 If your code is compiled with `-fPIC`, it's suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/5311515/gcc-fpic-option

@@ -6,7 +6,6 @@ tags:
   - WSL
 abbrlink: 12
 date: 2019-06-24 15:45:27
-updated: 2020-02-21 14:44:52
 ---
 ## 安装 WSL
 

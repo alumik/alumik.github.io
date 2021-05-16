@@ -11,8 +11,6 @@ In this quick article we'll focus on packaging a Maven project into an executabl
 
 Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we'll discuss the configuration and pros/cons of using each of these approaches for creating the executable.
 
-<!-- more -->
-
 ## Configuration
 
 In order to create an executable jar, we don't need any additional dependencies. We just need to create Maven Java project, and have at least one class with the `main(…)` method.
@@ -32,6 +30,8 @@ We also need to make sure that our `pom.xml` contains the the following elements
 The most important aspect here is the type – to create an executable jar, double check the configuration uses a `jar` type.
 
 Now we can start using the various solutions.
+
+<!-- more -->
 
 ### Manual Configuration
 
@@ -265,6 +265,6 @@ Hopefully, this article gives you some more insights on the topic and you will f
 
 One quick final note – make sure the licenses of the jars you're bundling don't prohibit this kind of operation. Generally, that won't be the case, but it's something worth considering.
 
-## 参考链接
+## References
 
 - https://www.baeldung.com/executable-jar-with-maven

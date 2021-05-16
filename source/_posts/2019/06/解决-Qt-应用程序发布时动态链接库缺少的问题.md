@@ -4,7 +4,6 @@ categories: C++
 tags: Qt
 abbrlink: 15
 date: 2019-06-24 16:29:07
-updated: 2020-02-21 14:55:39
 ---
 首先编译一个 release 版本，然后把生成的 exe 拷贝到一个新的文件夹下面。
 

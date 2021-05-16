@@ -68,6 +68,6 @@ If you'll choose this approach you'll be able to simplify the repository declara
 </repository>
 ```
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them

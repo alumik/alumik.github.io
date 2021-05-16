@@ -3,7 +3,6 @@ title: 在 Ubuntu 中安装 Python 3.7
 categories: 过期或不适用的文章
 abbrlink: 17
 date: 2019-06-24 16:36:24
-updated: 2020-02-21 14:59:44
 tags:
 ---
 {% note danger %}
@@ -11,7 +10,7 @@ tags:
 {% endnote %}
 
 {% note warning %}
-建议使用 [Anaconda](https://www.anaconda.com/) 安装任意版本的 Python 。
+建议使用 [Conda](https://www.anaconda.com/) 安装任意版本的 Python。
 {% endnote %}
 
 ## 系统准备

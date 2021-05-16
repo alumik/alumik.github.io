@@ -4,7 +4,6 @@ categories: 数据库管理系统
 tags: MySQL/MariaDB
 abbrlink: 8
 date: 2019-06-24 15:28:12
-updated: 2020-02-21 14:15:04
 ---
 ## 新增用户并授权
 

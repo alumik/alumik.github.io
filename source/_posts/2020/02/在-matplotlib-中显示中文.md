@@ -4,8 +4,11 @@ categories: Python
 tags: Matplotlib
 abbrlink: 40
 date: 2020-02-19 17:33:45
-updated: 2020-02-21 12:27:29
 ---
+{% note warning %}
+本方法可能不适用于非 Windows 系统。
+{% endnote %}
+
 在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。
 
 ```python

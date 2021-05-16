@@ -5,13 +5,10 @@ tags: 概率论与数理统计
 mathjax: true
 abbrlink: 39
 date: 2019-11-16 21:40:19
-updated: 2020-02-20 14:03:31
 ---
 One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It's also of great importance due to its relation to the [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem).
 
 In this post, we'll be reviewing the normal distribution and looking at how to draw samples from it using two methods.  The first method using the central limit theorem, and the second method using the [Box-Muller transform](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform).  As usual, some brief coverage of the mathematics and code will be included to help drive intuition.
-
-<!-- more -->
 
 ## Background
 
@@ -21,6 +18,8 @@ Let's start off first by covering some basics.  A normal distribution (also know
 
 $$ f_N(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \tag{1}$$
 $$ F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}$$
+
+<!-- more -->
 
 The CDF doesn't have a nice closed form, so we'll just represent it here using the definition of CDF in terms of its PDF.  We can graph the PDF and CDF (images from [Wikipedia](https://en.wikipedia.org/wiki/Normal_distribution)) using various values of the two parameters:
 
@@ -312,6 +311,6 @@ List of Notes: [^1], [^2], [^3], [^4], [^5]
     
 [^5]: Remember that the rectangular area represented by \\((x_1, x_2)\\) and \\((y_1, y_2)\\) is non-rectagular when we transform it into the \\(R\\) and \\(\Theta\\) space.  This means that we're no longer integrating just along \\(R\\) and \\(\Theta\\) separately but together along the new oddly shaped area, thus the need to use \\(A\\) to represent the area.
 
-## 参考链接
+## References
 
 - http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/

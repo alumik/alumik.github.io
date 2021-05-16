@@ -5,7 +5,7 @@ categories: Linux
 tags:
 abbrlink: 61
 ---
-Use find:
+Use `find`:
 
 ```
 find . -name "*.bak" -type f -delete
@@ -19,4 +19,10 @@ find . -name "*.bak" -type f
 
 to see exactly which files you will remove.
 
-Also, make sure that `-delete` is the last argument in your command. If you put it before the `-name *.bak argument`, it will delete **everything**.
+{% note danger %}
+Make sure that `-delete` is the last argument in your command. If you put it before the `-name *.bak argument`, it will delete **everything**.
+{% endnote %}
+
+## References
+
+- https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di

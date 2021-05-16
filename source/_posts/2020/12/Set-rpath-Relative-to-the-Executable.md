@@ -19,6 +19,6 @@ Instead, you can use the ` $ORIGIN` "special" path to have a path relative to th
 
 You normally want to pass two arguments to the linker (`-rpath` and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an `=`, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute

@@ -31,6 +31,6 @@ Assigning the arguments to a regular variable (as in `args="$@"`) mashes all the
 
 Leaving off the double-quotes, with either `$@` or `$*`, will try to split each argument up into separate words (based on whitespace or whatever's in `$IFS`), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn't take place by default.)
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine

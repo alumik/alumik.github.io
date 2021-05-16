@@ -7,8 +7,6 @@ date: 2019-06-24 20:57:16
 ---
 There are two types of variables in batch files. One is for parameters which can be passed when the batch file is called and the other is done via the set command.
 
-<!-- more -->
-
 ## Command Line Arguments
 
 Batch scripts support the concept of command line arguments wherein arguments can be passed to the batch file when invoked. The arguments can be called from the batch files through the variables `%1`, `%2`, `%3`, and so on.
@@ -21,6 +19,8 @@ echo %1
 echo %2
 echo %3
 ```
+
+<!-- more -->
 
 If the above batch script is stored in a file called *test.bat* and we were to run the batch as
 

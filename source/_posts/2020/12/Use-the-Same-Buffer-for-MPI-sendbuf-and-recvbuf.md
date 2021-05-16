@@ -15,6 +15,6 @@ double rho[1024];
 MPI_Allreduce(MPI_IN_PLACE, rho, 1024, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
 ```
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381

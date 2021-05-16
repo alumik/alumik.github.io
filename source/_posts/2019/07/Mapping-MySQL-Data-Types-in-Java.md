@@ -4,17 +4,14 @@ categories: Java
 tags: MySQL/MariaDB
 abbrlink: 38
 date: 2019-07-02 00:00:30
-updated: 2020-02-21 15:17:48
 ---
-## 前言
-
 Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.
 
 There is no particular reason that the Java data type needs to be exactly isomorphic to the MySQL data type. For example, Java String don't precisely match any of the MySQL data `CHAR` type, but it gives enough type information to represent `CHAR`, `VARCHAR` or `LONGVARCHAR` successfully.
 
 <!-- more -->
 
-## 对应关系表
+## Mapping Table
 
 The following table represent the default Java mapping for various common MySQL data types:
 
@@ -40,7 +37,7 @@ The following table represent the default Java mapping for various common MySQL 
 | TIME | java.sql.Time |
 | TIMESTAMP | java.sql.Timestamp |
 
-## 具体解释
+## Explanation
 
 ### CHAR, VARCHAR and LONGVARCHAR
 
@@ -80,6 +77,6 @@ That's why we define three subclasses of `java.util.Date`. These are:
 `java.sql.Timefor` SQL `TIME` information.
 `java.sql.Timestamp` for SQL `TIMESTAMP` information.
 
-## 参考链接
+## References
 
 - https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml

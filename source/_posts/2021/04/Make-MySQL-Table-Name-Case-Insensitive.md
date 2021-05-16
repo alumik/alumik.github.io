@@ -1,5 +1,5 @@
 ---
-title: How to Make MySQL Table Name Case Insensitive
+title: Make MySQL Table Name Case Insensitive
 date: 2021-04-30 11:43:36
 categories: 数据库管理系统
 tags: MySQL/MariaDB
@@ -28,3 +28,7 @@ Then check it here:
 ```
 mysqladmin -u root -p variables
 ```
+
+## References
+
+- https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu

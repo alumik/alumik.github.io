@@ -17,6 +17,6 @@ In the specific case of following symlinks, you could also do this:
 DIR="$(dirname "$(readlink -f "$0")")"
 ```
 
-## 参考链接
+## References
 
 - https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink

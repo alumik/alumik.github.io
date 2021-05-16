@@ -1,11 +1,18 @@
 ---
 title: 在 Ubuntu 中安装最新版的 Node.js
-categories: JavaScript
-tags: Node.js
+categories: 过期或不适用的文章
+tags:
 abbrlink: 16
 date: 2019-06-24 16:31:34
-updated: 2020-02-20 19:59:56
 ---
+{% note danger %}
+该文章内容已过期或不再适用。
+{% endnote %}
+
+{% note warning %}
+建议使用 [Conda](https://www.anaconda.com/) 安装任意版本的 Node.js。
+{% endnote %}
+
 ## 卸载已安装的软件包
 
 如果以前安装过老版本的 nodejs 和 npm ，先进行卸载。

@@ -4,7 +4,6 @@ categories: Linux
 tags: WSL
 abbrlink: 11
 date: 2019-06-24 15:40:21
-updated: 2020-02-21 14:25:25
 ---
 用管理员身份打开 PowerShell，执行以下命令：
 

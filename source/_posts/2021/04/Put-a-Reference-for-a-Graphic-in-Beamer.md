@@ -13,3 +13,7 @@ Try to put reference immediately below picture like this:
     {\tiny Source: \cite{foo12}}
 \end{frame}
 ```
+
+## References
+
+- https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer

@@ -1,5 +1,5 @@
 ---
-title: 'Clear, Delete or Disable Windows 10 File Explorer Search History'
+title: Clear, Delete or Disable Windows 10 File Explorer Search History
 date: 2020-08-30 15:01:43
 categories: Windows
 tags:
@@ -47,6 +47,6 @@ Then head to `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer`. R
 
 After you're done, close out of the Registry and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of `DisableSearchBoxSuggestions` to `0`.
 
-## 参考链接
+## References
 
 - https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/

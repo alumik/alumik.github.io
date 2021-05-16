@@ -47,6 +47,6 @@ Two new JavaScript features helped write this "sleep" function:
 - [Promises, a native feature of ES2015](https://ponyfoo.com/articles/es6-promises-in-depth) (aka ES6). We also use [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) in the definition of the sleep function.
 - The `async`/`await` feature lets the code explicitly wait for a promise to settle (resolve or reject).
 
-## 参考链接
+## References
 
 - https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep

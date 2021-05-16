@@ -1,5 +1,5 @@
 ---
-title: How to Merge Two Videos without Re-encoding
+title: Merge Two Videos without Re-encoding
 categories: 其他计算机使用技巧
 tags:
   - 多媒体处理
