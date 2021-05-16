@@ -22,5 +22,8 @@
     "hexo-renderer-kramed": "^0.1.4",
     "hexo-renderer-stylus": "^2.0.1",
     "hexo-server": "^2.0.0"
+  },
+  "resolutions": {
+    "stylus": "^0.54.8"
   }
 }
