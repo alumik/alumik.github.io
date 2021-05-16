@@ -285,7 +285,7 @@
     <title>gdrive 使用教程</title>
     <url>/posts/2/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p>
           </div>
 <p>gdrive 是一个好用的 Linux 平台 Google Drive 客户端。</p>
 <h2 id="安装-gdrive"><a href="#安装-gdrive" class="headerlink" title="安装 gdrive"></a>安装 gdrive</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wget -O /usr/bin/gdrive &quot;//docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&amp;export=download&quot;</span><br><span class="line">chmod +x /usr/bin/gdrive</span><br></pre></td></tr></table></figure>
@@ -339,7 +339,7 @@
     <title>为 Ubuntu 18.04 编译 4.19.1 版本内核</title>
     <url>/posts/26/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p>
           </div>
 <h2 id="下载并解压内核源码"><a href="#下载并解压内核源码" class="headerlink" title="下载并解压内核源码"></a>下载并解压内核源码</h2><p>首先获取 root 权限方便操作</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
@@ -475,10 +475,7 @@
     <title>使用淘宝源加速 npm 下载</title>
     <url>/posts/19/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
-          </div>
-<div class="note info">
-            <p>npm 现在的下载速度已经足够快，无需再使用镜像源。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 npm 现在的下载速度已经足够快，无需再使用镜像源。</p>
           </div>
 <p><a href="http://npm.taobao.org/">淘宝 npm 地址</a></p>
 <p>有很多方法来配置 npm 的 registry 地址，下面根据不同情境列出几种比较常用的方法。以淘宝 npm 镜像举例。</p>
@@ -617,10 +614,7 @@
     <title>取消 MySQL/MariaDB root 用户免密码登录功能</title>
     <url>/posts/18/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
-          </div>
-<div class="note warning">
-            <p>尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>⚠ 尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
           </div>
 <p>在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
@@ -679,10 +673,7 @@
     <title>在 Ubuntu 中安装 Python 3.7</title>
     <url>/posts/17/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
-          </div>
-<div class="note warning">
-            <p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
           </div>
 <h2 id="系统准备"><a href="#系统准备" class="headerlink" title="系统准备"></a>系统准备</h2><p>安装一些必要的依赖包</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install libffi-dev libbz2-dev libssl-dev</span><br><span class="line">apt install libreadline7 libreadline-dev libsqlite3-dev</span><br><span class="line">apt install libncurses5 libncurses5-dev libncursesw5</span><br><span class="line">apt install libgdbm-dev liblzma-dev uuid-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
@@ -717,10 +708,7 @@
     <title>在 Ubuntu 中安装最新版的 Node.js</title>
     <url>/posts/16/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容已过期或不再适用。</p>
-          </div>
-<div class="note warning">
-            <p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Node.js。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Node.js。</p>
           </div>
 <h2 id="卸载已安装的软件包"><a href="#卸载已安装的软件包" class="headerlink" title="卸载已安装的软件包"></a>卸载已安装的软件包</h2><p>如果以前安装过老版本的 nodejs 和 npm ，先进行卸载。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt remove npm nodejs --purge</span><br></pre></td></tr></table></figure>
@@ -1212,7 +1200,7 @@
 <p>另一种方法是创建一个属性循环对象：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> cycler <span class="keyword">import</span> cycler</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">my_cycler = cycler(<span class="string">&#x27;color&#x27;</span>, [<span class="string">&#x27;k&#x27;</span>, <span class="string">&#x27;r&#x27;</span>]) * cycler(<span class="string">&#x27;linewidth&#x27;</span>, [<span class="number">1.</span>, <span class="number">1.5</span>, <span class="number">2.</span>])</span><br><span class="line">actual_cycler = my_cycler()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> axes.flat:</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>), **<span class="built_in">next</span>(actual_cycler))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <img src="/posts/43/myplot-8.png" class="">
-<div class="note warning">
+<div class="note info">
             <p><code>my_cycler</code> 的类型为 <code>cycler.Cycler</code> 。<br><code>actual_cycler</code> 的类型为 <code>itertools.cycle</code> 。</p>
           </div>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
@@ -1818,6 +1806,9 @@
       <categories>
         <category>LaTeX</category>
       </categories>
+      <tags>
+        <tag>Beamer</tag>
+      </tags>
   </entry>
   <entry>
     <title>Recursively Delete All Files of a Specific Extension in the Current Directory</title>
