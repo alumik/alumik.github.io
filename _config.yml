@@ -12,9 +12,8 @@ language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://pages.alumik.cn
-root: /
 permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
@@ -122,7 +121,7 @@ ignore:
 theme: next
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
 
