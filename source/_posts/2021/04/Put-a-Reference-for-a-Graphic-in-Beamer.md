@@ -2,7 +2,7 @@
 title: Put a Reference for a Graphic in Beamer
 date: 2021-04-19 20:42:05
 categories: LaTeX
-tags:
+tags: Beamer
 abbrlink: 62
 ---
 Try to put reference immediately below picture like this:
