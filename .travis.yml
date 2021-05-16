@@ -1,20 +1,17 @@
-sudo: false
+os: linux
+dist: focal
 language: node_js
-node_js:
-  - 14
-cache: npm
+node_js: lts/*
 branches:
-  only:
-    - source
+  only: source
 script:
   - hexo generate
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  target-branch: main
+  strategy: git
+  edge: true
+  token: $GH_TOKEN
+  target_branch: main
   on:
     branch: source
-  local-dir: public
-  
+  local_dir: public
