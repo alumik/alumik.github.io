@@ -8,8 +8,7 @@ tags:
 {% note danger %}
 该文章内容**已过期**或**不再适用**。
 
----
-💡 建议使用 [Conda](https://www.anaconda.com/) 安装任意版本的 Python。
+建议使用 [Conda](https://www.anaconda.com/) 安装任意版本的 Python。
 {% endnote %}
 
 ## 系统准备
