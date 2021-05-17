@@ -28,7 +28,7 @@
 <meta property="og:description" content="抽奖工具号🤣">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-20T11:16:34.000Z">
-<meta property="article:modified_time" content="2021-05-17T09:28:41.714Z">
+<meta property="article:modified_time" content="2021-05-17T10:49:01.936Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -323,6 +323,35 @@
   </div>
 
 
+
+
+<!-- hitokoto -->
+
+<div class="hitokoto-title">
+	<i class="fa fa-quote-right"></i>
+	<b>一言</b>
+</div>
+
+<div id="hitokoto">:D 获取中...</div>
+<i id="hitofrom">:D 获取中...</i>
+
+<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(function (res){
+      return res.json();
+    })
+    .then(function (data) {
+      var hitokoto = document.getElementById('hitokoto');
+      hitokoto.innerText = '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + data.hitokoto;
+      var hitofrom = document.getElementById('hitofrom');
+      hitofrom.innerText = "——" + data.from + '\xa0'; 
+    })
+    .catch(function (err) {
+      console.error(err);
+    })
+</script>
 
       </div>
         <div class="back-to-top motion-element">
