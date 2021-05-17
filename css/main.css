@@ -1261,7 +1261,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #287e8b;
+  background: #7ef6ad;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2790,16 +2790,17 @@ hr {
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
 }
+.sidebar {
+  opacity: 0.9;
+}
 .header-inner {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.9);
 }
 .pagination {
   background: rgba(255,255,255,0.85);
   backdrop-filter: blur(10px);
 }
-.popup {
-  opacity: 0.9;
+.search-pop-overlay {
   backdrop-filter: blur(10px);
 }
 .site-title:hover {
@@ -2821,7 +2822,7 @@ hr {
 .hitokoto-title {
   border-top: 1px solid #ccc;
   margin-top: 15px;
-  padding-top: 10px;
+  padding-top: 15px;
   text-align: center;
   font-size: 12px;
 }
