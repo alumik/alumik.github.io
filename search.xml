@@ -475,7 +475,7 @@
     <title>使用淘宝源加速 npm 下载</title>
     <url>/posts/19/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 npm 现在的下载速度已经足够快，无需再使用镜像源。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>npm 现在的下载速度已经足够快，无需再使用镜像源。</p>
           </div>
 <p><a href="http://npm.taobao.org/">淘宝 npm 地址</a></p>
 <p>有很多方法来配置 npm 的 registry 地址，下面根据不同情境列出几种比较常用的方法。以淘宝 npm 镜像举例。</p>
@@ -494,15 +494,11 @@
     <url>/posts/20/</url>
     <content><![CDATA[<p>PyPI 镜像每 5 分钟同步一次。</p>
 <h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</span><br></pre></td></tr></table></figure>
-<p>注意，simple 不能少, 是 https 而不是 http 。</p>
-<h2 id="设为默认"><a href="#设为默认" class="headerlink" title="设为默认"></a>设为默认</h2><p>创建或修改：</p>
-<ul>
-<li><code>~/.config/pip/pip.conf</code> (Linux)</li>
-<li><code>%APPDATA%\pip\pip.ini</code> (Windows 10)</li>
-<li><code>$HOME/Library/Application Support/pip/pip.conf</code> (macOS)</li>
-</ul>
-<p>将 <code>index-url</code> 修改为 <code>https://pypi.tuna.tsinghua.edu.cn/simple</code> ，例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>注意，<code>simple</code> 不能少, 是 <code>https</code> 而不是 <code>http</code> 。</p>
+<h2 id="设为默认"><a href="#设为默认" class="headerlink" title="设为默认"></a>设为默认</h2><p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install pip -U</span><br><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>如果您到 pip 默认源的网络连接较差，临时使用镜像站来升级 pip：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Python</category>
@@ -614,7 +610,7 @@
     <title>取消 MySQL/MariaDB root 用户免密码登录功能</title>
     <url>/posts/18/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>⚠ 尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
           </div>
 <p>在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
@@ -673,7 +669,7 @@
     <title>在 Ubuntu 中安装 Python 3.7</title>
     <url>/posts/17/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
           </div>
 <h2 id="系统准备"><a href="#系统准备" class="headerlink" title="系统准备"></a>系统准备</h2><p>安装一些必要的依赖包</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install libffi-dev libbz2-dev libssl-dev</span><br><span class="line">apt install libreadline7 libreadline-dev libsqlite3-dev</span><br><span class="line">apt install libncurses5 libncurses5-dev libncursesw5</span><br><span class="line">apt install libgdbm-dev liblzma-dev uuid-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
@@ -708,7 +704,7 @@
     <title>在 Ubuntu 中安装最新版的 Node.js</title>
     <url>/posts/16/</url>
     <content><![CDATA[<div class="note danger">
-            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><hr><p>💡 建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Node.js。</p>
+            <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>建议使用 <a href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Node.js。</p>
           </div>
 <h2 id="卸载已安装的软件包"><a href="#卸载已安装的软件包" class="headerlink" title="卸载已安装的软件包"></a>卸载已安装的软件包</h2><p>如果以前安装过老版本的 nodejs 和 npm ，先进行卸载。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt remove npm nodejs --purge</span><br></pre></td></tr></table></figure>
