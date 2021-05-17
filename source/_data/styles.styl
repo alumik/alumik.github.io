@@ -91,6 +91,11 @@ hr {
 	backdrop-filter: blur(10px);
 }
 
+.comments {
+	background: rgba(255,255,255,0.85);
+	backdrop-filter: blur(10px);
+}
+
 // 标题
 // --------------------------------------------------
 // 网站标题
@@ -154,4 +159,44 @@ hr {
 
 #hitokoto-from {
 	float: right;
+}
+
+// 评论区
+// --------------------------------------------------
+.v[data-class] .vwrap {
+	border: 1px solid #ccc !important; 
+    border-radius: 10px !important;
+	background: white;
+}
+
+.v[data-class] .vwrap .vheader .vinput {
+    border-bottom: 1px dashed #ccc !important; 
+}
+
+.v[data-class=v] .vbtn {
+	background: var(--btn-default-bg) !important;
+    border: 2px solid var(--btn-default-border-color) !important;
+    border-radius: 10px !important;
+    color: var(--btn-default-color) !important;
+    display: inline-block !important;
+    font-size: 0.875em !important;
+    line-height: 2 !important;
+    padding: 0 20px !important;
+    text-decoration: none !important;
+    transition-property: background-color !important;
+    transition-delay: 0s !important;
+    transition-duration: 0.2s !important;
+    transition-timing-function: ease-in-out !important;
+	transition: 0.2s ease-out !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+}
+
+.v[data-class=v] .vbtn:hover {
+	background: var(--btn-default-hover-bg) !important;
+    border-color: var(--btn-default-hover-border-color) !important;
+    color: var(--btn-default-hover-color) !important;
+}
+
+.vpower {
+	display: none;
 }
