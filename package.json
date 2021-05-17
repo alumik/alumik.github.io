@@ -24,6 +24,7 @@
     "hexo-server": "^2.0.0"
   },
   "resolutions": {
-    "stylus": "^0.54.8"
+    "stylus": "^0.54.8",
+    "highlight.js": "^10.7.2"
   }
 }
