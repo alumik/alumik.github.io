@@ -14,7 +14,7 @@ In this post, we'll be reviewing the normal distribution and looking at how to d
 
 ### Normal Distribution
 
-Let's start off first by covering some basics.  A normal distribution (also known as a Gaussian distribution) \\(N \sim (\mu, \sigma)\\) has probability density function (PDF) and cumulative density function (CDF) shown here parameterized by its mean (\\(\mu\\)) and standard deviation (\\(\sigma\\)) [<sup>[1]</sup>](#fn-1):
+Let's start off first by covering some basics.  A normal distribution (also known as a Gaussian distribution) \\(N \sim (\mu, \sigma)\\) has probability density function (PDF) and cumulative density function (CDF) shown here parameterized by its mean (\\(\mu\\)) and standard deviation (\\(\sigma\\))[^1] :
 
 $$ f_N(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \tag{1}$$
 $$ F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}$$
@@ -31,10 +31,12 @@ The normal distribution is sometimes colloquially known as the "bell curve" beca
 
 The central limit theorem (CLT) is quite a surprising result relating the sample average of \\(n\\) [independent and identically distributed](https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables) (i.i.d.) random variables and a normal distribution.  To state it more precisely: 
 
-> Let \\({X_1, X_2, \ldots, X_n}\\) be \\(n\\) i.i.d. random variables with \\(E(X_i)=\mu\\) 
-> and \\(Var(X_i)=\sigma^2\\) and  let \\(S_n = \frac{X_1 + X_2 + \ldots + X_n}{n}\\) be the sample 
-> average. Then \\(S_n\\) approximates a normal distribution with mean of \\(\mu\\) and 
-> variance of \\(\frac{\sigma^2}{n}\\) for large \\(n\\) (i.e. \\(S_n \approx N(\mu, \frac{\sigma^2}{n})\\)).
+{% note info %}
+Let \\({X_1, X_2, \ldots, X_n}\\) be \\(n\\) i.i.d. random variables with \\(E(X_i)=\mu\\) 
+and \\(Var(X_i)=\sigma^2\\) and  let \\(S_n = \frac{X_1 + X_2 + \ldots + X_n}{n}\\) be the sample 
+average. Then \\(S_n\\) approximates a normal distribution with mean of \\(\mu\\) and 
+variance of \\(\frac{\sigma^2}{n}\\) for large \\(n\\) (i.e. \\(S_n \approx N(\mu, \frac{\sigma^2}{n})\\)).
+{% endnote %}
 
 The surprising result is that \\(X_n\\) can be *any* distribution.  It isn't restricted to just normal distributions.  We can also define the standard normal distribution in terms of \\(S_n\\) by shifting and scaling it:
 
@@ -96,7 +98,7 @@ $$ S_n = \frac{X_1 + X_2 + \ldots + X_n}{n} = \frac{B(n, p=0.5)}{n} $$
 
 We can see that this distribution has \\(\mu=\frac{n}{2}\\) (we expect half our tosses to be heads), and \\(\sigma^2=\frac{p(1-p)}{n}=\frac{0.25}{n}\\) (Bernoulli RVs have \\(\sigma^2 = p(1-p)\\)).
 
-Shifting and scaling[<sup>[2]</sup>](#fn-2) this to get our standard normal distribution using Equation 3, we get:
+Shifting and scaling[^2] this to get our standard normal distribution using Equation 3, we get:
 
 $$\begin{equation}
 \begin{aligned} 
@@ -172,7 +174,7 @@ P(\Theta \leq \theta) &= P(2\pi U_2 \leq \theta) \\
 \end{aligned} \tag{10}
 \end{equation}$$
 
-So we have our first result that \\(\Theta\\) is uniformly distributed on \\((0, 2\pi)\\) (as we would expect).  Using a more explicit method, we can find the distribution of \\(R\\).  From Equation 7, we know that the mapping from \\(U_1\\) to \\(R\\) is one-to-one, which we'll call \\(g\\) (i.e. \\(R=g(U_1)\\)).  So if we're trying to find the probability of R over \\((r_1, r_2)\\) (by integrating its PDF), there is some equivalent range over \\((g^{-1}(r_1), g^{-1}(r_2))\\) where we can integrate over the PDF of \\(U_1\\).  Let's see how this works [<sup>[3]</sup>](#fn-3):
+So we have our first result that \\(\Theta\\) is uniformly distributed on \\((0, 2\pi)\\) (as we would expect).  Using a more explicit method, we can find the distribution of \\(R\\).  From Equation 7, we know that the mapping from \\(U_1\\) to \\(R\\) is one-to-one, which we'll call \\(g\\) (i.e. \\(R=g(U_1)\\)).  So if we're trying to find the probability of R over \\((r_1, r_2)\\) (by integrating its PDF), there is some equivalent range over \\((g^{-1}(r_1), g^{-1}(r_2))\\) where we can integrate over the PDF of \\(U_1\\).  Let's see how this works[^3] :
 
 $$\begin{equation}
 \begin{aligned} 
@@ -187,11 +189,11 @@ $$\begin{equation}
 f_R(r) =  r e^{\frac{-r^2}{2}}  \tag{12}
 \end{equation}$$
 
-giving us the PDF for \\(R\\), \\(f_R(r)\\)[<sup>[4]</sup>](#fn-4).  It should also be clear that \\(R\\) and \\(\Theta\\) are independent because \\(U_1\\) and \\(U_2\\) are independent.
+giving us the PDF for \\(R\\), \\(f_R(r)\\)[^4].  It should also be clear that \\(R\\) and \\(\Theta\\) are independent because \\(U_1\\) and \\(U_2\\) are independent.
 
 
 Now that we have the distributions for both \\(R\\) and \\(\Theta\\), let's label Equation 8 and 9 as \\(X=g_x(R, \Theta)\\) and \\(Y=g_y(R, \Theta)\\), respectively.  Now we can apply the same procedure as above using variable substitution (for multiple variables) to derive the joint distribution of \\(X\\) and \\(Y\\) (we'll represent the 
-area in the transformed space by \\(A\\)[<sup>[5]</sup>](#fn-5)):
+area in the transformed space by \\(A\\)[^5]):
 
 $$\begin{equation}
 \begin{aligned} 
@@ -297,9 +299,9 @@ Generating pseudo-random numbers according to various probability distributions 
 * [Change of Variables](http://tutorial.math.lamar.edu/Classes/CalcIII/ChangeOfVariables.aspx) (Paul's Online Math Notes)
 * [Simple Sampling of Gaussians](http://www.math.nyu.edu/faculty/goodman/teaching/MonteCarlo2005/notes/GaussianSampling.pdf) (Jonathan Goodman, NYU)
 
-## Notes
+## References
 
-List of Notes: [^1], [^2], [^3], [^4], [^5]
+- http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/
 
 [^1]: We'll use the convention of \\(f_X(x)\\) and \\(F_X(x)\\) to denote the PDF and CDF of random variable X, respectively.
 
@@ -310,7 +312,3 @@ List of Notes: [^1], [^2], [^3], [^4], [^5]
 [^4]: Our result is actually a specific case of a more general result when transforming from one probability distribution.  Take a look at [Transformations of Random Variables](http://www.math.uah.edu/stat/dist/Transformations.html) for more details and examples.
     
 [^5]: Remember that the rectangular area represented by \\((x_1, x_2)\\) and \\((y_1, y_2)\\) is non-rectagular when we transform it into the \\(R\\) and \\(\Theta\\) space.  This means that we're no longer integrating just along \\(R\\) and \\(\Theta\\) separately but together along the new oddly shaped area, thus the need to use \\(A\\) to represent the area.
-
-## References
-
-- http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/
