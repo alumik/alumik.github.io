@@ -17,19 +17,19 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"pages.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="问题描述通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。 解决办法这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑工具打开">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法">
 <meta property="og:url" content="http://pages.alumik.cn/posts/35/">
-<meta property="og:site_name" content="秃突唧之家">
+<meta property="og:site_name" content="突突唧之家">
 <meta property="og:description" content="问题描述通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。 解决办法这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑工具打开">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pages.alumik.cn/posts/35/20180726200007776.png">
 <meta property="article:published_time" content="2019-06-24T13:19:51.000Z">
-<meta property="article:modified_time" content="2021-05-17T20:55:09.668Z">
+<meta property="article:modified_time" content="2021-05-18T10:05:48.229Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="MATLAB">
 <meta name="twitter:card" content="summary">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法 | 秃突唧之家</title>
+  <title>远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法 | 突突唧之家</title>
   
 
 
@@ -108,7 +108,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">秃突唧之家</h1>
+      <h1 class="site-title">突突唧之家</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
       <p class="site-subtitle" itemprop="description">学学不懂的东西，记记不完的笔记</p>
@@ -201,7 +201,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="秃突唧之家">
+      <meta itemprop="name" content="突突唧之家">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-18 04:55:09" itemprop="dateModified" datetime="2021-05-18T04:55:09+08:00">2021-05-18</time>
+                <time title="修改时间：2021-05-18 18:05:48" itemprop="dateModified" datetime="2021-05-18T18:05:48+08:00">2021-05-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -549,5 +549,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-<script src="/live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"jsonPath":"/live2d/assets/tororo.model.json"},"display":{"superSample":2,"width":250,"height":250,"position":"right","hOffset":12,"vOffset":-6},"mobile":{"show":false}});</script></body>
+<script src="/live2d/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"scale":1,"jsonPath":"/live2d/assets/hijiki.model.json"},"display":{"superSample":2,"width":250,"height":250,"position":"right","hOffset":12,"vOffset":-6},"mobile":{"show":false}});</script></body>
 </html>
