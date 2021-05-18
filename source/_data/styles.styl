@@ -89,8 +89,29 @@ hr {
 	backdrop-filter: blur(10px);
 }
 
-// 文章标题
+// 标题
 // --------------------------------------------------
+// 网站标题
+.site-title:hover {
+    animation: shake-it .5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes shake-it {
+    0% {
+        text-shadow: 0 0 rgba(0, 255, 255, .5), 0 0 rgba(255, 0, 0, .5);
+    }
+    25% {
+        text-shadow: -2px 0 rgba(0, 255, 255, .5), 2px 0 rgba(255, 0, 0, .5);
+    }
+    50% {
+        text-shadow: -5px 0 rgba(0, 255, 255, .5), 3px 0 rgba(255, 0, 0, .5);
+    }
+    100% {
+        text-shadow: 3px 0 rgba(0, 255, 255, .5), 5px 0 rgba(255, 0, 0, .5);
+    }
+}
+
+// 文章标题
 .posts-expand .post-title-link {
 	color: black;
 }
