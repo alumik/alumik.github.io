@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #8ad4ff;
+  background: #63ff32;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2810,7 +2810,7 @@ hr {
   font-size: 12px;
 }
 .hitokoto-title {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
   font-size: 12px;
 }
