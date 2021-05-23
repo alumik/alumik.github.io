@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/5/" class="post-title-link" itemprop="url">为 Ubuntu 20.04 添加清华大学软件源</a>
+            <a href="/posts/5/" class="post-title-link" itemprop="url">为 Ubuntu 20.04 LTS 添加清华大学软件源</a>
         </h2>
 
         <div class="post-meta">
@@ -317,7 +317,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -330,7 +330,7 @@
             </span>
 
           
-            <span id="/posts/5/" class="post-meta-item leancloud_visitors" data-flag-title="为 Ubuntu 20.04 添加清华大学软件源" title="阅读次数">
+            <span id="/posts/5/" class="post-meta-item leancloud_visitors" data-flag-title="为 Ubuntu 20.04 LTS 添加清华大学软件源" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -349,14 +349,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Ubuntu 的软件源配置文件为 <em>/etc/apt/sources.list</em> 。首先将系统自带的该文件做个备份。</p>
-<p>之后，删除原文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rm /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>然后新建文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>输入以下内容并保存，即可使用清华大学软件源镜像。</p>
+          <p>Ubuntu 的软件源配置文件为 <span class="label info">/etc/apt/sources.list</span> 。将系统自带的该文件做个备份后替换为下面内容，即可使用 TUNA 的软件源镜像。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<p>本镜像仅支持 32 位和 64 位 x86 架构的系统，对于 ARM 或 PowerPC 架构请使用 ubuntu-ports 镜像。</p>
+<p>本镜像仅包含 32/64 位 x86 架构处理器的软件包，在 ARM(arm64, armhf)、PowerPC(ppc64el)、RISC-V(riscv64) 和 S390x 等架构的设备上（对应官方源为ports.ubuntu.com）请使用 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/">ubuntu-ports 镜像</a>。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></li>
 </ul>
@@ -410,7 +405,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -443,15 +438,15 @@
 
       
           <p>先执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
 <p>看看内核版本是不是 ≥ 4.9 ，如果不是需要先升级内核。</p>
 <p>如果满足条件，执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
 <p>然后验证开启状态，执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
 <p>如果结果都有 <code>bbr</code> ，则证明你的内核已成功开启 BBR ！</p>
 <p>此外，执行：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <p>看到有 <code>tcp_bbr</code> 模块也可说明 BBR 已启动。</p>
 
       
@@ -503,7 +498,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -594,7 +589,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -687,7 +682,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-20 20:37:59" itemprop="dateModified" datetime="2021-05-20T20:37:59+08:00">2021-05-20</time>
+                <time title="修改时间：2021-05-23 14:50:47" itemprop="dateModified" datetime="2021-05-23T14:50:47+08:00">2021-05-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -719,10 +714,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>从<a target="_blank" rel="noopener" href="http://windows.php.net/download/">官方下载地址</a>下载 PHP 并解压到你希望安装的位置。</p>
+          <h2 id="下载-PHP"><a href="#下载-PHP" class="headerlink" title="下载 PHP"></a>下载 PHP</h2><p>从 <a target="_blank" rel="noopener" href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
 <h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入“控制面板 -&gt; 系统和安全 -&gt; 管理工具 -&gt; Internet信息服务(IIS)管理器”。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
-<img src="/posts/1/01.jpg" class="">
-<img src="/posts/1/02.jpg" class="">
+<img src="/posts/1/01.png" class="">
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/1/#more" rel="contents">

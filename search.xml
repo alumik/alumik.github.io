@@ -303,30 +303,28 @@
   <entry>
     <title>为 IIS 配置 PHP 支持</title>
     <url>/posts/1/</url>
-    <content><![CDATA[<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>从<a href="http://windows.php.net/download/">官方下载地址</a>下载 PHP 并解压到你希望安装的位置。</p>
+    <content><![CDATA[<h2 id="下载-PHP"><a href="#下载-PHP" class="headerlink" title="下载 PHP"></a>下载 PHP</h2><p>从 <a href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
 <h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入“控制面板 -&gt; 系统和安全 -&gt; 管理工具 -&gt; Internet信息服务(IIS)管理器”。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
-<img src="/posts/1/01.jpg" class="">
-<img src="/posts/1/02.jpg" class="">
+<img src="/posts/1/01.png" class="">
 <span id="more"></span>
-<p>在“可执行文件”一栏找到 PHP 的安装目录，右下角的文件类型改为 <code>exe</code> 即可看到 <em>php-cgi.exe</em> 文件出现了。</p>
-<img src="/posts/1/03.jpg" class="">
-<img src="/posts/1/04.jpg" class="">
-<img src="/posts/1/05.jpg" class="">
-<img src="/posts/1/06.jpg" class="">
-<h2 id="设置默认文档"><a href="#设置默认文档" class="headerlink" title="设置默认文档"></a>设置默认文档</h2><p>然后可以给网站添加默认文档 <em>default.php</em> 和 <em>index.php</em> 等。</p>
-<img src="/posts/1/07.jpg" class="">
-<h2 id="修改-PHP-配置文件"><a href="#修改-PHP-配置文件" class="headerlink" title="修改 PHP 配置文件"></a>修改 PHP 配置文件</h2><p>进入 PHP 安装目录，根据需要重命名 <em>php.ini-development</em> 或 <em>php.ini-production</em> 为 <em>php.ini</em> 。</p>
-<img src="/posts/1/08.jpg" class="">
-<p>打开 <em>php.ini</em> ，将 <code>date.timezone</code> 修改为 <code>date.timezone=&quot;Asia/Shanghai&quot;</code> （即修改当前的时区）。</p>
+<img src="/posts/1/02.png" class="">
+<img src="/posts/1/03.png" class="">
+<p>在“可执行文件”一栏找到 PHP 的安装目录，右下角的文件类型改为 <code>exe</code> 即可看到 <span class="label info">php-cgi.exe</span> 文件出现了。</p>
+<img src="/posts/1/04.png" class="">
+<img src="/posts/1/05.png" class="">
+<h2 id="设置默认文档"><a href="#设置默认文档" class="headerlink" title="设置默认文档"></a>设置默认文档</h2><p>然后可以给网站添加默认文档，例如 <span class="label info">default.php</span> 和 <span class="label info">index.php</span> 等。</p>
+<img src="/posts/1/06.png" class="">
+<h2 id="修改-PHP-配置文件"><a href="#修改-PHP-配置文件" class="headerlink" title="修改 PHP 配置文件"></a>修改 PHP 配置文件</h2><p>进入 PHP 安装目录，根据需要重命名 <span class="label info">php.ini-development</span> 或 <span class="label info">php.ini-production</span> 为 <span class="label info">php.ini</span> 。</p>
+<p>打开 <span class="label info">php.ini</span> ，将 <code>date.timezone</code> 修改为 <code>date.timezone=&quot;Asia/Shanghai&quot;</code> （即修改当前的时区）。</p>
 <p>接着激活需要的扩展选项，即将相应语句前的分号删除，例如</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">extension=mysqli</span><br><span class="line">extension=pdo_mysql</span><br><span class="line">extension=gd2</span><br></pre></td></tr></table></figure>
 <p>再将 <code>; extension_dir = &quot;ext&quot;</code> 前的分号去掉，保存。</p>
-<h2 id="测试安装结果"><a href="#测试安装结果" class="headerlink" title="测试安装结果"></a>测试安装结果</h2><p>PHP 环境配置好了，我们就可以测试一下了。在 IIS 中建立一个新网站，网站根目录下新建一个 <em>index.php</em> 文件：</p>
+<h2 id="测试安装结果"><a href="#测试安装结果" class="headerlink" title="测试安装结果"></a>测试安装结果</h2><p>PHP 环境配置好了，我们就可以测试一下了。在 IIS 中建立一个新网站，网站根目录下新建一个 <span class="label info">index.php</span> 文件：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> phpinfo(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在浏览器中打开该网页，即可出现类似如下界面。</p>
-<img src="/posts/1/09.jpg" class="">
+<img src="/posts/1/07.png" class="">
 <p>在命令行中进入 php 安装目录下，输入 <code>php -m</code> 命令可查看已开启的扩展模块。</p>
-<img src="/posts/1/10.jpg" class="">
+<img src="/posts/1/08.png" class="">
 ]]></content>
       <categories>
         <category>网络服务</category>
@@ -370,16 +368,11 @@
       </categories>
   </entry>
   <entry>
-    <title>为 Ubuntu 20.04 添加清华大学软件源</title>
+    <title>为 Ubuntu 20.04 LTS 添加清华大学软件源</title>
     <url>/posts/5/</url>
-    <content><![CDATA[<p>Ubuntu 的软件源配置文件为 <em>/etc/apt/sources.list</em> 。首先将系统自带的该文件做个备份。</p>
-<p>之后，删除原文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo rm /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>然后新建文件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<p>输入以下内容并保存，即可使用清华大学软件源镜像。</p>
+    <content><![CDATA[<p>Ubuntu 的软件源配置文件为 <span class="label info">/etc/apt/sources.list</span> 。将系统自带的该文件做个备份后替换为下面内容，即可使用 TUNA 的软件源镜像。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<p>本镜像仅支持 32 位和 64 位 x86 架构的系统，对于 ARM 或 PowerPC 架构请使用 ubuntu-ports 镜像。</p>
+<p>本镜像仅包含 32/64 位 x86 架构处理器的软件包，在 ARM(arm64, armhf)、PowerPC(ppc64el)、RISC-V(riscv64) 和 S390x 等架构的设备上（对应官方源为ports.ubuntu.com）请使用 <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/">ubuntu-ports 镜像</a>。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/</a></li>
 </ul>
@@ -396,15 +389,15 @@
     <title>为 VPS 开启 BBR 加速</title>
     <url>/posts/4/</url>
     <content><![CDATA[<p>先执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">uname -r</span><br></pre></td></tr></table></figure>
 <p>看看内核版本是不是 ≥ 4.9 ，如果不是需要先升级内核。</p>
 <p>如果满足条件，执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
 <p>然后验证开启状态，执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
 <p>如果结果都有 <code>bbr</code> ，则证明你的内核已成功开启 BBR ！</p>
 <p>此外，执行：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
 <p>看到有 <code>tcp_bbr</code> 模块也可说明 BBR 已启动。</p>
 ]]></content>
       <categories>
@@ -775,24 +768,23 @@
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File &quot;/usr/bin/ssserver&quot;, line 9, in</span><br><span class="line">        load_entry_point(&#x27;shadowsocks==2.8.2&#x27;, &#x27;console_scripts&#x27;, &#x27;ssserver&#x27;)()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/server.py&quot;, line 34, in main</span><br><span class="line">        config = shell.get_config(False)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 262, in get_config</span><br><span class="line">        check_config(config, is_local)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 124, in check_config</span><br><span class="line">        encrypt.try_cipher(config[&#x27;password&#x27;], config[&#x27;method&#x27;])</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 44, in try_cipher</span><br><span class="line">        Encryptor(key, method)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 83, in __init__</span><br><span class="line">        random_string(self._method_info[1]))</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 109, in get_cipher</span><br><span class="line">        return m[2](method, key, iv, op)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 76, in __init__</span><br><span class="line">        load_openssl()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">        func = self.__getitem__(name)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">        func = self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br><span class="line">shadowsocks start failed</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题是由于在新版 OpenSSL 中，废弃了 <code>EVP_CIPHER_CTX_cleanup()</code> 函数。</p>
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>这个问题是由于在新版 OpenSSL 中，废弃了 <code>EVP_CIPHER_CTX_cleanup</code> 函数。</p>
 <p>如官网中所说：</p>
 <div class="note info">
-            <p><code>EVP_CIPHER_CTX</code> was made opaque in OpenSSL 1.1.0. As a result, <code>EVP_CIPHER_CTX_reset()</code> appeared and <code>EVP_CIPHER_CTX_cleanup()</code> disappeared. <code>EVP_CIPHER_CTX_init()</code> remains as an alias for <code>EVP_CIPHER_CTX_reset()</code>.</p>
+            <p><code>EVP_CIPHER_CTX</code> was made opaque in OpenSSL 1.1.0. As a result, <code>EVP_CIPHER_CTX_reset</code> appeared and <code>EVP_CIPHER_CTX_cleanup</code> disappeared. <code>EVP_CIPHER_CTX_init</code> remains as an alias for <code>EVP_CIPHER_CTX_reset</code>.</p>
           </div>
-<p>实际上， <code>EVP_CIPHER_CTX_reset()</code> 函数替代了 <code>EVP_CIPHER_CTX_cleanup()</code> 函数。</p>
-<p><code>EVP_CIPHER_CTX_reset()</code> 函数说明：</p>
+<p>实际上， <code>EVP_CIPHER_CTX_reset</code> 函数替代了 <code>EVP_CIPHER_CTX_cleanup</code> 函数。</p>
+<p><code>EVP_CIPHER_CTX_reset</code> 函数说明：</p>
 <div class="note info">
-            <p><code>EVP_CIPHER_CTX_reset()</code> clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another <code>EVP_CipherInit()</code> / <code>EVP_CipherUpdate()</code> / <code>EVP_CipherFinal()</code> series of calls.</p>
+            <p><code>EVP_CIPHER_CTX_reset</code> clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another <code>EVP_CipherInit</code> / <code>EVP_CipherUpdate</code> / <code>EVP_CipherFinal</code> series of calls.</p>
           </div>
-<p><code>EVP_CIPHER_CTX_cleanup()</code> 函数说明：</p>
+<p><code>EVP_CIPHER_CTX_cleanup</code> 函数说明：</p>
 <div class="note info">
-            <p><code>EVP_CIPHER_CTX_cleanup()</code> clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.</p>
+            <p><code>EVP_CIPHER_CTX_cleanup</code> clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.</p>
           </div>
-<p>可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 <code>EVP_CIPHER_CTX_reset()</code> 代替 <code>EVP_CIPHER_CTX_cleanup()</code> 问题不大。</p>
-<h2 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h2><p>编辑文件 <em>/usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py</em> ，跳转到52行（以 Shadowsocks 2.8.2 版本为例，其他版本搜索一下 cleanup ），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</code> 。</p>
-<p>再次搜索 cleanup （全文件共2处，此处位于111行），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</code> 。</p>
-<p>保存并退出。</p>
+<p>可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 <code>EVP_CIPHER_CTX_reset</code> 代替 <code>EVP_CIPHER_CTX_cleanup</code> 问题不大。</p>
+<h2 id="修复方法"><a href="#修复方法" class="headerlink" title="修复方法"></a>修复方法</h2><p>编辑文件 <span class="label info">dist-packages/shadowsocks/crypto/openssl.py</span>，跳转到52行（以 Shadowsocks 2.8.2 版本为例，其他版本搜索一下 <code>cleanup</code> ），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)</code> 。</p>
+<p>再次搜索 <code>cleanup</code> （全文件共2处，此处位于111行），将 <code>libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)</code> 改为 <code>libcrypto.EVP_CIPHER_CTX_reset(self._ctx)</code> 。</p>
 <p>再次尝试启动 Shadowsocks 服务，现在应该能够正常启动了。</p>
 ]]></content>
       <categories>
@@ -806,11 +798,11 @@
   <entry>
     <title>解决 Qt 应用程序发布时动态链接库缺少的问题</title>
     <url>/posts/15/</url>
-    <content><![CDATA[<p>首先编译一个 release 版本，然后把生成的 exe 拷贝到一个新的文件夹下面。</p>
-<p>接着找到你的 <em>windeployqt.exe</em> 文件，例如 <em>C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe</em> 。</p>
-<p>将 minGW 添加到环境变量，例如路径 <em>C:\Qt\Tools\mingw530_32\bin</em> 。</p>
-<p>打开命令行窗口，然后进入存放你的 exe 文件的文件夹，执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe &lt;你的 exe 文件名&gt; --release</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p>首先编译一个 release 版本，然后把生成的可执行文件拷贝到一个新的文件夹下面。</p>
+<p>接着找到你的 <span class="label info">windeployqt.exe</span> 文件，例如 <span class="label info">C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe</span> 。</p>
+<p>将 MinGW 添加到环境变量，例如路径  <span class="label info">C:\Qt\Tools\mingw530_32\bin</span> 。</p>
+<p>打开命令行窗口，然后进入存放你的可执行文件的文件夹，执行命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">C:\Qt\5.9.6\mingw53_32\bin\windeployqt.exe &lt;可执行文件的文件名&gt; --release</span><br></pre></td></tr></table></figure>
 <p>这样必要的文件就被放进了该文件夹。</p>
 ]]></content>
       <categories>
@@ -1771,7 +1763,7 @@
   <entry>
     <title>Make MySQL Table Name Case Insensitive</title>
     <url>/posts/64/</url>
-    <content><![CDATA[<p>Open terminal and edit <code>/etc/mysql/mysql.conf.d/mysqld.cnf</code>:</p>
+    <content><![CDATA[<p>Open terminal and edit <span class="label info">/etc/mysql/mysql.conf.d/mysqld.cnf</span>:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
 <p>Underneath the <code>[mysqld]</code> section, add:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
