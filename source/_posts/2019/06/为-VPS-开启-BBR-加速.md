@@ -7,7 +7,7 @@ date: 2019-06-24 14:39:36
 ---
 先执行：
 
-```bash
+```sh
 uname -r
 ```
 
@@ -15,15 +15,15 @@ uname -r
 
 如果满足条件，执行：
 
-```bash
-echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
-echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
-sysctl -p
+```sh
+sudo echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+sudo echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+sudo sysctl -p
 ```
 
 然后验证开启状态，执行：
 
-```bash
+```sh
 sysctl net.ipv4.tcp_available_congestion_control
 sysctl net.ipv4.tcp_congestion_control
 ```
@@ -32,7 +32,7 @@ sysctl net.ipv4.tcp_congestion_control
 
 此外，执行：
 
-```bash
+```sh
 lsmod | grep bbr
 ```
 

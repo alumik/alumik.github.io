@@ -43,36 +43,34 @@ shadowsocks start failed
 
 ## 问题原因
 
-这个问题是由于在新版 OpenSSL 中，废弃了 `EVP_CIPHER_CTX_cleanup()` 函数。
+这个问题是由于在新版 OpenSSL 中，废弃了 `EVP_CIPHER_CTX_cleanup` 函数。
 
 如官网中所说：
 
 {% note info %}
-`EVP_CIPHER_CTX` was made opaque in OpenSSL 1.1.0. As a result, `EVP_CIPHER_CTX_reset()` appeared and `EVP_CIPHER_CTX_cleanup()` disappeared. `EVP_CIPHER_CTX_init()` remains as an alias for `EVP_CIPHER_CTX_reset()`.
+`EVP_CIPHER_CTX` was made opaque in OpenSSL 1.1.0. As a result, `EVP_CIPHER_CTX_reset` appeared and `EVP_CIPHER_CTX_cleanup` disappeared. `EVP_CIPHER_CTX_init` remains as an alias for `EVP_CIPHER_CTX_reset`.
 {% endnote %}
 
-实际上， `EVP_CIPHER_CTX_reset()` 函数替代了 `EVP_CIPHER_CTX_cleanup()` 函数。
+实际上， `EVP_CIPHER_CTX_reset` 函数替代了 `EVP_CIPHER_CTX_cleanup` 函数。
 
-`EVP_CIPHER_CTX_reset()` 函数说明：
+`EVP_CIPHER_CTX_reset` 函数说明：
 
 {% note info %}
-`EVP_CIPHER_CTX_reset()` clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another `EVP_CipherInit()` / `EVP_CipherUpdate()` / `EVP_CipherFinal()` series of calls.
+`EVP_CIPHER_CTX_reset` clears all information from a cipher context and free up any allocated memory associate with it, except the ctx itself. This function should be called anytime ctx is to be reused for another `EVP_CipherInit` / `EVP_CipherUpdate` / `EVP_CipherFinal` series of calls.
 {% endnote %}
 
-`EVP_CIPHER_CTX_cleanup()` 函数说明：
+`EVP_CIPHER_CTX_cleanup` 函数说明：
 
 {% note info %}
-`EVP_CIPHER_CTX_cleanup()` clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.
+`EVP_CIPHER_CTX_cleanup` clears all information from a cipher context and free up any allocated memory associate with it. It should be called after all operations using a cipher are complete so sensitive information does not remain in memory.
 {% endnote %}
 
-可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 `EVP_CIPHER_CTX_reset()` 代替 `EVP_CIPHER_CTX_cleanup()` 问题不大。
+可以看出，二者功能基本上相同，都是释放内存，只是应该调用的时机稍有不同，所以用 `EVP_CIPHER_CTX_reset` 代替 `EVP_CIPHER_CTX_cleanup` 问题不大。
 
 ## 修复方法
 
-编辑文件 */usr/local/lib/python2.7/dist-packages/shadowsocks/crypto/openssl.py* ，跳转到52行（以 Shadowsocks 2.8.2 版本为例，其他版本搜索一下 cleanup ），将 `libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)` 改为 `libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)` 。
+编辑文件 {% label info@dist-packages/shadowsocks/crypto/openssl.py %}，跳转到52行（以 Shadowsocks 2.8.2 版本为例，其他版本搜索一下 `cleanup` ），将 `libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)` 改为 `libcrypto.EVP_CIPHER_CTX_reset.argtypes = (c_void_p,)` 。
 
-再次搜索 cleanup （全文件共2处，此处位于111行），将 `libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)` 改为 `libcrypto.EVP_CIPHER_CTX_reset(self._ctx)` 。
-
-保存并退出。
+再次搜索 `cleanup` （全文件共2处，此处位于111行），将 `libcrypto.EVP_CIPHER_CTX_cleanup(self._ctx)` 改为 `libcrypto.EVP_CIPHER_CTX_reset(self._ctx)` 。
 
 再次尝试启动 Shadowsocks 服务，现在应该能够正常启动了。
