@@ -17,7 +17,7 @@ Note that this will also create any intermediate directories that don't exist; f
 mkdir -p foo/bar/baz
 ```
 
-will create directories `foo`, `foo/bar`, and `foo/bar/baz` if they don't exist.
+will create directories {% label info@foo %}, {% label info@foo/bar %}, and {% label info@foo/bar/baz %} if they don't exist.
 
 Some implementation like GNU `mkdir` include `mkdir --parents` as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.
 

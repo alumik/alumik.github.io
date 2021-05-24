@@ -1,23 +1,29 @@
 ---
-title: Recursively Delete All Files of a Specific Extension in the Current Directory
+title: Recursively Find and Delete All Files of a Specific Extension in the Current Directory
 date: 2021-04-19 20:37:07
 categories: Linux
 tags:
 abbrlink: 61
 ---
-Use `find`:
+Use `find`.
 
-```
-find . -name "*.bak" -type f -delete
-```
-
-But use it with precaution. Run first:
+To see exactly which files you will remove:
 
 ```
 find . -name "*.bak" -type f
 ```
 
-to see exactly which files you will remove.
+To count the number of files:
+
+```
+find . -name "*.bak" -type f | wc -l
+```
+
+To delete these files:
+
+```
+find . -name "*.bak" -type f -delete
+```
 
 {% note danger %}
 Make sure that `-delete` is the last argument in your command. If you put it before the `-name *.bak argument`, it will delete **everything**.
@@ -26,3 +32,4 @@ Make sure that `-delete` is the last argument in your command. If you put it bef
 ## References
 
 - https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di
+- https://devconnected.com/how-to-count-files-in-directory-on-linux/
