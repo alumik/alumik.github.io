@@ -1799,18 +1799,23 @@
       </tags>
   </entry>
   <entry>
-    <title>Recursively Delete All Files of a Specific Extension in the Current Directory</title>
+    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
     <url>/posts/61/</url>
     <content><![CDATA[<p>Use <code>find</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
-<p>But use it with precaution. Run first:</p>
+<p>Run first:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
 <p>to see exactly which files you will remove.</p>
+<p>Use:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
+<p>to count the total number of files.</p>
+<p>To delete these files, run:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
 <div class="note danger">
             <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>
           </div>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di">https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di</a></li>
+<li><a href="https://devconnected.com/how-to-count-files-in-directory-on-linux/">https://devconnected.com/how-to-count-files-in-directory-on-linux/</a></li>
 </ul>
 ]]></content>
       <categories>
