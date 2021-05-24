@@ -1873,6 +1873,21 @@
       </tags>
   </entry>
   <entry>
+    <title>查看 Windows 10 保存的 WiFi 密码</title>
+    <url>/posts/67/</url>
+    <content><![CDATA[<p>当 Windows 10 连接过某个 WiFi 后，这个 WiFi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 WiFi 范围可以自动连接。然而，已经保存在系统的 WiFi，却不能直接查看密码。</p>
+<p>使用下列命令可以查看 Windows 10 保存的 WiFi 密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
+<p>其中，<code>SSID</code> 就填写你想要查看密码的 WiFi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
+<img src="/posts/67/01.png" class="">
+<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 WiFi 热点对应的密码了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Sampling from a Normal Distribution</title>
     <url>/posts/39/</url>
     <content><![CDATA[<p>One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It&#39;s also of great importance due to its relation to the <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">Central Limit Theorem</a>.</p>
