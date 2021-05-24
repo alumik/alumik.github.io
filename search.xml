@@ -304,7 +304,7 @@
     <title>为 IIS 配置 PHP 支持</title>
     <url>/posts/1/</url>
     <content><![CDATA[<h2 id="下载-PHP"><a href="#下载-PHP" class="headerlink" title="下载 PHP"></a>下载 PHP</h2><p>从 <a href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
-<h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入“控制面板 -&gt; 系统和安全 -&gt; 管理工具 -&gt; Internet信息服务(IIS)管理器”。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
+<h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入 <em>控制面板 &gt; 系统和安全 &gt; 管理工具 &gt; Internet信息服务(IIS)管理器</em>。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
 <img src="/posts/1/01.png" class="">
 <span id="more"></span>
 <img src="/posts/1/02.png" class="">
@@ -1437,7 +1437,7 @@
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$f</span> <span class="keyword">in</span> <span class="built_in">Get-ChildItem</span> <span class="variable">$env:LOCALAPPDATA</span>\Packages) &#123;CheckNetIsolation.exe LoopbackExempt <span class="literal">-a</span> <span class="string">&quot;-n=<span class="variable">$</span>(<span class="variable">$f</span>.Name)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>如果只需要少量应用：</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
-<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <code>%LOCALAPPDATA%\Packages</code> 目录中的应用目录名即可。</p>
+<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <span class="label info">%LOCALAPPDATA%\Packages</span> 目录中的应用目录名即可。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
 </ul>
@@ -1720,7 +1720,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
 <p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo/bar/baz</span><br></pre></td></tr></table></figure>
-<p>will create directories <code>foo</code>, <code>foo/bar</code>, and <code>foo/bar/baz</code> if they don&#39;t exist.</p>
+<p>will create directories <span class="label info">foo</span>, <span class="label info">foo/bar</span>, and <span class="label info">foo/bar/baz</span> if they don&#39;t exist.</p>
 <p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
@@ -1801,14 +1801,12 @@
   <entry>
     <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
     <url>/posts/61/</url>
-    <content><![CDATA[<p>Use <code>find</code>:</p>
-<p>Run first:</p>
+    <content><![CDATA[<p>Use <code>find</code>.</p>
+<p>To see exactly which files you will remove:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
-<p>to see exactly which files you will remove.</p>
-<p>Use:</p>
+<p>To count the number of files:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
-<p>to count the total number of files.</p>
-<p>To delete these files, run:</p>
+<p>To delete these files:</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
 <div class="note danger">
             <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>

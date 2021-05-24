@@ -1239,7 +1239,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #304767;
+  background: #f4244d;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2854,13 +2854,13 @@ hr {
   display: none;
 }
 .post-body .label {
+  border: 1px solid #000;
   border-radius: 3px;
   font-family: consolas;
   padding: 2px 4px;
 }
 .post-body .label.info {
   background: #eef7fa;
-  color: #1e5670;
 }
 @-moz-keyframes shake-it {
   0% {
