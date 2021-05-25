@@ -1834,6 +1834,25 @@
       </tags>
   </entry>
   <entry>
+    <title>Assigning Default Values to Shell Variables</title>
+    <url>/posts/68/</url>
+    <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
+<p>To get the assigned value, or default if it&#39;s missing:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span>  <span class="comment"># If variable not set or null, use default.</span></span><br></pre></td></tr></table></figure>
+<p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span>  <span class="comment"># If variable not set or null, set it to default.</span></span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash">https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Get Path of Current Script When Executed Through a Symlink</title>
     <url>/posts/66/</url>
     <content><![CDATA[<p>Try this as a general purpose solution:</p>
