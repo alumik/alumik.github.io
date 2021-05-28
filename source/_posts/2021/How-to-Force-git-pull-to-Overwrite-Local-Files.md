@@ -35,7 +35,7 @@ Uncommitted changes, however (even staged), will be lost. Make sure to stash and
 git stash
 ```
 
-And then to reapply these uncommitted changes:
+Then to reapply these uncommitted changes:
 
 ```
 git stash pop

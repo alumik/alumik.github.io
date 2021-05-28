@@ -61,7 +61,7 @@ If you changed the message of most recently pushed commit, you would have to for
 
 ## Changing an Older or Multiple Commits
 
-If you need to change the message of an older or multiple commits, you can use an interactive `git rebase` to change one or more older commits.
+If you need to change the message of an older or multiple commits, you can use an interactive `git rebase` to change one or older commits.
 
 The `rebase` command rewrites the commit history, and it is strongly discouraged to rebase commits that are already pushed to the [remote Git repository](https://linuxize.com/post/how-to-setup-a-git-server/).
 

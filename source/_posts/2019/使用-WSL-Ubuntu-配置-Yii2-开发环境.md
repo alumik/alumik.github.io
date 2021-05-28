@@ -49,7 +49,7 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-编辑完成后，使用 `Ctrl+O` 保存，再使用 `Ctrl+X` 退出。
+编辑完成后，使用 **Ctrl + O** 保存，再使用 **Ctrl + X** 退出。
 
 接下来更新系统。注意此步可能需要较长时间。
 

@@ -34,11 +34,9 @@ Or as a one-liner:
 await new Promise(r => setTimeout(r, 2000))
 ```
 
-<!-- more -->
-
 ## Note
 
-`await` can only be executed in functions prefixed with the `async` keyword, or at the top level of your script in some environments (e.g. the Chrome DevTools console, or Runkit).
+`await` can only be executed in functions prefixed with the `async` keyword, or at the top level of your script in some environments (e.g., the Chrome DevTools console, or Runkit).
 
 `await` only pauses the current `async` function
 

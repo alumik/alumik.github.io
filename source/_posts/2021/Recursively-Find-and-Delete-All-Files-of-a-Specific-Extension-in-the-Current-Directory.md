@@ -26,7 +26,7 @@ find . -name "*.bak" -type f -delete
 ```
 
 {% note danger %}
-Make sure that `-delete` is the last argument in your command. If you put it before the `-name *.bak argument`, it will delete **everything**.
+Make sure that `-delete` is the last argument in your command. If you put it before the `-name "*.bak"` argument, it will delete **everything**.
 {% endnote %}
 
 ## References

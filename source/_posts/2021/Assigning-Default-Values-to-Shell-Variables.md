@@ -10,13 +10,15 @@ You can use something called "bash parameter expansion" to accomplish this.
 To get the assigned value, or default if it's missing:
 
 ```sh
-FOO="${VARIABLE:-default}"  # If variable not set or null, use default.
+# If variable not set or null, use default.
+FOO="${VARIABLE:-default}"
 ```
 
 Or to assign default to `VARIABLE` at the same time:
 
 ```sh
-FOO="${VARIABLE:=default}"  # If variable not set or null, set it to default.
+# If variable not set or null, set it to default.
+FOO="${VARIABLE:=default}"
 ```
 
 ## References

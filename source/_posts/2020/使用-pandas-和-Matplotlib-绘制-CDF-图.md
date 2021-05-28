@@ -11,7 +11,7 @@ date: 2020-02-19 17:52:45
 
 `pandas.Series.hist` 和 `matplotlib.pyplot.hist` 可以帮助我们画出想要的 CDF 图。
 
-{% asset_img cdf.png %}
+{% asset_img cdf.png 500 %}
 
 <!-- more -->
 
@@ -19,27 +19,27 @@ date: 2020-02-19 17:52:45
 
 ### bins
 
-- int or sequence, default 10.
-- Number of histogram bins to be used. If an integer is given, bins + 1 bin edges are calculated and returned. If bins is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, bins is returned unmodified.
+- `int` or `Sequence`, default `10`.
+- Number of histogram bins to be used. If an integer is given, `bins + 1` bin edges are calculated and returned. If `bins` is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, `bins` is returned unmodified.
 
 ### density
 
-- bool, default None.
-- If True, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to 1. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If stacked is also True, the sum of the histograms is normalized to 1.
+- `bool`, default `None`.
+- If `True`, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to `1`. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If `stacked` is also `True`, the sum of the histograms is normalized to `1`.
 
 ### cumulative
 
-- bool, default False.
-- If True, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of datapoints. If normed or density is also True then the histogram is normalized such that the last bin equals 1. If cumulative evaluates to less than 0 (e.g., -1), the direction of accumulation is reversed. In this case, if normed and/or density is also True, then the histogram is normalized such that the first bin equals 1.
+- `bool`, default `False`.
+- If `True`, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of data points. If `normed` or `density` is also `True` then the histogram is normalized such that the last bin equals `1`. If cumulative evaluates to less than `0` (e.g., `-1`), the direction of accumulation is reversed. In this case, if `normed` and/or `density` is also `True`, then the histogram is normalized such that the first bin equals `1`.
 
 ### histtype
 
-- {'bar', 'barstacked', 'step', 'stepfilled'}, default 'bar'.
+- `'bar', 'barstacked', 'step', 'stepfilled'`, default `'bar'`.
 - The type of histogram to draw:
-    - 'bar' is a traditional bar-type histogram. If multiple data are given the bars are arranged side by side.
-    - 'barstacked' is a bar-type histogram where multiple data are stacked on top of each other.
-    - 'step' generates a lineplot that is by default unfilled.
-    - 'stepfilled' generates a lineplot that is by default filled.
+    - `'bar'` is a traditional bar-type histogram. If multiple data are given, the bars are arranged side by side.
+    - `'barstacked'` is a bar-type histogram where multiple data are stacked on top of each other.
+    - `'step'` generates a lineplot that is by default unfilled.
+    - '`stepfilled'` generates a lineplot that is by default filled.
 
 ## 完整代码
 
@@ -56,7 +56,7 @@ ax = fig.add_subplot()
 series: pd.Series
 for label, series in df.iteritems():
     # 用于隐藏最右边的竖线
-    # 将 2 修改为横轴范围外的一处即可（但不可为 inf ）
+    # 将 `2` 修改为横轴范围外的一处即可（但不可为 `inf`）
     bins = sorted(series.drop_duplicates()) + [2]
     series.hist(label=label, cumulative=True, histtype='step',
                 density=1, bins=bins, linewidth=2)

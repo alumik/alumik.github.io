@@ -17,7 +17,7 @@ The pyplot API is generally less-flexible than the object-oriented API. Most of 
 
 下图展示了大部分绘图元素：
 
-{% asset_img anatomy-of-a-figure.webp Anatomy of a Figure %}
+{% asset_img anatomy-of-a-figure.webp 600 Anatomy of a Figure %}
 
 <!-- more -->
 

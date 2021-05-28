@@ -7,8 +7,6 @@ tags:
     - CMake
 abbrlink: 54
 ---
-CMakeLists.txt 示例
-
 ```cmake
 cmake_minimum_required(VERSION 3.17)
 project(MPITest)

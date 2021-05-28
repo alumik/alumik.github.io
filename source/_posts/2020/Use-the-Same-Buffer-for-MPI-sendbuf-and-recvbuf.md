@@ -10,8 +10,9 @@ According to `MPI_AllReduce` man page and MPI doc `MPI_IN_PLACE` can be used to 
 The call would look like:
 
 ```cpp
-double rho[1024];
-// Some operation to calculate rho for each process
+// Some operations to calculate `rho` for each process.
+double rho[1024] = ...;
+
 MPI_Allreduce(MPI_IN_PLACE, rho, 1024, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);
 ```
 

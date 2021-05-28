@@ -5,13 +5,7 @@ categories: 数据库管理系统
 tags: MySQL/MariaDB
 abbrlink: 64
 ---
-Open terminal and edit {% label info@/etc/mysql/mysql.conf.d/mysqld.cnf %}:
-
-```
-sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf
-```
-
-Underneath the `[mysqld]` section, add:
+Open terminal and edit */etc/mysql/mysql.conf.d/mysqld.cnf*. Underneath the `[mysqld]` section, add:
 
 ```
 lower_case_table_names = 1

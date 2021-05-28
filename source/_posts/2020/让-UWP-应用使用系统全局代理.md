@@ -19,7 +19,7 @@ foreach($f in Get-ChildItem $env:LOCALAPPDATA\Packages) {CheckNetIsolation.exe L
 CheckNetIsolation.exe LoopbackExempt –a –n=<App Directory>
 ```
 
-将 `<App Directory>` 替换成出现在 {% label info@%LOCALAPPDATA%\Packages %} 目录中的应用目录名即可。
+将 `<App Directory>` 替换成出现在 *%LOCALAPPDATA%\Packages* 目录中的应用目录名即可。
 
 ## 参考链接
 

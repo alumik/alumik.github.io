@@ -9,15 +9,15 @@ date: 2020-05-22 10:13:43
 
 In this quick article we'll focus on packaging a Maven project into an executable Jar file.
 
-Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we'll discuss the configuration and pros/cons of using each of these approaches for creating the executable.
+Usually, when creating a jar file, we want to execute it easily, without using the IDE. To that end, we'll discuss the configuration and pros/cons of using each of these approaches for creating the executable.
 
 ## Configuration
 
-In order to create an executable jar, we don't need any additional dependencies. We just need to create Maven Java project, and have at least one class with the `main(…)` method.
+In order to create an executable jar, we don't need any additional dependencies. We just need to create Maven Java project, and have at least one class with the `main` method.
 
 In our example, we created Java class named `ExecutableMavenJar`.
 
-We also need to make sure that our `pom.xml` contains the the following elements:
+We also need to make sure that our *pom.xml* contains the following elements:
 
 ```xml
 <modelVersion>4.0.0</modelVersion>
@@ -27,7 +27,7 @@ We also need to make sure that our `pom.xml` contains the the following elements
 <packaging>jar</packaging>
 ```
 
-The most important aspect here is the type – to create an executable jar, double check the configuration uses a `jar` type.
+The most important aspect here is the type – to create an executable jar, double-check the configuration uses a `jar` type.
 
 Now we can start using the various solutions.
 
@@ -62,7 +62,7 @@ First, we'll copy all required dependencies into the folder that we'll specify:
 
 There are two important aspects to notice. First, we specify the goal `copy-dependencies`, which tells Maven to copy these dependencies into the specified `outputDirectory`.
 
-In our case, we'll create a folder named `libs`, inside the project build directory (which is usually the `target` folder).
+In our case, we'll create a folder named `libs`, inside the project build directory (which is usually the *target* folder).
 
 In the second step, we are going to create executable and class path aware jar, with the link to the dependencies copied in the first step:
 
@@ -84,14 +84,14 @@ In the second step, we are going to create executable and class path aware jar, 
 </plugin>
 ```
 
-The most important part of above-mentioned is the manifest configuration. We add a classpath, with all dependencies (folder `libs/`), and provide the information about the main class.
+The most important part of above-mentioned is the manifest configuration. We add a classpath, with all dependencies (folder *libs/*), and provide the information about the main class.
 
 Please note, that we need to provide fully qualified named of the class, which means it will include package name.
 
 The advantages and disadvantages of this approach are:
 
 - **pros** – transparent process, where we can specify each step
-- **cons** – manual, dependencies are out of the final jar, which means that your executable jar will only run if the libs folder will be accessible and visible for a jar
+- **cons** – manual, dependencies are out of the final jar, which means that your executable jar will only run if the *libs* folder will be accessible and visible for a jar
 
 ### Apache Maven Assembly Plugin
 
@@ -99,7 +99,7 @@ The Apache Maven Assembly Plugin allows users to aggregate the project output al
 
 The main goal in the assembly plugin is the [single](https://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html) goal – used to create all assemblies (all other goals are deprecated and will be removed in a future release).
 
-Let's take a look at the configuration in `pom.xml`:
+Let's take a look at the configuration in *pom.xml*:
 
 ```xml
 <plugin>
@@ -139,7 +139,7 @@ Output in our example will be named as `core-java-jar-with-dependencies.jar`.
 
 ### Apache Maven Shade Plugin
 
-Apache Maven Shade Plugin provides the capability to package the artifact in an uber-jar, which consists of all dependencies required to run the project. Moreover, it supports shading – i.e. rename – the packages of some of the dependencies.
+Apache Maven Shade Plugin provides the capability to package the artifact in an uber-jar, which consists of all dependencies required to run the project. Moreover, it supports shading – i.e., rename – the packages of some dependencies.
 
 Let's take a look at the configuration:
 
@@ -257,11 +257,11 @@ Please note, that we don't need to have Spring Boot application in order to use 
 
 In this article, we described many ways of creating an executable jar with various Maven plugins.
 
-The full implementation of this tutorial can be found in [this (executable jar)](https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-jar) and [this (executable war)](https://github.com/eugenp/tutorials/tree/master/spring-thymeleaf-2) Github projects.
+The full implementation of this tutorial can be found in [this (executable jar)](https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-jar) and [this (executable war)](https://github.com/eugenp/tutorials/tree/master/spring-thymeleaf-2) GitHub projects.
 
 How to test? In order to compile the project into an executable jar, please run Maven with mvn clean package command.
 
-Hopefully, this article gives you some more insights on the topic and you will find your preferred approach depending on your needs.
+Hopefully, this article gives you some more insights on the topic, and you will find your preferred approach depending on your needs.
 
 One quick final note – make sure the licenses of the jars you're bundling don't prohibit this kind of operation. Generally, that won't be the case, but it's something worth considering.
 
