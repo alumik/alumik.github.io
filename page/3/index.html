@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,7 +314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -351,7 +351,7 @@
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$f</span> <span class="keyword">in</span> <span class="built_in">Get-ChildItem</span> <span class="variable">$env:LOCALAPPDATA</span>\Packages) &#123;CheckNetIsolation.exe LoopbackExempt <span class="literal">-a</span> <span class="string">&quot;-n=<span class="variable">$</span>(<span class="variable">$f</span>.Name)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>如果只需要少量应用：</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
-<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <span class="label info">%LOCALAPPDATA%\Packages</span> 目录中的应用目录名即可。</p>
+<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <em>%LOCALAPPDATA%\Packages</em> 目录中的应用目录名即可。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
 </ul>
@@ -405,7 +405,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -438,12 +438,12 @@
 
       
           <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this quick article we&#39;ll focus on packaging a Maven project into an executable Jar file.</p>
-<p>Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>In order to create an executable jar, we don&#39;t need any additional dependencies. We just need to create Maven Java project, and have at least one class with the <code>main(…)</code> method.</p>
+<p>Usually, when creating a jar file, we want to execute it easily, without using the IDE. To that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>In order to create an executable jar, we don&#39;t need any additional dependencies. We just need to create Maven Java project, and have at least one class with the <code>main</code> method.</p>
 <p>In our example, we created Java class named <code>ExecutableMavenJar</code>.</p>
-<p>We also need to make sure that our <code>pom.xml</code> contains the the following elements:</p>
+<p>We also need to make sure that our <em>pom.xml</em> contains the following elements:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baeldung<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>core-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>The most important aspect here is the type – to create an executable jar, double check the configuration uses a <code>jar</code> type.</p>
+<p>The most important aspect here is the type – to create an executable jar, double-check the configuration uses a <code>jar</code> type.</p>
 <p>Now we can start using the various solutions.</p>
           <!--noindex-->
             <div class="post-button">
@@ -502,7 +502,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -594,7 +594,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -632,7 +632,7 @@
             <p>The pyplot API is generally less-flexible than the object-oriented API. Most of the function calls you see here can also be called as methods from an Axes object. We recommend browsing the tutorials and examples to see how this works.</p>
           </div>
 <p>下图展示了大部分绘图元素：</p>
-<img src="/posts/44/anatomy-of-a-figure.webp" class="" title="Anatomy of a Figure">
+<img src="/posts/44/anatomy-of-a-figure.webp" class="" width="600" title="Anatomy of a Figure">
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/44/#more" rel="contents">
@@ -690,7 +690,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -786,7 +786,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -887,7 +887,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -920,7 +920,7 @@
 
       
           <h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p><code>pandas.Series.hist</code> 和 <code>matplotlib.pyplot.hist</code> 可以帮助我们画出想要的 CDF 图。</p>
-<img src="/posts/41/cdf.png" class="">
+<img src="/posts/41/cdf.png" class="" width="500">
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/41/#more" rel="contents">
@@ -978,7 +978,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1068,7 +1068,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">

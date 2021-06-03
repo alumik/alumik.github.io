@@ -108,6 +108,123 @@
       </categories>
   </entry>
   <entry>
+    <title>Mapping MySQL Data Types in Java</title>
+    <url>/posts/38/</url>
+    <content><![CDATA[<p>Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.</p>
+<p>There is no particular reason that the Java data type needs to be exactly isomorphic to the MySQL data type. For example, Java String don&#39;t precisely match any of the MySQL data <code>CHAR</code> type, but it gives enough type information to represent <code>CHAR</code>, <code>VARCHAR</code> or <code>LONGVARCHAR</code> successfully.</p>
+<span id="more"></span>
+<h2 id="Mapping-Table"><a href="#Mapping-Table" class="headerlink" title="Mapping Table"></a>Mapping Table</h2><p>The following table represent the default Java mapping for various common MySQL data types:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>MySQL Type</th>
+<th>Java Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR</td>
+<td>String</td>
+</tr>
+<tr>
+<td>VARCHAR</td>
+<td>String</td>
+</tr>
+<tr>
+<td>LONGVARCHAR</td>
+<td>String</td>
+</tr>
+<tr>
+<td>NUMERIC</td>
+<td>java.math.BigDecimal</td>
+</tr>
+<tr>
+<td>DECIMAL</td>
+<td>java.math.BigDecimal</td>
+</tr>
+<tr>
+<td>BIT</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>TINYINT</td>
+<td>byte</td>
+</tr>
+<tr>
+<td>SMALLINT</td>
+<td>short</td>
+</tr>
+<tr>
+<td>INTEGER</td>
+<td>int</td>
+</tr>
+<tr>
+<td>BIGINT</td>
+<td>long</td>
+</tr>
+<tr>
+<td>REAL</td>
+<td>float</td>
+</tr>
+<tr>
+<td>FLOAT</td>
+<td>double</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>double</td>
+</tr>
+<tr>
+<td>BINARY</td>
+<td>byte []</td>
+</tr>
+<tr>
+<td>VARBINARY</td>
+<td>byte []</td>
+</tr>
+<tr>
+<td>LONGVARBINARY</td>
+<td>byte []</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>java.sql.Date</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>java.sql.Time</td>
+</tr>
+<tr>
+<td>TIMESTAMP</td>
+<td>java.sql.Timestamp</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><h3 id="CHAR-VARCHAR-and-LONGVARCHAR"><a href="#CHAR-VARCHAR-and-LONGVARCHAR" class="headerlink" title="CHAR, VARCHAR and LONGVARCHAR"></a>CHAR, VARCHAR and LONGVARCHAR</h3><p>MySQL data types <code>CHAR</code>, <code>VARCHAR</code>, <code>LONGVARCHAR</code> are closely related. <code>CHAR</code> represents a small, fixed-length character string, <code>VARCHAR</code> represents a small, variable-length character string, and <code>LONGVARCHAR</code> represents a large, variable-length character string. There is no need for Java programmer to distinguish these three MySQL data types. These can be expressed identically in Java. These data types could be mapped in Java to either <code>String</code> or <code>char[]</code>. But <code>String</code> seemed more appropriate type for normal use. Java <code>String</code> class provide a method to convert a String into <code>char[]</code> and a constructor for converting a <code>char[]</code> into a <code>String</code>.</p>
+<p>The method <code>ResultSet.getString()</code> allocates and returns a new <code>String</code>. It is suitable for retrieving data from <code>CHAR</code>, <code>VARCHAR</code> and <code>LONGVARCHAR</code> fields. This is suitable for retrieving normal data, but <code>LONGVARCHAR</code> MySQL type can be used to store multi-megabyte strings. So that Java programmers needs a way to retrieve the <code>LONGVARCHAR</code> value in chunks. To handle this situation, <code>ResultSet</code> interface have two methods for allowing programmers to retrieve a <code>LONGVARCHAR</code> value as a Java input stream from which they can subsequently read data in whatever size chunks they prefer. These methods are <code>getAsciiStream()</code> and <code>getCharacterStream()</code>, which deliver the data stored in a <code>LONGVARCHAR</code> column as a stream of ASCII or Unicode characters.</p>
+<h3 id="NUMERIC-and-DECIMAL"><a href="#NUMERIC-and-DECIMAL" class="headerlink" title="NUMERIC and DECIMAL"></a>NUMERIC and DECIMAL</h3><p>The <code>NUMERIC</code> and <code>DECIMAL</code> MySQL data types are very similar. They both represent fixed point numbers where absolute precision is required. The most convenient Java mapping for these MySQL data type is <code>java.math.BigDecimal</code>. This Java type provides math operations to allow <code>BigDecimal</code> types to be added, subtracted, multiplied, and divided with other <code>BigDecimal</code> types, with <code>integer</code> types, and with floating point types.</p>
+<p>We also allow access to these MySQL types as simple <code>String</code>s and <code>char[]</code>. Thus, the Java programmers can use the <code>getString()</code> to retrieve the <code>NUMERICAL</code> and <code>DECIMAL</code> results.</p>
+<h3 id="BINARY-VARBINARY-and-LONGVARBINARY"><a href="#BINARY-VARBINARY-and-LONGVARBINARY" class="headerlink" title="BINARY, VARBINARY and LONGVARBINARY"></a>BINARY, VARBINARY and LONGVARBINARY</h3><p>These MySQL data types are closely related. <code>BINARY</code> represents a small, fixed-length binary value, <code>VARBINARY</code> represents a small, variable-length binary value and <code>LONGVARBINARY</code> represents a large, variable-length binary value. For Java programers there is no need to distinguish among these data types and they can all be expressed identically as byte arrays in Java. It is possible to read and write SQL statements correctly without knowing the exact <code>BINARY</code> data type. The <code>ResultSet.getBytes()</code> method is used for retrieving the <code>DECIMAL</code> and <code>NUMERICAL</code> values. Same as <code>LONGVARCHAR</code> type, <code>LONGVARBINARY</code> type can also be used to return multi-megabyte data values then the method <code>getBinaryStream()</code> is recommended.</p>
+<h3 id="BIT"><a href="#BIT" class="headerlink" title="BIT"></a>BIT</h3><p>The MySQL type <code>BIT</code> represents a single bit value that can be &#39;zero&#39; or &#39;one&#39;. And this MySQL type can be mapped directly to the Java boolean type.</p>
+<h3 id="TINYINT-SMALLINT-INTEGER-and-BIGINT"><a href="#TINYINT-SMALLINT-INTEGER-and-BIGINT" class="headerlink" title="TINYINT, SMALLINT, INTEGER and BIGINT"></a>TINYINT, SMALLINT, INTEGER and BIGINT</h3><p>The MySQL <code>TINYINT</code> type represents an 8-bit integer value between 0 and 255 that may be signed or unsigned. <code>SMALLINT</code> type represents a 16-bit signed integer value between -32768 and 32767. <code>INTEGER</code> type represents a 32-bit signed integer value between -2147483648 and 2147483647. <code>BIGINT</code> type represents an 64-bit signed integer value between -9223372036854775808 and 9223372036854775807. These MySQL <code>TINYINT</code>, <code>SMALLINT</code>, <code>INTEGER</code>, and <code>BIGINT</code> types can be mapped to Java&#39;s <code>byte</code>, <code>short</code>, <code>int</code> and <code>long</code> data types respectively.</p>
+<h3 id="REAL-FLOAT-and-DOUBLE"><a href="#REAL-FLOAT-and-DOUBLE" class="headerlink" title="REAL, FLOAT and DOUBLE"></a>REAL, FLOAT and DOUBLE</h3><p>The MySQL <code>REAL</code> represents a &quot;single precision&quot; floating point number that supports seven digits of mantissa and the <code>FLOAT</code> and <code>DOUBLE</code> type represents a &quot;double precision&quot; floating point number that supports 15 digits of mantissa. The recommended Java mapping for <code>REAL</code> type to Java <code>float</code> and <code>FLOAT</code>, <code>DOUBLE</code> type to Java <code>double</code>.</p>
+<h3 id="DATE-TIME-and-TIMESTAMP"><a href="#DATE-TIME-and-TIMESTAMP" class="headerlink" title="DATE, TIME and TIMESTAMP"></a>DATE, TIME and TIMESTAMP</h3><p>These three MySQL types are related to time. The <code>DATE</code> type represents a date consisting of day, month, and year, the <code>TIME</code> type represents a time consisting of hours, minutes, and seconds and the <code>TIMESTAMP</code> type represents <code>DAT</code>E plus <code>TIME</code> plus a nanosecond field. The standard Java class <code>java.util.Date</code> that provides date and time information but does not match any of these three MySQL date/time types exactly, because it has <code>DATE</code> and <code>TIME</code> information but no nanoseconds.</p>
+<p>That&#39;s why we define three subclasses of <code>java.util.Date</code>. These are:</p>
+<p><code>java.sql.Date</code> for SQL <code>DATE</code> information.<br><code>java.sql.Timefor</code> SQL <code>TIME</code> information.<br><code>java.sql.Timestamp</code> for SQL <code>TIMESTAMP</code> information.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml">https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>MySQL/MariaDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Merge Two Videos without Re-encoding</title>
     <url>/posts/34/</url>
     <content><![CDATA[<h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within FFmpeg that can be used to concatenate files of the same type: <a href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
@@ -420,7 +537,7 @@
 <span id="more"></span>
 <p>在打开的文本编辑器里键入以下内容：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<p>编辑完成后，使用 <code>Ctrl+O</code> 保存，再使用 <code>Ctrl+X</code> 退出。</p>
+<p>编辑完成后，使用 <strong>Ctrl + O</strong> 保存，再使用 <strong>Ctrl + X</strong> 退出。</p>
 <p>接下来更新系统。注意此步可能需要较长时间。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt dist-upgrade</span><br></pre></td></tr></table></figure>
 <h2 id="安装必要软件"><a href="#安装必要软件" class="headerlink" title="安装必要软件"></a>安装必要软件</h2><p>首先安装 Apache2 网络服务器：</p>
@@ -929,120 +1046,293 @@
       </tags>
   </entry>
   <entry>
-    <title>Mapping MySQL Data Types in Java</title>
-    <url>/posts/38/</url>
-    <content><![CDATA[<p>Data types of MySQL and Java programming language are not same, its need some mechanism for transferring data between an database using MySQL data types and a application using Java data types. We need to provide Java mappings for the common MySQL data types. We have to confirm that we have proper type information then only we can correctly store and retrieve parameters and recover results from MySQL statements.</p>
-<p>There is no particular reason that the Java data type needs to be exactly isomorphic to the MySQL data type. For example, Java String don&#39;t precisely match any of the MySQL data <code>CHAR</code> type, but it gives enough type information to represent <code>CHAR</code>, <code>VARCHAR</code> or <code>LONGVARCHAR</code> successfully.</p>
+    <title>Add Local JAR files to a Maven Project</title>
+    <url>/posts/45/</url>
+    <content><![CDATA[<h2 id="Problems-of-popular-approaches"><a href="#Problems-of-popular-approaches" class="headerlink" title="Problems of popular approaches"></a>Problems of popular approaches</h2><p>Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach"></a>Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</h3><p>When you install a dependency to your local repository it remains there. Your distribution artifact will do fine as long as it has access to this repository. The problem is in most cases this repository will reside on your local machine, so there&#39;ll be no way to resolve this dependency on any other machine. Clearly making your artifact depend on a specific machine is not a way to handle things. Otherwise this dependency will have to be locally installed on every machine working with that project which is not any better.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;System Scope&quot; approach"></a>Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</h3><p>The jars you depend on with the &quot;System Scope&quot; approach neither get installed to any repository or attached to your target packages. That&#39;s why your distribution package won&#39;t have a way to resolve that dependency when used. That I believe was the reason why the use of system scope even got deprecated. Anyway you don&#39;t want to rely on a deprecated feature.</p>
 <span id="more"></span>
-<h2 id="Mapping-Table"><a href="#Mapping-Table" class="headerlink" title="Mapping Table"></a>Mapping Table</h2><p>The following table represent the default Java mapping for various common MySQL data types:</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>MySQL Type</th>
-<th>Java Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CHAR</td>
-<td>String</td>
-</tr>
-<tr>
-<td>VARCHAR</td>
-<td>String</td>
-</tr>
-<tr>
-<td>LONGVARCHAR</td>
-<td>String</td>
-</tr>
-<tr>
-<td>NUMERIC</td>
-<td>java.math.BigDecimal</td>
-</tr>
-<tr>
-<td>DECIMAL</td>
-<td>java.math.BigDecimal</td>
-</tr>
-<tr>
-<td>BIT</td>
-<td>boolean</td>
-</tr>
-<tr>
-<td>TINYINT</td>
-<td>byte</td>
-</tr>
-<tr>
-<td>SMALLINT</td>
-<td>short</td>
-</tr>
-<tr>
-<td>INTEGER</td>
-<td>int</td>
-</tr>
-<tr>
-<td>BIGINT</td>
-<td>long</td>
-</tr>
-<tr>
-<td>REAL</td>
-<td>float</td>
-</tr>
-<tr>
-<td>FLOAT</td>
-<td>double</td>
-</tr>
-<tr>
-<td>DOUBLE</td>
-<td>double</td>
-</tr>
-<tr>
-<td>BINARY</td>
-<td>byte []</td>
-</tr>
-<tr>
-<td>VARBINARY</td>
-<td>byte []</td>
-</tr>
-<tr>
-<td>LONGVARBINARY</td>
-<td>byte []</td>
-</tr>
-<tr>
-<td>DATE</td>
-<td>java.sql.Date</td>
-</tr>
-<tr>
-<td>TIME</td>
-<td>java.sql.Time</td>
-</tr>
-<tr>
-<td>TIMESTAMP</td>
-<td>java.sql.Timestamp</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><h3 id="CHAR-VARCHAR-and-LONGVARCHAR"><a href="#CHAR-VARCHAR-and-LONGVARCHAR" class="headerlink" title="CHAR, VARCHAR and LONGVARCHAR"></a>CHAR, VARCHAR and LONGVARCHAR</h3><p>MySQL data types <code>CHAR</code>, <code>VARCHAR</code>, <code>LONGVARCHAR</code> are closely related. <code>CHAR</code> represents a small, fixed-length character string, <code>VARCHAR</code> represents a small, variable-length character string, and <code>LONGVARCHAR</code> represents a large, variable-length character string. There is no need for Java programmer to distinguish these three MySQL data types. These can be expressed identically in Java. These data types could be mapped in Java to either <code>String</code> or <code>char[]</code>. But <code>String</code> seemed more appropriate type for normal use. Java <code>String</code> class provide a method to convert a String into <code>char[]</code> and a constructor for converting a <code>char[]</code> into a <code>String</code>.</p>
-<p>The method <code>ResultSet.getString()</code> allocates and returns a new <code>String</code>. It is suitable for retrieving data from <code>CHAR</code>, <code>VARCHAR</code> and <code>LONGVARCHAR</code> fields. This is suitable for retrieving normal data, but <code>LONGVARCHAR</code> MySQL type can be used to store multi-megabyte strings. So that Java programmers needs a way to retrieve the <code>LONGVARCHAR</code> value in chunks. To handle this situation, <code>ResultSet</code> interface have two methods for allowing programmers to retrieve a <code>LONGVARCHAR</code> value as a Java input stream from which they can subsequently read data in whatever size chunks they prefer. These methods are <code>getAsciiStream()</code> and <code>getCharacterStream()</code>, which deliver the data stored in a <code>LONGVARCHAR</code> column as a stream of ASCII or Unicode characters.</p>
-<h3 id="NUMERIC-and-DECIMAL"><a href="#NUMERIC-and-DECIMAL" class="headerlink" title="NUMERIC and DECIMAL"></a>NUMERIC and DECIMAL</h3><p>The <code>NUMERIC</code> and <code>DECIMAL</code> MySQL data types are very similar. They both represent fixed point numbers where absolute precision is required. The most convenient Java mapping for these MySQL data type is <code>java.math.BigDecimal</code>. This Java type provides math operations to allow <code>BigDecimal</code> types to be added, subtracted, multiplied, and divided with other <code>BigDecimal</code> types, with <code>integer</code> types, and with floating point types.</p>
-<p>We also allow access to these MySQL types as simple <code>String</code>s and <code>char[]</code>. Thus, the Java programmers can use the <code>getString()</code> to retrieve the <code>NUMERICAL</code> and <code>DECIMAL</code> results.</p>
-<h3 id="BINARY-VARBINARY-and-LONGVARBINARY"><a href="#BINARY-VARBINARY-and-LONGVARBINARY" class="headerlink" title="BINARY, VARBINARY and LONGVARBINARY"></a>BINARY, VARBINARY and LONGVARBINARY</h3><p>These MySQL data types are closely related. <code>BINARY</code> represents a small, fixed-length binary value, <code>VARBINARY</code> represents a small, variable-length binary value and <code>LONGVARBINARY</code> represents a large, variable-length binary value. For Java programers there is no need to distinguish among these data types and they can all be expressed identically as byte arrays in Java. It is possible to read and write SQL statements correctly without knowing the exact <code>BINARY</code> data type. The <code>ResultSet.getBytes()</code> method is used for retrieving the <code>DECIMAL</code> and <code>NUMERICAL</code> values. Same as <code>LONGVARCHAR</code> type, <code>LONGVARBINARY</code> type can also be used to return multi-megabyte data values then the method <code>getBinaryStream()</code> is recommended.</p>
-<h3 id="BIT"><a href="#BIT" class="headerlink" title="BIT"></a>BIT</h3><p>The MySQL type <code>BIT</code> represents a single bit value that can be &#39;zero&#39; or &#39;one&#39;. And this MySQL type can be mapped directly to the Java boolean type.</p>
-<h3 id="TINYINT-SMALLINT-INTEGER-and-BIGINT"><a href="#TINYINT-SMALLINT-INTEGER-and-BIGINT" class="headerlink" title="TINYINT, SMALLINT, INTEGER and BIGINT"></a>TINYINT, SMALLINT, INTEGER and BIGINT</h3><p>The MySQL <code>TINYINT</code> type represents an 8-bit integer value between 0 and 255 that may be signed or unsigned. <code>SMALLINT</code> type represents a 16-bit signed integer value between -32768 and 32767. <code>INTEGER</code> type represents a 32-bit signed integer value between -2147483648 and 2147483647. <code>BIGINT</code> type represents an 64-bit signed integer value between -9223372036854775808 and 9223372036854775807. These MySQL <code>TINYINT</code>, <code>SMALLINT</code>, <code>INTEGER</code>, and <code>BIGINT</code> types can be mapped to Java&#39;s <code>byte</code>, <code>short</code>, <code>int</code> and <code>long</code> data types respectively.</p>
-<h3 id="REAL-FLOAT-and-DOUBLE"><a href="#REAL-FLOAT-and-DOUBLE" class="headerlink" title="REAL, FLOAT and DOUBLE"></a>REAL, FLOAT and DOUBLE</h3><p>The MySQL <code>REAL</code> represents a &quot;single precision&quot; floating point number that supports seven digits of mantissa and the <code>FLOAT</code> and <code>DOUBLE</code> type represents a &quot;double precision&quot; floating point number that supports 15 digits of mantissa. The recommended Java mapping for <code>REAL</code> type to Java <code>float</code> and <code>FLOAT</code>, <code>DOUBLE</code> type to Java <code>double</code>.</p>
-<h3 id="DATE-TIME-and-TIMESTAMP"><a href="#DATE-TIME-and-TIMESTAMP" class="headerlink" title="DATE, TIME and TIMESTAMP"></a>DATE, TIME and TIMESTAMP</h3><p>These three MySQL types are related to time. The <code>DATE</code> type represents a date consisting of day, month, and year, the <code>TIME</code> type represents a time consisting of hours, minutes, and seconds and the <code>TIMESTAMP</code> type represents <code>DAT</code>E plus <code>TIME</code> plus a nanosecond field. The standard Java class <code>java.util.Date</code> that provides date and time information but does not match any of these three MySQL date/time types exactly, because it has <code>DATE</code> and <code>TIME</code> information but no nanoseconds.</p>
-<p>That&#39;s why we define three subclasses of <code>java.util.Date</code>. These are:</p>
-<p><code>java.sql.Date</code> for SQL <code>DATE</code> information.<br><code>java.sql.Timefor</code> SQL <code>TIME</code> information.<br><code>java.sql.Timestamp</code> for SQL <code>TIMESTAMP</code> information.</p>
+<h2 id="The-static-in-project-repository-solution"><a href="#The-static-in-project-repository-solution" class="headerlink" title="The static in-project repository solution"></a>The static in-project repository solution</h2><p>After putting this in your <code>pom</code>:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>for each artifact with a group id of form x.y.z Maven will include the following location inside your project dir in its search for artifacts:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">repo/</span><br><span class="line">| - x/</span><br><span class="line">|   | - y/</span><br><span class="line">|   |   | - z/</span><br><span class="line">|   |   |   | - $&#123;artifactId&#125;/</span><br><span class="line">|   |   |   |   | - $&#123;version&#125;/</span><br><span class="line">|   |   |   |   |   | - $&#123;artifactId&#125;-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
+<p>To elaborate more on this you can read <a href="http://blog.dub.podval.org/2010/01/maven-in-project-repository.html">this blog post</a>.</p>
+<h2 id="Use-Maven-to-install-to-project-repo"><a href="#Use-Maven-to-install-to-project-repo" class="headerlink" title="Use Maven to install to project repo"></a>Use Maven to install to project repo</h2><p>Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under <code>repo</code> folder execute:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=[your-jar] -DgroupId=[...] -DartifactId=[...] -Dversion=[...]</span><br></pre></td></tr></table></figure>
+<p>If you&#39;ll choose this approach you&#39;ll be able to simplify the repository declaration in <code>pom</code> to:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml">https://www.roseindia.net/jdbc/jdbc-mysql/mapping-mysql-data-types-in-java.shtml</a></li>
+<li><a href="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them</a></li>
 </ul>
 ]]></content>
       <categories>
         <category>Java</category>
       </categories>
       <tags>
-        <tag>MySQL/MariaDB</tag>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Automatic Exit From Bash Shell Script on Error</title>
+    <url>/posts/57/</url>
+    <content><![CDATA[<p>Use the <code>set -e</code> builtin:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># Any subsequent(*) commands which fail will cause the shell script to exit immediately</span></span><br></pre></td></tr></table></figure>
+<p>Alternatively, you can pass <code>-e</code> on the command line:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
+<p>You can also disable this behavior with <code>set +e</code>.</p>
+<p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o pipefail</code> options like so:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
+<p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o (for option) pipefail</code> exits on command pipe failures.</p>
+<div class="note warning">
+            <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
+          </div>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error">https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Change a Git Commit Message</title>
+    <url>/posts/48/</url>
+    <content><![CDATA[<p>When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive information, or adding additional information.</p>
+<p>This guide explains how to change the message of the most recent or older Git commits.</p>
+<span id="more"></span>
+<h2 id="Changing-the-Most-Recent-Commit"><a href="#Changing-the-Most-Recent-Commit" class="headerlink" title="Changing the Most Recent Commit"></a>Changing the Most Recent Commit</h2><p>The <code>git commit --amend</code> command allows you to change the most recent commit message.</p>
+<h3 id="Not-pushed-commit"><a href="#Not-pushed-commit" class="headerlink" title="Not pushed commit"></a>Not pushed commit</h3><p>To change the message of the most recent commit that has not been pushed to the remote repository, commit it again using the <code>--amend</code> flag.</p>
+<ol>
+<li><p><a href="https://linuxize.com/post/linux-cd-command/">Navigate</a> to the repository directory in your terminal.</p>
+</li>
+<li><p>Run the following command to amend (change) the message of the latest commit:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+<p> What the command does is overwriting the most recent commit with the new one.</p>
+<p> The <code>-m</code> option allows you to write the new message on the command line without opening an editor session.</p>
+</li>
+</ol>
+<p>Before changing the commit message, you can also add other changes you previously forgot:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="Pushed-commit"><a href="#Pushed-commit" class="headerlink" title="Pushed commit"></a>Pushed commit</h3><p>The amended (changed) commit is a new entity with a different SHA-1. The previous commit will no longer exist in the current branch.<br>Generally, you should avoid amending a commit that is already pushed as it may cause issues to people who based their work on this commit. It is a good idea to consult your fellow developers before changing a pushed commit.</p>
+<p>If you changed the message of most recently pushed commit, you would have to force push it.</p>
+<ol>
+<li><p>Navigate to the repository.</p>
+</li>
+<li><p>Amend the message of the latest pushed commit:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
+<p> Force push to update the history of the remote repository:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Changing-an-Older-or-Multiple-Commits"><a href="#Changing-an-Older-or-Multiple-Commits" class="headerlink" title="Changing an Older or Multiple Commits"></a>Changing an Older or Multiple Commits</h2><p>If you need to change the message of an older or multiple commits, you can use an interactive <code>git rebase</code> to change one or older commits.</p>
+<p>The <code>rebase</code> command rewrites the commit history, and it is strongly discouraged to rebase commits that are already pushed to the <a href="https://linuxize.com/post/how-to-setup-a-git-server/">remote Git repository</a>.</p>
+<ol>
+<li><p>Navigate to the repository containing the commit message you want to change.</p>
+</li>
+<li><p>Type <code>git rebase -i HEAD~N</code>, where <code>N</code> is the number of commits to perform a rebase on. For example, if you want to change the 4th and the 5th latest commits you would type:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
+<p> The command will display the latest <code>X</code> commits in your <a href="https://linuxize.com/post/how-to-use-nano-text-editor/">default text editor</a>:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Move to the lines of the commit message you want to change and replace <code>pick</code> with <code>reword</code>:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Save the changes and close the editor.</p>
+</li>
+<li><p>For each chosen commit, a new text editor window will open. Change the commit message, save the file, and close the editor.</p>
+</li>
+<li><p>Force push the changes to the remote repository:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>To change the most recent commit message, use the <code>git commit --amend</code> command. To change an older or multiple commit messages, use <code>git rebase -i HEAD~N</code>.</p>
+<p>Don&#39;t amend pushed commits as it may potentially cause a lot of problems to your colleagues.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://linuxize.com/post/change-git-commit-message/">https://linuxize.com/post/change-git-commit-message/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>版本控制系统</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Clear, Delete or Disable Windows 10 File Explorer Search History</title>
+    <url>/posts/53/</url>
+    <content><![CDATA[<p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
+<img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
+<span id="more"></span>
+<h2 id="Clear-File-Explorer-Search-History"><a href="#Clear-File-Explorer-Search-History" class="headerlink" title="Clear File Explorer Search History"></a>Clear File Explorer Search History</h2><p>You can simply clear your recent search history by selecting the Search tab in File Explorer and going to <em>Recent Searches &gt; Clear search History</em>.</p>
+<img src="/posts/53/Clear-Search-history.webp" class="">
+<h2 id="Disable-File-Explorer-Search-History"><a href="#Disable-File-Explorer-Search-History" class="headerlink" title="Disable File Explorer Search History"></a>Disable File Explorer Search History</h2><p>If you don&#39;t want to clear your history all the time, you can completely disable it from keeping track of your searches. In Windows 10 Pro, you can turn off search history in Group Policy, but for Windows 10 Home, you need to do a bit of tweaking in the Registry.</p>
+<h3 id="In-Windows-10-Pro"><a href="#In-Windows-10-Pro" class="headerlink" title="In Windows 10 Pro"></a>In Windows 10 Pro</h3><p>If you&#39;re running Windows 10 Professional, you can turn it off via Group Policy. Hit the keyboard combo <strong>Windows Key + R</strong> and type <code>gpedit.msc</code> in the Run dialog and hit Enter or click OK.</p>
+<img src="/posts/53/1-gpedit.webp" class="">
+<p>Then navigate to <code>User Configuration\Administrative Templates\Windows Components\File Explorer</code>. Double-click on &quot;Turn off display of recent search entries in the File Explorer search box&quot; policy in the right pane and set it to Enabled, click OK, and close out of Group Policy Editor.</p>
+<img src="/posts/53/2-group-policy-editor-search-box-policy.webp" class="">
+<h3 id="In-Windows-10-Home"><a href="#In-Windows-10-Home" class="headerlink" title="In Windows 10 Home"></a>In Windows 10 Home</h3><div class="note info">
+            <p>Windows 10 Home doesn&#39;t include Group Policy, so you need to hack the Registry. Before making any changes to the Registry make sure to do a full system backup or create a Restore Point first.</p>
+          </div>
+<p>Hit <strong>Windows Key + R</strong> and type <code>regedit</code> in the Run line and hit Enter or click OK.</p>
+<img src="/posts/53/2-Regedit.webp" class="">
+<p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
+<img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
+<p>After you&#39;re done, close out of the Registry, and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/">https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Colors in JavaScript Console</title>
+    <url>/posts/51/</url>
+    <content><![CDATA[<p>In Chrome &amp; Firefox (+31) you can add CSS in console.log messages:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%cHello, world!&#x27;</span>, <span class="string">&#x27;background: red; color: green&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>The same can be applied for adding multiple CSS to a command:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c&lt;str1&gt; %c&lt;str2&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str1&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str2&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>Chrome Console API Reference: <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-write#styling_console_output_with_css">Console API Reference</a>.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/7505623/colors-in-javascript-console">https://stackoverflow.com/questions/7505623/colors-in-javascript-console</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Create an Executable JAR with Maven</title>
+    <url>/posts/46/</url>
+    <content><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this quick article we&#39;ll focus on packaging a Maven project into an executable Jar file.</p>
+<p>Usually, when creating a jar file, we want to execute it easily, without using the IDE. To that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>In order to create an executable jar, we don&#39;t need any additional dependencies. We just need to create Maven Java project, and have at least one class with the <code>main</code> method.</p>
+<p>In our example, we created Java class named <code>ExecutableMavenJar</code>.</p>
+<p>We also need to make sure that our <em>pom.xml</em> contains the following elements:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baeldung<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>core-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The most important aspect here is the type – to create an executable jar, double-check the configuration uses a <code>jar</code> type.</p>
+<p>Now we can start using the various solutions.</p>
+<span id="more"></span>
+<h3 id="Manual-Configuration"><a href="#Manual-Configuration" class="headerlink" title="Manual Configuration"></a>Manual Configuration</h3><p>Let&#39;s start with a manual approach – with the help of the <code>maven-dependency-plugin</code>.</p>
+<p>First, we&#39;ll copy all required dependencies into the folder that we&#39;ll specify:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>prepare-package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    $&#123;project.build.directory&#125;/libs</span><br><span class="line">                <span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>There are two important aspects to notice. First, we specify the goal <code>copy-dependencies</code>, which tells Maven to copy these dependencies into the specified <code>outputDirectory</code>.</p>
+<p>In our case, we&#39;ll create a folder named <code>libs</code>, inside the project build directory (which is usually the <em>target</em> folder).</p>
+<p>In the second step, we are going to create executable and class path aware jar, with the link to the dependencies copied in the first step:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-jar-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">addClasspath</span>&gt;</span>true<span class="tag">&lt;/<span class="name">addClasspath</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classpathPrefix</span>&gt;</span>libs/<span class="tag">&lt;/<span class="name">classpathPrefix</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                    com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>The most important part of above-mentioned is the manifest configuration. We add a classpath, with all dependencies (folder <em>libs/</em>), and provide the information about the main class.</p>
+<p>Please note, that we need to provide fully qualified named of the class, which means it will include package name.</p>
+<p>The advantages and disadvantages of this approach are:</p>
+<ul>
+<li><strong>pros</strong> – transparent process, where we can specify each step</li>
+<li><strong>cons</strong> – manual, dependencies are out of the final jar, which means that your executable jar will only run if the <em>libs</em> folder will be accessible and visible for a jar</li>
+</ul>
+<h3 id="Apache-Maven-Assembly-Plugin"><a href="#Apache-Maven-Assembly-Plugin" class="headerlink" title="Apache Maven Assembly Plugin"></a>Apache Maven Assembly Plugin</h3><p>The Apache Maven Assembly Plugin allows users to aggregate the project output along with its dependencies, modules, site documentation, and other files into a single, runnable package.</p>
+<p>The main goal in the assembly plugin is the <a href="https://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html">single</a> goal – used to create all assemblies (all other goals are deprecated and will be removed in a future release).</p>
+<p>Let&#39;s take a look at the configuration in <em>pom.xml</em>:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>single<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                        com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">descriptorRef</span>&gt;</span>jar-with-dependencies<span class="tag">&lt;/<span class="name">descriptorRef</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Similarly to the manual approach, we need to provide the information about the main class; the difference is that the Maven Assembly Plugin will automatically copy all required dependencies into a jar file.</p>
+<p>In the <code>descriptorRefs</code> part of the configuration code, we provided the name, that will be added to the project name.</p>
+<p>Output in our example will be named as <code>core-java-jar-with-dependencies.jar</code>.</p>
+<ul>
+<li><strong>pros</strong> – dependencies inside the jar file, one-file only</li>
+<li><strong>cons</strong> – basic control of packaging your artifact, for example, there is no class relocation support</li>
+</ul>
+<h3 id="Apache-Maven-Shade-Plugin"><a href="#Apache-Maven-Shade-Plugin" class="headerlink" title="Apache Maven Shade Plugin"></a>Apache Maven Shade Plugin</h3><p>Apache Maven Shade Plugin provides the capability to package the artifact in an uber-jar, which consists of all dependencies required to run the project. Moreover, it supports shading – i.e., rename – the packages of some dependencies.</p>
+<p>Let&#39;s take a look at the configuration:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shadedArtifactAttached</span>&gt;</span>true<span class="tag">&lt;/<span class="name">shadedArtifactAttached</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">transformers</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">transformer</span> <span class="attr">implementation</span>=</span></span><br><span class="line"><span class="tag">                      <span class="string">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.baeldung.executable.ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">transformer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">transformers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>There are three main parts of this configuration:</p>
+<p>First, <code>&lt;shadedArtifactAttached&gt;</code> marks all dependencies to be packaged into the jar.</p>
+<p>Second, we need to specify <a href="https://maven.apache.org/plugins/maven-shade-plugin/usage.html">the transformer implementation</a>; we used the standard one in our example.</p>
+<p>Finally, we need to specify the main class of our application.</p>
+<p>The output file will be named <code>core-java-0.1.0-SNAPSHOT-shaded.jar</code>, where <code>core-java</code> is our project name, followed by snapshot version and plugin name.</p>
+<ul>
+<li><strong>pros</strong> – dependencies inside the jar file, advanced control of packaging your artifact, with shading and class relocation</li>
+<li><strong>cons</strong> – complex configuration (especially if we want to use advanced features)</li>
+</ul>
+<h3 id="One-Jar-Maven-Plugin"><a href="#One-Jar-Maven-Plugin" class="headerlink" title="One Jar Maven Plugin"></a>One Jar Maven Plugin</h3><p>Another option to create executable jar is the One Jar project.</p>
+<p>This provides custom classloader that knows how to load classes and resources from jars inside an archive, instead of from jars in the filesystem.</p>
+<p>Let&#39;s take a look at the configuration:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.jolira<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>onejar-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>org.baeldung.executable.</span><br><span class="line">                  ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">attachToBuild</span>&gt;</span>true<span class="tag">&lt;/<span class="name">attachToBuild</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br><span class="line">                  $&#123;project.build.finalName&#125;.$&#123;project.packaging&#125;</span><br><span class="line">                <span class="tag">&lt;/<span class="name">filename</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>one-jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>As it is shown in the configuration, we need to specify the main class and attach all dependencies to build, by using <code>attachToBuild = true</code>.</p>
+<p>Also, we should provide the output filename. Moreover, the goal for Maven is <code>one-jar</code>. Please note, that One Jar is a commercial solution, that will make dependency jars not expanded into the filesystem at runtime.</p>
+<ul>
+<li><strong>pros</strong> – clean delegation model, allows classes to be at the top-level of the One Jar, supports external jars and can support Native libraries</li>
+<li><strong>cons</strong> – not actively supported since 2012</li>
+</ul>
+<h3 id="Spring-Boot-Maven-Plugin"><a href="#Spring-Boot-Maven-Plugin" class="headerlink" title="Spring Boot Maven Plugin"></a>Spring Boot Maven Plugin</h3><p>Finally, the last solution we&#39;ll look at is the Spring Boot Maven Plugin.</p>
+<p>This allows to package executable jar or war archives and run an application &quot;in-place&quot;.</p>
+<p>To use it we need to use at least Maven version 3.2. The detailed description is available <a href="https://docs.spring.io/spring-boot/docs/1.4.1.RELEASE/maven-plugin/">here</a>.</p>
+<p>Let&#39;s have a look at the config:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classifier</span>&gt;</span>spring-boot<span class="tag">&lt;/<span class="name">classifier</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                  com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>There are two differences between Spring plugin and the others. First, the goal of the execution is called <code>repackage</code>, and the classifier is named <code>spring-boot</code>.</p>
+<p>Please note, that we don&#39;t need to have Spring Boot application in order to use this plugin.</p>
+<ul>
+<li><strong>pros</strong> – dependencies inside a jar file, you can run it in every accessible location, advanced control of packaging your artifact, with excluding dependencies from the jar file etc., packaging of war files as well</li>
+<li><strong>cons</strong> – adds potentially unnecessary Spring and Spring Boot related classes</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this article, we described many ways of creating an executable jar with various Maven plugins.</p>
+<p>The full implementation of this tutorial can be found in <a href="https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-jar">this (executable jar)</a> and <a href="https://github.com/eugenp/tutorials/tree/master/spring-thymeleaf-2">this (executable war)</a> GitHub projects.</p>
+<p>How to test? In order to compile the project into an executable jar, please run Maven with mvn clean package command.</p>
+<p>Hopefully, this article gives you some more insights on the topic, and you will find your preferred approach depending on your needs.</p>
+<p>One quick final note – make sure the licenses of the jars you&#39;re bundling don&#39;t prohibit this kind of operation. Generally, that won&#39;t be the case, but it&#39;s something worth considering.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://www.baeldung.com/executable-jar-with-maven">https://www.baeldung.com/executable-jar-with-maven</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Maven</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GCC -fPIC Option</title>
+    <url>/posts/59/</url>
+    <content><![CDATA[<p>Position Independent Code means that the generated machine code is not dependent on being located at a specific address in order to work.</p>
+<p>E.g., jumps would be generated as relative rather than absolute.</p>
+<p>Pseudo-assembly:</p>
+<ul>
+<li><p>PIC: This would work whether the code was at address 100 or 1000</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Non-PIC: This will only work if the code is at address 100</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>If your code is compiled with <code>-fPIC</code>, it&#39;s suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/5311515/gcc-fpic-option">https://stackoverflow.com/questions/5311515/gcc-fpic-option</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Make Directories Only if a Directory Does Not Already Exist</title>
+    <url>/posts/56/</url>
+    <content><![CDATA[<p>Try <code>mkdir -p</code>:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
+<p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo/bar/baz</span><br></pre></td></tr></table></figure>
+<p>will create directories <em>foo</em>, <em>foo/bar</em>, and <em>foo/bar/baz</em> if they don&#39;t exist.</p>
+<p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification. It is also not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
       </tags>
   </entry>
   <entry>
@@ -1054,7 +1344,7 @@
             <p>The pyplot API is generally less-flexible than the object-oriented API. Most of the function calls you see here can also be called as methods from an Axes object. We recommend browsing the tutorials and examples to see how this works.</p>
           </div>
 <p>下图展示了大部分绘图元素：</p>
-<img src="/posts/44/anatomy-of-a-figure.webp" class="" title="Anatomy of a Figure">
+<img src="/posts/44/anatomy-of-a-figure.webp" class="" width="600" title="Anatomy of a Figure">
 <span id="more"></span>
 <h2 id="三种绘图方式的联系与区别"><a href="#三种绘图方式的联系与区别" class="headerlink" title="三种绘图方式的联系与区别"></a>三种绘图方式的联系与区别</h2><p><code>matplotlib</code> 是整个包， <code>matplotlib.pyplot</code> 是 Matplotlib 中的一个模块， <code>pylab</code> 是一个与 Matplotlib 一起安装的模块。</p>
 <h3 id="matplotlib-pyplot"><a href="#matplotlib-pyplot" class="headerlink" title="matplotlib.pyplot"></a>matplotlib.pyplot</h3><p><code>matplotlib.pyplot</code> 为底层面向对象的绘图库提供状态机接口。状态机隐式地自动创建图像和坐标轴，以实现所需的功能，例如：</p>
@@ -1150,6 +1440,85 @@
       </tags>
   </entry>
   <entry>
+    <title>Set rpath Relative to the Executable</title>
+    <url>/posts/58/</url>
+    <content><![CDATA[<p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path/to/lib&gt;</span><br></pre></td></tr></table></figure>
+<p>tells the linker where to find the required library at runtime.</p>
+<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
+<p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
+<p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute">https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use Wireless Internet Without Taking Your Ethernet Cable Out</title>
+    <url>/posts/52/</url>
+    <content><![CDATA[<p>The following is a step-by-step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
+<ol>
+<li>Open Network and Sharing Centre (&quot;Network Status&quot; in Windows 10).</li>
+<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; in Windows 10).</li>
+<li>Go to properties of Local Area Network.</li>
+<li>Click on Internet Protocol version 4 and go to its properties.</li>
+<li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
+<li>Uncheck it and then enter 2 in that section.</li>
+<li>Now, Do the same for the wireless network but enter 1.</li>
+</ol>
+<p>Save the setting, and you&#39;ll be able to use Wi-Fi even when your ethernet cable is connected to the LAN.</p>
+<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manually changing the setting means you can specify which connection you want to give priority to. See <a href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Use the Same Buffer for MPI sendbuf and recvbuf</title>
+    <url>/posts/55/</url>
+    <content><![CDATA[<p>According to <code>MPI_AllReduce</code> man page and MPI doc <code>MPI_IN_PLACE</code> can be used to specify the same buffer for <code>sendbuf</code> and <code>recvbuf</code> as long as you are working inside the same group.</p>
+<p>The call would look like:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Some operations to calculate `rho` for each process.</span></span><br><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>] = ...;</span><br><span class="line"></span><br><span class="line"><span class="built_in">MPI_Allreduce</span>(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381">https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>MPI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sleep() in JavaScript</title>
+    <url>/posts/50/</url>
+    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Taking a break...&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Two seconds later, showing sleep in a loop...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sleep in loop</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>)</span><br><span class="line">      <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo()</span><br></pre></td></tr></table></figure>
+<p>This is it. <code>await sleep(&lt;duration&gt;)</code>.</p>
+<p>Or as a one-liner:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><code>await</code> can only be executed in functions prefixed with the <code>async</code> keyword, or at the top level of your script in some environments (e.g., the Chrome DevTools console, or Runkit).</p>
+<p><code>await</code> only pauses the current <code>async</code> function</p>
+<p>Two new JavaScript features helped write this &quot;sleep&quot; function:</p>
+<ul>
+<li><a href="https://ponyfoo.com/articles/es6-promises-in-depth">Promises, a native feature of ES2015</a> (aka ES6). We also use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a> in the definition of the sleep function.</li>
+<li>The <code>async</code>/<code>await</code> feature lets the code explicitly wait for a promise to settle (resolve or reject).</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep">https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+  </entry>
+  <entry>
     <title>使用 Matplotlib 在一张图里画多条曲线</title>
     <url>/posts/43/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。</p>
@@ -1206,31 +1575,31 @@
     <title>使用 pandas 和 Matplotlib 绘制 CDF 图</title>
     <url>/posts/41/</url>
     <content><![CDATA[<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p><code>pandas.Series.hist</code> 和 <code>matplotlib.pyplot.hist</code> 可以帮助我们画出想要的 CDF 图。</p>
-<img src="/posts/41/cdf.png" class="">
+<img src="/posts/41/cdf.png" class="" width="500">
 <span id="more"></span>
 <h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><h3 id="bins"><a href="#bins" class="headerlink" title="bins"></a>bins</h3><ul>
-<li>int or sequence, default 10.</li>
-<li>Number of histogram bins to be used. If an integer is given, bins + 1 bin edges are calculated and returned. If bins is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, bins is returned unmodified.</li>
+<li><code>int</code> or <code>Sequence</code>, default <code>10</code>.</li>
+<li>Number of histogram bins to be used. If an integer is given, <code>bins + 1</code> bin edges are calculated and returned. If <code>bins</code> is a sequence, gives bin edges, including left edge of first bin and right edge of last bin. In this case, <code>bins</code> is returned unmodified.</li>
 </ul>
 <h3 id="density"><a href="#density" class="headerlink" title="density"></a>density</h3><ul>
-<li>bool, default None.</li>
-<li>If True, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to 1. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If stacked is also True, the sum of the histograms is normalized to 1.</li>
+<li><code>bool</code>, default <code>None</code>.</li>
+<li>If <code>True</code>, the first element of the return tuple will be the counts normalized to form a probability density, i.e., the area (or integral) under the histogram will sum to <code>1</code>. This is achieved by dividing the count by the number of observations times the bin width and not dividing by the total number of observations. If <code>stacked</code> is also <code>True</code>, the sum of the histograms is normalized to <code>1</code>.</li>
 </ul>
 <h3 id="cumulative"><a href="#cumulative" class="headerlink" title="cumulative"></a>cumulative</h3><ul>
-<li>bool, default False.</li>
-<li>If True, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of datapoints. If normed or density is also True then the histogram is normalized such that the last bin equals 1. If cumulative evaluates to less than 0 (e.g., -1), the direction of accumulation is reversed. In this case, if normed and/or density is also True, then the histogram is normalized such that the first bin equals 1.</li>
+<li><code>bool</code>, default <code>False</code>.</li>
+<li>If <code>True</code>, then a histogram is computed where each bin gives the counts in that bin plus all bins for smaller values. The last bin gives the total number of data points. If <code>normed</code> or <code>density</code> is also <code>True</code> then the histogram is normalized such that the last bin equals <code>1</code>. If cumulative evaluates to less than <code>0</code> (e.g., <code>-1</code>), the direction of accumulation is reversed. In this case, if <code>normed</code> and/or <code>density</code> is also <code>True</code>, then the histogram is normalized such that the first bin equals <code>1</code>.</li>
 </ul>
 <h3 id="histtype"><a href="#histtype" class="headerlink" title="histtype"></a>histtype</h3><ul>
-<li>{&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;}, default &#39;bar&#39;.</li>
+<li><code>&#39;bar&#39;, &#39;barstacked&#39;, &#39;step&#39;, &#39;stepfilled&#39;</code>, default <code>&#39;bar&#39;</code>.</li>
 <li>The type of histogram to draw:<ul>
-<li>&#39;bar&#39; is a traditional bar-type histogram. If multiple data are given the bars are arranged side by side.</li>
-<li>&#39;barstacked&#39; is a bar-type histogram where multiple data are stacked on top of each other.</li>
-<li>&#39;step&#39; generates a lineplot that is by default unfilled.</li>
-<li>&#39;stepfilled&#39; generates a lineplot that is by default filled.</li>
+<li><code>&#39;bar&#39;</code> is a traditional bar-type histogram. If multiple data are given, the bars are arranged side by side.</li>
+<li><code>&#39;barstacked&#39;</code> is a bar-type histogram where multiple data are stacked on top of each other.</li>
+<li><code>&#39;step&#39;</code> generates a lineplot that is by default unfilled.</li>
+<li>&#39;<code>stepfilled&#39;</code> generates a lineplot that is by default filled.</li>
 </ul>
 </li>
 </ul>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;cdf.csv&#x27;</span>, header=<span class="number">0</span>)</span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot()</span><br><span class="line"></span><br><span class="line">series: pd.Series</span><br><span class="line"><span class="keyword">for</span> label, series <span class="keyword">in</span> df.iteritems():</span><br><span class="line">    <span class="comment"># 用于隐藏最右边的竖线</span></span><br><span class="line">    <span class="comment"># 将 2 修改为横轴范围外的一处即可（但不可为 inf ）</span></span><br><span class="line">    bins = <span class="built_in">sorted</span>(series.drop_duplicates()) + [<span class="number">2</span>]</span><br><span class="line">    series.hist(label=label, cumulative=<span class="literal">True</span>, histtype=<span class="string">&#x27;step&#x27;</span>,</span><br><span class="line">                density=<span class="number">1</span>, bins=bins, linewidth=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.set_title(<span class="string">&#x27;Empirical CDF&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Value&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Density&#x27;</span>)</span><br><span class="line">ax.set_xlim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">ax.set_ylim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line">new_handles = [Line2D([], [], c=h.get_edgecolor()) <span class="keyword">for</span> h <span class="keyword">in</span> handles]</span><br><span class="line">ax.legend(handles=new_handles, labels=labels)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.lines <span class="keyword">import</span> Line2D</span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">&#x27;cdf.csv&#x27;</span>, header=<span class="number">0</span>)</span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_subplot()</span><br><span class="line"></span><br><span class="line">series: pd.Series</span><br><span class="line"><span class="keyword">for</span> label, series <span class="keyword">in</span> df.iteritems():</span><br><span class="line">    <span class="comment"># 用于隐藏最右边的竖线</span></span><br><span class="line">    <span class="comment"># 将 `2` 修改为横轴范围外的一处即可（但不可为 `inf`）</span></span><br><span class="line">    bins = <span class="built_in">sorted</span>(series.drop_duplicates()) + [<span class="number">2</span>]</span><br><span class="line">    series.hist(label=label, cumulative=<span class="literal">True</span>, histtype=<span class="string">&#x27;step&#x27;</span>,</span><br><span class="line">                density=<span class="number">1</span>, bins=bins, linewidth=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">ax.set_title(<span class="string">&#x27;Empirical CDF&#x27;</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">&#x27;Value&#x27;</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">&#x27;Density&#x27;</span>)</span><br><span class="line">ax.set_xlim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">ax.set_ylim((<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">handles, labels = ax.get_legend_handles_labels()</span><br><span class="line">new_handles = [Line2D([], [], c=h.get_edgecolor()) <span class="keyword">for</span> h <span class="keyword">in</span> handles]</span><br><span class="line">ax.legend(handles=new_handles, labels=labels)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
 <h2 id="附：测试数据"><a href="#附：测试数据" class="headerlink" title="附：测试数据"></a>附：测试数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Series A,Series B</span><br><span class="line">0.55,0.6</span><br><span class="line">0.59,0.632</span><br><span class="line">0.717,0.719</span><br><span class="line">0.661,0.725</span><br><span class="line">0.479,0.726</span><br><span class="line">0.741,0.742</span><br><span class="line">0.718,0.742</span><br><span class="line">0.745,0.748</span><br><span class="line">0.61,0.75</span><br><span class="line">0.739,0.764</span><br><span class="line">0.532,0.78</span><br><span class="line">0.8,0.808</span><br><span class="line">0.618,0.811</span><br><span class="line">0.603,0.819</span><br><span class="line">0.792,0.832</span><br><span class="line">0.703,0.834</span><br><span class="line">0.697,0.834</span><br><span class="line">0.764,0.859</span><br><span class="line">0.709,0.862</span><br><span class="line">0.764,0.875</span><br><span class="line">0.8,0.895</span><br><span class="line">0.897,0.897</span><br><span class="line">0.869,0.898</span><br><span class="line">0.902,0.907</span><br><span class="line">0.898,0.908</span><br><span class="line">0.86,0.911</span><br><span class="line">0.888,0.911</span><br><span class="line">0.904,0.927</span><br><span class="line">0.929,0.932</span><br><span class="line">0.932,0.932</span><br><span class="line">0.73,0.933</span><br><span class="line">0.922,0.947</span><br><span class="line">0.944,0.95</span><br><span class="line">0.955,0.95</span><br><span class="line">0.97,1</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
@@ -1239,6 +1608,35 @@
       <tags>
         <tag>Matplotlib</tag>
         <tag>pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修改 Git 默认文本编辑器为 nano</title>
+    <url>/posts/49/</url>
+    <content><![CDATA[<p>使用命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>版本控制系统</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 CMake 中添加 MPI 支持</title>
+    <url>/posts/54/</url>
+    <content><![CDATA[<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(MPITest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(MPI REQUIRED)</span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;MPI_INCLUDE_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER mpicxx)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER mpicc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>CMake</tag>
+        <tag>MPI</tag>
       </tags>
   </entry>
   <entry>
@@ -1259,6 +1657,23 @@
       <tags>
         <tag>Matplotlib</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>让 UWP 应用使用系统全局代理</title>
+    <url>/posts/47/</url>
+    <content><![CDATA[<p>引用自：<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/1963#issuecomment-413378963">#1963 (comment)</a></p>
+<p>以管理员身份启动 PowerShell 后运行下列命令：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$f</span> <span class="keyword">in</span> <span class="built_in">Get-ChildItem</span> <span class="variable">$env:LOCALAPPDATA</span>\Packages) &#123;CheckNetIsolation.exe LoopbackExempt <span class="literal">-a</span> <span class="string">&quot;-n=<span class="variable">$</span>(<span class="variable">$f</span>.Name)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>如果只需要少量应用：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <em>%LOCALAPPDATA%\Packages</em> 目录中的应用目录名即可。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>网络服务</category>
+      </categories>
   </entry>
   <entry>
     <title>设置 PowerShell 脚本执行策略</title>
@@ -1317,530 +1732,13 @@
       </tags>
   </entry>
   <entry>
-    <title>Add Local JAR files to a Maven Project</title>
-    <url>/posts/45/</url>
-    <content><![CDATA[<h2 id="Problems-of-popular-approaches"><a href="#Problems-of-popular-approaches" class="headerlink" title="Problems of popular approaches"></a>Problems of popular approaches</h2><p>Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
-<h3 id="Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach"></a>Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</h3><p>When you install a dependency to your local repository it remains there. Your distribution artifact will do fine as long as it has access to this repository. The problem is in most cases this repository will reside on your local machine, so there&#39;ll be no way to resolve this dependency on any other machine. Clearly making your artifact depend on a specific machine is not a way to handle things. Otherwise this dependency will have to be locally installed on every machine working with that project which is not any better.</p>
-<h3 id="Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;System Scope&quot; approach"></a>Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</h3><p>The jars you depend on with the &quot;System Scope&quot; approach neither get installed to any repository or attached to your target packages. That&#39;s why your distribution package won&#39;t have a way to resolve that dependency when used. That I believe was the reason why the use of system scope even got deprecated. Anyway you don&#39;t want to rely on a deprecated feature.</p>
-<span id="more"></span>
-<h2 id="The-static-in-project-repository-solution"><a href="#The-static-in-project-repository-solution" class="headerlink" title="The static in-project repository solution"></a>The static in-project repository solution</h2><p>After putting this in your <code>pom</code>:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>for each artifact with a group id of form x.y.z Maven will include the following location inside your project dir in its search for artifacts:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">repo/</span><br><span class="line">| - x/</span><br><span class="line">|   | - y/</span><br><span class="line">|   |   | - z/</span><br><span class="line">|   |   |   | - $&#123;artifactId&#125;/</span><br><span class="line">|   |   |   |   | - $&#123;version&#125;/</span><br><span class="line">|   |   |   |   |   | - $&#123;artifactId&#125;-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
-<p>To elaborate more on this you can read <a href="http://blog.dub.podval.org/2010/01/maven-in-project-repository.html">this blog post</a>.</p>
-<h2 id="Use-Maven-to-install-to-project-repo"><a href="#Use-Maven-to-install-to-project-repo" class="headerlink" title="Use Maven to install to project repo"></a>Use Maven to install to project repo</h2><p>Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under <code>repo</code> folder execute:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=[your-jar] -DgroupId=[...] -DartifactId=[...] -Dversion=[...]</span><br></pre></td></tr></table></figure>
-<p>If you&#39;ll choose this approach you&#39;ll be able to simplify the repository declaration in <code>pom</code> to:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them">https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Create an Executable JAR with Maven</title>
-    <url>/posts/46/</url>
-    <content><![CDATA[<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>In this quick article we&#39;ll focus on packaging a Maven project into an executable Jar file.</p>
-<p>Usually, when creating a jar file, we want to execute it easily, without using the IDE; to that end, we&#39;ll discuss the configuration and pros/cons of using each of these approaches for creating the executable.</p>
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>In order to create an executable jar, we don&#39;t need any additional dependencies. We just need to create Maven Java project, and have at least one class with the <code>main(…)</code> method.</p>
-<p>In our example, we created Java class named <code>ExecutableMavenJar</code>.</p>
-<p>We also need to make sure that our <code>pom.xml</code> contains the the following elements:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baeldung<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>core-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>The most important aspect here is the type – to create an executable jar, double check the configuration uses a <code>jar</code> type.</p>
-<p>Now we can start using the various solutions.</p>
-<span id="more"></span>
-<h3 id="Manual-Configuration"><a href="#Manual-Configuration" class="headerlink" title="Manual Configuration"></a>Manual Configuration</h3><p>Let&#39;s start with a manual approach – with the help of the <code>maven-dependency-plugin</code>.</p>
-<p>First, we&#39;ll copy all required dependencies into the folder that we&#39;ll specify:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-dependency-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">id</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>prepare-package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>copy-dependencies<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">                    $&#123;project.build.directory&#125;/libs</span><br><span class="line">                <span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>There are two important aspects to notice. First, we specify the goal <code>copy-dependencies</code>, which tells Maven to copy these dependencies into the specified <code>outputDirectory</code>.</p>
-<p>In our case, we&#39;ll create a folder named <code>libs</code>, inside the project build directory (which is usually the <code>target</code> folder).</p>
-<p>In the second step, we are going to create executable and class path aware jar, with the link to the dependencies copied in the first step:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-jar-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">addClasspath</span>&gt;</span>true<span class="tag">&lt;/<span class="name">addClasspath</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classpathPrefix</span>&gt;</span>libs/<span class="tag">&lt;/<span class="name">classpathPrefix</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                    com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>The most important part of above-mentioned is the manifest configuration. We add a classpath, with all dependencies (folder <code>libs/</code>), and provide the information about the main class.</p>
-<p>Please note, that we need to provide fully qualified named of the class, which means it will include package name.</p>
-<p>The advantages and disadvantages of this approach are:</p>
-<ul>
-<li><strong>pros</strong> – transparent process, where we can specify each step</li>
-<li><strong>cons</strong> – manual, dependencies are out of the final jar, which means that your executable jar will only run if the libs folder will be accessible and visible for a jar</li>
-</ul>
-<h3 id="Apache-Maven-Assembly-Plugin"><a href="#Apache-Maven-Assembly-Plugin" class="headerlink" title="Apache Maven Assembly Plugin"></a>Apache Maven Assembly Plugin</h3><p>The Apache Maven Assembly Plugin allows users to aggregate the project output along with its dependencies, modules, site documentation, and other files into a single, runnable package.</p>
-<p>The main goal in the assembly plugin is the <a href="https://maven.apache.org/plugins/maven-assembly-plugin/single-mojo.html">single</a> goal – used to create all assemblies (all other goals are deprecated and will be removed in a future release).</p>
-<p>Let&#39;s take a look at the configuration in <code>pom.xml</code>:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>single<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">archive</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">manifest</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                        com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">archive</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">descriptorRef</span>&gt;</span>jar-with-dependencies<span class="tag">&lt;/<span class="name">descriptorRef</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">descriptorRefs</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Similarly to the manual approach, we need to provide the information about the main class; the difference is that the Maven Assembly Plugin will automatically copy all required dependencies into a jar file.</p>
-<p>In the <code>descriptorRefs</code> part of the configuration code, we provided the name, that will be added to the project name.</p>
-<p>Output in our example will be named as <code>core-java-jar-with-dependencies.jar</code>.</p>
-<ul>
-<li><strong>pros</strong> – dependencies inside the jar file, one-file only</li>
-<li><strong>cons</strong> – basic control of packaging your artifact, for example, there is no class relocation support</li>
-</ul>
-<h3 id="Apache-Maven-Shade-Plugin"><a href="#Apache-Maven-Shade-Plugin" class="headerlink" title="Apache Maven Shade Plugin"></a>Apache Maven Shade Plugin</h3><p>Apache Maven Shade Plugin provides the capability to package the artifact in an uber-jar, which consists of all dependencies required to run the project. Moreover, it supports shading – i.e. rename – the packages of some of the dependencies.</p>
-<p>Let&#39;s take a look at the configuration:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shadedArtifactAttached</span>&gt;</span>true<span class="tag">&lt;/<span class="name">shadedArtifactAttached</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">transformers</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">transformer</span> <span class="attr">implementation</span>=</span></span><br><span class="line"><span class="tag">                      <span class="string">&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>com.baeldung.executable.ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">transformer</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">transformers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>There are three main parts of this configuration:</p>
-<p>First, <code>&lt;shadedArtifactAttached&gt;</code> marks all dependencies to be packaged into the jar.</p>
-<p>Second, we need to specify <a href="https://maven.apache.org/plugins/maven-shade-plugin/usage.html">the transformer implementation</a>; we used the standard one in our example.</p>
-<p>Finally, we need to specify the main class of our application.</p>
-<p>The output file will be named <code>core-java-0.1.0-SNAPSHOT-shaded.jar</code>, where <code>core-java</code> is our project name, followed by snapshot version and plugin name.</p>
-<ul>
-<li><strong>pros</strong> – dependencies inside the jar file, advanced control of packaging your artifact, with shading and class relocation</li>
-<li><strong>cons</strong> – complex configuration (especially if we want to use advanced features)</li>
-</ul>
-<h3 id="One-Jar-Maven-Plugin"><a href="#One-Jar-Maven-Plugin" class="headerlink" title="One Jar Maven Plugin"></a>One Jar Maven Plugin</h3><p>Another option to create executable jar is the One Jar project.</p>
-<p>This provides custom classloader that knows how to load classes and resources from jars inside an archive, instead of from jars in the filesystem.</p>
-<p>Let&#39;s take a look at the configuration:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.jolira<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>onejar-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>org.baeldung.executable.</span><br><span class="line">                  ExecutableMavenJar<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">attachToBuild</span>&gt;</span>true<span class="tag">&lt;/<span class="name">attachToBuild</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">filename</span>&gt;</span></span><br><span class="line">                  $&#123;project.build.finalName&#125;.$&#123;project.packaging&#125;</span><br><span class="line">                <span class="tag">&lt;/<span class="name">filename</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>one-jar<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>As it is shown in the configuration, we need to specify the main class and attach all dependencies to build, by using <code>attachToBuild = true</code>.</p>
-<p>Also, we should provide the output filename. Moreover, the goal for Maven is <code>one-jar</code>. Please note, that One Jar is a commercial solution, that will make dependency jars not expanded into the filesystem at runtime.</p>
-<ul>
-<li><strong>pros</strong> – clean delegation model, allows classes to be at the top-level of the One Jar, supports external jars and can support Native libraries</li>
-<li><strong>cons</strong> – not actively supported since 2012</li>
-</ul>
-<h3 id="Spring-Boot-Maven-Plugin"><a href="#Spring-Boot-Maven-Plugin" class="headerlink" title="Spring Boot Maven Plugin"></a>Spring Boot Maven Plugin</h3><p>Finally, the last solution we&#39;ll look at is the Spring Boot Maven Plugin.</p>
-<p>This allows to package executable jar or war archives and run an application &quot;in-place&quot;.</p>
-<p>To use it we need to use at least Maven version 3.2. The detailed description is available <a href="https://docs.spring.io/spring-boot/docs/1.4.1.RELEASE/maven-plugin/">here</a>.</p>
-<p>Let&#39;s have a look at the config:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">classifier</span>&gt;</span>spring-boot<span class="tag">&lt;/<span class="name">classifier</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                  com.baeldung.executable.ExecutableMavenJar</span><br><span class="line">                <span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>There are two differences between Spring plugin and the others. First, the goal of the execution is called <code>repackage</code>, and the classifier is named <code>spring-boot</code>.</p>
-<p>Please note, that we don&#39;t need to have Spring Boot application in order to use this plugin.</p>
-<ul>
-<li><strong>pros</strong> – dependencies inside a jar file, you can run it in every accessible location, advanced control of packaging your artifact, with excluding dependencies from the jar file etc., packaging of war files as well</li>
-<li><strong>cons</strong> – adds potentially unnecessary Spring and Spring Boot related classes</li>
-</ul>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this article, we described many ways of creating an executable jar with various Maven plugins.</p>
-<p>The full implementation of this tutorial can be found in <a href="https://github.com/eugenp/tutorials/tree/master/core-java-modules/core-java-jar">this (executable jar)</a> and <a href="https://github.com/eugenp/tutorials/tree/master/spring-thymeleaf-2">this (executable war)</a> Github projects.</p>
-<p>How to test? In order to compile the project into an executable jar, please run Maven with mvn clean package command.</p>
-<p>Hopefully, this article gives you some more insights on the topic and you will find your preferred approach depending on your needs.</p>
-<p>One quick final note – make sure the licenses of the jars you&#39;re bundling don&#39;t prohibit this kind of operation. Generally, that won&#39;t be the case, but it&#39;s something worth considering.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://www.baeldung.com/executable-jar-with-maven">https://www.baeldung.com/executable-jar-with-maven</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Maven</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>让 UWP 应用使用系统全局代理</title>
-    <url>/posts/47/</url>
-    <content><![CDATA[<p>引用自：<a href="https://github.com/shadowsocks/shadowsocks-windows/issues/1963#issuecomment-413378963">#1963 (comment)</a></p>
-<p>以管理员身份启动 PowerShell 后运行下列命令：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">foreach</span>(<span class="variable">$f</span> <span class="keyword">in</span> <span class="built_in">Get-ChildItem</span> <span class="variable">$env:LOCALAPPDATA</span>\Packages) &#123;CheckNetIsolation.exe LoopbackExempt <span class="literal">-a</span> <span class="string">&quot;-n=<span class="variable">$</span>(<span class="variable">$f</span>.Name)&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>如果只需要少量应用：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">CheckNetIsolation.exe LoopbackExempt –a –n=&lt;App Directory&gt;</span><br></pre></td></tr></table></figure>
-<p>将 <code>&lt;App Directory&gt;</code> 替换成出现在 <span class="label info">%LOCALAPPDATA%\Packages</span> 目录中的应用目录名即可。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908">https://github.com/shadowsocks/shadowsocks-windows/issues/897#issuecomment-413400908</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>网络服务</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Change a Git Commit Message</title>
-    <url>/posts/48/</url>
-    <content><![CDATA[<p>When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive information, or adding additional information.</p>
-<p>This guide explains how to change the message of the most recent or older Git commits.</p>
-<span id="more"></span>
-<h2 id="Changing-the-Most-Recent-Commit"><a href="#Changing-the-Most-Recent-Commit" class="headerlink" title="Changing the Most Recent Commit"></a>Changing the Most Recent Commit</h2><p>The <code>git commit --amend</code> command allows you to change the most recent commit message.</p>
-<h3 id="Not-pushed-commit"><a href="#Not-pushed-commit" class="headerlink" title="Not pushed commit"></a>Not pushed commit</h3><p>To change the message of the most recent commit that has not been pushed to the remote repository, commit it again using the <code>--amend</code> flag.</p>
-<ol>
-<li><p><a href="https://linuxize.com/post/linux-cd-command/">Navigate</a> to the repository directory in your terminal.</p>
-</li>
-<li><p>Run the following command to amend (change) the message of the latest commit:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
-<p> What the command does is overwriting the most recent commit with the new one.</p>
-<p> The <code>-m</code> option allows you to write the new message on the command line without opening an editor session.</p>
-</li>
-</ol>
-<p>Before changing the commit message, you can also add other changes you previously forgot:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="Pushed-commit"><a href="#Pushed-commit" class="headerlink" title="Pushed commit"></a>Pushed commit</h3><p>The amended (changed) commit is a new entity with a different SHA-1. The previous commit will no longer exist in the current branch.<br>Generally, you should avoid amending a commit that is already pushed as it may cause issues to people who based their work on this commit. It is a good idea to consult your fellow developers before changing a pushed commit.</p>
-<p>If you changed the message of most recently pushed commit, you would have to force push it.</p>
-<ol>
-<li><p>Navigate to the repository.</p>
-</li>
-<li><p>Amend the message of the latest pushed commit:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git commit --amend -m &quot;New commit message.&quot;</span><br></pre></td></tr></table></figure>
-<p> Force push to update the history of the remote repository:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Changing-an-Older-or-Multiple-Commits"><a href="#Changing-an-Older-or-Multiple-Commits" class="headerlink" title="Changing an Older or Multiple Commits"></a>Changing an Older or Multiple Commits</h2><p>If you need to change the message of an older or multiple commits, you can use an interactive <code>git rebase</code> to change one or more older commits.</p>
-<p>The <code>rebase</code> command rewrites the commit history, and it is strongly discouraged to rebase commits that are already pushed to the <a href="https://linuxize.com/post/how-to-setup-a-git-server/">remote Git repository</a>.</p>
-<ol>
-<li><p>Navigate to the repository containing the commit message you want to change.</p>
-</li>
-<li><p>Type <code>git rebase -i HEAD~N</code>, where <code>N</code> is the number of commits to perform a rebase on. For example, if you want to change the 4th and the 5th latest commits you would type:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git rebase -i HEAD~5</span><br></pre></td></tr></table></figure>
-<p> The command will display the latest <code>X</code> commits in your <a href="https://linuxize.com/post/how-to-use-nano-text-editor/">default text editor</a>:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pick 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">pick cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Move to the lines of the commit message you want to change and replace <code>pick</code> with <code>reword</code>:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reword 43f8707f9 fix: update dependency json5 to ^2.1.1</span><br><span class="line">reword cea1fb88a fix: update dependency verdaccio to ^4.3.3</span><br><span class="line">pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2</span><br><span class="line">pick c5e078656 chore: update dependency flow-bin to ^0.109.0</span><br><span class="line">pick 11ce0ab34 fix: Fix spelling.</span><br><span class="line"></span><br><span class="line"># Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Save the changes and close the editor.</p>
-</li>
-<li><p>For each chosen commit, a new text editor window will open. Change the commit message, save the file, and close the editor.</p>
-</li>
-<li><p>Force push the changes to the remote repository:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push --force branch-name</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>To change the most recent commit message, use the <code>git commit --amend</code> command. To change an older or multiple commit messages, use <code>git rebase -i HEAD~N</code>.</p>
-<p>Don&#39;t amend pushed commits as it may potentially cause a lot of problems to your colleagues.</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://linuxize.com/post/change-git-commit-message/">https://linuxize.com/post/change-git-commit-message/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>版本控制系统</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Clear, Delete or Disable Windows 10 File Explorer Search History</title>
-    <url>/posts/53/</url>
-    <content><![CDATA[<p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. And for even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
-<img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
-<span id="more"></span>
-<h2 id="Clear-File-Explorer-Search-History"><a href="#Clear-File-Explorer-Search-History" class="headerlink" title="Clear File Explorer Search History"></a>Clear File Explorer Search History</h2><p>You can simply clear your recent search history by selecting the Search tab in File Explorer and going to <em>Recent Searches &gt; Clear search History</em>.</p>
-<img src="/posts/53/Clear-Search-history.webp" class="">
-<h2 id="Disable-File-Explorer-Search-History"><a href="#Disable-File-Explorer-Search-History" class="headerlink" title="Disable File Explorer Search History"></a>Disable File Explorer Search History</h2><p>If you don&#39;t want to clear your history all the time, you can completely disable it from keeping track of your searches. In Windows 10 Pro, you can turn off search history in Group Policy, but for Windows 10 Home, you need to do a bit of tweaking in the Registry.</p>
-<h3 id="In-Windows-10-Pro"><a href="#In-Windows-10-Pro" class="headerlink" title="In Windows 10 Pro"></a>In Windows 10 Pro</h3><p>If you&#39;re running Windows 10 Professional, you can turn it off via Group Policy. Hit the keyboard combo <strong>Windows Key + R</strong> and type <code>gpedit.msc</code> in the Run dialog and hit Enter or click OK.</p>
-<img src="/posts/53/1-gpedit.webp" class="">
-<p>Then navigate to <code>User Configuration\Administrative Templates\Windows Components\File Explorer</code>. Double-click on &quot;Turn off display of recent search entries in the File Explorer search box&quot; policy in the right pane and set it to Enabled, click OK, and close out of Group Policy Editor.</p>
-<img src="/posts/53/2-group-policy-editor-search-box-policy.webp" class="">
-<h3 id="In-Windows-10-Home"><a href="#In-Windows-10-Home" class="headerlink" title="In Windows 10 Home"></a>In Windows 10 Home</h3><div class="note info">
-            <p>Windows 10 home doesn&#39;t include Group Policy so you need to hack the Registry. Before making any changes to the Registry make sure to do a full system backup or create a Restore Point first.</p>
-          </div>
-<p>Hit <strong>Windows Key + R</strong> and type <code>regedit</code> in the Run line and hit Enter or click OK.</p>
-<img src="/posts/53/2-Regedit.webp" class="">
-<p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
-<img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
-<p>After you&#39;re done, close out of the Registry and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/">https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Colors in JavaScript Console</title>
-    <url>/posts/51/</url>
-    <content><![CDATA[<p>In Chrome &amp; Firefox (+31) you can add CSS in console.log messages:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%cHello, world!&#x27;</span>, <span class="string">&#x27;background: red; color: green&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>The same can be applied for adding multiple CSS to a command:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%c&lt;str1&gt; %c&lt;str2&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str1&gt;&#x27;</span>, <span class="string">&#x27;&lt;css-for-str2&gt;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>Chrome Console API Reference: <a href="https://developers.google.com/web/tools/chrome-devtools/console/console-write#styling_console_output_with_css">Console API Reference</a>.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/7505623/colors-in-javascript-console">https://stackoverflow.com/questions/7505623/colors-in-javascript-console</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use Wireless Internet Without Taking Your Ethernet Cable Out</title>
-    <url>/posts/52/</url>
-    <content><![CDATA[<p>The following is a step by step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
-<ol>
-<li>Open Network and Sharing Centre (&quot;Network Status&quot; Win10).</li>
-<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; Win10).</li>
-<li>Go to properties of Local Area Network.</li>
-<li>Click on Internet Protocol version 4 and go to it&#39;s properties.</li>
-<li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
-<li>Uncheck it and then enter 2 in that section.</li>
-<li>Now, Do the same for the wireless network but enter 1.</li>
-</ol>
-<p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
-<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>sleep() in JavaScript</title>
-    <url>/posts/50/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Taking a break...&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Two seconds later, showing sleep in a loop...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sleep in loop</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>)</span><br><span class="line">      <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo()</span><br></pre></td></tr></table></figure>
-<p>This is it. <code>await sleep(&lt;duration&gt;)</code>.</p>
-<p>Or as a one-liner:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
-<span id="more"></span>
-<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><code>await</code> can only be executed in functions prefixed with the <code>async</code> keyword, or at the top level of your script in some environments (e.g. the Chrome DevTools console, or Runkit).</p>
-<p><code>await</code> only pauses the current <code>async</code> function</p>
-<p>Two new JavaScript features helped write this &quot;sleep&quot; function:</p>
-<ul>
-<li><a href="https://ponyfoo.com/articles/es6-promises-in-depth">Promises, a native feature of ES2015</a> (aka ES6). We also use <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a> in the definition of the sleep function.</li>
-<li>The <code>async</code>/<code>await</code> feature lets the code explicitly wait for a promise to settle (resolve or reject).</li>
-</ul>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep">https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>修改 Git 默认文本编辑器为 nano</title>
-    <url>/posts/49/</url>
-    <content><![CDATA[<p>使用命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.editor &quot;nano&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html">https://www.oreilly.com/library/view/gitlab-cookbook/9781783986842/apas07.html</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>版本控制系统</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 CMake 中添加 MPI 支持</title>
-    <url>/posts/54/</url>
-    <content><![CDATA[<p>CMakeLists.txt 示例</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(MPITest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(MPI REQUIRED)</span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;MPI_INCLUDE_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER mpicxx)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER mpicc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>CMake</tag>
-        <tag>MPI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Automatic Exit From Bash Shell Script on Error</title>
-    <url>/posts/57/</url>
-    <content><![CDATA[<p>Use the <code>set -e</code> builtin:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"><span class="comment"># Any subsequent(*) commands which fail will cause the shell script to exit immediately</span></span><br></pre></td></tr></table></figure>
-<p>Alternatively, you can pass <code>-e</code> on the command line:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
-<p>You can also disable this behavior with <code>set +e</code>.</p>
-<p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o</code> pipefail options like so:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
-<p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o</code> (for option) pipefail exits on command pipe failures.</p>
-<div class="note warning">
-            <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
-          </div>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error">https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GCC -fPIC Option</title>
-    <url>/posts/59/</url>
-    <content><![CDATA[<p>Position Independent Code means that the generated machine code is not dependent on being located at a specific address in order to work.</p>
-<p>E.g., jumps would be generated as relative rather than absolute.</p>
-<p>Pseudo-assembly:</p>
-<ul>
-<li><p>PIC: This would work whether the code was at address 100 or 1000</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Non-PIC: This will only work if the code is at address 100</p>
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>If your code is compiled with <code>-fPIC</code>, it&#39;s suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/5311515/gcc-fpic-option">https://stackoverflow.com/questions/5311515/gcc-fpic-option</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Set rpath Relative to the Executable</title>
-    <url>/posts/58/</url>
-    <content><![CDATA[<p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path/to/lib&gt;</span><br></pre></td></tr></table></figure>
-<p>tells the linker where to find the required library at runtime.</p>
-<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
-<p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
-<p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute">https://stackoverflow.com/questions/38058041/correct-usage-of-rpath-relative-vs-absolute</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Use the Same Buffer for MPI sendbuf and recvbuf</title>
-    <url>/posts/55/</url>
-    <content><![CDATA[<p>According to <code>MPI_AllReduce</code> man page and MPI doc <code>MPI_IN_PLACE</code> can be used to specify the same buffer for <code>sendbuf</code> and <code>recvbuf</code> as long as you are working inside the same group.</p>
-<p>The call would look like:</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>];</span><br><span class="line"><span class="comment">// Some operation to calculate rho for each process</span></span><br><span class="line"><span class="built_in">MPI_Allreduce</span>(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381">https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>MPI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>mkdir Only if a Directory Does Not Already Exist</title>
-    <url>/posts/56/</url>
-    <content><![CDATA[<p>Try <code>mkdir -p</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
-<p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p foo/bar/baz</span><br></pre></td></tr></table></figure>
-<p>will create directories <span class="label info">foo</span>, <span class="label info">foo/bar</span>, and <span class="label info">foo/bar/baz</span> if they don&#39;t exist.</p>
-<p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
-    <url>/posts/63/</url>
-    <content><![CDATA[<div class="note danger">
-            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
-          </div>
-<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
-<p>Then, reset the current branch:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
-<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
-<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
-<p>And then to reapply these uncommitted changes:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files">https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>版本控制系统</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Make MySQL Table Name Case Insensitive</title>
-    <url>/posts/64/</url>
-    <content><![CDATA[<p>Open terminal and edit <span class="label info">/etc/mysql/mysql.conf.d/mysqld.cnf</span>:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo nano /etc/mysql/mysql.conf.d/mysqld.cnf</span><br></pre></td></tr></table></figure>
-<p>Underneath the <code>[mysqld]</code> section, add:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
-<p>Restart MySQL:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
-<p>Then check it here:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu">https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>数据库管理系统</category>
-      </categories>
-      <tags>
-        <tag>MySQL/MariaDB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Put a Reference for a Graphic in Beamer</title>
-    <url>/posts/62/</url>
-    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">    \includegraphics[width=\linewidth]&#123;example-image&#125;\\[-1ex]</span><br><span class="line">    &#123;\tiny Source: \cite&#123;foo12&#125;&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer">https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-      <tags>
-        <tag>Beamer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
-    <url>/posts/61/</url>
-    <content><![CDATA[<p>Use <code>find</code>.</p>
-<p>To see exactly which files you will remove:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
-<p>To count the number of files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
-<p>To delete these files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
-<div class="note danger">
-            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name *.bak argument</code>, it will delete <strong>everything</strong>.</p>
-          </div>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di">https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di</a></li>
-<li><a href="https://devconnected.com/how-to-count-files-in-directory-on-linux/">https://devconnected.com/how-to-count-files-in-directory-on-linux/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>向每个 screen 中发送 Ctrl-C 信号</title>
-    <url>/posts/60/</url>
-    <content><![CDATA[<p>使用如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -ls | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span> screen -S <span class="variable">$scr</span> -X stuff <span class="string">&quot;^C&quot;</span>; <span class="keyword">done</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Screen</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Assigning Default Values to Shell Variables</title>
     <url>/posts/68/</url>
     <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
 <p>To get the assigned value, or default if it&#39;s missing:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span>  <span class="comment"># If variable not set or null, use default.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span>  <span class="comment"># If variable not set or null, set it to default.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash">https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash</a></li>
 </ul>
@@ -1871,6 +1769,53 @@
       </tags>
   </entry>
   <entry>
+    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
+    <url>/posts/63/</url>
+    <content><![CDATA[<div class="note danger">
+            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
+          </div>
+<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
+<p>Then, reset the current branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
+<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
+<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>Then to reapply these uncommitted changes:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files">https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>版本控制系统</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Make MySQL Table Name Case Insensitive</title>
+    <url>/posts/64/</url>
+    <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
+<p>Restart MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<p>Then check it here:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu">https://dba.stackexchange.com/questions/59407/how-to-make-mysql-table-name-case-insensitive-in-ubuntu</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL/MariaDB</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Propagate All Arguments in a Bash Shell Script</title>
     <url>/posts/65/</url>
     <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
@@ -1878,11 +1823,10 @@
 <p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
 <p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
 <p>The <a href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
-<span id="more"></span>
 <h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
-<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all of the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
-<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. And more basic shells like dash don&#39;t have arrays at all.</p>
-<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever&#39;s in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
+<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
+<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
+<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a href="https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine">https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine</a></li>
 </ul>
@@ -1895,15 +1839,66 @@
       </tags>
   </entry>
   <entry>
-    <title>查看 Windows 10 保存的 WiFi 密码</title>
+    <title>Put a Reference for a Graphic in Beamer</title>
+    <url>/posts/62/</url>
+    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">    \includegraphics[width=\linewidth]&#123;example-image&#125;\\[-1ex]</span><br><span class="line">    &#123;\tiny Source: \cite&#123;foo12&#125;&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer">https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>Beamer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
+    <url>/posts/61/</url>
+    <content><![CDATA[<p>Use <code>find</code>.</p>
+<p>To see exactly which files you will remove:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
+<p>To count the number of files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
+<p>To delete these files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
+<div class="note danger">
+            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name &quot;*.bak&quot;</code> argument, it will delete <strong>everything</strong>.</p>
+          </div>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di">https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di</a></li>
+<li><a href="https://devconnected.com/how-to-count-files-in-directory-on-linux/">https://devconnected.com/how-to-count-files-in-directory-on-linux/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>向每个 screen 中发送 Ctrl-C 信号</title>
+    <url>/posts/60/</url>
+    <content><![CDATA[<p>使用如下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -ls | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span></span><br><span class="line">  screen -S <span class="string">&quot;<span class="variable">$scr</span>&quot;</span> -X stuff <span class="string">&quot;^C&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Screen</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
     <url>/posts/67/</url>
-    <content><![CDATA[<p>当 Windows 10 连接过某个 WiFi 后，这个 WiFi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 WiFi 范围可以自动连接。然而，已经保存在系统的 WiFi，却不能直接查看密码。</p>
-<p>使用下列命令可以查看 Windows 10 保存的 WiFi 密码：</p>
+    <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
+<p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
-<p>其中，<code>SSID</code> 就填写你想要查看密码的 WiFi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
+<p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
-<img src="/posts/67/01.png" class="">
-<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 WiFi 热点对应的密码了。</p>
+<img src="/posts/67/01.png" class="" width="400">
+<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
 ]]></content>
       <categories>
         <category>Windows</category>

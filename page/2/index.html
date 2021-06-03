@@ -223,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,7 +314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -351,9 +351,9 @@
 <p>Alternatively, you can pass <code>-e</code> on the command line:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -e my_script.sh</span><br></pre></td></tr></table></figure>
 <p>You can also disable this behavior with <code>set +e</code>.</p>
-<p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o</code> pipefail options like so:</p>
+<p>You may also want to employ all or some of the the <code>-e</code> <code>-u</code> <code>-x</code> and <code>-o pipefail</code> options like so:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
-<p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o</code> (for option) pipefail exits on command pipe failures.</p>
+<p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o (for option) pipefail</code> exits on command pipe failures.</p>
 <div class="note warning">
             <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
           </div>
@@ -393,7 +393,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/posts/56/" class="post-title-link" itemprop="url">mkdir Only if a Directory Does Not Already Exist</a>
+            <a href="/posts/56/" class="post-title-link" itemprop="url">Make Directories Only if a Directory Does Not Already Exist</a>
         </h2>
 
         <div class="post-meta">
@@ -410,7 +410,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -423,7 +423,7 @@
             </span>
 
           
-            <span id="/posts/56/" class="post-meta-item leancloud_visitors" data-flag-title="mkdir Only if a Directory Does Not Already Exist" title="阅读次数">
+            <span id="/posts/56/" class="post-meta-item leancloud_visitors" data-flag-title="Make Directories Only if a Directory Does Not Already Exist" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -446,8 +446,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p foo</span><br></pre></td></tr></table></figure>
 <p>Note that this will also create any intermediate directories that don&#39;t exist; for instance,</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p foo/bar/baz</span><br></pre></td></tr></table></figure>
-<p>will create directories <span class="label info">foo</span>, <span class="label info">foo/bar</span>, and <span class="label info">foo/bar/baz</span> if they don&#39;t exist.</p>
-<p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification and not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
+<p>will create directories <em>foo</em>, <em>foo/bar</em>, and <em>foo/bar/baz</em> if they don&#39;t exist.</p>
+<p>Some implementation like GNU <code>mkdir</code> include <code>mkdir --parents</code> as a more readable alias, but this is not specified in POSIX/Single Unix Specification. It is also not available on many common platforms like macOS, various BSDs, and various commercial Unixes, so it should be avoided.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist">https://stackoverflow.com/questions/793858/how-to-mkdir-only-if-a-directory-does-not-already-exist</a></li>
 </ul>
@@ -501,7 +501,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -535,7 +535,7 @@
       
           <p>According to <code>MPI_AllReduce</code> man page and MPI doc <code>MPI_IN_PLACE</code> can be used to specify the same buffer for <code>sendbuf</code> and <code>recvbuf</code> as long as you are working inside the same group.</p>
 <p>The call would look like:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>];</span><br><span class="line"><span class="comment">// Some operation to calculate rho for each process</span></span><br><span class="line"><span class="built_in">MPI_Allreduce</span>(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Some operations to calculate `rho` for each process.</span></span><br><span class="line"><span class="keyword">double</span> rho[<span class="number">1024</span>] = ...;</span><br><span class="line"></span><br><span class="line"><span class="built_in">MPI_Allreduce</span>(MPI_IN_PLACE, rho, <span class="number">1024</span>, MPI_DOUBLE, MPI_SUM, MPI_COMM_WORLD);</span><br></pre></td></tr></table></figure>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381">https://stackoverflow.com/questions/16507865/can-mpi-sendbuf-and-recvbuf-be-the-same-thing/16508381</a></li>
 </ul>
@@ -589,7 +589,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -621,8 +621,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>CMakeLists.txt 示例</p>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(MPITest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(MPI REQUIRED)</span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;MPI_INCLUDE_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER mpicxx)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER mpicc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br></pre></td></tr></table></figure>
+          <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(MPITest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(MPI REQUIRED)</span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;MPI_INCLUDE_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER mpicxx)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER mpicc)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -673,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -705,7 +704,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a target="_blank" rel="noopener" href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. And for even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
+          <p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a target="_blank" rel="noopener" href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
 <img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
           <!--noindex-->
             <div class="post-button">
@@ -764,7 +763,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -796,18 +795,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>The following is a step by step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
+          <p>The following is a step-by-step process as to how you can use wireless internet without taking out your ethernet cable out.</p>
 <ol>
-<li>Open Network and Sharing Centre (&quot;Network Status&quot; Win10).</li>
-<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; Win10).</li>
+<li>Open Network and Sharing Centre (&quot;Network Status&quot; in Windows 10).</li>
+<li>Go to &quot;Change Adapter Settings&quot; (&quot;Change adapter options&quot; in Windows 10).</li>
 <li>Go to properties of Local Area Network.</li>
-<li>Click on Internet Protocol version 4 and go to it&#39;s properties.</li>
+<li>Click on Internet Protocol version 4 and go to its properties.</li>
 <li>Click on Advanced. You will see a block checked there by the name of &quot;Automatic Metric&quot;.</li>
 <li>Uncheck it and then enter 2 in that section.</li>
 <li>Now, Do the same for the wireless network but enter 1.</li>
 </ol>
-<p>Save the setting and you&#39;ll be able to use wifi even when your ethernet cable is connected to the LAN.</p>
-<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manaully changing the setting means you can specify which connection you want to give priority to. See <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
+<p>Save the setting, and you&#39;ll be able to use Wi-Fi even when your ethernet cable is connected to the LAN.</p>
+<p>&quot;Automatic metric&quot; works by prioritizing the connection with the highest link speed. Manually changing the setting means you can specify which connection you want to give priority to. See <a target="_blank" rel="noopener" href="https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes">&quot;An explanation of the Automatic Metric feature for IPv4 routes&quot;</a>.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet">https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet</a></li>
 </ul>
@@ -861,7 +860,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -951,7 +950,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -987,14 +986,17 @@
 <p>This is it. <code>await sleep(&lt;duration&gt;)</code>.</p>
 <p>Or as a one-liner:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/50/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><code>await</code> can only be executed in functions prefixed with the <code>async</code> keyword, or at the top level of your script in some environments (e.g., the Chrome DevTools console, or Runkit).</p>
+<p><code>await</code> only pauses the current <code>async</code> function</p>
+<p>Two new JavaScript features helped write this &quot;sleep&quot; function:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ponyfoo.com/articles/es6-promises-in-depth">Promises, a native feature of ES2015</a> (aka ES6). We also use <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a> in the definition of the sleep function.</li>
+<li>The <code>async</code>/<code>await</code> feature lets the code explicitly wait for a promise to settle (resolve or reject).</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep">https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep</a></li>
+</ul>
+
       
     </div>
 
@@ -1044,7 +1046,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-25 11:52:37" itemprop="dateModified" datetime="2021-05-25T11:52:37+08:00">2021-05-25</time>
+                <time title="修改时间：2021-06-03 18:59:16" itemprop="dateModified" datetime="2021-06-03T18:59:16+08:00">2021-06-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
