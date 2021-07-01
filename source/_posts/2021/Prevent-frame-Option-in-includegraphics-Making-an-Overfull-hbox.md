@@ -44,3 +44,7 @@ The `frame` option draws a frame with rule of width `\fboxrule` (by default) and
 ```
 
 Don't include the `minipage` environments, they are just to show the effect while using `\textwidth` (that's reset in a `minipage`) and not having a huge picture of the result.
+
+## References
+
+- https://tex.stackexchange.com/questions/133450/frame-option-in-includegraphics-makes-an-overfull-hbox
