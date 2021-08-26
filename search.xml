@@ -1892,6 +1892,20 @@
       </categories>
   </entry>
   <entry>
+    <title>Uninstall Older Versions of a Installed PowerShell Module</title>
+    <url>/posts/70/</url>
+    <content><![CDATA[<p>When using Windows PowerShell, it’s possible to import a PowerShell module. It’s annoying that sometimes the same command appears multiple times, as the result of an installed PowerShell module that you updated.</p>
+<p>Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>向每个 screen 中发送 Ctrl-C 信号</title>
     <url>/posts/60/</url>
     <content><![CDATA[<p>使用如下命令：</p>
