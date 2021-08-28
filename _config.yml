@@ -128,6 +128,8 @@ deploy:
 # hexo-renderer-kramed
 kramed:
   smartypants: false
+  gfm: true
+  breaks: false
 
 # Live2D
 live2d:
