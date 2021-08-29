@@ -14,3 +14,7 @@ $ModuleName = 'oh-my-posh';
 $Latest = Get-InstalledModule $ModuleName; 
 Get-InstalledModule $ModuleName -AllVersions | ? {$_.Version -ne $Latest.Version} | Uninstall-Module -WhatIf
 ```
+
+## References
+
+- https://www.myerrorsandmysolutions.com/how-to-uninstall-older-versions-of-a-powershell-module-installed/
