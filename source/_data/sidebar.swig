@@ -5,8 +5,8 @@
     <i class="fa fa-paragraph"></i>
     <b>一言</b>
   </div>
-  <div id="hitokoto-content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多少事，从来急，天地转，光阴迫，一万年太久，只争朝夕。</div>
-  <i id="hitokoto-from">——毛泽东语录&nbsp;</i>
+  <div id="hitokoto-content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;树梢间泻下的秋日阳光，在她肩部一闪一闪地跳跃着。</div>
+  <i id="hitokoto-from">——挪威的森林&nbsp;</i>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bluebird@latest/js/browser/bluebird.min.js"></script>
