@@ -119,3 +119,11 @@ description: 一些有趣或有用的网站
 **链接：**https://simpleicons.org/
 **描述：**流行品牌的 SVG 图标集合。
 {% endnote %}
+
+## 📀 资源
+
+{% note default %}
+**标题：**The Latest Supported Visual C++ Downloads
+**链接：**https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
+**描述：**各版本 Visual C++ 运行库下载地址。
+{% endnote %}
