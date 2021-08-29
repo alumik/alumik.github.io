@@ -1897,6 +1897,9 @@
     <content><![CDATA[<p>When using Windows PowerShell, it&#39;s possible to import a PowerShell module. It&#39;s annoying that sometimes the same command appears multiple times, as the result of an installed PowerShell module that you updated.</p>
 <p>Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://www.myerrorsandmysolutions.com/how-to-uninstall-older-versions-of-a-powershell-module-installed/">https://www.myerrorsandmysolutions.com/how-to-uninstall-older-versions-of-a-powershell-module-installed/</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>Windows</category>
@@ -1932,6 +1935,22 @@
       <categories>
         <category>Windows</category>
       </categories>
+  </entry>
+  <entry>
+    <title>重建 Ubuntu 系统被删除的 auth.log 等系统日志文件</title>
+    <url>/posts/71/</url>
+    <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a href="https://serverfault.com/questions/770984/ubuntu-14-04-auth-log-deleted">https://serverfault.com/questions/770984/ubuntu-14-04-auth-log-deleted</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
   </entry>
   <entry>
     <title>Sampling from a Normal Distribution</title>
