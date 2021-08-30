@@ -1944,9 +1944,6 @@ Generally, you should avoid amending a commit that is already pushed as it may c
     <url>/posts/71/</url>
     <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a href="https://serverfault.com/questions/770984/ubuntu-14-04-auth-log-deleted">https://serverfault.com/questions/770984/ubuntu-14-04-auth-log-deleted</a></li>
-</ul>
 ]]></content>
       <categories>
         <category>Linux</category>
