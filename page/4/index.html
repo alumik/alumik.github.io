@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -317,7 +317,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -354,9 +354,6 @@
           </div>
 <p>在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用来正常显示中文汉字</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用来正常显示负号</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010472607/article/details/82789887">https://blog.csdn.net/u010472607/article/details/82789887</a></li>
-</ul>
 
       
     </div>
@@ -407,7 +404,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -500,7 +497,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -591,7 +588,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -625,10 +622,6 @@
       
           <p>CMake has a <a target="_blank" rel="noopener" href="https://cmake.org/cmake/help/latest/module/FindOpenMP.html">standard module</a> for testing if the compiler supports OpenMP.</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.17</span>)</span><br><span class="line"><span class="keyword">project</span>(OpenMPTest)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenMP REQUIRED)  <span class="comment"># Find the package</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE OpenMP::OpenMP_CXX)  <span class="comment"># Link against it for C++</span></span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave">https://stackoverflow.com/questions/56202041/compiling-and-linking-against-openmp-with-appleclang-on-mac-os-x-mojave</a></li>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function">https://stackoverflow.com/questions/12399422/how-to-set-linker-flags-for-openmp-in-cmakes-try-compile-function</a></li>
-</ul>
 
       
     </div>
@@ -679,7 +672,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -714,9 +707,6 @@
           <p>When using images for API 27 or later, the emulator can render the Android UI with <a target="_blank" rel="noopener" href="https://skia.org/">Skia</a>, which can render more smoothly and efficiently.</p>
 <p>To enable Skia rendering, use the following commands in adb shell:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line">setprop debug.hwui.renderer skiagl</span><br><span class="line">stop</span><br><span class="line">start</span><br></pre></td></tr></table></figure>
-<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/run/emulator-acceleration#skia-emulator">Configure Emulator Graphics Rendering and Hardware Acceleration</a></li>
-</ul>
 
       
     </div>
@@ -767,7 +757,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -804,9 +794,6 @@
 <p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
 <img src="/posts/35/20180726200007776.png" class="" title="修改示例">
 <p>修改之后即可使用。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/hezhongla0811/article/details/81226539">https://blog.csdn.net/hezhongla0811/article/details/81226539</a></li>
-</ul>
 
       
     </div>
@@ -857,7 +844,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -906,8 +893,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvmerge -o output.mkv input1.mkv + input2.mkv</span><br></pre></td></tr></table></figure>
 <h2 id="Concatenation-of-Files-with-Different-Codecs"><a href="#Concatenation-of-Files-with-Different-Codecs" class="headerlink" title="Concatenation of Files with Different Codecs"></a>Concatenation of Files with Different Codecs</h2><p>If your clips don&#39;t use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.</p>
 <p>Note that <a target="_blank" rel="noopener" href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you&#39;ll need to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
-<p>Sources: Experience</p>
-<p><a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-formats.html">https://ffmpeg.org/ffmpeg-formats.html</a></p>
 
       
     </div>
@@ -958,7 +943,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1051,7 +1036,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-30 13:40:38" itemprop="dateModified" datetime="2021-08-30T13:40:38+08:00">2021-08-30</time>
+                <time title="修改时间：2021-08-30 22:44:28" itemprop="dateModified" datetime="2021-08-30T22:44:28+08:00">2021-08-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
