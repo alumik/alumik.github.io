@@ -4,6 +4,8 @@ date: 2020-08-29 16:20:06
 categories: Windows
 tags:
 abbrlink: 52
+references:
+  - https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet
 ---
 The following is a step-by-step process as to how you can use wireless internet without taking out your ethernet cable out.
 
@@ -18,7 +20,3 @@ The following is a step-by-step process as to how you can use wireless internet 
 Save the setting, and you'll be able to use Wi-Fi even when your ethernet cable is connected to the LAN.
 
 "Automatic metric" works by prioritizing the connection with the highest link speed. Manually changing the setting means you can specify which connection you want to give priority to. See ["An explanation of the Automatic Metric feature for IPv4 routes"](https://support.microsoft.com/en-us/help/299540/an-explanation-of-the-automatic-metric-feature-for-ipv4-routes).
-
-## References
-
-- https://superuser.com/questions/740261/connect-to-internet-with-wifi-while-wired-to-a-different-lan-through-ethernet

@@ -4,6 +4,8 @@ date: 2021-04-19 20:47:48
 categories: 版本控制系统
 tags: Git
 abbrlink: 63
+references:
+  - https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files
 ---
 {% note danger %}
 If you have any local changes, they will be lost. With or without `--hard` option, any local commits that haven't been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.
@@ -40,7 +42,3 @@ Then to reapply these uncommitted changes:
 ```
 git stash pop
 ```
-
-## References
-
-- https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files

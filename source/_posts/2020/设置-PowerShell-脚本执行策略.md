@@ -4,6 +4,8 @@ categories: Windows
 tags: PowerShell
 abbrlink: 42
 date: 2020-02-19 18:23:11
+references:
+  - https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7
 ---
 由于安全权限限制，在 PowerShell 中执行第三方脚本会失败。此时需要手动设置脚本的执行策略。
 
@@ -64,7 +66,3 @@ date: 2020-02-19 18:23:11
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
-
-## 参考链接
-
-- https://docs.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7

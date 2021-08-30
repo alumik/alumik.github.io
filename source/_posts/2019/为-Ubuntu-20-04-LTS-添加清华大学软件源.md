@@ -6,6 +6,8 @@ tags:
   - 网络加速
 abbrlink: 5
 date: 2019-06-24 14:55:57
+references:
+  - https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/
 ---
 Ubuntu 的软件源配置文件为 {% label info@/etc/apt/sources.list %} 。将系统自带的该文件做个备份后替换为下面内容，即可使用 TUNA 的软件源镜像。
 
@@ -26,7 +28,3 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 ```
 
 本镜像仅包含 32/64 位 x86 架构处理器的软件包，在 ARM(arm64, armhf)、PowerPC(ppc64el)、RISC-V(riscv64) 和 S390x 等架构的设备上（对应官方源为ports.ubuntu.com）请使用 [ubuntu-ports 镜像](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/)。
-
-## 参考链接
-
-- https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/

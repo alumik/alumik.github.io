@@ -4,6 +4,9 @@ date: 2021-04-19 20:37:07
 categories: Linux
 tags:
 abbrlink: 61
+references:
+  - https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di
+  - https://devconnected.com/how-to-count-files-in-directory-on-linux/
 ---
 Use `find`.
 
@@ -28,8 +31,3 @@ find . -name "*.bak" -type f -delete
 {% note danger %}
 Make sure that `-delete` is the last argument in your command. If you put it before the `-name "*.bak"` argument, it will delete **everything**.
 {% endnote %}
-
-## References
-
-- https://askubuntu.com/questions/377438/how-can-i-recursively-delete-all-files-of-a-specific-extension-in-the-current-di
-- https://devconnected.com/how-to-count-files-in-directory-on-linux/

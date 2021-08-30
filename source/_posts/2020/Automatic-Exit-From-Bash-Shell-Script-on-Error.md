@@ -4,6 +4,8 @@ date: 2020-12-04 05:01:51
 categories: Linux
 tags: Shell 脚本
 abbrlink: 57
+references:
+  - https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error
 ---
 Use the `set -e` builtin:
 
@@ -33,7 +35,3 @@ set -euxo pipefail
 {% note warning %}
 The shell does **not** exit if the command that fails is part of the command list immediately following a `while` or `until` keyword, part of the test following the `if` or `elif` reserved words, part of any command executed in a `&&` or `||` list except the command following the final `&&` or `||`, any command in a pipeline but the last, or if the command's return value is being inverted with `!`.
 {% endnote %}
-
-## References
-
-- https://stackoverflow.com/questions/2870992/automatic-exit-from-bash-shell-script-on-error

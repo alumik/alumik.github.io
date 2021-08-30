@@ -4,6 +4,8 @@ date: 2021-04-19 20:42:05
 categories: LaTeX
 tags: Beamer
 abbrlink: 62
+references:
+  - https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer
 ---
 Try to put reference immediately below picture like this:
 
@@ -13,7 +15,3 @@ Try to put reference immediately below picture like this:
     {\tiny Source: \cite{foo12}}
 \end{frame}
 ```
-
-## References
-
-- https://tex.stackexchange.com/questions/262259/how-to-put-a-reference-for-a-graphic-in-beamer

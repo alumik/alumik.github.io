@@ -4,6 +4,8 @@ categories: Python
 tags: Matplotlib
 abbrlink: 43
 date: 2020-02-20 13:03:12
+references:
+  - https://stackoverflow.com/questions/4805048/how-to-get-different-colored-lines-for-different-plots-in-a-single-figure
 ---
 ## 前言
 
@@ -176,7 +178,3 @@ plt.show()
 `my_cycler` 的类型为 `cycler.Cycler` 。
 `actual_cycler` 的类型为 `itertools.cycle` 。
 {% endnote %}
-
-## 参考链接
-
-- https://stackoverflow.com/questions/4805048/how-to-get-different-colored-lines-for-different-plots-in-a-single-figure

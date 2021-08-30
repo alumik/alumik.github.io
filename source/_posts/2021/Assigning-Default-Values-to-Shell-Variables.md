@@ -4,6 +4,8 @@ date: 2021-05-25 11:47:59
 categories: Linux
 tags: Shell 脚本
 abbrlink: 68
+references:
+  - https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash
 ---
 You can use something called "bash parameter expansion" to accomplish this.
 
@@ -20,7 +22,3 @@ Or to assign default to `VARIABLE` at the same time:
 # If variable not set or null, set it to default.
 FOO="${VARIABLE:=default}"
 ```
-
-## References
-
-- https://stackoverflow.com/questions/2013547/assigning-default-values-to-shell-variables-with-a-single-command-in-bash

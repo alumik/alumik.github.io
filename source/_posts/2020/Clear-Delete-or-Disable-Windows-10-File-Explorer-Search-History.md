@@ -4,6 +4,8 @@ date: 2020-08-30 15:01:43
 categories: Windows
 tags:
 abbrlink: 53
+references:
+  - https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/
 ---
 Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you're on a shared PC or if you just want a fresh start. We already showed you [how to turn off autocomplete in File Explorer](https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/). For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.
 
@@ -46,7 +48,3 @@ Then head to `HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer`. R
 {% asset_img disable-file-explorer-search-history-collection-Windows-10.webp %}
 
 After you're done, close out of the Registry, and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of `DisableSearchBoxSuggestions` to `0`.
-
-## References
-
-- https://www.groovypost.com/howto/clear-disable-windows-10-file-explorer-search-history/

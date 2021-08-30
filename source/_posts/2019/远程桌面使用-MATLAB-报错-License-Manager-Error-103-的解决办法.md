@@ -4,6 +4,8 @@ categories: 其他软件问题
 tags: MATLAB
 abbrlink: 35
 date: 2019-06-24 21:19:51
+references:
+  - https://blog.csdn.net/hezhongla0811/article/details/81226539
 ---
 ## 问题描述
 
@@ -18,7 +20,3 @@ date: 2019-06-24 21:19:51
 {% asset_img 20180726200007776.png 修改示例 %}
 
 修改之后即可使用。
-
-## 参考链接
-
-+ https://blog.csdn.net/hezhongla0811/article/details/81226539

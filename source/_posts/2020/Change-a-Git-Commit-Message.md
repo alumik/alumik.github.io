@@ -4,6 +4,8 @@ date: 2020-08-23 00:37:43
 categories: 版本控制系统
 tags: Git
 abbrlink: 48
+references:
+  - https://linuxize.com/post/change-git-commit-message/
 ---
 When working with Git, you might encounter a situation where you need to edit a commit message. There are many reasons you would want to make the change, such as fixing a typo, removing sensitive information, or adding additional information.
 
@@ -112,7 +114,3 @@ The `rebase` command rewrites the commit history, and it is strongly discouraged
 To change the most recent commit message, use the `git commit --amend` command. To change an older or multiple commit messages, use `git rebase -i HEAD~N`.
 
 Don't amend pushed commits as it may potentially cause a lot of problems to your colleagues.
-
-## 参考链接
-
-- https://linuxize.com/post/change-git-commit-message/

@@ -4,6 +4,8 @@ date: 2021-07-01 16:28:51
 categories: LaTeX
 tags:
 abbrlink: 69
+references:
+  - https://tex.stackexchange.com/questions/133450/frame-option-in-includegraphics-makes-an-overfull-hbox
 ---
 Here's how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.
 
@@ -44,7 +46,3 @@ The `frame` option draws a frame with rule of width `\fboxrule` (by default) and
 ```
 
 Don't include the `minipage` environments, they are just to show the effect while using `\textwidth` (that's reset in a `minipage`) and not having a huge picture of the result.
-
-## References
-
-- https://tex.stackexchange.com/questions/133450/frame-option-in-includegraphics-makes-an-overfull-hbox

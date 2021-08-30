@@ -5,6 +5,8 @@ tags: 概率论与数理统计
 mathjax: true
 abbrlink: 39
 date: 2019-11-16 21:40:19
+references:
+  - http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/
 ---
 One of the most common probability distributions is the normal (or Gaussian) distribution.  Many natural phenomena can be modeled using a normal distribution.  It's also of great importance due to its relation to the [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem).
 
@@ -293,15 +295,11 @@ Generating pseudo-random numbers according to various probability distributions 
 
 ## References and Further Reading
 
-* Wikipedia: [Normal Distribution](https://en.wikipedia.org/wiki/Normal_distribution), [Box-Muller Transform](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform), [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), [Substitution for multiple variables](https://en.wikipedia.org/wiki/Integration_by_substitution#Substitution_for_multiple_variables), [Determinant of 2x2 matrices](https://en.wikipedia.org/wiki/Determinant#2.C2.A0.C3.97.C2.A02_matrices), [Jacobian matrix and determinant](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)
-* Stack Exchange: [How to sample from a normal distribution with known mean and variance using a conventional programming language?](http://stats.stackexchange.com/questions/16334/how-to-sample-from-a-normal-distribution-with-known-mean-and-variance-using-a-co), [Proof of Box-Muller method](http://math.stackexchange.com/questions/1110168/proof-of-the-box-muller-method)
-* [Transformations of Random Variables](http://www.math.uah.edu/stat/dist/Transformations.html) (University of Alabama Huntsville)
-* [Change of Variables](http://tutorial.math.lamar.edu/Classes/CalcIII/ChangeOfVariables.aspx) (Paul's Online Math Notes)
-* [Simple Sampling of Gaussians](http://www.math.nyu.edu/faculty/goodman/teaching/MonteCarlo2005/notes/GaussianSampling.pdf) (Jonathan Goodman, NYU)
-
-## References
-
-- http://bjlkeng.github.io/posts/sampling-from-a-normal-distribution/
+- Wikipedia: [Normal Distribution](https://en.wikipedia.org/wiki/Normal_distribution), [Box-Muller Transform](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform), [Central Limit Theorem](https://en.wikipedia.org/wiki/Central_limit_theorem), [Substitution for multiple variables](https://en.wikipedia.org/wiki/Integration_by_substitution#Substitution_for_multiple_variables), [Determinant of 2x2 matrices](https://en.wikipedia.org/wiki/Determinant#2.C2.A0.C3.97.C2.A02_matrices), [Jacobian matrix and determinant](https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant)
+- Stack Exchange: [How to sample from a normal distribution with known mean and variance using a conventional programming language?](http://stats.stackexchange.com/questions/16334/how-to-sample-from-a-normal-distribution-with-known-mean-and-variance-using-a-co), [Proof of Box-Muller method](http://math.stackexchange.com/questions/1110168/proof-of-the-box-muller-method)
+- [Transformations of Random Variables](http://www.math.uah.edu/stat/dist/Transformations.html) (University of Alabama Huntsville)
+- [Change of Variables](http://tutorial.math.lamar.edu/Classes/CalcIII/ChangeOfVariables.aspx) (Paul's Online Math Notes)
+- [Simple Sampling of Gaussians](http://www.math.nyu.edu/faculty/goodman/teaching/MonteCarlo2005/notes/GaussianSampling.pdf) (Jonathan Goodman, NYU)
 
 [^1]: We'll use the convention of \\(f_X(x)\\) and \\(F_X(x)\\) to denote the PDF and CDF of random variable X, respectively.
 

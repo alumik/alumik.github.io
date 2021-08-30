@@ -4,6 +4,8 @@ categories: Python
 tags: Matplotlib
 abbrlink: 40
 date: 2020-02-19 17:33:45
+references:
+  - https://blog.csdn.net/u010472607/article/details/82789887
 ---
 {% note warning %}
 本方法可能不适用于非 Windows 系统。
@@ -18,7 +20,3 @@ plt.rcParams['font.sans-serif'] = ['SimHei']
 # 用来正常显示负号
 plt.rcParams['axes.unicode_minus'] = False
 ```
-
-## 参考链接
-
-- https://blog.csdn.net/u010472607/article/details/82789887

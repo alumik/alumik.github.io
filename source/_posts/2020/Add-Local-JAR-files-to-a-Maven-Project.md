@@ -4,6 +4,8 @@ categories: Java
 tags: Maven
 abbrlink: 45
 date: 2020-05-22 09:56:11
+references:
+  - https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them
 ---
 ## Problems of popular approaches
 
@@ -67,7 +69,3 @@ If you'll choose this approach you'll be able to simplify the repository declara
     <url>file://${project.basedir}/repo</url>
 </repository>
 ```
-
-## References
-
-- https://stackoverflow.com/questions/364114/can-i-add-jars-to-maven-2-build-classpath-without-installing-them

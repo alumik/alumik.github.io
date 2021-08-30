@@ -4,6 +4,8 @@ date: 2021-05-15 16:21:13
 categories: Linux
 tags: Shell 脚本
 abbrlink: 65
+references:
+  - https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine
 ---
 The `$@` variable expands to all command-line parameters separated by spaces. Here is an example.
 
@@ -28,7 +30,3 @@ If you want to pass all but the first arguments, you can first use `shift` to "c
 Assigning the arguments to a regular variable (as in `args="$@"`) mashes all the arguments together like `"$*"` does. If you want to store the arguments in a variable, use an array with `args=("$@")` (the parentheses make it an array), and then reference them as e.g. `"${args[0]}"` etc. Note that in bash and ksh, array indexes start at 0, so `$1` will be in `args[0]`, etc. zsh, on the other hand, starts array indexes at 1, so `$1` will be in `args[1]`. More basic shells like dash don't have arrays at all.
 
 Leaving off the double-quotes, with either `$@` or `$*`, will try to split each argument up into separate words (based on whitespace or whatever is in `$IFS`), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn't take place by default.)
-
-## References
-
-- https://stackoverflow.com/questions/3811345/how-to-pass-all-arguments-passed-to-my-bash-script-to-a-function-of-mine

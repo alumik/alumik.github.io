@@ -58,7 +58,3 @@ mkvmerge -o output.mkv input1.mkv + input2.mkv
 If your clips don't use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.
 
 Note that [special characters](http://www.tldp.org/LDP/abs/html/special-chars.html) can break things so if you have these in your filenames you'll need to [deal with them](https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash).
-
-Sources: Experience
-
-https://ffmpeg.org/ffmpeg-formats.html

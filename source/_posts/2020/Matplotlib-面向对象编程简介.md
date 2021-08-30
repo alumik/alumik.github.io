@@ -4,6 +4,11 @@ categories: Python
 tags: Matplotlib
 abbrlink: 44
 date: 2020-02-20 23:58:48
+references:
+  - https://segmentfault.com/a/1190000020450334?utm_source=tag-newest
+  - https://www.cnblogs.com/linblogs/archive/2018/09/12/9636782.html
+  - https://matplotlib.org/tutorials/introductory/usage.html
+  - https://matplotlib.org/tutorials/introductory/pyplot.html
 ---
 ## 前言
 
@@ -246,10 +251,3 @@ fig.savefig('result.png')
 ## 小结
 
 建议按照面向对象编程的方式去绘图：先创建图像，再创建坐标轴，最后在坐标轴上绘图。这种编码方式会让绘图逻辑更加清晰，能够随心所欲地修改图片的每个地方。
-
-## 参考链接
-
-- https://segmentfault.com/a/1190000020450334?utm_source=tag-newest
-- https://www.cnblogs.com/linblogs/archive/2018/09/12/9636782.html
-- https://matplotlib.org/tutorials/introductory/usage.html
-- https://matplotlib.org/tutorials/introductory/pyplot.html
