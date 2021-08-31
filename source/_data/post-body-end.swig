@@ -1,7 +1,6 @@
-<hr style="margin-top: 40px"/>
-<h2>参考链接</h2>
-
 {%- if post.references and post.references.length %}
+  <hr style="margin-top: 40px"/>
+  <h2>参考链接</h2>
   <ul>
   {%- for ref in post.references %}
     {%- if ref.name %}
