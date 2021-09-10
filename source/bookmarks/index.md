@@ -70,6 +70,12 @@ toc:
 **描述：**将英文文本按照特定标题格式要求进行大小写转换。
 {% endnote %}
 
+{% note default %}
+**标题：**Shields IO<br/>
+**链接：**https://shields.io/<br/>
+**描述：**生成高质量元数据徽标。
+{% endnote %}
+
 ## 🌐 趣味网站
 
 {% note default %}

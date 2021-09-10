@@ -66,7 +66,7 @@ index_generator:
   order_by: -date
 
 # Category & Tag
-default_category: 其他计算机使用技巧
+default_category: 未分类
 category_map:
   Android: android
   C++: cpp
@@ -76,7 +76,7 @@ category_map:
   PHP: php
   Python: python
   Windows: windows
-  其他计算机使用技巧: uncategorized
+  未分类: uncategorized
   其他软件问题: software
   容器与虚拟机: container-vm
   数学知识: math
@@ -84,12 +84,14 @@ category_map:
   版本控制系统: vcs
   网络服务: web-service
   过期或不适用的文章: outdated
+  多媒体处理: media
+  学术与研究: research
 tag_map:
   shell 脚本: shell-script
-  多媒体处理: multimedia
   批处理文件: batchfile
   概率论与数理统计: statistics
   网络加速: net-booster
+  文献查询: scholarly-articles
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta

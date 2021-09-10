@@ -1,9 +1,7 @@
 ---
 title: Merge Two Videos without Re-encoding
-categories: 其他计算机使用技巧
-tags:
-  - 多媒体处理
-  - FFmpeg
+categories: 多媒体处理
+tags: FFmpeg
 abbrlink: 34
 date: 2019-06-24 21:07:43
 ---
