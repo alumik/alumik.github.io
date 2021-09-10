@@ -242,10 +242,9 @@
 <p>Note that <a href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you&#39;ll need to <a href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
 ]]></content>
       <categories>
-        <category>其他计算机使用技巧</category>
+        <category>多媒体处理</category>
       </categories>
       <tags>
-        <tag>多媒体处理</tag>
         <tag>FFmpeg</tag>
       </tags>
   </entry>
@@ -1673,6 +1672,28 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </categories>
       <tags>
         <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Check Journal Indexes and Get Its Impact Factor</title>
+    <url>/posts/72/</url>
+    <content><![CDATA[<h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
+<p><strong>ISI</strong> Journals: <a href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
+<p><strong>Ei Compendex</strong>: <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
+<div class="note info">
+            <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
+          </div>
+<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
+<p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
+<p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
+<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
+<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
+]]></content>
+      <categories>
+        <category>学术与研究</category>
+      </categories>
+      <tags>
+        <tag>文献查询</tag>
       </tags>
   </entry>
   <entry>
