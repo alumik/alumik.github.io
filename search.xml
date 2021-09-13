@@ -1834,7 +1834,7 @@ Generally, you should avoid amending a commit that is already pushed as it may c
 <img src="/posts/74/1.png" class="" width="520">
 <p>Or set a proper itemindent if you want to control the indent.</p>
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<img src="/posts/74/1.png" class="" width="520">
+<img src="/posts/74/2.png" class="" width="520">
 ]]></content>
       <categories>
         <category>LaTeX</category>
