@@ -39,4 +39,4 @@ Or set a proper itemindent if you want to control the indent.
 \end{document}
 ```
 
-{% asset_img 1.png 520 %}
+{% asset_img 2.png 520 %}
