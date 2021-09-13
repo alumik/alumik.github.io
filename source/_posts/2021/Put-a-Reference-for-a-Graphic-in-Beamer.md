@@ -9,9 +9,9 @@ references:
 ---
 Try to put reference immediately below picture like this:
 
-```latex
+```tex
 \begin{frame}
-    \includegraphics[width=\linewidth]{example-image}\\[-1ex]
-    {\tiny Source: \cite{foo12}}
+  \includegraphics[width=\linewidth]{example-image}\\[-1ex]
+  {\tiny Source: \cite{foo12}}
 \end{frame}
 ```

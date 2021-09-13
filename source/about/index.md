@@ -2,20 +2,10 @@
 title: 关于
 date: 2021-08-29 15:49:34
 comments: true
-description: " "
 toc:
   enable: true
   number: false
 ---
-<script>
-  fetch('https://v1.hitokoto.cn')
-    .then(res => res.json())
-    .then(data => {
-      let hitokoto_content = document.getElementsByClassName('post-description')[0]
-      hitokoto_content.innerText = data.hitokoto
-    })
-    .catch(err => console.error(err))
-</script>
 
 <style>
   .post-body img {
