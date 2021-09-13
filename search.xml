@@ -1736,6 +1736,17 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </tags>
   </entry>
   <entry>
+    <title>Make inline lists</title>
+    <url>/posts/73/</url>
+    <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/73/1.png" class="">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Make MySQL Table Name Case Insensitive</title>
     <url>/posts/64/</url>
     <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
@@ -1788,7 +1799,7 @@ Generally, you should avoid amending a commit that is already pushed as it may c
     <title>Put a Reference for a Graphic in Beamer</title>
     <url>/posts/62/</url>
     <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">\begin&#123;frame&#125;</span><br><span class="line">    \includegraphics[width=\linewidth]&#123;example-image&#125;\\[-1ex]</span><br><span class="line">    &#123;\tiny Source: \cite&#123;foo12&#125;&#125;</span><br><span class="line">\end&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">  &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>LaTeX</category>
@@ -1813,6 +1824,20 @@ Generally, you should avoid amending a commit that is already pushed as it may c
 ]]></content>
       <categories>
         <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Set margin with enumitem</title>
+    <url>/posts/74/</url>
+    <content><![CDATA[<p>Use <code>leftmargin=*</code></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/1.png" class="">
+<p>Or set a proper itemindent if you want to control the indent.</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/1.png" class="">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
       </categories>
   </entry>
   <entry>
