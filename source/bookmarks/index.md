@@ -83,6 +83,12 @@ toc:
 **描述：**流体粒子模拟。
 {% endnote %}
 
+{% note default %}
+**标题：**FSM Simulator<br/>
+**链接：**http://ivanzuzak.info/noam/webapps/fsm_simulator/<br/>
+**描述：**有限状态机模拟器。
+{% endnote %}
+
 ## 🗂️ 资料
 
 {% note default %}
