@@ -1873,6 +1873,22 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </tags>
   </entry>
   <entry>
+    <title>List All CRON Jobs for All Users</title>
+    <url>/posts/76/</url>
+    <content><![CDATA[<p>You would have to run this as root (hence the <code>sudo</code>):</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(cut -f1 -d: /etc/passwd); <span class="keyword">do</span> sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>will loop over each user name listing out their crontab. The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w/o being them or root.</p>
+<p>If you want to know which user a crontab belongs to, use <code>echo $user</code>:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(cut -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>cron</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Make inline lists</title>
     <url>/posts/73/</url>
     <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
