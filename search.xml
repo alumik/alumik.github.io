@@ -1917,6 +1917,51 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </tags>
   </entry>
   <entry>
+    <title>Manage Docker as a Non-root User</title>
+    <url>/posts/78/</url>
+    <content><![CDATA[<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
+<p>If you don’t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
+<div class="note danger">
+            <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
+          </div>
+<div class="note info">
+            <p>To run Docker without root privileges, see <a href="https://docs.docker.com/engine/security/rootless/">Run the Docker daemon as a non-root user (Rootless mode)</a>.</p>
+          </div>
+<p>To create the <code>docker</code> group and add your user:</p>
+<ol>
+<li><p>Create the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add your user to the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
+<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
+<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
+<p> On Linux, you can also run the following command to activate the changes to groups:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
+<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
+<blockquote>
+<p>WARNING: Error loading config file: /home/user/.docker/config.json -
+stat /home/user/.docker/config.json: permission denied</p>
+</blockquote>
+<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>容器与虚拟机</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Prevent frame Option in includegraphics Making an Overfull hbox</title>
     <url>/posts/69/</url>
     <content><![CDATA[<p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
@@ -2053,6 +2098,19 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </categories>
       <tags>
         <tag>华为系统恢复</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向 authorized_keys 文件中添加 SSH 密钥</title>
+    <url>/posts/77/</url>
+    <content><![CDATA[<p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他软件问题</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
       </tags>
   </entry>
   <entry>
