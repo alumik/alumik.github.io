@@ -75,6 +75,12 @@ toc:
 **描述：**生成高质量元数据徽标。
 {% endnote %}
 
+{% note default %}
+**标题：**Online Tool to Lighten Color Without Alpha Channel<br/>
+**链接：**https://filosophy.org/code/online-tool-to-lighten-color-without-alpha-channel/<br/>
+**描述：**去掉颜色中的透明度通道。
+{% endnote %}
+
 ## 🌐 趣味网站
 
 {% note default %}
