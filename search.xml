@@ -1974,6 +1974,16 @@ stat /home/user/.docker/config.json: permission denied</p>
       </categories>
   </entry>
   <entry>
+    <title>Print Total Memory Used by a Python Process</title>
+    <url>/posts/79/</url>
+    <content><![CDATA[<p>Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">process = psutil.Process()</span><br><span class="line"><span class="built_in">print</span>(process.memory_info().rss)  <span class="comment"># in bytes</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Propagate All Arguments in a Bash Shell Script</title>
     <url>/posts/65/</url>
     <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
