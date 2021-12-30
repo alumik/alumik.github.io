@@ -2137,6 +2137,25 @@ stat /home/user/.docker/config.json: permission denied</p>
       </tags>
   </entry>
   <entry>
+    <title>在 MySQL 中查询至今一天以上的数据</title>
+    <url>/posts/80/</url>
+    <content><![CDATA[<p>可以直接使用：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> created_at <span class="operator">&lt;</span> NOW() <span class="operator">-</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>;</span><br></pre></td></tr></table></figure>
+<p>下面是一个常见的错误写法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
+<blockquote>
+<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
     <url>/posts/67/</url>
     <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
