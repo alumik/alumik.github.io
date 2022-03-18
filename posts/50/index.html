@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.0.0">
+<meta name="generator" content="Hexo 6.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="123456789101112131415161718function sleep(ms) &amp;#123;  return new Promise(resolve &#x3D;&gt; setTimeout(resolve, ms))&amp;#125;async function demo() &amp;#123;  console.log(&amp;#x27;Taking a break...&amp;#x27;)  await sle">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-28T11:50:35.000Z">
-<meta property="article:modified_time" content="2021-12-30T10:30:25.890Z">
+<meta property="article:modified_time" content="2022-03-18T08:16:48.814Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-30 18:30:25" itemprop="dateModified" datetime="2021-12-30T18:30:25+08:00">2021-12-30</time>
+                <time title="修改时间：2022-03-18 16:16:48" itemprop="dateModified" datetime="2022-03-18T16:16:48+08:00">2022-03-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,10 +274,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">ms</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">demo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Taking a break...&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Two seconds later, showing sleep in a loop...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sleep in loop</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>)</span><br><span class="line">      <span class="keyword">await</span> sleep(<span class="number">2000</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo()</span><br></pre></td></tr></table></figure>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sleep</span>(<span class="params">ms</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">setTimeout</span>(resolve, ms))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Taking a break...&#x27;</span>)</span><br><span class="line">  <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">2000</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Two seconds later, showing sleep in a loop...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sleep in loop</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (i === <span class="number">3</span>)</span><br><span class="line">      <span class="keyword">await</span> <span class="title function_">sleep</span>(<span class="number">2000</span>)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(i)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">demo</span>()</span><br></pre></td></tr></table></figure>
 <p>This is it. <code>await sleep(&lt;duration&gt;)</code>.</p>
 <p>Or as a one-liner:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> <span class="built_in">setTimeout</span>(r, <span class="number">2000</span>))</span><br></pre></td></tr></table></figure>
 <h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p><code>await</code> can only be executed in functions prefixed with the <code>async</code> keyword, or at the top level of your script in some environments (e.g., the Chrome DevTools console, or Runkit).</p>
 <p><code>await</code> only pauses the current <code>async</code> function</p>
 <p>Two new JavaScript features helped write this &quot;sleep&quot; function:</p>
@@ -387,7 +387,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">83</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -463,7 +463,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
