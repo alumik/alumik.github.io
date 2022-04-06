@@ -2184,6 +2184,65 @@ stat /home/user/.docker/config.json: permission denied</p>
       </tags>
   </entry>
   <entry>
+    <title>A Pythonic Way to Combine Two Dicts</title>
+    <url>/posts/85/</url>
+    <content><![CDATA[<p>For example I have two dicts:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dict_a = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">dict_b = &#123;<span class="string">&#x27;b&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>I need a pythonic way of &#39;combining&#39; two dicts such that the result is:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>That is to say: if a key appears in both dicts, add their values, if it appears in only one dict, keep its value.</p>
+<p>Use <code>collections.Counter</code>:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">a = Counter(&#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">3</span>&#125;)</span><br><span class="line">b = Counter(&#123;<span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>:<span class="number">5</span>&#125;)</span><br><span class="line">c = a + b  <span class="comment"># c = Counter(&#123;&#x27;c&#x27;: 7, &#x27;b&#x27;: 5, &#x27;d&#x27;: 5, &#x27;a&#x27;: 1&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>Counters are basically a subclass of dict, so you can still do everything else with them you&#39;d normally do with that type, such as iterate over their keys and values.</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Beamer: Short Section Titles in the Headline</title>
+    <url>/posts/84/</url>
+    <content><![CDATA[<p>I have a beamer template for a presentation. In this template, the headline shows the section name and the subsection to which the current slide belongs to. However, even if I have defined a short title as in</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\section</span>[Short title]&#123;The very long title that surely is way too long&#125;</span><br></pre></td></tr></table></figure>
+<p>the headline always shows the long title.</p>
+<p>Here is the code from the style file which shows the section name</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\pgftext</span>[at=<span class="keyword">\pgfpoint</span>&#123;<span class="keyword">\beamer@headline@lmargin</span>&#125;&#123;-0.55<span class="keyword">\beamer@headline@height</span>&#125;,left,center]&#123;<span class="comment">%</span></span><br><span class="line">    <span class="keyword">\begin</span>&#123;beamercolorbox&#125;[dp=0.5ex]&#123;section in head/foot&#125;</span><br><span class="line">        <span class="keyword">\shadowtextline</span>&#123;<span class="keyword">\insertsection</span>&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;beamercolorbox&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>So my question: Is there any other command for <code>\insertsection</code> in order to show the short title?</p>
+<p>The outer theme should use <code>\insertsectionhead</code> instead of <code>\insertsection</code>:</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;beamer&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\section</span>[Short section title]&#123;Long section title&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  Long title: <span class="keyword">\insertsection</span></span><br><span class="line"></span><br><span class="line">  Short title: <span class="keyword">\insertsectionhead</span></span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>Beamer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Convert .ts File Into a Mainstream Format Losslessly</title>
+    <url>/posts/86/</url>
+    <content><![CDATA[<h2 id="Matroska-MKV"><a href="#Matroska-MKV" class="headerlink" title="Matroska (MKV)"></a>Matroska (MKV)</h2><p>This will stream copy (re-mux) all streams:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.ts -map 0 -c copy output.mkv</span><br></pre></td></tr></table></figure>
+<p>The <code>-map 0</code> option is used to include all streams. Otherwise it will use the default stream selection behavior which would only result in one stream per stream type being selected. Since Matroska can handle most arbitrary streams I included <code>-map 0</code>.</p>
+<h2 id="MP4"><a href="#MP4" class="headerlink" title="MP4"></a>MP4</h2><p>This will stream copy (re-mux) all streams:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.ts -map 0 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+<p>If your inputs formats are not compatible with MP4 you will get an error. Your player/device may not support all arbitrary, less common, or legacy formats even if they are supported by MP4. If in doubt re-encode to H.264 + AAC as shown below.</p>
+<p>This will re-encode the video to H.264 and stream copy the audio:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.ts -c:v libx264 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
+<p>The next example will re-encode both video and audio:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.ts -c:v libx264 -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
+<p>Lossless H.264 example:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.ts -c:v libx264 -crf 0 -c:a copy output.mp4</span><br></pre></td></tr></table></figure>
+<p>Lossless files will be huge.</p>
+]]></content>
+      <categories>
+        <category>多媒体处理</category>
+      </categories>
+      <tags>
+        <tag>FFmpeg</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Display Numbers Using Comma as a Thousands Separator</title>
     <url>/posts/82/</url>
     <content><![CDATA[<p>The <code>siunitx</code> package has this sort of facility.</p>
@@ -2196,6 +2255,24 @@ stat /home/user/.docker/config.json: permission denied</p>
       <categories>
         <category>LaTeX</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Efficiently Calculating a Euclidean Distance Matrix Using Numpy</title>
+    <url>/posts/87/</url>
+    <content><![CDATA[<p>You can take advantage of the <code>complex</code> type:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># build a complex array of your points</span></span><br><span class="line">z = np.array([<span class="built_in">complex</span>(p.x, p.y) <span class="keyword">for</span> p <span class="keyword">in</span> points])</span><br></pre></td></tr></table></figure>
+<h2 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mesh this array so that you will have all combinations</span></span><br><span class="line">m, n = np.meshgrid(z, z)</span><br><span class="line"><span class="comment"># get the distance via the norm</span></span><br><span class="line">distance_matrix = <span class="built_in">abs</span>(m - n)</span><br></pre></td></tr></table></figure>
+<h2 id="Second-Solution"><a href="#Second-Solution" class="headerlink" title="Second Solution"></a>Second Solution</h2><p>Meshing is the main idea. But numpy is clever, so you don&#39;t have to generate <code>m</code> &amp; <code>n</code>. Just compute the difference using a transposed version of <code>z</code>. The mesh is done automatically:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">distance_matrix = <span class="built_in">abs</span>(z[..., np.newaxis] - z)</span><br></pre></td></tr></table></figure>
+<p>And if <code>z</code> is directly set as a 2-dimensional array, you can use <code>z.T</code> instead of the weird <code>z[..., np.newaxis]</code>. So finally, your code will look like this:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">z = np.array([[<span class="built_in">complex</span>(p.x, p.y) <span class="keyword">for</span> p <span class="keyword">in</span> points]])  <span class="comment"># notice the [[ ... ]]</span></span><br><span class="line">distance_matrix = <span class="built_in">abs</span>(z.T - z)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Numpy</tag>
+      </tags>
   </entry>
   <entry>
     <title>Put 4 Authors in a Single Row in acmart LaTeX Template</title>
