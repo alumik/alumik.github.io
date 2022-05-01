@@ -2309,4 +2309,18 @@ stat /home/user/.docker/config.json: permission denied</p>
         <category>LaTeX</category>
       </categories>
   </entry>
+  <entry>
+    <title>一种 Windows 10 透明效果不生效的解决办法</title>
+    <url>/posts/88/</url>
+    <content><![CDATA[<p>Windows Terminal 某次更新以后，透明效果消失。在系统“颜色”设置中已经将“透明效果”设置为“开”。</p>
+<p>观察以后，可以认为透明效果不生效。“设置”界面、开始菜单、计算器程序，都是纯色，没有毛玻璃效果。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>运行注册表编辑器 <code>regedit</code>，定位到：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize</span><br></pre></td></tr></table></figure>
+<p>有一个值名称为 <code>EnableTransparency</code>，如果已经启用透明，数据应该是 <code>1</code>。</p>
+<p>接下来改成 <code>0</code>。然后关机，再开机。接着将数据值改为 <code>1</code>。这时候应该就能看到透明效果回来了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
 </search>
