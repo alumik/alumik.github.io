@@ -20,9 +20,9 @@ toc:
 {% endnote %}
 
 {% note default %}
-**标题：**the arXiv navigator<br/>
-**链接：**https://arxiv.lateral.io/<br/>
-**描述：**一个用于在 arXiv 上检索相关文章的网站。
+**标题：**Connected Papers<br/>
+**链接：**https://www.connectedpapers.com/<br/>
+**描述：**一个搜索关联文献的网站。
 {% endnote %}
 
 ## 🧰 实用工具
@@ -79,6 +79,12 @@ toc:
 **标题：**Online Tool to Lighten Color Without Alpha Channel<br/>
 **链接：**https://filosophy.org/code/online-tool-to-lighten-color-without-alpha-channel/<br/>
 **描述：**去掉颜色中的透明度通道。
+{% endnote %}
+
+{% note default %}
+**标题：**Mergely<br/>
+**链接：**https://editor.mergely.com/<br/>
+**描述：**在线文本比较工具。
 {% endnote %}
 
 ## 🌐 趣味网站
