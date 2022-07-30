@@ -2,7 +2,7 @@
 title: '解决 dpkg: error processing package *** (--configure)'
 date: 2022-06-15 14:56:15
 categories: Linux
-tags: Ubuntu
+tags: dpkg
 abbrlink: 92
 references:
   - https://bbs.huaweicloud.com/forum/thread-74123-1-1.html
