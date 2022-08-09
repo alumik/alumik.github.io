@@ -1,9 +1,11 @@
-# 突突唧之家
+# AlumiK's Blog
 
-![Netlify](https://img.shields.io/netlify/4afb5d9b-95f3-4c45-b5a6-6358f6180b4e?logo=netlify)
-![Travis (.com)](https://img.shields.io/travis/com/alumik/alumik.github.io?label=travis&logo=travis)
+[![Netlify](https://img.shields.io/netlify/4afb5d9b-95f3-4c45-b5a6-6358f6180b4e?logo=netlify)](https://app.netlify.com/sites/blog-alumik-cn/deploys)
+[![Travis (.com)](https://img.shields.io/travis/com/alumik/alumik.github.io?label=travis&logo=travis)](https://app.travis-ci.com/github/alumik/alumik.github.io)
 
 A blog in computer science and software engineering.
+
+Note: The Gitee mirror is outdated due to regulatory reasons.
 
 ## Status
 
@@ -12,6 +14,7 @@ A blog in computer science and software engineering.
         <th></th>
         <th style="text-align: center">Status</th>
         <th>Hosted By</th>
+        <th>Version</th>
     <tr>
         <th style="text-align: center">Main</th>
         <td>
@@ -21,6 +24,9 @@ A blog in computer science and software engineering.
         </td>
         <td>
             Netlify
+        </td>
+        <td>
+            UP-TO-DATE
         </td>
     </tr>
     <tr>
@@ -33,6 +39,9 @@ A blog in computer science and software engineering.
         <td>
             GitHub Pages
         </td>
+        <td>
+            UP-TO-DATE
+        </td>
     </tr>
     <tr>
         <td>
@@ -42,6 +51,9 @@ A blog in computer science and software engineering.
         </td>
         <td>
             Gitee Pages
+        </td>
+        <td>
+            OUTDATED
         </td>
     </tr>
 </table>
