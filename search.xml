@@ -1166,393 +1166,6 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
       </tags>
   </entry>
   <entry>
-    <title>Assigning Default Values to Shell Variables</title>
-    <url>/posts/68/</url>
-    <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
-<p>To get the assigned value, or default if it&#39;s missing:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Check Journal Indexes and Get Its Impact Factor</title>
-    <url>/posts/72/</url>
-    <content><![CDATA[<h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
-<p><strong>ISI</strong> Journals: <a href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
-<p><strong>Ei Compendex</strong>: <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
-<div class="note info">
-            <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
-          </div>
-<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
-<p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
-<p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
-<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
-<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
-]]></content>
-      <categories>
-        <category>学术与研究</category>
-      </categories>
-      <tags>
-        <tag>文献查询</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Get Path of Current Script When Executed Through a Symlink</title>
-    <url>/posts/66/</url>
-    <content><![CDATA[<p>Try this as a general purpose solution:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>In the specific case of following symlinks, you could also do this:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="subst">$(readlink -f <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
-    <url>/posts/63/</url>
-    <content><![CDATA[<div class="note danger">
-            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
-          </div>
-<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
-<p>Then, reset the current branch:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
-<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
-<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
-<p>Then to reapply these uncommitted changes:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>版本控制系统</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>List All CRON Jobs for All Users</title>
-    <url>/posts/76/</url>
-    <content><![CDATA[<p>You would have to run this as root (hence the <code>sudo</code>):</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(<span class="built_in">cut</span> -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p>will loop over each user name listing out their crontab.
-The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w/o being them or root.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>cron</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Make inline lists</title>
-    <url>/posts/73/</url>
-    <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<img src="/posts/73/1.png" class="" width="600">
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Make MySQL Table Name Case Insensitive</title>
-    <url>/posts/64/</url>
-    <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
-<p>Restart MySQL:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
-<p>Then check it here:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>数据库管理系统</category>
-      </categories>
-      <tags>
-        <tag>MySQL/MariaDB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manage Docker as a Non-root User</title>
-    <url>/posts/78/</url>
-    <content><![CDATA[<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
-<p>If you don&#39;t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
-<div class="note danger">
-            <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
-          </div>
-<div class="note info">
-            <p>To run Docker without root privileges, see <a href="https://docs.docker.com/engine/security/rootless/">Run the Docker daemon as a non-root user (Rootless mode)</a>.</p>
-          </div>
-<p>To create the <code>docker</code> group and add your user:</p>
-<ol>
-<li><p>Create the <code>docker</code> group.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add your user to the <code>docker</code> group.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
-<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
-<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
-<p> On Linux, you can also run the following command to activate the changes to groups:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
-<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
-<blockquote>
-<p>WARNING: Error loading config file: /home/user/.docker/config.json -
-stat /home/user/.docker/config.json: permission denied</p>
-</blockquote>
-<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>容器与虚拟机</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Prevent frame Option in includegraphics Making an Overfull hbox</title>
-    <url>/posts/69/</url>
-    <content><![CDATA[<p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
-<p>The <code>frame</code> option draws a frame with rule of width <code>\fboxrule</code> (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the <code>frame</code> option).</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[export]&#123;adjustbox&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;0pt&#125; <span class="comment">% just for the example</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% first example: bad, there&#x27;s an overfull of twice the rule width    </span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% second example: good, the frame is drawn outside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\dimexpr\textwidth-2\fboxrule,frame=&#123;\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>-2<span class="keyword">\fboxrule</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% third example: good, the frame is drawn inside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame=&#123;\fboxrule&#125; &#123;-\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125; &#123;-<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>Don&#39;t include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that&#39;s reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Print Total Memory Used by a Python Process</title>
-    <url>/posts/79/</url>
-    <content><![CDATA[<p>Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">process = psutil.Process()</span><br><span class="line"><span class="built_in">print</span>(process.memory_info().rss)  <span class="comment"># in bytes</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Propagate All Arguments in a Bash Shell Script</title>
-    <url>/posts/65/</url>
-    <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">abc <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
-<p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
-<p>The <a href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
-<h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
-<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
-<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
-<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Put a Reference for a Graphic in Beamer</title>
-    <url>/posts/62/</url>
-    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">  &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-      <tags>
-        <tag>Beamer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
-    <url>/posts/61/</url>
-    <content><![CDATA[<p>Use <code>find</code>.</p>
-<p>To see exactly which files you will remove:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
-<p>To count the number of files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
-<p>To delete these files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
-<div class="note danger">
-            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name &quot;*.bak&quot;</code> argument, it will delete <strong>everything</strong>.</p>
-          </div>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Set margin with enumitem</title>
-    <url>/posts/74/</url>
-    <content><![CDATA[<p>Use <code>leftmargin=*</code></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<img src="/posts/74/1.png" class="" width="520">
-<p>Or set a proper itemindent if you want to control the indent.</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<img src="/posts/74/2.png" class="" width="520">
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Uninstall Older Versions of a Installed PowerShell Module</title>
-    <url>/posts/70/</url>
-    <content><![CDATA[<p>When using Windows PowerShell, it&#39;s possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>PowerShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>修复华为电脑由于磁盘分区卷标丢失导致的无法F10恢复出厂设置的问题</title>
-    <url>/posts/75/</url>
-    <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
-<img src="/posts/75/1.png" class="" width="500">
-<img src="/posts/75/2.png" class="" width="500">
-<span id="more"></span>
-<p>使用以下命令确认卷标名称为空白：</p>
-<ol>
-<li>以管理员身份运行命令提示符程序。</li>
-<li>在命令提示符下输入 <code>diskpart</code>。</li>
-<li>输入 <code>list volume</code> 查看卷。</li>
-<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
-<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
-<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
-<li>输入 <code>detail part</code>，发现标签是空白的。如下图：</li>
-</ol>
-<img src="/posts/75/3.png" class="" width="500">
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>此问题是由 Windows 10 系统更新 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 导致。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果 F10 恢复出厂设置过程钟弹出提示“恢复失败，请联系售后服务进行维修”界面，请尝试点击“重启”。若重启计算机后仍然无法进入系统，请联系客户服务中心处理。如果重启后能正常进入系统，可以按以下步骤操作：</p>
-<ol>
-<li><p>以管理员身份运行命令提示符程序。</p>
- <img src="/posts/75/4.png" class="" width="500">
-</li>
-<li><p>在命令提示符下输入 <code>diskpart</code>。</p>
-</li>
-<li>输入 <code>list volume</code> 查看卷。</li>
-<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
-<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
-<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
-<li><p>为其分配盘符名字 <code>assign letter t</code>，分配分区盘符名称后暂时不关闭此界面。</p>
- <img src="/posts/75/5.png" class="" width="500">
-</li>
-<li><p>同时按 <code>Win + E</code> 打开文件资源管理器后，鼠标右键选中磁盘分区本地磁盘 T，重新命名为 <code>WinRE</code>，点击“继续”完成。</p>
- <img src="/posts/75/6.png" class="" width="500">
- <img src="/posts/75/7.png" class="" width="500">
-</li>
-<li><p>再返回命令提示符中输入 <code>remove</code>，再输入 <code>exit</code> 退出。</p>
- <img src="/posts/75/8.png" class="" width="500">
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>华为系统恢复</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>向 authorized_keys 文件中添加 SSH 密钥</title>
-    <url>/posts/77/</url>
-    <content><![CDATA[<p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>其他软件问题</category>
-      </categories>
-      <tags>
-        <tag>SSH</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>向每个 screen 中发送 Ctrl-C 信号</title>
-    <url>/posts/60/</url>
-    <content><![CDATA[<p>使用如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -<span class="built_in">ls</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span></span><br><span class="line">  screen -S <span class="string">&quot;<span class="variable">$scr</span>&quot;</span> -X stuff <span class="string">&quot;^C&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Screen</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在 MySQL 中查询至今一天以上的数据</title>
-    <url>/posts/80/</url>
-    <content><![CDATA[<p>可以直接使用：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> created_at <span class="operator">&lt;</span> NOW() <span class="operator">-</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>;</span><br></pre></td></tr></table></figure>
-<p>下面是一个常见的错误写法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
-<p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
-<blockquote>
-<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库管理系统</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
-    <url>/posts/67/</url>
-    <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
-<p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
-<p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
-<img src="/posts/67/01.png" class="" width="400">
-<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>重建 Ubuntu 系统被删除的 auth.log 等系统日志文件</title>
-    <url>/posts/71/</url>
-    <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Add Local JAR files to a Maven Project</title>
     <url>/posts/45/</url>
     <content><![CDATA[<h2 id="Problems-of-popular-approaches"><a href="#Problems-of-popular-approaches" class="headerlink" title="Problems of popular approaches"></a>Problems of popular approaches</h2><p>Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
@@ -2183,6 +1796,393 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </tags>
   </entry>
   <entry>
+    <title>Assigning Default Values to Shell Variables</title>
+    <url>/posts/68/</url>
+    <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
+<p>To get the assigned value, or default if it&#39;s missing:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Check Journal Indexes and Get Its Impact Factor</title>
+    <url>/posts/72/</url>
+    <content><![CDATA[<h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
+<p><strong>ISI</strong> Journals: <a href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
+<p><strong>Ei Compendex</strong>: <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
+<div class="note info">
+            <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
+          </div>
+<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
+<p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
+<p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
+<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
+<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
+]]></content>
+      <categories>
+        <category>学术与研究</category>
+      </categories>
+      <tags>
+        <tag>文献查询</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Get Path of Current Script When Executed Through a Symlink</title>
+    <url>/posts/66/</url>
+    <content><![CDATA[<p>Try this as a general purpose solution:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>In the specific case of following symlinks, you could also do this:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="subst">$(readlink -f <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
+    <url>/posts/63/</url>
+    <content><![CDATA[<div class="note danger">
+            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
+          </div>
+<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
+<p>Then, reset the current branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
+<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
+<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>Then to reapply these uncommitted changes:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>版本控制系统</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>List All CRON Jobs for All Users</title>
+    <url>/posts/76/</url>
+    <content><![CDATA[<p>You would have to run this as root (hence the <code>sudo</code>):</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(<span class="built_in">cut</span> -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>will loop over each user name listing out their crontab.
+The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w/o being them or root.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>cron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Make inline lists</title>
+    <url>/posts/73/</url>
+    <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/73/1.png" class="" width="600">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Make MySQL Table Name Case Insensitive</title>
+    <url>/posts/64/</url>
+    <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
+<p>Restart MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<p>Then check it here:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL/MariaDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manage Docker as a Non-root User</title>
+    <url>/posts/78/</url>
+    <content><![CDATA[<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
+<p>If you don&#39;t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
+<div class="note danger">
+            <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
+          </div>
+<div class="note info">
+            <p>To run Docker without root privileges, see <a href="https://docs.docker.com/engine/security/rootless/">Run the Docker daemon as a non-root user (Rootless mode)</a>.</p>
+          </div>
+<p>To create the <code>docker</code> group and add your user:</p>
+<ol>
+<li><p>Create the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add your user to the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
+<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
+<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
+<p> On Linux, you can also run the following command to activate the changes to groups:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
+<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
+<blockquote>
+<p>WARNING: Error loading config file: /home/user/.docker/config.json -
+stat /home/user/.docker/config.json: permission denied</p>
+</blockquote>
+<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>容器与虚拟机</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Prevent frame Option in includegraphics Making an Overfull hbox</title>
+    <url>/posts/69/</url>
+    <content><![CDATA[<p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
+<p>The <code>frame</code> option draws a frame with rule of width <code>\fboxrule</code> (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the <code>frame</code> option).</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[export]&#123;adjustbox&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;0pt&#125; <span class="comment">% just for the example</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% first example: bad, there&#x27;s an overfull of twice the rule width    </span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% second example: good, the frame is drawn outside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\dimexpr\textwidth-2\fboxrule,frame=&#123;\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>-2<span class="keyword">\fboxrule</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% third example: good, the frame is drawn inside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame=&#123;\fboxrule&#125; &#123;-\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125; &#123;-<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>Don&#39;t include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that&#39;s reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Print Total Memory Used by a Python Process</title>
+    <url>/posts/79/</url>
+    <content><![CDATA[<p>Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">process = psutil.Process()</span><br><span class="line"><span class="built_in">print</span>(process.memory_info().rss)  <span class="comment"># in bytes</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Propagate All Arguments in a Bash Shell Script</title>
+    <url>/posts/65/</url>
+    <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">abc <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
+<p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
+<p>The <a href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
+<h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
+<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
+<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
+<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Put a Reference for a Graphic in Beamer</title>
+    <url>/posts/62/</url>
+    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">  &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>Beamer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
+    <url>/posts/61/</url>
+    <content><![CDATA[<p>Use <code>find</code>.</p>
+<p>To see exactly which files you will remove:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
+<p>To count the number of files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
+<p>To delete these files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
+<div class="note danger">
+            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name &quot;*.bak&quot;</code> argument, it will delete <strong>everything</strong>.</p>
+          </div>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Set margin with enumitem</title>
+    <url>/posts/74/</url>
+    <content><![CDATA[<p>Use <code>leftmargin=*</code></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/1.png" class="" width="520">
+<p>Or set a proper itemindent if you want to control the indent.</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/2.png" class="" width="520">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Uninstall Older Versions of a Installed PowerShell Module</title>
+    <url>/posts/70/</url>
+    <content><![CDATA[<p>When using Windows PowerShell, it&#39;s possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复华为电脑由于磁盘分区卷标丢失导致的无法F10恢复出厂设置的问题</title>
+    <url>/posts/75/</url>
+    <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
+<img src="/posts/75/1.png" class="" width="500">
+<img src="/posts/75/2.png" class="" width="500">
+<span id="more"></span>
+<p>使用以下命令确认卷标名称为空白：</p>
+<ol>
+<li>以管理员身份运行命令提示符程序。</li>
+<li>在命令提示符下输入 <code>diskpart</code>。</li>
+<li>输入 <code>list volume</code> 查看卷。</li>
+<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
+<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
+<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
+<li>输入 <code>detail part</code>，发现标签是空白的。如下图：</li>
+</ol>
+<img src="/posts/75/3.png" class="" width="500">
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>此问题是由 Windows 10 系统更新 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 导致。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果 F10 恢复出厂设置过程钟弹出提示“恢复失败，请联系售后服务进行维修”界面，请尝试点击“重启”。若重启计算机后仍然无法进入系统，请联系客户服务中心处理。如果重启后能正常进入系统，可以按以下步骤操作：</p>
+<ol>
+<li><p>以管理员身份运行命令提示符程序。</p>
+ <img src="/posts/75/4.png" class="" width="500">
+</li>
+<li><p>在命令提示符下输入 <code>diskpart</code>。</p>
+</li>
+<li>输入 <code>list volume</code> 查看卷。</li>
+<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
+<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
+<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
+<li><p>为其分配盘符名字 <code>assign letter t</code>，分配分区盘符名称后暂时不关闭此界面。</p>
+ <img src="/posts/75/5.png" class="" width="500">
+</li>
+<li><p>同时按 <code>Win + E</code> 打开文件资源管理器后，鼠标右键选中磁盘分区本地磁盘 T，重新命名为 <code>WinRE</code>，点击“继续”完成。</p>
+ <img src="/posts/75/6.png" class="" width="500">
+ <img src="/posts/75/7.png" class="" width="500">
+</li>
+<li><p>再返回命令提示符中输入 <code>remove</code>，再输入 <code>exit</code> 退出。</p>
+ <img src="/posts/75/8.png" class="" width="500">
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>华为系统恢复</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向 authorized_keys 文件中添加 SSH 密钥</title>
+    <url>/posts/77/</url>
+    <content><![CDATA[<p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他软件问题</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向每个 screen 中发送 Ctrl-C 信号</title>
+    <url>/posts/60/</url>
+    <content><![CDATA[<p>使用如下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -<span class="built_in">ls</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span></span><br><span class="line">  screen -S <span class="string">&quot;<span class="variable">$scr</span>&quot;</span> -X stuff <span class="string">&quot;^C&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Screen</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在 MySQL 中查询至今一天以上的数据</title>
+    <url>/posts/80/</url>
+    <content><![CDATA[<p>可以直接使用：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> created_at <span class="operator">&lt;</span> NOW() <span class="operator">-</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>;</span><br></pre></td></tr></table></figure>
+<p>下面是一个常见的错误写法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
+<blockquote>
+<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
+    <url>/posts/67/</url>
+    <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
+<p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
+<p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
+<img src="/posts/67/01.png" class="" width="400">
+<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>重建 Ubuntu 系统被删除的 auth.log 等系统日志文件</title>
+    <url>/posts/71/</url>
+    <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>A Pythonic Way to Combine Two Dicts</title>
     <url>/posts/85/</url>
     <content><![CDATA[<p>For example I have two dicts:</p>
@@ -2590,7 +2590,7 @@ Generally, you should avoid amending a commit that is already pushed as it may c
 <p>OR</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service cron start</span><br></pre></td></tr></table></figure>
 <h2 id="Task-Ubuntu-Stop-Cron-Service"><a href="#Task-Ubuntu-Stop-Cron-Service" class="headerlink" title="Task: Ubuntu Stop Cron Service"></a>Task: Ubuntu Stop Cron Service</h2><p>To stop the cron service, use:</p>
-<h1 id="etc-init-d-cron-stop"><a href="#etc-init-d-cron-stop" class="headerlink" title="/etc/init.d/cron stop"></a>/etc/init.d/cron stop</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/cron stop</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/cron stop</span><br></pre></td></tr></table></figure>
 <p>OR</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service cron stop</span><br></pre></td></tr></table></figure>
 <h2 id="Task-Ubuntu-Restart-Cron-Service"><a href="#Task-Ubuntu-Restart-Cron-Service" class="headerlink" title="Task: Ubuntu Restart Cron Service"></a>Task: Ubuntu Restart Cron Service</h2><p>To restart the cron service, use:</p>
