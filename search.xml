@@ -2333,17 +2333,6 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </tags>
   </entry>
   <entry>
-    <title>Put 4 Authors in a Single Row in acmart LaTeX Template</title>
-    <url>/posts/81/</url>
-    <content><![CDATA[<p>The class <code>acmart</code> allows to set the number of authors per row by inserting e.g.</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\settopmatter</span>&#123;authorsperrow=4&#125;</span><br></pre></td></tr></table></figure>
-<p>after <code>\documentclass&#123;acmart&#125;</code>.</p>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Python - OSError: [WinError 17] The system cannot move the file to a different disk drive</title>
     <url>/posts/93/</url>
     <content><![CDATA[<p>When using <code>os.rename()</code> to try to move files between drives, you will receive this error:</p>
@@ -2354,6 +2343,17 @@ Generally, you should avoid amending a commit that is already pushed as it may c
 ]]></content>
       <categories>
         <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Put 4 Authors in a Single Row in acmart LaTeX Template</title>
+    <url>/posts/81/</url>
+    <content><![CDATA[<p>The class <code>acmart</code> allows to set the number of authors per row by inserting e.g.</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\settopmatter</span>&#123;authorsperrow=4&#125;</span><br></pre></td></tr></table></figure>
+<p>after <code>\documentclass&#123;acmart&#125;</code>.</p>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
       </categories>
   </entry>
   <entry>
