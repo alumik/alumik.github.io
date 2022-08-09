@@ -28,8 +28,6 @@ sudo service cron start
 To stop the cron service, use:
 
 
-# /etc/init.d/cron stop
-
 ```
 sudo /etc/init.d/cron stop
 ```
