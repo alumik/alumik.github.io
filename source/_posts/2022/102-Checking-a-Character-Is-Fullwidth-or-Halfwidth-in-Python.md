@@ -15,7 +15,7 @@ import unicodedata
 for char in string:
     status = unicodedata.east_asian_width(char)
     if status == 'F':
-         print('{0} is full-width.'.format(char))
+        print('{0} is full-width.'.format(char))
     elif status == 'H':
         print('{0} is half-width.'.format(char))
 ```
