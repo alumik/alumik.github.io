@@ -2263,6 +2263,33 @@ Note that in both cases, the daemon may not be able to remove its runtime data d
       </categories>
   </entry>
   <entry>
+    <title>解决使用并行框架时出现 WARNING: CMA surpport is not available due to restrictive ptrace settings</title>
+    <url>/posts/103/</url>
+    <content><![CDATA[<p>使用 <code>root</code> 用户运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</span><br></pre></td></tr></table></figure>
+<p>要使得该修改在重启后不被覆盖</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nano /etc/sysctl.d/10-ptrace.conf</span><br></pre></td></tr></table></figure>
+<p>修改使得 <code>kernel.yama.ptrace = 0</code>。
+然后用 <code>sysctl -p /etc/sysctl.d/10-ptrace.conf</code> 执行生效。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>消除 Windows 安全中心基于声誉的保护上的感叹号</title>
+    <url>/posts/104/</url>
+    <content><![CDATA[<p>Windows 安全中心基于声誉的保护如果提示有威胁，但是点开发现什么都没有，这是因为该威胁已经由于手动或者其他原因（杀毒/清理类软件）被删除了，而 Windows 安全中心的的提醒里并没有把这个威胁删掉。所以需要我们手动清理一下这个历史记录。</p>
+<p>首先打开 <span class="label info">C:\ProgramData\Microsoft\Windows Defender\Scans</span> 这个时候提示需要系统权限，授权后，继续打开 <span class="label info">History\Service\DetectionHistory</span>。最终路径：<span class="label info">C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory</span>。不能直接复制最终路径，系统会提示无权限打开。接着，把里面的文件全部删除，即可解决问题。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows 安全中心</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Put 4 Authors in a Single Row in acmart LaTeX Template</title>
     <url>/posts/81/</url>
     <content><![CDATA[<p>The class <code>acmart</code> allows to set the number of authors per row by inserting e.g.</p>
