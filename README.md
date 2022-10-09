@@ -30,7 +30,7 @@ Note: The Gitee mirror is outdated due to regulatory reasons.
         </td>
     </tr>
     <tr>
-        <th rowspan="2" style="text-align: center">Mirrors</th>
+        <th style="text-align: center">Mirrors</th>
         <td>
             <a href="https://pages.alumik.cn">
                 <img alt="https://pages.alumik.cn" src="https://img.shields.io/website?url=https%3A%2F%2Fpages.alumik.cn&label=pages.alumik.cn" />
@@ -41,19 +41,6 @@ Note: The Gitee mirror is outdated due to regulatory reasons.
         </td>
         <td>
             UP-TO-DATE
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="https://alumik.gitee.io">
-                <img alt="https://alumik.gitee.io" src="https://img.shields.io/website?url=https%3A%2F%2Falumik.gitee.io&label=alumik.gitee.io" />
-            </a>
-        </td>
-        <td>
-            Gitee Pages
-        </td>
-        <td>
-            OUTDATED
         </td>
     </tr>
 </table>
