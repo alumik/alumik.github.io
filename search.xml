@@ -5,15 +5,15 @@
     <url>/posts/1/</url>
     <content><![CDATA[<h2 id="下载-PHP"><a href="#下载-PHP" class="headerlink" title="下载 PHP"></a>下载 PHP</h2><p>从 <a href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
 <h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入 <em>控制面板 &gt; 系统和安全 &gt; 管理工具 &gt; Internet信息服务(IIS)管理器</em>。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
-
+<img src="/posts/1/01.png" class="">
 <span id="more"></span>
-
-
+<img src="/posts/1/02.png" class="">
+<img src="/posts/1/03.png" class="">
 <p>在“可执行文件”一栏找到 PHP 的安装目录，右下角的文件类型改为 <code>exe</code> 即可看到 <span class="label info">php-cgi.exe</span> 文件出现了。</p>
-
-
+<img src="/posts/1/04.png" class="">
+<img src="/posts/1/05.png" class="">
 <h2 id="设置默认文档"><a href="#设置默认文档" class="headerlink" title="设置默认文档"></a>设置默认文档</h2><p>然后可以给网站添加默认文档，例如 <span class="label info">default.php</span> 和 <span class="label info">index.php</span> 等。</p>
-
+<img src="/posts/1/06.png" class="">
 <h2 id="修改-PHP-配置文件"><a href="#修改-PHP-配置文件" class="headerlink" title="修改 PHP 配置文件"></a>修改 PHP 配置文件</h2><p>进入 PHP 安装目录，根据需要重命名 <span class="label info">php.ini-development</span> 或 <span class="label info">php.ini-production</span> 为 <span class="label info">php.ini</span> 。</p>
 <p>打开 <span class="label info">php.ini</span> ，将 <code>date.timezone</code> 修改为 <code>date.timezone=&quot;Asia/Shanghai&quot;</code> （即修改当前的时区）。</p>
 <p>接着激活需要的扩展选项，即将相应语句前的分号删除，例如</p>
@@ -22,9 +22,9 @@
 <h2 id="测试安装结果"><a href="#测试安装结果" class="headerlink" title="测试安装结果"></a>测试安装结果</h2><p>PHP 环境配置好了，我们就可以测试一下了。在 IIS 中建立一个新网站，网站根目录下新建一个 <span class="label info">index.php</span> 文件：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="title function_ invoke__">phpinfo</span>(); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在浏览器中打开该网页，即可出现类似如下界面。</p>
-
+<img src="/posts/1/07.png" class="">
 <p>在命令行中进入 php 安装目录下，输入 <code>php -m</code> 命令可查看已开启的扩展模块。</p>
-
+<img src="/posts/1/08.png" class="">
 ]]></content>
       <categories>
         <category>网络服务</category>
@@ -376,7 +376,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;:^9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>采用左对齐，如右图</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;:&lt;9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><img src="/posts/22/python-aligin-01.png" class="" title="运行结果">
 <p>未能正确对齐。</p>
 <span id="more"></span>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>因为我们的输出结果中有中文，当我们输出的中文宽度不够约定的宽度时，系统会自动进行填充。而问题恰恰出现在填充这里，系统填充的是英文字符，而我们输出占用的是中文字符的宽度。单位不一致，自然会显得很别扭。</p>
@@ -413,7 +413,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:&#123;1&#125;^9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var, <span class="built_in">chr</span>(<span class="number">12288</span>)), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>左对齐，如右图</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;0:&#123;1&#125;&lt;9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var, <span class="built_in">chr</span>(<span class="number">12288</span>)), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h2>
+<h2 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h2><img src="/posts/22/python-aligin-02.png" class="" title="运行结果">
 <p>问题解决。</p>
 ]]></content>
       <categories>
@@ -748,7 +748,7 @@
     <content><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
 <p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
-
+<img src="/posts/35/20180726200007776.png" class="" title="修改示例">
 <p>修改之后即可使用。</p>
 ]]></content>
       <categories>
@@ -907,7 +907,7 @@
 <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Normal-Distribution"><a href="#Normal-Distribution" class="headerlink" title="Normal Distribution"></a>Normal Distribution</h3><p>Let&#39;s start off first by covering some basics.  A normal distribution (also known as a Gaussian distribution) \(N \sim (\mu, \sigma)\) has probability density function (PDF) and cumulative density function (CDF) shown here parameterized by its mean (\(\mu\)) and standard deviation (\(\sigma\))<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> :</p>
 <script type="math/tex; mode=display">f_N(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \tag{1}</script><script type="math/tex; mode=display">F_N(x) = \int_{-\infty}^{x}f_N(t) dt  \tag{2}</script><span id="more"></span>
 <p>The CDF doesn&#39;t have a nice closed form, so we&#39;ll just represent it here using the definition of CDF in terms of its PDF.  We can graph the PDF and CDF (images from <a href="https://en.wikipedia.org/wiki/Normal_distribution">Wikipedia</a>) using various values of the two parameters:</p>
-
+<img src="/posts/39/normal_pdf_cdf.png" class="" title="PDF of Normal Distribution">
 <p>The normal distribution is sometimes colloquially known as the &quot;bell curve&quot; because of a it&#39;s symmetric hump.  A very common thing to do with a probability distribution is to <em>sample</em> from it.  In other words, we want to randomly generate numbers (i.e. \(x\) values) such that the values of \(x\) are in proportion to the PDF.  So for the standard normal distribution, \(N \sim (0, 1) \) (the red curve in the picture above), most of the values would fall close to somewhere around \(x=0\).  In fact, 68% will fall within \([-1, 1]\), 95% will fall within \([-2,2]\) and 99.7% will fall within \([-3,3]\).  This corresponds to \(\sigma, 2\sigma, 3\sigma\) from the mean, see this <a href="https://en.wikipedia.org/wiki/68%E2%80%9395%E2%80%9399.7_rule">article</a> for more details.</p>
 <h3 id="Central-Limit-Theorem"><a href="#Central-Limit-Theorem" class="headerlink" title="Central Limit Theorem"></a>Central Limit Theorem</h3><p>The central limit theorem (CLT) is quite a surprising result relating the sample average of \(n\) <a href="https://en.wikipedia.org/wiki/Independent_and_identically_distributed_random_variables">independent and identically distributed</a> (i.i.d.) random variables and a normal distribution.  To state it more precisely: </p>
 <div class="note info">
@@ -916,7 +916,7 @@
 <p>The surprising result is that \(X_n\) can be <em>any</em> distribution.  It isn&#39;t restricted to just normal distributions.  We can also define the standard normal distribution in terms of \(S_n\) by shifting and scaling it:</p>
 <script type="math/tex; mode=display">N(0,1) \approx \frac{S_n - \mu}{\frac{\sigma}{\sqrt{n}}} = \frac{\sqrt{n}(S_n - \mu)}{\sigma} \tag{3}</script><h3 id="Comparing-Distributions"><a href="#Comparing-Distributions" class="headerlink" title="Comparing Distributions"></a>Comparing Distributions</h3><p>Since our goal is to implement sampling from a normal distribution, it would be nice to know if we actually did it correctly!  One common way to test if two arbitrary distributions are the same is to use the <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test">Kolmogorov–Smirnov test</a>.  In the basic form, we can compare a sample of points with a reference distribution to find their similarity.  </p>
 <p>The basic idea of the test is to first sort the points in the sample and the compute the <a href="https://en.wikipedia.org/wiki/Empirical_distribution_function">empirical CDF</a>. Next, find the largest absolute difference between any point in the empirical CDF and the theoretical reference distribution.  If the two are the same, this difference should be very small. If it&#39;s large then we can be confident that the distribution is different.  Further, this difference follows a certain distribution, which allows us to test our null hypothesis of whether our samples were drawn from the reference distribution.<br>The following figure (from <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test#Kolmogorov_distribution">Wikipedia</a>) shows this more clearly:</p>
-
+<img src="/posts/39/ks_test.png" class="" title="Kolmogorov–Smirnov test">
 <p>Fortunately, we don&#39;t have to implement this ourselves.  A package is available in <a href="http://docs.scipy.org/doc/scipy/reference/tutorial/stats.html">scipy.stats</a>.  Let&#39;s play around with it a bit to see how it works.</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">np.random.seed(<span class="number">123</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment"># number of samples</span></span><br><span class="line">N=<span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Run Kolmogorov-Smirnov test Uniform(0,1) vs. reference N(0, 1)</span></span><br><span class="line">samples = stats.uniform.rvs(loc=<span class="number">0</span>, scale=<span class="number">1</span>, size=N)</span><br><span class="line">test_stat, pvalue = stats.kstest(samples, <span class="string">&#x27;norm&#x27;</span>, args=(<span class="number">0</span>, <span class="number">1</span>), N=N)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;U(0,1) vs. N(0, 1): KS=%.4f with p-value = %.4f.&quot;</span> % (test_stat, pvalue))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run Kolmogorov-Smirnov test N(0, 2) vs. reference N(0, 1)</span></span><br><span class="line">samples = stats.norm.rvs(loc=<span class="number">0</span>, scale=<span class="number">2</span>, size=N) </span><br><span class="line">test_stat, pvalue = stats.kstest(samples, <span class="string">&#x27;norm&#x27;</span>, args=(<span class="number">0</span>, <span class="number">1</span>), N=N)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;N(0,2) vs. N(0, 1): KS=%.4f with p-value = %.4f.&quot;</span> % (test_stat, pvalue))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Run Kolmogorov-Smirnov test N(0, 1) vs. reference N(0, 1)</span></span><br><span class="line">samples = stats.norm.rvs(loc=<span class="number">0</span>, scale=<span class="number">1</span>, size=N) </span><br><span class="line">test_stat, pvalue = stats.kstest(samples, <span class="string">&#x27;norm&#x27;</span>, args=(<span class="number">0</span>, <span class="number">1</span>), N=N)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;N(0,1) vs. N(0, 1): KS=%.4f with p-value = %.4f.&quot;</span> % (test_stat, pvalue))</span><br></pre></td></tr></table></figure>
 <pre><code>U(0,1) vs. N(0, 1): KS=0.5000 with p-value = 0.0000.
@@ -938,7 +938,7 @@ N(0,1) &\approx \frac{\sqrt{n}(S_n - \mu)}{\sigma} \\
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">N=<span class="number">10000</span></span><br><span class="line">random.seed(<span class="number">123</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bernoulli</span>():</span><br><span class="line">    <span class="keyword">return</span> random.randint(<span class="number">0</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Our sample function of N(0,1) using Equation 5</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sampleN_v1</span>(<span class="params">N=<span class="number">2500</span></span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2.0</span> * math.sqrt(N) * (<span class="built_in">sum</span>(bernoulli() <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N)) / N - <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Use KS to test again</span></span><br><span class="line">samples = [sampleN_v1() <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">test_stat, pvalue = stats.kstest(samples, <span class="string">&#x27;norm&#x27;</span>, args=(<span class="number">0</span>, <span class="number">1</span>), N=N)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;sample_N(0,1) vs. N(0, 1): KS=%.4f with p-value = %.4f.&quot;</span> % (test_stat, pvalue))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Let&#x27;s plot our samples against our reference distribution</span></span><br><span class="line">reference = [stats.norm.rvs() <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">pd.DataFrame(&#123;<span class="string">&#x27;sample_N&#x27;</span>: samples, <span class="string">&#x27;N(0,1)&#x27;</span>: reference&#125;).plot(kind=<span class="string">&#x27;hist&#x27;</span>, bins=<span class="number">100</span>, alpha=<span class="number">0.4</span>)</span><br></pre></td></tr></table></figure>
 <pre><code>sample_N(0,1) vs. N(0, 1): KS=0.0114 with p-value = 0.1499.
 &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f62c4dd4e80&gt;
-</code></pre>
+</code></pre><img src="/posts/39/index_4_2.png" class="">
 <p>Our KS score is somewhat close to \(0\) with a p-value that suggests we can&#39;t reject our null hypothesis.  Graphing our implementation of \(N(0,1)\) with the reference one shows that we have the roughly the right shape.  No doubt by setting larger \(N\) (for both the number of Bernoulli trials and the number of samples drawn), we would get something much closer.  </p>
 <p>One large downside of our CLT implementation is that it&#39;s <em>slow</em>.  While the wall clock time of drawing \(10000\) samples using the <code>numpy</code> library is unnoticeable, it takes roughly ten seconds on my machine with the parameters above using our CLT implementation, quite a big difference.  In the next section, we&#39;ll see a much more efficient implementation that uses a &quot;trick&quot; to transform a pair of independent uniform random variables to a pair of independent normal random variables.</p>
 <h2 id="Sampling-using-the-Box-Muller-Transform"><a href="#Sampling-using-the-Box-Muller-Transform" class="headerlink" title="Sampling using the Box-Muller Transform"></a>Sampling using the Box-Muller Transform</h2><p>The <a href="https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform">Box-Muller transform</a> is a neat little &quot;trick&quot; that allows us to sample from a pair of normally distributed variables using a source of only uniformly distributed variables.  The transform is actually pretty simple to compute.  Given two independent uniformly distributed random variables \(U_1, U_2\) on the interval \((0,1)\), we define two new random variables, \(R\) and \(\Theta\), that intuitively representing <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system">polar coordinates</a> as such:</p>
@@ -1018,7 +1018,7 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 <pre><code>sample_N(0,1) vs. N(0, 1): KS=0.0074 with p-value = 0.6372.
 
 &lt;matplotlib.axes._subplots.AxesSubplot at 0x7f62c509fcc0&gt;
-</code></pre>
+</code></pre><img src="/posts/39/index_7_2.png" class="">
 <p>As we can see, our Box-Muller method of sampling from \( N(0,1) \) generates quite good results.  Our KS test statistic is quite small along with a large p-value (so we can&#39;t reject our null hypothesis).  Similarly, the graph shows the expected shape matching our reference distribution.  The one big advantage this method has though is that it&#39;s quite fast.  There&#39;s no noticeable lag when generating (N=10000) samples.</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Generating pseudo-random numbers according to various probability distributions has many applications, for example, in Markov Chain Monte Carlo (MCMC) techniques.  In this post, we looked at one of the most fundamental distributions: the standard normal distribution.  Our first method uses a result directly from the central limit theorem which results in an inefficient implementation.  However with a bit of grit and calculus, we were able to show that the Box-Muller transform provides a much more elegant solution to sampling from a standard normal distribution leading us to an efficient implementation.  Hopefully this sheds some light on how to sample a normal distribution.</p>
 <h2 id="References-and-Further-Reading"><a href="#References-and-Further-Reading" class="headerlink" title="References and Further Reading"></a>References and Further Reading</h2><ul>
@@ -1171,6 +1171,393 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
       </tags>
   </entry>
   <entry>
+    <title>向每个 screen 中发送 Ctrl-C 信号</title>
+    <url>/posts/60/</url>
+    <content><![CDATA[<p>使用如下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -<span class="built_in">ls</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span></span><br><span class="line">  screen -S <span class="string">&quot;<span class="variable">$scr</span>&quot;</span> -X stuff <span class="string">&quot;^C&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Screen</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
+    <url>/posts/61/</url>
+    <content><![CDATA[<p>Use <code>find</code>.</p>
+<p>To see exactly which files you will remove:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
+<p>To count the number of files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
+<p>To delete these files:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
+<div class="note danger">
+            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name &quot;*.bak&quot;</code> argument, it will delete <strong>everything</strong>.</p>
+          </div>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Put a Reference for a Graphic in Beamer</title>
+    <url>/posts/62/</url>
+    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">  &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>Beamer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
+    <url>/posts/63/</url>
+    <content><![CDATA[<div class="note danger">
+            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
+          </div>
+<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
+<p>Then, reset the current branch:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
+<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
+<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<p>Then to reapply these uncommitted changes:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>版本控制系统</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Make MySQL Table Name Case Insensitive</title>
+    <url>/posts/64/</url>
+    <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
+<p>Restart MySQL:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<p>Then check it here:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL/MariaDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Propagate All Arguments in a Bash Shell Script</title>
+    <url>/posts/65/</url>
+    <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">abc <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
+<p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
+<p>The <a href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
+<h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
+<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
+<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
+<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Get Path of Current Script When Executed Through a Symlink</title>
+    <url>/posts/66/</url>
+    <content><![CDATA[<p>Try this as a general purpose solution:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>In the specific case of following symlinks, you could also do this:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="subst">$(readlink -f <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
+    <url>/posts/67/</url>
+    <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
+<p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
+<p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
+<img src="/posts/67/01.png" class="" width="400">
+<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Assigning Default Values to Shell Variables</title>
+    <url>/posts/68/</url>
+    <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
+<p>To get the assigned value, or default if it&#39;s missing:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Shell 脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Prevent frame Option in includegraphics Making an Overfull hbox</title>
+    <url>/posts/69/</url>
+    <content><![CDATA[<p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
+<p>The <code>frame</code> option draws a frame with rule of width <code>\fboxrule</code> (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the <code>frame</code> option).</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[export]&#123;adjustbox&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;0pt&#125; <span class="comment">% just for the example</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% first example: bad, there&#x27;s an overfull of twice the rule width    </span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% second example: good, the frame is drawn outside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\dimexpr\textwidth-2\fboxrule,frame=&#123;\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>-2<span class="keyword">\fboxrule</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% third example: good, the frame is drawn inside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame=&#123;\fboxrule&#125; &#123;-\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125; &#123;-<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>Don&#39;t include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that&#39;s reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Uninstall Older Versions of a Installed PowerShell Module</title>
+    <url>/posts/70/</url>
+    <content><![CDATA[<p>When using Windows PowerShell, it&#39;s possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>PowerShell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>重建 Ubuntu 系统被删除的 auth.log 等系统日志文件</title>
+    <url>/posts/71/</url>
+    <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Check Journal Indexes and Get Its Impact Factor</title>
+    <url>/posts/72/</url>
+    <content><![CDATA[<h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
+<p><strong>ISI</strong> Journals: <a href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
+<p><strong>Ei Compendex</strong>: <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
+<div class="note info">
+            <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
+          </div>
+<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
+<p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
+<p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
+<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
+<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
+]]></content>
+      <categories>
+        <category>学术与研究</category>
+      </categories>
+      <tags>
+        <tag>文献查询</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Make inline lists</title>
+    <url>/posts/73/</url>
+    <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/73/1.png" class="" width="600">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Set margin with enumitem</title>
+    <url>/posts/74/</url>
+    <content><![CDATA[<p>Use <code>leftmargin=*</code></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/1.png" class="" width="520">
+<p>Or set a proper itemindent if you want to control the indent.</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<img src="/posts/74/2.png" class="" width="520">
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>修复华为电脑由于磁盘分区卷标丢失导致的无法F10恢复出厂设置的问题</title>
+    <url>/posts/75/</url>
+    <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
+<img src="/posts/75/1.png" class="" width="500">
+<img src="/posts/75/2.png" class="" width="500">
+<span id="more"></span>
+<p>使用以下命令确认卷标名称为空白：</p>
+<ol>
+<li>以管理员身份运行命令提示符程序。</li>
+<li>在命令提示符下输入 <code>diskpart</code>。</li>
+<li>输入 <code>list volume</code> 查看卷。</li>
+<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
+<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
+<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
+<li>输入 <code>detail part</code>，发现标签是空白的。如下图：</li>
+</ol>
+<img src="/posts/75/3.png" class="" width="500">
+<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>此问题是由 Windows 10 系统更新 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 导致。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果 F10 恢复出厂设置过程钟弹出提示“恢复失败，请联系售后服务进行维修”界面，请尝试点击“重启”。若重启计算机后仍然无法进入系统，请联系客户服务中心处理。如果重启后能正常进入系统，可以按以下步骤操作：</p>
+<ol>
+<li><p>以管理员身份运行命令提示符程序。</p>
+ <img src="/posts/75/4.png" class="" width="500">
+</li>
+<li><p>在命令提示符下输入 <code>diskpart</code>。</p>
+</li>
+<li>输入 <code>list volume</code> 查看卷。</li>
+<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
+<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
+<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
+<li><p>为其分配盘符名字 <code>assign letter t</code>，分配分区盘符名称后暂时不关闭此界面。</p>
+ <img src="/posts/75/5.png" class="" width="500">
+</li>
+<li><p>同时按 <code>Win + E</code> 打开文件资源管理器后，鼠标右键选中磁盘分区本地磁盘 T，重新命名为 <code>WinRE</code>，点击“继续”完成。</p>
+ <img src="/posts/75/6.png" class="" width="500">
+ <img src="/posts/75/7.png" class="" width="500">
+</li>
+<li><p>再返回命令提示符中输入 <code>remove</code>，再输入 <code>exit</code> 退出。</p>
+ <img src="/posts/75/8.png" class="" width="500">
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>华为系统恢复</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>List All CRON Jobs for All Users</title>
+    <url>/posts/76/</url>
+    <content><![CDATA[<p>You would have to run this as root (hence the <code>sudo</code>):</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(<span class="built_in">cut</span> -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p>will loop over each user name listing out their crontab.
+The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w/o being them or root.</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>cron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>向 authorized_keys 文件中添加 SSH 密钥</title>
+    <url>/posts/77/</url>
+    <content><![CDATA[<p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>其他软件问题</category>
+      </categories>
+      <tags>
+        <tag>SSH</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Manage Docker as a Non-root User</title>
+    <url>/posts/78/</url>
+    <content><![CDATA[<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
+<p>If you don&#39;t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
+<div class="note danger">
+            <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
+          </div>
+<div class="note info">
+            <p>To run Docker without root privileges, see <a href="https://docs.docker.com/engine/security/rootless/">Run the Docker daemon as a non-root user (Rootless mode)</a>.</p>
+          </div>
+<p>To create the <code>docker</code> group and add your user:</p>
+<ol>
+<li><p>Create the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Add your user to the <code>docker</code> group.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
+<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
+<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
+<p> On Linux, you can also run the following command to activate the changes to groups:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
+<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
+<blockquote>
+<p>WARNING: Error loading config file: /home/user/.docker/config.json -
+stat /home/user/.docker/config.json: permission denied</p>
+</blockquote>
+<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>容器与虚拟机</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Print Total Memory Used by a Python Process</title>
+    <url>/posts/79/</url>
+    <content><![CDATA[<p>Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">process = psutil.Process()</span><br><span class="line"><span class="built_in">print</span>(process.memory_info().rss)  <span class="comment"># in bytes</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>在 MySQL 中查询至今一天以上的数据</title>
+    <url>/posts/80/</url>
+    <content><![CDATA[<p>可以直接使用：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> created_at <span class="operator">&lt;</span> NOW() <span class="operator">-</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>;</span><br></pre></td></tr></table></figure>
+<p>下面是一个常见的错误写法：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
+<blockquote>
+<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库管理系统</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在 Matplotlib 中显示中文</title>
     <url>/posts/40/</url>
     <content><![CDATA[<div class="note warning">
@@ -1190,7 +1577,7 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
     <title>使用 pandas 和 Matplotlib 绘制 CDF 图</title>
     <url>/posts/41/</url>
     <content><![CDATA[<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p><code>pandas.Series.hist</code> 和 <code>matplotlib.pyplot.hist</code> 可以帮助我们画出想要的 CDF 图。</p>
-
+<img src="/posts/41/cdf.png" class="" width="500">
 <span id="more"></span>
 <h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><h3 id="bins"><a href="#bins" class="headerlink" title="bins"></a>bins</h3><ul>
 <li><code>int</code> or <code>Sequence</code>, default <code>10</code>.</li>
@@ -1289,13 +1676,13 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-
+<img src="/posts/43/myplot-1.png" class="">
 <p>而且，正如你可能已经知道的那样，你可以轻松添加图例：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.legend([<span class="string">&#x27;$y = x$&#x27;</span>, <span class="string">&#x27;$y = 2x$&#x27;</span>, <span class="string">&#x27;$y = 3x$&#x27;</span>, <span class="string">&#x27;$y = 4x$&#x27;</span>], loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-2.png" class="">
 <p>你还可以控制循环的颜色：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.gca().set_prop_cycle(color=[<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.legend([<span class="string">&#x27;$y = x$&#x27;</span>, <span class="string">&#x27;$y = 2x$&#x27;</span>, <span class="string">&#x27;$y = 3x$&#x27;</span>, <span class="string">&#x27;$y = 4x$&#x27;</span>], loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-3.png" class="">
 <p>但是，如果你想要在一个图上绘制很多曲线（&gt;5），请做到：</p>
 <ol>
 <li>将它们放在不同的图上（考虑在一个图上使用一些子图），或</li>
@@ -1303,20 +1690,20 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 </ol>
 <p>否则，你将陷入一个非常混乱的境地！许多人在不同程度上都是色盲，区分众多微妙不同的颜色对于更多的人来说比你意识到的要困难。如果你真的想在一张图上放 20 条线，并且有 20 种相对不同的颜色，可以用如下方法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">num_plots = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Have a look at the colormaps here and decide which one you&#x27;d like:</span></span><br><span class="line"><span class="comment"># https://matplotlib.org/3.1.3/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py</span></span><br><span class="line">plt.gca().set_prop_cycle(</span><br><span class="line">    plt.cycler(<span class="string">&#x27;color&#x27;</span>, plt.cm.get_cmap(<span class="string">&#x27;gist_ncar&#x27;</span>)(np.linspace(<span class="number">0</span>, <span class="number">1</span>, num_plots))))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot several different functions...</span></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, num_plots + <span class="number">1</span>):</span><br><span class="line">    plt.plot(x, i * x + <span class="number">5</span> * i, label=<span class="string">f&#x27;$y = <span class="subst">&#123;i&#125;</span>x + <span class="subst">&#123;<span class="number">5</span> * i&#125;</span>$&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># I&#x27;m basically just demonstrating several different legend options here...</span></span><br><span class="line">plt.legend(ncol=<span class="number">4</span>, loc=<span class="string">&#x27;upper center&#x27;</span>,</span><br><span class="line">           bbox_to_anchor=[<span class="number">0.5</span>, <span class="number">1.1</span>],</span><br><span class="line">           columnspacing=<span class="number">1.0</span>, labelspacing=<span class="number">0.0</span>,</span><br><span class="line">           handletextpad=<span class="number">0.0</span>, handlelength=<span class="number">1.5</span>,</span><br><span class="line">           fancybox=<span class="literal">True</span>, shadow=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-4.png" class="">
 <p>如果你事先不知道要绘制的线条数量，可以在绘制它们之后从图形中获取曲线数量并更改颜色：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    plt.plot(np.array([<span class="number">1</span>, <span class="number">5</span>]) * i, label=<span class="string">f&#x27;$y = <span class="subst">&#123;<span class="number">4</span> * i&#125;</span>x + <span class="subst">&#123;i&#125;</span>$&#x27;</span>)</span><br><span class="line"></span><br><span class="line">colormap = plt.cm.get_cmap(<span class="string">&#x27;gist_ncar&#x27;</span>)</span><br><span class="line">colors = [colormap(i) <span class="keyword">for</span> i <span class="keyword">in</span> np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="built_in">len</span>(plt.gca().lines))]</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(plt.gca().lines):</span><br><span class="line">    j.set_color(colors[i])</span><br><span class="line"></span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-5.png" class="">
 <h2 id="将曲线画进不同的子图"><a href="#将曲线画进不同的子图" class="headerlink" title="将曲线画进不同的子图"></a>将曲线画进不同的子图</h2><p>Matplotlib 中的每个子图，即 <code>axes</code> ，都有自己独立的颜色循环，即 <code>prop_cycle</code> ，如下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> axes.flatten():</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-6.png" class="">
 <p>那么该如何让所有子图中的曲线都拥有不同的颜色呢？</p>
 <p>如果这些字图是由一个循环自动产生的（通常是这样），我们必须使用另一个循环变量去自动覆盖默认颜色设置：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> ax, short_color_name <span class="keyword">in</span> <span class="built_in">zip</span>(axes.flatten(), <span class="string">&#x27;brgkyc&#x27;</span>):</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>), short_color_name)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-7.png" class="">
 <p>另一种方法是创建一个属性循环对象：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> cycler <span class="keyword">import</span> cycler</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">my_cycler = cycler(<span class="string">&#x27;color&#x27;</span>, [<span class="string">&#x27;k&#x27;</span>, <span class="string">&#x27;r&#x27;</span>]) * cycler(<span class="string">&#x27;linewidth&#x27;</span>, [<span class="number">1.</span>, <span class="number">1.5</span>, <span class="number">2.</span>])</span><br><span class="line">actual_cycler = my_cycler()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> axes.flat:</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>), **<span class="built_in">next</span>(actual_cycler))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/43/myplot-8.png" class="">
 <div class="note info">
             <p><code>my_cycler</code> 的类型为 <code>cycler.Cycler</code> 。<code>actual_cycler</code> 的类型为 <code>itertools.cycle</code> 。</p>
           </div>
@@ -1337,12 +1724,12 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
             <p>The pyplot API is generally less-flexible than the object-oriented API. Most of the function calls you see here can also be called as methods from an Axes object. We recommend browsing the tutorials and examples to see how this works.</p>
           </div>
 <p>下图展示了大部分绘图元素：</p>
-
+<img src="/posts/44/anatomy-of-a-figure.webp" class="" width="600" title="Anatomy of a Figure">
 <span id="more"></span>
 <h2 id="三种绘图方式的联系与区别"><a href="#三种绘图方式的联系与区别" class="headerlink" title="三种绘图方式的联系与区别"></a>三种绘图方式的联系与区别</h2><p><code>matplotlib</code> 是整个包， <code>matplotlib.pyplot</code> 是 Matplotlib 中的一个模块， <code>pylab</code> 是一个与 Matplotlib 一起安装的模块。</p>
 <h3 id="matplotlib-pyplot"><a href="#matplotlib-pyplot" class="headerlink" title="matplotlib.pyplot"></a>matplotlib.pyplot</h3><p><code>matplotlib.pyplot</code> 为底层面向对象的绘图库提供状态机接口。状态机隐式地自动创建图像和坐标轴，以实现所需的功能，例如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&#x27;x label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y label&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Simple Plot&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/44/myplot-1.png" class="">
 <p>第一次调用 <code>plt.plot</code> 将自动创建必要的图像和坐标轴以实现所需的绘图。随后对 <code>plt.plot</code> 的调用会重新使用当前坐标轴。设置标题，图例和轴标签也会自动针对当前坐标轴进行设置。<code>matplotlib.pyplot</code> 接口简单易用，交互使用时方便，可以根据命令实时作图，但底层定制能力不足。</p>
 <div class="note warning">
             <p>本文中的“坐标轴”特指 Matplotlib 中的 <code>Axes</code> 对象（后文会提到），并不是严格数学意义上的坐标轴。</p>
@@ -1355,29 +1742,29 @@ P(&x_1 \leq X \leq x_2, y_1 \leq Y \leq y_2) && \text{change variables} \\
 <p>使用 Matplotlib 绘图需要搞清楚图像和坐标轴两个对象。只有真正理解这两个概念，才能获得对整个绘图过程的控制权。</p>
 <h3 id="Figure-对象与-Axes-对象"><a href="#Figure-对象与-Axes-对象" class="headerlink" title="Figure 对象与 Axes 对象"></a>Figure 对象与 Axes 对象</h3><p>下列代码使用 <code>plt.figure</code> 创建一个空的 <code>Figure</code> 对象，并通过 <code>plt.show</code> 显示出来：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
+<img src="/posts/44/myplot-2.png" class="">
 <p>有了图像，接下来就在图像上绘图。我们首先需要创建一个坐标轴，可以调用 <code>Figure</code> 实例的 <code>add_axes</code> 方法：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])  <span class="comment"># [左边距，下边距，坐标轴宽度，坐标轴高度] 范围 (0, 1)</span></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
 <p><code>[0.1, 0.1, 0.8, 0.8]</code> 表示的是在图像中，坐标轴距离画布左边 0.1 倍的位置，距离画布下边 0.1 倍的位置。确定了这两个位置后，坐标轴的整体宽度和高度占 0.8 倍的大小。得到如下结果：</p>
-
+<img src="/posts/44/myplot-3.png" class="">
 <h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>如果你之前就接触过一些绘图的命令，你会发现：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p>直接使用这两个命令就能绘图，并没有手动创建图像和坐标轴。得到如下图：</p>
-
+<img src="/posts/44/myplot-4.png" class="">
 <p>这是因为 Matplotlib 会在最近使用过的图像和坐标轴上进行绘图，如果没有的话，会自动创建一个图像或坐标轴。</p>
 <p>但是，显式地创建图像和坐标轴能让我们对绘图过程有完全的控制权（比如可以指定在什么地方绘图），而且绘图过程的逻辑性更强。接下来我们通过绘制一张“图中图”来理解这个过程：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot  <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax1 = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])  <span class="comment"># 第一个坐标轴的范围</span></span><br><span class="line">ax2 = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>])  <span class="comment"># 第二个坐标轴的范围</span></span><br><span class="line">ax1.plot(x, y, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">ax2.plot(x, y, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
 <p>我们得到了如下图像：</p>
-
+<img src="/posts/44/myplot-5.png" class="">
 <p>这里我们创建了两个坐标轴 <code>ax1</code> 和 <code>ax2</code> ，分别对两个坐标轴指定范围并作图。</p>
 <h3 id="AxesSubplot-对象"><a href="#AxesSubplot-对象" class="headerlink" title="AxesSubplot 对象"></a>AxesSubplot 对象</h3><p>AxesSubplot 对象即子图。子图是自带坐标轴的。下列代码会在图像上创建两个子图（一行两列）：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">121</span>)</span><br><span class="line">ax1.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">ax1.grid(color=<span class="string">&#x27;g&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)  <span class="comment"># 设置网格</span></span><br><span class="line">ax1.legend()                         <span class="comment"># 设置图例</span></span><br><span class="line"></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">122</span>)</span><br><span class="line">ax2.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
 <p>此处可以与使用 <code>matplotlib.pyplot</code> 接口绘图的方式简单对比一下：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">plt.grid(color=<span class="string">&#x27;g&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)  <span class="comment"># 设置网格</span></span><br><span class="line">plt.legend()                         <span class="comment"># 设置图例</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p>上面两种方式都能得到同样的结果：</p>
-
+<img src="/posts/44/myplot-6.png" class="">
 <div class="note warning">
-            <p>这里 <code>plt.subplot</code> 和 <code>fig.add_subplot</code> 稍有差别。若参数传入 <code>121</code> 和 <code>335</code> ，显然不匹配，若用 <code>plt.subplot</code> 则只会显示后者，若用 <code>fig.add_subplot</code> 则两者都会显示出来，但是会重叠，且靠后绘制的显示在上方。</p><p>使用 <code>plt.subplot</code> 可得到：</p><p>使用 <code>fig.add_subplot</code> 可得到：</p>
+            <p>这里 <code>plt.subplot</code> 和 <code>fig.add_subplot</code> 稍有差别。若参数传入 <code>121</code> 和 <code>335</code> ，显然不匹配，若用 <code>plt.subplot</code> 则只会显示后者，若用 <code>fig.add_subplot</code> 则两者都会显示出来，但是会重叠，且靠后绘制的显示在上方。</p><p>使用 <code>plt.subplot</code> 可得到：</p><p><img src="/posts/44/myplot-7.png" class=""></p><p>使用 <code>fig.add_subplot</code> 可得到：</p><p><img src="/posts/44/myplot-8.png" class=""></p>
           </div>
 <h3 id="设置图像尺寸"><a href="#设置图像尺寸" class="headerlink" title="设置图像尺寸"></a>设置图像尺寸</h3><p>在创建 <code>Figure</code> 对象的时候，我们可以使用 <code>figsize</code> 和 <code>dpi</code> 控制图像的尺寸。比如：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">16</span>,<span class="number">8</span>), dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
@@ -1678,22 +2065,22 @@ Generally, you should avoid amending a commit that is already pushed as it may c
     <title>Clear, Delete or Disable Windows 10 File Explorer Search History</title>
     <url>/posts/53/</url>
     <content><![CDATA[<p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
-
+<img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
 <span id="more"></span>
 <h2 id="Clear-File-Explorer-Search-History"><a href="#Clear-File-Explorer-Search-History" class="headerlink" title="Clear File Explorer Search History"></a>Clear File Explorer Search History</h2><p>You can simply clear your recent search history by selecting the Search tab in File Explorer and going to <em>Recent Searches &gt; Clear search History</em>.</p>
-
+<img src="/posts/53/Clear-Search-history.webp" class="">
 <h2 id="Disable-File-Explorer-Search-History"><a href="#Disable-File-Explorer-Search-History" class="headerlink" title="Disable File Explorer Search History"></a>Disable File Explorer Search History</h2><p>If you don&#39;t want to clear your history all the time, you can completely disable it from keeping track of your searches. In Windows 10 Pro, you can turn off search history in Group Policy, but for Windows 10 Home, you need to do a bit of tweaking in the Registry.</p>
 <h3 id="In-Windows-10-Pro"><a href="#In-Windows-10-Pro" class="headerlink" title="In Windows 10 Pro"></a>In Windows 10 Pro</h3><p>If you&#39;re running Windows 10 Professional, you can turn it off via Group Policy. Hit the keyboard combo <strong>Windows Key + R</strong> and type <code>gpedit.msc</code> in the Run dialog and hit Enter or click OK.</p>
-
+<img src="/posts/53/1-gpedit.webp" class="">
 <p>Then navigate to <code>User Configuration\Administrative Templates\Windows Components\File Explorer</code>. Double-click on &quot;Turn off display of recent search entries in the File Explorer search box&quot; policy in the right pane and set it to Enabled, click OK, and close out of Group Policy Editor.</p>
-
+<img src="/posts/53/2-group-policy-editor-search-box-policy.webp" class="">
 <h3 id="In-Windows-10-Home"><a href="#In-Windows-10-Home" class="headerlink" title="In Windows 10 Home"></a>In Windows 10 Home</h3><div class="note info">
             <p>Windows 10 Home doesn&#39;t include Group Policy, so you need to hack the Registry. Before making any changes to the Registry make sure to do a full system backup or create a Restore Point first.</p>
           </div>
 <p>Hit <strong>Windows Key + R</strong> and type <code>regedit</code> in the Run line and hit Enter or click OK.</p>
-
+<img src="/posts/53/2-Regedit.webp" class="">
 <p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
-
+<img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
 <p>After you&#39;re done, close out of the Registry, and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
 ]]></content>
       <categories>
@@ -1801,393 +2188,6 @@ Generally, you should avoid amending a commit that is already pushed as it may c
       </categories>
   </entry>
   <entry>
-    <title>向每个 screen 中发送 Ctrl-C 信号</title>
-    <url>/posts/60/</url>
-    <content><![CDATA[<p>使用如下命令：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> scr <span class="keyword">in</span> $(screen -<span class="built_in">ls</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>); <span class="keyword">do</span></span><br><span class="line">  screen -S <span class="string">&quot;<span class="variable">$scr</span>&quot;</span> -X stuff <span class="string">&quot;^C&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Screen</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Recursively Find and Delete All Files of a Specific Extension in the Current Directory</title>
-    <url>/posts/61/</url>
-    <content><![CDATA[<p>Use <code>find</code>.</p>
-<p>To see exactly which files you will remove:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f</span><br></pre></td></tr></table></figure>
-<p>To count the number of files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f | wc -l</span><br></pre></td></tr></table></figure>
-<p>To delete these files:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">find . -name &quot;*.bak&quot; -type f -delete</span><br></pre></td></tr></table></figure>
-<div class="note danger">
-            <p>Make sure that <code>-delete</code> is the last argument in your command. If you put it before the <code>-name &quot;*.bak&quot;</code> argument, it will delete <strong>everything</strong>.</p>
-          </div>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Put a Reference for a Graphic in Beamer</title>
-    <url>/posts/62/</url>
-    <content><![CDATA[<p>Try to put reference immediately below picture like this:</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;frame&#125;</span><br><span class="line">  <span class="keyword">\includegraphics</span>[width=<span class="keyword">\linewidth</span>]&#123;example-image&#125;<span class="keyword">\\</span>[-1ex]</span><br><span class="line">  &#123;<span class="keyword">\tiny</span> Source: <span class="keyword">\cite</span>&#123;foo12&#125;&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;frame&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-      <tags>
-        <tag>Beamer</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Force &quot;git pull&quot; to Overwrite Local Files</title>
-    <url>/posts/63/</url>
-    <content><![CDATA[<div class="note danger">
-            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
-          </div>
-<p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
-<p>Then, reset the current branch:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
-<p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
-<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
-<p>Then to reapply these uncommitted changes:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>版本控制系统</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Make MySQL Table Name Case Insensitive</title>
-    <url>/posts/64/</url>
-    <content><![CDATA[<p>Open terminal and edit <em>/etc/mysql/mysql.conf.d/mysqld.cnf</em>. Underneath the <code>[mysqld]</code> section, add:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">lower_case_table_names = 1</span><br></pre></td></tr></table></figure>
-<p>Restart MySQL:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service mysql restart</span><br></pre></td></tr></table></figure>
-<p>Then check it here:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqladmin -u root -p variables</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>数据库管理系统</category>
-      </categories>
-      <tags>
-        <tag>MySQL/MariaDB</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Propagate All Arguments in a Bash Shell Script</title>
-    <url>/posts/65/</url>
-    <content><![CDATA[<p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">abc <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
-<p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
-<p>The <a href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
-<h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
-<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
-<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
-<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Get Path of Current Script When Executed Through a Symlink</title>
-    <url>/posts/66/</url>
-    <content><![CDATA[<p>Try this as a general purpose solution:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(cd <span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span> &amp;&amp; pwd)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>In the specific case of following symlinks, you could also do this:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">DIR=<span class="string">&quot;<span class="subst">$(dirname <span class="string">&quot;<span class="subst">$(readlink -f <span class="string">&quot;<span class="variable">$0</span>&quot;</span>)</span>&quot;</span>)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>查看 Windows 10 保存的 Wi-Fi 密码</title>
-    <url>/posts/67/</url>
-    <content><![CDATA[<p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
-<p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
-<p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
-
-<p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Assigning Default Values to Shell Variables</title>
-    <url>/posts/68/</url>
-    <content><![CDATA[<p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
-<p>To get the assigned value, or default if it&#39;s missing:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Shell 脚本</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Prevent frame Option in includegraphics Making an Overfull hbox</title>
-    <url>/posts/69/</url>
-    <content><![CDATA[<p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
-<p>The <code>frame</code> option draws a frame with rule of width <code>\fboxrule</code> (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the <code>frame</code> option).</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[export]&#123;adjustbox&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;0pt&#125; <span class="comment">% just for the example</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% first example: bad, there&#x27;s an overfull of twice the rule width    </span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% second example: good, the frame is drawn outside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\dimexpr\textwidth-2\fboxrule,frame=&#123;\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>-2<span class="keyword">\fboxrule</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% third example: good, the frame is drawn inside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame=&#123;\fboxrule&#125; &#123;-\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125; &#123;-<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>Don&#39;t include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that&#39;s reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Uninstall Older Versions of a Installed PowerShell Module</title>
-    <url>/posts/70/</url>
-    <content><![CDATA[<p>When using Windows PowerShell, it&#39;s possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>PowerShell</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>重建 Ubuntu 系统被删除的 auth.log 等系统日志文件</title>
-    <url>/posts/71/</url>
-    <content><![CDATA[<p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Check Journal Indexes and Get Its Impact Factor</title>
-    <url>/posts/72/</url>
-    <content><![CDATA[<h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
-<p><strong>ISI</strong> Journals: <a href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
-<p><strong>Ei Compendex</strong>: <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
-<div class="note info">
-            <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
-          </div>
-<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
-<p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
-<p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
-<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
-<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
-]]></content>
-      <categories>
-        <category>学术与研究</category>
-      </categories>
-      <tags>
-        <tag>文献查询</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Make inline lists</title>
-    <url>/posts/73/</url>
-    <content><![CDATA[<p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Set margin with enumitem</title>
-    <url>/posts/74/</url>
-    <content><![CDATA[<p>Use <code>leftmargin=*</code></p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Or set a proper itemindent if you want to control the indent.</p>
-<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>修复华为电脑由于磁盘分区卷标丢失导致的无法F10恢复出厂设置的问题</title>
-    <url>/posts/75/</url>
-    <content><![CDATA[<h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
-
-
-<span id="more"></span>
-<p>使用以下命令确认卷标名称为空白：</p>
-<ol>
-<li>以管理员身份运行命令提示符程序。</li>
-<li>在命令提示符下输入 <code>diskpart</code>。</li>
-<li>输入 <code>list volume</code> 查看卷。</li>
-<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
-<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
-<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
-<li>输入 <code>detail part</code>，发现标签是空白的。如下图：</li>
-</ol>
-
-<h2 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h2><p>此问题是由 Windows 10 系统更新 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 导致。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果 F10 恢复出厂设置过程钟弹出提示“恢复失败，请联系售后服务进行维修”界面，请尝试点击“重启”。若重启计算机后仍然无法进入系统，请联系客户服务中心处理。如果重启后能正常进入系统，可以按以下步骤操作：</p>
-<ol>
-<li><p>以管理员身份运行命令提示符程序。</p>
- 
-</li>
-<li><p>在命令提示符下输入 <code>diskpart</code>。</p>
-</li>
-<li>输入 <code>list volume</code> 查看卷。</li>
-<li>输入 <code>select disk 0</code> 选择磁盘 0。</li>
-<li>输入 <code>list part</code> 列出磁盘所有分区，找到大小为 1024MB 的第四个分区（具体是第几个分区以实际显示的大小为 1024MB 的分区为准）。</li>
-<li>输入 <code>sel part 4</code> （需根据上一步调整分区号）。</li>
-<li><p>为其分配盘符名字 <code>assign letter t</code>，分配分区盘符名称后暂时不关闭此界面。</p>
- 
-</li>
-<li><p>同时按 <code>Win + E</code> 打开文件资源管理器后，鼠标右键选中磁盘分区本地磁盘 T，重新命名为 <code>WinRE</code>，点击“继续”完成。</p>
- 
- 
-</li>
-<li><p>再返回命令提示符中输入 <code>remove</code>，再输入 <code>exit</code> 退出。</p>
- 
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>华为系统恢复</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>List All CRON Jobs for All Users</title>
-    <url>/posts/76/</url>
-    <content><![CDATA[<p>You would have to run this as root (hence the <code>sudo</code>):</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(<span class="built_in">cut</span> -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-<p>will loop over each user name listing out their crontab.
-The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w/o being them or root.</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>cron</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>向 authorized_keys 文件中添加 SSH 密钥</title>
-    <url>/posts/77/</url>
-    <content><![CDATA[<p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>其他软件问题</category>
-      </categories>
-      <tags>
-        <tag>SSH</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Manage Docker as a Non-root User</title>
-    <url>/posts/78/</url>
-    <content><![CDATA[<p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
-<p>If you don&#39;t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
-<div class="note danger">
-            <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
-          </div>
-<div class="note info">
-            <p>To run Docker without root privileges, see <a href="https://docs.docker.com/engine/security/rootless/">Run the Docker daemon as a non-root user (Rootless mode)</a>.</p>
-          </div>
-<p>To create the <code>docker</code> group and add your user:</p>
-<ol>
-<li><p>Create the <code>docker</code> group.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Add your user to the <code>docker</code> group.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
-<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
-<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
-<p> On Linux, you can also run the following command to activate the changes to groups:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
-<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
-<blockquote>
-<p>WARNING: Error loading config file: /home/user/.docker/config.json -
-stat /home/user/.docker/config.json: permission denied</p>
-</blockquote>
-<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
- <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>容器与虚拟机</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Print Total Memory Used by a Python Process</title>
-    <url>/posts/79/</url>
-    <content><![CDATA[<p>Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> psutil</span><br><span class="line">process = psutil.Process()</span><br><span class="line"><span class="built_in">print</span>(process.memory_info().rss)  <span class="comment"># in bytes</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在 MySQL 中查询至今一天以上的数据</title>
-    <url>/posts/80/</url>
-    <content><![CDATA[<p>可以直接使用：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> created_at <span class="operator">&lt;</span> NOW() <span class="operator">-</span> <span class="type">INTERVAL</span> <span class="number">1</span> <span class="keyword">DAY</span>;</span><br></pre></td></tr></table></figure>
-<p>下面是一个常见的错误写法：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
-<p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
-<blockquote>
-<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库管理系统</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>开启 NVIDIA 显示驱动持久化</title>
     <url>/posts/100/</url>
     <content><![CDATA[<p>NVIDIA is providing a user-space daemon on Linux to support persistence of driver state across Cuda job runs. The daemon approach provides a more elegant and robust solution to this problem than persistence mode.</p>
@@ -2287,6 +2287,115 @@ Note that in both cases, the daemon may not be able to remove its runtime data d
       </categories>
       <tags>
         <tag>Windows 安全中心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows 11 的 HDR：显示器打开 HDR 桌面发灰？这不是你的问题</title>
+    <url>/posts/105/</url>
+    <content><![CDATA[<p>从 Windows 10开始，微软在操作系统中设置了一个 HDR 模式。如果用户的显示器支持 HDR，打开系统中的 HDR 开关就能让整个 Windows 处于 HDR 的画面状态下。但是几乎所有人都发现，无论 HDR 的显示器亮度有多高，打开 HDR 模式后整个画面都会显得发灰，同时亮度似乎也低了一些。这个现象在亮度低色域差的显示器上会更为明显。但哪怕是 LG 的 OLED 显示器，同样会出现类似的问题，只是情况会稍微好一些。</p>
+<p>关于这个问题网友的争论已久，也想出各种办法进行调试，但都没得到一个很好的结果。那么这个问题到底是怎么产生的呢？又有没有什么办法让显示器在 Windows 的 HDR 模式下显示出正常的颜色呢？</p>
+<h2 id="先看看微软怎么说"><a href="#先看看微软怎么说" class="headerlink" title="先看看微软怎么说"></a>先看看微软怎么说</h2><p>因为这个问题牵涉太多，而且现在的显示器几乎全部无解，所以很多人也希望不管是啥原因，微软最好给一个好的解决方案出来。而在微软的官方页面中，的确也有 HDR 相关的说法。其实无非是两方面，一个是开启 HDR 后画面亮度降低，一个就是开启 HDR 后颜色显示不准确，这两种问题加起来就是我们常说的画面发灰。针对亮度变化的情况，微软也有自己的说法，微软表示如果遇到所有 SDR 内容和应用，在支持 HDR 的显示器上出现显示亮度过高或过低的情况时，可以在 HDR 的选项中，在“HDR/SDR 亮度平衡”下面，拖动滑块以在 HDR 和 SDR 内容之间获得正确的亮度平衡。这个方法的确有效，可以调整桌面的亮度，但很明显会让整个画面呈现过曝或者曝光不足的状态，而且实际上桌面整体发灰颜色暗淡的问题并没有解决，只是可以让视觉上得到一些观感的改善。而在颜色部分，微软也单独说明了，如果遇到支持 HDR 的外部显示器上无法正确显示颜色时，应该如何做。当然微软说的都是废话，微软表示支持 HDR 的显示器支持比 sRGB 更宽的色域，所以在打开“使用 HDR”后，HDR 显示器应该会正确再现桌面应用中使用的 sRGB 颜色。如果某些支持 HDR 的显示器未正确再现这些颜色，那么用户要考虑购买经过 VESA DisplayHDR 认证的显示器……</p>
+<p>但这显然并不正确，因为我们在使用经过 VESA 认证的 HDR 显示器上，同样会遇到颜色不准确的情况，色彩暗淡即使调整亮度也无法解决，无论是 HDR400 还是 HDR1000 的显示器上都是如此。LCD也好，Mini LED 也好，OLED 也好，各种类型的显示器我们都试过了，全部都会在 Windows 的 HDR 模式下，无法显示出精准的色彩，特别是颜色亮度会明显下降，而这和实际显示器的亮度关系已经不大了。</p>
+<p>那么要如何解决这个问题呢？</p>
+<span id="more"></span>
+<h2 id="为什么微软系统HDR画面会发灰？"><a href="#为什么微软系统HDR画面会发灰？" class="headerlink" title="为什么微软系统HDR画面会发灰？"></a>为什么微软系统HDR画面会发灰？</h2><p>首先我们用屏摄来说明一下 Windows 11在 SDR 和 HDR 画面上的区别。相信很多用户的显示器都是这样，在 SDR 下画面正常，颜色精准，而且亮度看起来也更高；而在打开系统的 HDR 后，整个画面颜色一下暗淡起来，而且画面感觉像蒙上了一层灰。要知道 HDR 下亮度还要比 SDR 更高，这个可以从校色硬件上确认，那么为什么看起来画面却如此不堪呢？</p>
+<img src="/posts/105/sdr.webp" class="" width="640">
+<img src="/posts/105/hdr.webp" class="" width="640">
+<p>微软其实并没有在自己的官网上有明确的说法，目前网上的讨论也很多。但是相对比较准确的说法是，微软在色域转换部分没有考虑到目前显示器的现状，所以才会出现这样的问题。微软的界面实际上用的是 sRGB，但是打开 HDR 后，显示器的色域转换为 BT2020，所以微软也会通过 LUT 转换的方法，将原有的 sRGB 色域转为 BT2020，以配合显示器的显示需求，否则的话整个画面就会呈现出极其糟糕的颜色。但是微软在转换色域后，默认是按照 100% 的 BT2020 色彩空间，也就是说显示器在 BT2020 的色域覆盖值越高，那么在 Windows 的 HDR 模式中，颜色就越准确。那么问题来了，现在的显示器在 BT2020 部分色域是多少呢？答案是绝大多数不超过70%。这也是为什么大多数显示器无论怎么调整也无法在 Windows 的 HDR 模式中，获得理想效果的原因。</p>
+<img src="/posts/105/color.webp" class="" width="400">
+<p>无论是显示器还是电视机，我们能看到100%的 sRGB 色域覆盖，这在 Windows 的 SDR 模式中毫无问题，甚至有达到 100% 的 Adobe RGB 色域覆盖率，超过95%的 NTSC 色域覆盖以及接近100%的 DCI-P3 色域覆盖率。但是在 BT2020，也就是 Rec.2020 的色域覆盖率上，目前几乎没有超过80%色域覆盖率的产品。
+拿显示器为例，能达到75%的 BT2020 色域覆盖率就是非常出色了，像 LG 的 OLED 电视评分这么高，但是通常 BT2020 的色域覆盖率也就71%左右。如果显示设备能达到100%的 BT2020 色域覆盖，那么在 Windows 中的 HDR 模式下，色彩自然就会准确，但很可惜目前民用显示设备并没有这样的产品；电视也好显示器也好，超过70%的 BT2020 色域覆盖就算优秀了，这样在 Windows 的 HDR 模式下，色彩偏移自然就比较明显，原本的高动态色彩内容丢失，自然看起来也就发灰了。当然还有一部分原因是 Windows 的 HDR 模式下，Gamma 值也有了变化，不再是 SDR 下标准的 Gamma 2.2，这也会产生一些视觉的影响，但总的来说大家之所以看到自己的显示器在 Windows HDR 模式下颜色变差，还是因为自己显示设备不够好的缘故啊！当然这部分微软要背锅，这种色域转换模式太过于粗暴简单，也不考虑用户实际的情况。</p>
+<p>那么怎么解决呢？答案是无解……因为现在没有显示器或者电视机能覆盖到100%的 BT2020 色域，超过80%的都是凤毛麟角。所以各位面对 HDR 模式下桌面发灰的情况是没办法彻底解决的。目前只能等待未来有更广色域的显示设备上市了，据说三星 QD-OLED 面板能覆盖85%以上的 BT2020 色域，如果采用这种面板的显示器，估计能在 Windows 的 HDR 模式中，获得比现在更好一些的效果，当然价格也不便宜就是了。</p>
+<h2 id="正确使用-Windows-HDR-的方法"><a href="#正确使用-Windows-HDR-的方法" class="headerlink" title="正确使用 Windows HDR 的方法"></a>正确使用 Windows HDR 的方法</h2><p>了解了以上的内容，大家也就清楚了：既然目前没法解决这个问题，那么正常情况下长期将 Windows 运行在 SDR 上就行了呗。这里也要分几种情况来说，毕竟很多应用本身自带 HDR，如果显示器一直在 SDR 模式下的话，那未免也太浪费了。</p>
+<p>其实 Windows 下的软件应用，HDR 模式也分两种，一种是不需要 Windows 切换到 HDR 模式，只要显示器支持 HDR 模式，就能自动设定到 HDR 模式下，一些游戏和应用都是如此。比如说《生化危机》系列，比如说 DVDFab Player 等，桌面继续采用 SDR 模式，进入游戏或者视频后，用户可以在游戏中打开 HDR 选项，此时显示器自动切换到 HDR 模式下，退出游戏或者视频自动还原到 SDR 模式，这是最简单也是最省心的方法。</p>
+<p>但还有一些游戏应用，必须要将 Windows 设置在 HDR 模式下，自己才有相关的 HDR 选项，比如说微软全系列的 PC 游戏《极限竞速》《战争机器5》《光环》等等，其他一些游戏厂商的游戏也可能会出现这种情况；另外一些网页的视频应用，比如说 Youtube、奈飞等，也需要 Windows 设置在 HDR 下，才会有 HDR 内容的提供。所以这个时候要玩这些游戏或者观看视频时，就必须将 Windows 设置在 HDR 下，反正游戏和视频的 HDR 内容不会像桌面这样灰暗，全屏模式下效果都很好，主要还是厂商 SDR-HDR 的映射做得出色。</p>
+<p>所以方法其实也很简单，平时用户全部将 Windows 设置在 SDR 模式下就行，也就是别打开 HDR 模式，然后看视频或者玩游戏的时候，如果应用必须要在 Windows 的 HDR 模式下才出现 HDR 选项，那么这个时候再打开系统的 HDR。</p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>HDR</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Fix: tzdata Hangs During Docker Image Build</title>
+    <url>/posts/106/</url>
+    <content><![CDATA[<p>During the installation of a few packages, Ubuntu usually installs the <code>tzdata</code> package.
+It&#39;s usually included in some PHP or Python packages dependencies.
+The issue with it is that it hangs and waits for user input to continue the installation.
+It&#39;s ok until we are using Docker and trying to build images (it&#39;s hanging or even throwing errors in newer versions of Ubuntu).
+We will try to reproduce the situation and try to fix it.</p>
+<p>To reproduce the hanging situation, we can use this Docker image:</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
+<p>Here is the logs that we see in terminal:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step 1/3 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/3 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 174ce3e1bb84</span><br><span class="line">Step 3/3 : RUN apt install -y tzdata</span><br><span class="line">...</span><br><span class="line">Configuring tzdata</span><br><span class="line">------------------</span><br><span class="line"></span><br><span class="line">Please select the geographic area in which you live. Subsequent configuration</span><br><span class="line">questions will narrow this down by presenting a list of cities, representing</span><br><span class="line">the time zones in which they are located.</span><br><span class="line"></span><br><span class="line">  1. Africa      4. Australia  7. Atlantic  10. Pacific  13. Etc</span><br><span class="line">  2. America     5. Arctic     8. Europe    11. SystemV</span><br><span class="line">  3. Antarctica  6. Asia       9. Indian    12. US</span><br><span class="line">Geographic area: </span><br></pre></td></tr></table></figure>
+<p>And here it hangs waiting for us enter data, and even after you&#39;ll enter a region — the process will not resume.</p>
+<p>To fix this situation we need to add lines 3 and 4 to our Dockerfile. We will create a variable called <code>$TZ</code> which will hold our timezone, and the create a <code>/etc/timezone</code> file:</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> TZ=Asia/Dubai</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">ln</span> -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
+<p>And after building image we will see this output:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Step 1/5 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/5 : ENV TZ=Asia/Dubai</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 7f4c85bd0d3e</span><br><span class="line">Step 3/5 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; f6f784dfbad5</span><br><span class="line">Step 4/5 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 5b1b5617eaa5</span><br><span class="line">Step 5/5 : RUN apt install -y tzdata</span><br><span class="line"> ---&gt; Running in e71a917a9b6b</span><br><span class="line">Current default time zone: &#x27;Asia/Dubai&#x27;</span><br><span class="line">Local time is now:      Tue Aug  4 12:14:55 +04 2020.</span><br><span class="line">Universal Time is now:  Tue Aug  4 08:14:55 UTC 2020.</span><br><span class="line">Run &#x27;dpkg-reconfigure tzdata&#x27; if you wish to change it.</span><br><span class="line"></span><br><span class="line">Removing intermediate container e71a917a9b6b</span><br><span class="line"> ---&gt; 3d29f4e8f7eb</span><br><span class="line">Successfully built 3d29f4e8f7eb</span><br><span class="line">Successfully tagged tzdata:latest</span><br></pre></td></tr></table></figure>
+<p>So it&#39;s used the timezone that we provide and nothing hangs.</p>
+]]></content>
+      <categories>
+        <category>容器与虚拟机</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>tzdata</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>修复 Docker 在 Ubuntu 22.04 中运行 apt update 时出现异常</title>
+    <url>/posts/107/</url>
+    <content><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 Ubuntu 22.04 LTS 的容器里面运行 <code>apt update</code> 的时候出现了以下报错：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[root@VM-16-9-centos docker-kubuntu]# docker run --rm -it ubuntu:22.04 bash</span><br><span class="line">root@8ac245b487e6:/# apt update</span><br><span class="line">Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]</span><br><span class="line">Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]                    </span><br><span class="line">Err:1 http://security.ubuntu.com/ubuntu jammy-security InRelease                   </span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Err:2 http://archive.ubuntu.com/ubuntu jammy InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [109 kB]</span><br><span class="line">Err:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [90.7 kB]</span><br><span class="line">Err:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Reading package lists... Done</span><br><span class="line">W: http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://security.ubuntu.com/ubuntu jammy-security InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://security.ubuntu.com/ubuntu jammy-security InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy-updates InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy-updates InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy-backports InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy-backports InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">E: Problem executing scripts APT::Update::Post-Invoke &#x27;rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true&#x27;</span><br><span class="line">E: Sub-process returned an error code</span><br></pre></td></tr></table></figure>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>经过查询，发现是 Ubuntu 21.10 和 Fedora 35 开始使用 <code>glibc&gt;=2.34</code> 甚至更高的版本。在 <code>glibc</code> 新版本里面，开始使用一个名为 <code>clone3</code> 的系统调用。通常情况下，容器里面所有的系统调用都会被 Docker 捕获，然后 Docker 决定如何处理它们。如果 Docker 中没有为特定系统调用指定策略，则默认的策略会通知容器这边&quot;Permission Denied&quot;。但是，如果 <code>glibc</code> 收到此错误，它不会回退。它仅在收到响应“此系统调用不可用”时才执行此操作。</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>办法一：</p>
+<p>运行容器的时候，加上这个参数来绕过 Docker 系统调用限制</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--security-opt seccomp=unconfined</span><br></pre></td></tr></table></figure>
+<p>不过这会有很大的问题，一个是你的容器将变得不安全，另一个是这些参数在构建镜像的时候是不可用的。所以，请参考办法二。</p>
+<p>办法二：</p>
+<p>将 Docker 升级到 20.10.8 以上的版本。</p>
+]]></content>
+      <categories>
+        <category>容器与虚拟机</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Docker</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reset Ubuntu Package to Automatic</title>
+    <url>/posts/108/</url>
+    <content><![CDATA[<p>If the state of the package got changed to manual from automatic, you can set it back to automatic in the following manner:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-mark auto package_name</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>apt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Determine If a Specific Module is Loaded in Linux Kernel</title>
+    <url>/posts/109/</url>
+    <content><![CDATA[<p>The <code>--first-time</code> flag causes modprobe to fail if the module is already loaded.
+That in conjunction with the <code>--dry-run</code> (or the shorthand <code>-n</code>) flag makes a nice test:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">modprobe -n --first-time $MODULE &amp;&amp; echo &quot;Not loaded&quot; || echo &quot;Loaded&quot;</span><br></pre></td></tr></table></figure>
+<p>This also prints <code>Loaded</code> if the module does not exist.
+We can fix this by combining it with modinfo:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">modinfo $MODULE &gt;/dev/null 2&gt;/dev/null &amp;&amp;</span><br><span class="line">! modprobe -n --first-time $MODULE 2&gt;/dev/null &amp;&amp;</span><br><span class="line">echo &quot;Loaded&quot; || echo &quot;Not loaded&quot;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>modprobe</tag>
       </tags>
   </entry>
   <entry>
