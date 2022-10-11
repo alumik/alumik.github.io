@@ -1,7 +1,7 @@
 ---
 title: Windows 11 的 HDR：显示器打开 HDR 桌面发灰？这不是你的问题
 date: 2022-10-09 17:32:11
-categories: Windows
+categories: Windows 系统和软件
 tags: HDR
 abbrlink: 105
 references:

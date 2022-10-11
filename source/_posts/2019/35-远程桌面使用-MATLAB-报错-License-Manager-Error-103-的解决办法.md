@@ -1,6 +1,6 @@
 ---
 title: 远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法
-categories: 其他软件问题
+categories: Windows 系统和软件
 tags: MATLAB
 abbrlink: 35
 date: 2019-06-24 21:19:51

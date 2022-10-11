@@ -1,7 +1,7 @@
 ---
 title: Determine If a Specific Module is Loaded in Linux Kernel
 date: 2022-10-09 19:26:25
-categories: Linux
+categories: Linux 系统和软件
 tags: modprobe
 abbrlink: 109
 references:

@@ -1,6 +1,6 @@
 ---
 title: 删除 Ubuntu 中多余的内核
-categories: Linux
+categories: Linux 系统和软件
 tags: Ubuntu
 abbrlink: 6
 date: 2019-06-24 15:24:31

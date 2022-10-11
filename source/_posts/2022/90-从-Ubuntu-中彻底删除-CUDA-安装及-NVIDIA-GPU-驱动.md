@@ -1,7 +1,7 @@
 ---
 title: 从 Ubuntu 中彻底删除 CUDA 安装及 NVIDIA GPU 驱动
 date: 2022-05-24 16:51:59
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Ubuntu
   - CUDA

@@ -1,7 +1,7 @@
 ---
 title: 解决 SSH 登录慢及 ps 或 top 等命令相应时间长的问题
 date: 2022-08-21 23:24:22
-categories: Linux
+categories: Linux 系统和软件
 tags:
 abbrlink: 99
 references:

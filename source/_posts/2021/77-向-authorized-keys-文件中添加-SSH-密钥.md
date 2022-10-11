@@ -1,7 +1,7 @@
 ---
 title: 向 authorized_keys 文件中添加 SSH 密钥
 date: 2021-12-22 16:08:06
-categories: 其他软件问题
+categories: Linux 系统和软件
 tags: SSH
 abbrlink: 77
 references:

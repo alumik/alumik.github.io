@@ -1,7 +1,7 @@
 ---
 title: Automatic Exit From Bash Shell Script on Error
 date: 2020-12-04 05:01:51
-categories: Linux
+categories: Linux 系统和软件
 tags: Shell 脚本
 abbrlink: 57
 references:

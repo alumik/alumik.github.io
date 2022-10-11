@@ -1,6 +1,6 @@
 ---
 title: 为 VPS 开启 BBR 加速
-categories: Linux
+categories: Linux 系统和软件
 tags: 网络加速
 abbrlink: 4
 date: 2019-06-24 14:39:36

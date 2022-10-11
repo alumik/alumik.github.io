@@ -1,7 +1,7 @@
 ---
 title: Config Default Port for Node Exporter Service
 date: 2022-08-31 14:59:51
-categories: Linux
+categories: Linux 系统和软件
 tags: Node Exporter
 abbrlink: 101
 references:

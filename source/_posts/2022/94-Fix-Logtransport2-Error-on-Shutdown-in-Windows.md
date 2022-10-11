@@ -1,7 +1,7 @@
 ---
 title: Fix Logtransport2 Error on Shutdown in Windows
 date: 2022-07-30 17:41:15
-categories: 其他软件问题
+categories: Windows 系统和软件
 tags: Adobe
 abbrlink: 94
 references:

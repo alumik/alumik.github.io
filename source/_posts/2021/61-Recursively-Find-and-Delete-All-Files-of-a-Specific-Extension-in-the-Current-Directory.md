@@ -1,7 +1,7 @@
 ---
 title: Recursively Find and Delete All Files of a Specific Extension in the Current Directory
 date: 2021-04-19 20:37:07
-categories: Linux
+categories: Linux 系统和软件
 tags:
 abbrlink: 61
 references:

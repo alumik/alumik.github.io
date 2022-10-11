@@ -1,7 +1,7 @@
 ---
 title: Uninstall Older Versions of a Installed PowerShell Module
 date: 2021-08-26 15:34:32
-categories: Windows
+categories: Windows 系统和软件
 tags: PowerShell
 abbrlink: 70
 references:

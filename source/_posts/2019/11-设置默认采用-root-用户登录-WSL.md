@@ -1,6 +1,6 @@
 ---
 title: 设置默认采用 root 用户登录 WSL
-categories: Linux
+categories: Linux 系统和软件
 tags: WSL
 abbrlink: 11
 date: 2019-06-24 15:40:21

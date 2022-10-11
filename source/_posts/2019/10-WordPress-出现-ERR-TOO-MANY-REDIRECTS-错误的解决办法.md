@@ -1,7 +1,9 @@
 ---
 title: WordPress 出现 ERR_TOO_MANY_REDIRECTS 错误的解决办法
-categories: 其他软件问题
-tags: WordPress
+categories: Linux 系统和软件
+tags:
+   - WordPress
+   - Apache2
 abbrlink: 10
 date: 2019-06-24 15:38:11
 ---

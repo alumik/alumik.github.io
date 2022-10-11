@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 设置 GRUB 默认启动的内核版本
-categories: Linux
+categories: Linux 系统和软件
 tags: Ubuntu
 abbrlink: 30
 date: 2019-06-24 20:29:37

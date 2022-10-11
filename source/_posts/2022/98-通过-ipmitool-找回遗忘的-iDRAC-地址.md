@@ -1,7 +1,7 @@
 ---
 title: 通过 ipmitool 找回遗忘的 iDRAC 地址
 date: 2022-08-21 23:15:17
-categories: Linux
+categories: Linux 系统和软件
 tags: 
   - iDRAC
   - impitool

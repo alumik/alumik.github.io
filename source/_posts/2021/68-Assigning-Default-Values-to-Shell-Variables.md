@@ -1,7 +1,7 @@
 ---
 title: Assigning Default Values to Shell Variables
 date: 2021-05-25 11:47:59
-categories: Linux
+categories: Linux 系统和软件
 tags: Shell 脚本
 abbrlink: 68
 references:

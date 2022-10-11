@@ -1,7 +1,7 @@
 ---
 title: 一种 Windows 10 透明效果不生效的解决办法
 date: 2022-05-01 17:13:26
-categories: Windows
+categories: Windows 系统和软件
 tags:
 abbrlink: 88
 references:

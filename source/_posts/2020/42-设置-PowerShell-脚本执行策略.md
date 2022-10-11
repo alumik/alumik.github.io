@@ -1,6 +1,6 @@
 ---
 title: 设置 PowerShell 脚本执行策略
-categories: Windows
+categories: Windows 系统和软件
 tags: PowerShell
 abbrlink: 42
 date: 2020-02-19 18:23:11

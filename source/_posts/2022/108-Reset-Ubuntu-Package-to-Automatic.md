@@ -1,7 +1,7 @@
 ---
 title: Reset Ubuntu Package to Automatic
 date: 2022-10-09 18:25:51
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Ubuntu
   - apt

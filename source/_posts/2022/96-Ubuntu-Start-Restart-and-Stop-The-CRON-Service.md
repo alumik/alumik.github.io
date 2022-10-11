@@ -1,7 +1,7 @@
 ---
 title: Ubuntu Start Restart and Stop The CRON Service
 date: 2022-08-09 17:59:45
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Ubuntu
   - cron

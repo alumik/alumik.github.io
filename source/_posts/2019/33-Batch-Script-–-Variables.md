@@ -1,6 +1,6 @@
 ---
 title: Batch Script – Variables
-categories: Windows
+categories: Windows 系统和软件
 tags: 批处理文件
 abbrlink: 33
 date: 2019-06-24 20:57:16

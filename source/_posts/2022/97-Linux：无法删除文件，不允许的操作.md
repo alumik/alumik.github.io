@@ -1,7 +1,7 @@
 ---
 title: Linux：无法删除文件，不允许的操作
 date: 2022-08-09 18:06:49
-categories: Linux
+categories: Linux 系统和软件
 tags: chattr
 abbrlink: 97
 references:

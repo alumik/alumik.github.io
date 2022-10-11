@@ -1,7 +1,7 @@
 ---
 title: 向每个 screen 中发送 Ctrl-C 信号
 date: 2021-04-19 20:29:39
-categories: Linux
+categories: Linux 系统和软件
 tags: Screen
 abbrlink: 60
 ---

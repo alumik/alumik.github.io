@@ -1,7 +1,7 @@
 ---
 title: Use Wireless Internet Without Taking Your Ethernet Cable Out
 date: 2020-08-29 16:20:06
-categories: Windows
+categories: Windows 系统和软件
 tags:
 abbrlink: 52
 references:

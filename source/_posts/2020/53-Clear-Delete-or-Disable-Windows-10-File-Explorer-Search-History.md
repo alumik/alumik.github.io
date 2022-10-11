@@ -1,7 +1,7 @@
 ---
 title: Clear, Delete or Disable Windows 10 File Explorer Search History
 date: 2020-08-30 15:01:43
-categories: Windows
+categories: Windows 系统和软件
 tags:
 abbrlink: 53
 references:

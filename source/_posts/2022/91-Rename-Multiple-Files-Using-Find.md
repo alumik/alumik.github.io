@@ -1,7 +1,7 @@
 ---
 title: Rename Multiple Files Using Find
 date: 2022-06-15 14:48:16
-categories: Linux
+categories: Linux 系统和软件
 tags: Shell 脚本
 abbrlink: 91
 references:

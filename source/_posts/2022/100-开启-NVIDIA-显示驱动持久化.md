@@ -1,7 +1,7 @@
 ---
 title: 开启 NVIDIA 显示驱动持久化
 date: 2022-08-22 11:33:24
-categories: Linux
+categories: Linux 系统和软件
 tags:
 abbrlink: 100
 references:

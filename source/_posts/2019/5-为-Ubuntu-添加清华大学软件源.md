@@ -1,6 +1,6 @@
 ---
 title: 为 Ubuntu 添加清华大学软件源
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Ubuntu
   - 网络加速

@@ -1,7 +1,7 @@
 ---
 title: Propagate All Arguments in a Bash Shell Script
 date: 2021-05-15 16:21:13
-categories: Linux
+categories: Linux 系统和软件
 tags: Shell 脚本
 abbrlink: 65
 references:

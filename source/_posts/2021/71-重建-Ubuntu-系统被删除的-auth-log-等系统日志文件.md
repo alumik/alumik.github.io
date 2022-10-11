@@ -1,7 +1,7 @@
 ---
 title: 重建 Ubuntu 系统被删除的 auth.log 等系统日志文件
 date: 2021-08-29 15:21:33
-categories: Linux
+categories: Linux 系统和软件
 tags: Ubuntu
 abbrlink: 71
 references:

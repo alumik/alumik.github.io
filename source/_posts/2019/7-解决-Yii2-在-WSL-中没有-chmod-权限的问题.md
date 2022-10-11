@@ -1,6 +1,6 @@
 ---
 title: 解决 Yii2 在 WSL 中没有 chmod 权限的问题
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Yii2
   - WSL

@@ -3,7 +3,7 @@ title: >-
   解决使用并行框架时出现 WARNING: CMA surpport is not available due to restrictive ptrace
   settings
 date: 2022-09-15 10:09:21
-categories: Linux
+categories: Linux 系统和软件
 tags:
 abbrlink: 103
 references:

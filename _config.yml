@@ -72,12 +72,11 @@ category_map:
   C++: cpp
   Java: java
   JavaScript: javascript
-  Linux: linux
+  Linux 系统和软件: linux
   PHP: php
   Python: python
-  Windows: windows
+  Windows 系统和软件: windows
   未分类: uncategorized
-  其他软件问题: software
   容器与虚拟机: container-vm
   数学知识: math
   数据库管理系统: dbms

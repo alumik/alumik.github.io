@@ -1,7 +1,7 @@
 ---
 title: 消除 Windows 安全中心基于声誉的保护上的感叹号
 date: 2022-09-15 10:08:02
-categories: Windows
+categories: Windows 系统和软件
 tags: Windows 安全中心
 abbrlink: 104
 references:

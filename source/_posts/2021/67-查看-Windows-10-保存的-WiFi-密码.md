@@ -1,7 +1,7 @@
 ---
 title: 查看 Windows 10 保存的 Wi-Fi 密码
 date: 2021-05-24 10:33:39
-categories: Windows
+categories: Windows 系统和软件
 tags:
 abbrlink: 67
 ---

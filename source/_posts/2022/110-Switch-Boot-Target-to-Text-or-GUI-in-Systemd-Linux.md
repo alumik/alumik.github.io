@@ -1,7 +1,7 @@
 ---
 title: Switch Boot Target to Text or GUI in systemd Linux
 date: 2022-10-10 18:57:39
-categories: Linux
+categories: Linux 系统和软件
 tags:
   - Ubuntu
   - systemd

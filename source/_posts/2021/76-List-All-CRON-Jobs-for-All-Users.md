@@ -1,7 +1,7 @@
 ---
 title: List All CRON Jobs for All Users
 date: 2021-11-11 15:46:01
-categories: Linux
+categories: Linux 系统和软件
 tags: cron
 abbrlink: 76
 references:

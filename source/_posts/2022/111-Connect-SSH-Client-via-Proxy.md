@@ -1,7 +1,7 @@
 ---
 title: Connect SSH Client via Proxy
 date: 2022-10-11 09:25:48
-categories: Linux
+categories: Linux 系统和软件
 tags: SSH
 abbrlink: 111
 references:

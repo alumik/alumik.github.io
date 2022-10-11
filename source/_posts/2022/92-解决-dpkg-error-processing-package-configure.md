@@ -1,7 +1,7 @@
 ---
 title: '解决 dpkg: error processing package *** (--configure)'
 date: 2022-06-15 14:56:15
-categories: Linux
+categories: Linux 系统和软件
 tags: dpkg
 abbrlink: 92
 references:
