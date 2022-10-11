@@ -2,8 +2,7 @@
 title: Determine If a Specific Module is Loaded in Linux Kernel
 date: 2022-10-09 19:26:25
 categories: Linux
-tags:
-  - modprobe
+tags: modprobe
 abbrlink: 109
 references:
   - https://stackoverflow.com/questions/9845877/how-to-determine-if-a-specific-module-is-loaded-in-linux-kernel
