@@ -2583,6 +2583,79 @@ It is achieved with the <code>ProxyCommand</code> option alongside third-party p
       </tags>
   </entry>
   <entry>
+    <title>Clean All Old Versions of Snap</title>
+    <url>/posts/113/</url>
+    <content><![CDATA[<p>To clean all old versions of snaps, try:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">LANG=C snap list --all | while read snapname ver rev trk pub notes; do if [[ $notes = *disabled* ]]; then sudo snap remove &quot;$snapname&quot; --revision=&quot;$rev&quot;; fi; done</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux 系统和软件</category>
+      </categories>
+      <tags>
+        <tag>snap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xRDP Shows Only Black Screen After Authentication Windows – HowTo Fix !</title>
+    <url>/posts/114/</url>
+    <content><![CDATA[<p>Hello World, </p>
+<p>We have noticed that a lot of people hit the same issue over and over again.
+When trying to connect via remote desktop protocol (rdp) to the Ubuntu machine, and after providing the credentials in the xRDP Login page, the user will only see a black screen displayed and the desktop interface is never loaded and displayed.
+This post will basically explain why this happens and how to reproduce the issue.</p>
+<p>The &quot;problem&quot; is actually well known and there is really an simple and easy fix for that.
+So, let&#39;s explain the situation.</p>
+<h2 id="Reproducing-the-quot-Black-Screen-quot-Situation"><a href="#Reproducing-the-quot-Black-Screen-quot-Situation" class="headerlink" title="Reproducing the &quot;Black Screen&quot; Situation"></a>Reproducing the &quot;Black Screen&quot; Situation</h2><p>Let&#39;s assume that you have performed a successful xRDP installation and you are ready to test your rdp connection to your Ubuntu machine.
+Let&#39;s also assume that you are still logged on into your Ubuntu machine system locally with your user account (which could be called User1).
+So, you move to your Windows machine (or Linux machine), fire up your favorite remote desktop client and provide the ip address or the hostname.</p>
+<p>Since xRDP installation has been successful, you will be presented with the xRDP Login page where you will need to provide the user credentials on the Ubuntu machine.
+In our example, User1 (yes the one currently logged on locally on the ubuntu machine) account will be used.</p>
+<p>If the credentials are correct, you will see your remote desktop session showing a black screen and that’s it !!!!!
+The desktop interface will never load within your remote session.</p>
+<h2 id="Black-Screen-Situation-Explained"><a href="#Black-Screen-Situation-Explained" class="headerlink" title="Black Screen Situation Explained"></a>Black Screen Situation Explained</h2><p>As mentioned and explained multiple times, this situation will happen (or can happen) when the same user account is used concurrently locally and remotely.
+In other words, the problem is related to the fact that the same user account is already logged in locally and a remote connection is attempted at the same time.
+With xRDP software solution, a specific user account can be logged on either locally or remotely but not both. </p>
+<h2 id="The-Standard-Solution"><a href="#The-Standard-Solution" class="headerlink" title="The (Standard) Solution"></a>The (Standard) Solution</h2><p>To solve this issue, there is a simple fix.
+You need to ensure the account you are using to login via the remote desktop client is not currently logged on locally on the Ubuntu target machine.
+If this is the case, perform a logout operation.</p>
+<p>Try again the remote desktop session and you will see that magically, you will be able to perform your remote desktop connection and that your desktop interface will be loaded and made available for you.</p>
+]]></content>
+      <categories>
+        <category>Linux 系统和软件</category>
+      </categories>
+      <tags>
+        <tag>xRDP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Style LaTeX Code in lstlisting</title>
+    <url>/posts/115/</url>
+    <content><![CDATA[<p>Try this:</p>
+<figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[T1]&#123;fontenc&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;listings,xcolor&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\lstdefinestyle</span>&#123;mystyle&#125;</span><br><span class="line">&#123;</span><br><span class="line">  language=[LaTeX]&#123;TeX&#125;,</span><br><span class="line">  texcsstyle=*<span class="keyword">\color</span>&#123;blue&#125;,</span><br><span class="line">  basicstyle=<span class="keyword">\ttfamily</span>,</span><br><span class="line">  moretexcs=&#123;mycommand&#125;, <span class="comment">% user command highlight</span></span><br><span class="line">  frame=single,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;[style=mystyle]</span><br><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[T1]&#123;fontenc&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>*&#123;<span class="keyword">\mycommand</span>&#125;&#123;Hello World!&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line">  <span class="keyword">\mycommand</span></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>listings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Compact VHD Files in Windows Home</title>
+    <url>/posts/116/</url>
+    <content><![CDATA[<p>I found a great tip in GitHub to compact a VHD file without Hyper-V tools and it works great.
+The Dynamic VHD don&#39;t reduce their size even if the files were deleted from the hard drive, to fix it the &quot;compact&quot; operation is needed.
+This is included into the Hyper-V tools but this is only available in Windows 10/11 Pro.</p>
+<p>There are another way to do this in Windows 10/11 Home, using the next commands:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">diskpart</span><br><span class="line"> </span><br><span class="line"># Open window Diskpart </span><br><span class="line"> </span><br><span class="line">select vdisk file=&quot;C:\path\to\file.vhd&quot;</span><br><span class="line">attach vdisk readonly</span><br><span class="line">compact vdisk</span><br><span class="line">detach vdisk</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Windows 系统和软件</category>
+      </categories>
+      <tags>
+        <tag>diskpart</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Put 4 Authors in a Single Row in acmart LaTeX Template</title>
     <url>/posts/81/</url>
     <content><![CDATA[<p>The class <code>acmart</code> allows to set the number of authors per row by inserting e.g.</p>
