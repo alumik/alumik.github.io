@@ -131,25 +131,3 @@ kramed:
   smartypants: false
   gfm: true
   breaks: false
-
-# Live2D
-live2d:
-  enable: true
-  scriptFrom: local
-  pluginRootPath: live2d/
-  pluginJsPath: lib/
-  pluginModelPath: assets/
-  tagMode: false
-  log: false
-  model:
-    use: live2d-widget-model-hijiki
-    scale: 1
-  display:
-    superSample: 2
-    width: 250
-    height: 250
-    position: right
-    hOffset: 12
-    vOffset: -6
-  mobile:
-    show: false
