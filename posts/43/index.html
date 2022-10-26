@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言 Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。              如果你对 Matplotlib 的使用不太熟悉，可以参考此教程。             将所有曲线画进一个子图 利用 Matplotlib 的默认方式来执行此操作。 例如： 123456789import numpy as npimport">
+  <meta name="description" content="前言Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。              如果你对 Matplotlib 的使用不太熟悉，可以参考此教程。             将所有曲线画进一个子图利用 Matplotlib 的默认方式来执行此操作。 例如： 123456789import numpy as npimport ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Matplotlib 在一张图里画多条曲线">
 <meta property="og:url" content="https://blog.alumik.cn/posts/43/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="前言 Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。              如果你对 Matplotlib 的使用不太熟悉，可以参考此教程。             将所有曲线画进一个子图 利用 Matplotlib 的默认方式来执行此操作。 例如： 123456789import numpy as npimport">
+<meta property="og:description" content="前言Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。              如果你对 Matplotlib 的使用不太熟悉，可以参考此教程。             将所有曲线画进一个子图利用 Matplotlib 的默认方式来执行此操作。 例如： 123456789import numpy as npimport ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.alumik.cn/posts/43/myplot-1.png">
 <meta property="og:image" content="https://blog.alumik.cn/posts/43/myplot-2.png">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://blog.alumik.cn/posts/43/myplot-7.png">
 <meta property="og:image" content="https://blog.alumik.cn/posts/43/myplot-8.png">
 <meta property="article:published_time" content="2020-02-20T05:03:12.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.500Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.809Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Matplotlib">
 <meta name="twitter:card" content="summary">
@@ -140,12 +140,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -239,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -283,23 +283,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
-<p>Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲线画到一起，并且用不同颜色标志每条数据曲线。</p>
 <div class="note info">
             <p>如果你对 Matplotlib 的使用不太熟悉，可以参考<a target="_blank" rel="noopener" href="https://matplotlib.org/tutorials/introductory/pyplot.html">此教程</a>。</p>
           </div>
-<h2 id="将所有曲线画进一个子图"><a class="markdownIt-Anchor" href="#将所有曲线画进一个子图"></a> 将所有曲线画进一个子图</h2>
-<p>利用 Matplotlib 的默认方式来执行此操作。</p>
+
+<h2 id="将所有曲线画进一个子图"><a href="#将所有曲线画进一个子图" class="headerlink" title="将所有曲线画进一个子图"></a>将所有曲线画进一个子图</h2><p>利用 Matplotlib 的默认方式来执行此操作。</p>
 <p>例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
+
 <img src="/posts/43/myplot-1.png" class="">
+
 <p>而且，正如你可能已经知道的那样，你可以轻松添加图例：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.legend([<span class="string">&#x27;$y = x$&#x27;</span>, <span class="string">&#x27;$y = 2x$&#x27;</span>, <span class="string">&#x27;$y = 3x$&#x27;</span>, <span class="string">&#x27;$y = 4x$&#x27;</span>], loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-2.png" class="">
+
 <p>你还可以控制循环的颜色：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line">plt.gca().set_prop_cycle(color=[<span class="string">&#x27;red&#x27;</span>, <span class="string">&#x27;green&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="string">&#x27;yellow&#x27;</span>])</span><br><span class="line">plt.plot(x, x)</span><br><span class="line">plt.plot(x, <span class="number">2</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">3</span> * x)</span><br><span class="line">plt.plot(x, <span class="number">4</span> * x)</span><br><span class="line">plt.legend([<span class="string">&#x27;$y = x$&#x27;</span>, <span class="string">&#x27;$y = 2x$&#x27;</span>, <span class="string">&#x27;$y = 3x$&#x27;</span>, <span class="string">&#x27;$y = 4x$&#x27;</span>], loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-3.png" class="">
+
 <p>但是，如果你想要在一个图上绘制很多曲线（&gt;5），请做到：</p>
 <ol>
 <li>将它们放在不同的图上（考虑在一个图上使用一些子图），或</li>
@@ -307,21 +312,30 @@
 </ol>
 <p>否则，你将陷入一个非常混乱的境地！许多人在不同程度上都是色盲，区分众多微妙不同的颜色对于更多的人来说比你意识到的要困难。如果你真的想在一张图上放 20 条线，并且有 20 种相对不同的颜色，可以用如下方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">num_plots = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Have a look at the colormaps here and decide which one you&#x27;d like:</span></span><br><span class="line"><span class="comment"># https://matplotlib.org/3.1.3/gallery/color/colormap_reference.html#sphx-glr-gallery-color-colormap-reference-py</span></span><br><span class="line">plt.gca().set_prop_cycle(</span><br><span class="line">    plt.cycler(<span class="string">&#x27;color&#x27;</span>, plt.cm.get_cmap(<span class="string">&#x27;gist_ncar&#x27;</span>)(np.linspace(<span class="number">0</span>, <span class="number">1</span>, num_plots))))</span><br><span class="line"></span><br><span class="line"><span class="comment"># Plot several different functions...</span></span><br><span class="line">x = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, num_plots + <span class="number">1</span>):</span><br><span class="line">    plt.plot(x, i * x + <span class="number">5</span> * i, label=<span class="string">f&#x27;$y = <span class="subst">&#123;i&#125;</span>x + <span class="subst">&#123;<span class="number">5</span> * i&#125;</span>$&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># I&#x27;m basically just demonstrating several different legend options here...</span></span><br><span class="line">plt.legend(ncol=<span class="number">4</span>, loc=<span class="string">&#x27;upper center&#x27;</span>,</span><br><span class="line">           bbox_to_anchor=[<span class="number">0.5</span>, <span class="number">1.1</span>],</span><br><span class="line">           columnspacing=<span class="number">1.0</span>, labelspacing=<span class="number">0.0</span>,</span><br><span class="line">           handletextpad=<span class="number">0.0</span>, handlelength=<span class="number">1.5</span>,</span><br><span class="line">           fancybox=<span class="literal">True</span>, shadow=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-4.png" class="">
+
 <p>如果你事先不知道要绘制的线条数量，可以在绘制它们之后从图形中获取曲线数量并更改颜色：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    plt.plot(np.array([<span class="number">1</span>, <span class="number">5</span>]) * i, label=<span class="string">f&#x27;$y = <span class="subst">&#123;<span class="number">4</span> * i&#125;</span>x + <span class="subst">&#123;i&#125;</span>$&#x27;</span>)</span><br><span class="line"></span><br><span class="line">colormap = plt.cm.get_cmap(<span class="string">&#x27;gist_ncar&#x27;</span>)</span><br><span class="line">colors = [colormap(i) <span class="keyword">for</span> i <span class="keyword">in</span> np.linspace(<span class="number">0</span>, <span class="number">1</span>, <span class="built_in">len</span>(plt.gca().lines))]</span><br><span class="line"><span class="keyword">for</span> i, j <span class="keyword">in</span> <span class="built_in">enumerate</span>(plt.gca().lines):</span><br><span class="line">    j.set_color(colors[i])</span><br><span class="line"></span><br><span class="line">plt.legend(loc=<span class="string">&#x27;upper left&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-5.png" class="">
-<h2 id="将曲线画进不同的子图"><a class="markdownIt-Anchor" href="#将曲线画进不同的子图"></a> 将曲线画进不同的子图</h2>
-<p>Matplotlib 中的每个子图，即 <code>axes</code> ，都有自己独立的颜色循环，即 <code>prop_cycle</code> ，如下：</p>
+
+<h2 id="将曲线画进不同的子图"><a href="#将曲线画进不同的子图" class="headerlink" title="将曲线画进不同的子图"></a>将曲线画进不同的子图</h2><p>Matplotlib 中的每个子图，即 <code>axes</code> ，都有自己独立的颜色循环，即 <code>prop_cycle</code> ，如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> axes.flatten():</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-6.png" class="">
+
 <p>那么该如何让所有子图中的曲线都拥有不同的颜色呢？</p>
 <p>如果这些字图是由一个循环自动产生的（通常是这样），我们必须使用另一个循环变量去自动覆盖默认颜色设置：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="keyword">for</span> ax, short_color_name <span class="keyword">in</span> <span class="built_in">zip</span>(axes.flatten(), <span class="string">&#x27;brgkyc&#x27;</span>):</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>), short_color_name)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-7.png" class="">
+
 <p>另一种方法是创建一个属性循环对象：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> cycler <span class="keyword">import</span> cycler</span><br><span class="line"></span><br><span class="line">fig, axes = plt.subplots(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">my_cycler = cycler(<span class="string">&#x27;color&#x27;</span>, [<span class="string">&#x27;k&#x27;</span>, <span class="string">&#x27;r&#x27;</span>]) * cycler(<span class="string">&#x27;linewidth&#x27;</span>, [<span class="number">1.</span>, <span class="number">1.5</span>, <span class="number">2.</span>])</span><br><span class="line">actual_cycler = my_cycler()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ax <span class="keyword">in</span> axes.flat:</span><br><span class="line">    ax.plot((<span class="number">0</span>, <span class="number">1</span>), (<span class="number">0</span>, <span class="number">1</span>), **<span class="built_in">next</span>(actual_cycler))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/43/myplot-8.png" class="">
+
 <div class="note info">
             <p><code>my_cycler</code> 的类型为 <code>cycler.Cycler</code> 。<code>actual_cycler</code> 的类型为 <code>itertools.cycle</code> 。</p>
           </div>
@@ -416,7 +430,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E6%89%80%E6%9C%89%E6%9B%B2%E7%BA%BF%E7%94%BB%E8%BF%9B%E4%B8%80%E4%B8%AA%E5%AD%90%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text"> 将所有曲线画进一个子图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E6%9B%B2%E7%BA%BF%E7%94%BB%E8%BF%9B%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text"> 将曲线画进不同的子图</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E6%89%80%E6%9C%89%E6%9B%B2%E7%BA%BF%E7%94%BB%E8%BF%9B%E4%B8%80%E4%B8%AA%E5%AD%90%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">将所有曲线画进一个子图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E6%9B%B2%E7%BA%BF%E7%94%BB%E8%BF%9B%E4%B8%8D%E5%90%8C%E7%9A%84%E5%AD%90%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text">将曲线画进不同的子图</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -431,20 +445,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -565,8 +579,6 @@
 
 
 
-
-  
 
   
 

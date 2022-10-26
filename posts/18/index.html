@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="该文章内容已过期或不再适用。尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。            在使用 MySQL&#x2F;MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入 1mysql 免密码使用数据库 root 用户登录数据库。  原因 在 user 表中有一列叫做 plugin ： 1select user, auth">
+  <meta name="description" content="该文章内容已过期或不再适用。尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。             在使用 MySQL&#x2F;MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入 1mysql  免密码使用数据库 root 用户登录数据库。 原因在 user 表中有一列叫做 plugin ： 1select user,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="取消 MySQL&#x2F;MariaDB root 用户免密码登录功能">
 <meta property="og:url" content="https://blog.alumik.cn/posts/18/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="该文章内容已过期或不再适用。尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。            在使用 MySQL&#x2F;MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入 1mysql 免密码使用数据库 root 用户登录数据库。  原因 在 user 表中有一列叫做 plugin ： 1select user, auth">
+<meta property="og:description" content="该文章内容已过期或不再适用。尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。             在使用 MySQL&#x2F;MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入 1mysql  免密码使用数据库 root 用户登录数据库。 原因在 user 表中有一列叫做 plugin ： 1select user,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-06-24T08:45:56.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.496Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.805Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,29 +277,28 @@
         <div class="note danger">
             <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>尽量不要使用数据库 root 用户。建议为每个数据库应用建立单独的用户。</p>
           </div>
-<p>在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
+
+<p>在使用 MySQL&#x2F;MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
+
 <p>免密码使用数据库 root 用户登录数据库。</p>
-<h2 id="原因"><a class="markdownIt-Anchor" href="#原因"></a> 原因</h2>
-<p>在 <code>user</code> 表中有一列叫做 <code>plugin</code> ：</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在 <code>user</code> 表中有一列叫做 <code>plugin</code> ：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, authentication_string, plugin <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| user | authentication_string | plugin      |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| root | *                     | auth_socket |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">1 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+
 <p>其中的 <code>auth_socket</code> 让你能方便地作为 root 用户从控制台免密码登录。但这同时也禁用了密码登录，而且你不能使用其它客户端进行登录。</p>
 <span id="more"></span>
-<h2 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h2>
-<p>如果必须要使用数据库 root 用户，则需要做如下修改。注意按照自己的数据库版本选择合适的命令。</p>
-<h3 id="mysql"><a class="markdownIt-Anchor" href="#mysql"></a> MySQL</h3>
-<h4 id="57"><a class="markdownIt-Anchor" href="#57"></a> 5.7</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>;</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;mysql_native_password&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-<h4 id="80"><a class="markdownIt-Anchor" href="#80"></a> 8.0</h4>
-<p>待补充。</p>
-<h3 id="mariadb"><a class="markdownIt-Anchor" href="#mariadb"></a> MariaDB</h3>
-<h4 id="102"><a class="markdownIt-Anchor" href="#102"></a> &lt;10.2</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> password <span class="keyword">for</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="operator">=</span> password(<span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>);</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-<h4 id="102-2"><a class="markdownIt-Anchor" href="#102-2"></a> ≥10.2</h4>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>;</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
-<p>如果你使用的是 Ubuntu 等 Debian 系系统，还需要打开 <em>/etc/mysql/debian.cnf</em> 。如果其中的 <code>user</code> 字段是 <code>root</code> ，则需要将其中对应的 <code>password</code> 字段设置为你刚才设置的密码。 如果 <code>user</code> 字段不是 <code>root</code> ，则无需修改。</p>
+
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>如果必须要使用数据库 root 用户，则需要做如下修改。注意按照自己的数据库版本选择合适的命令。</p>
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><h4 id="5-7"><a href="#5-7" class="headerlink" title="5.7"></a>5.7</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>;</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;mysql_native_password&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-0"><a href="#8-0" class="headerlink" title="8.0"></a>8.0</h4><p>待补充。</p>
+<h3 id="MariaDB"><a href="#MariaDB" class="headerlink" title="MariaDB"></a>MariaDB</h3><h4 id="lt-10-2"><a href="#lt-10-2" class="headerlink" title="&lt;10.2"></a>&lt;10.2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> password <span class="keyword">for</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> <span class="operator">=</span> password(<span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>);</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h4 id="≥10-2"><a href="#≥10-2" class="headerlink" title="≥10.2"></a>≥10.2</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> identified <span class="keyword">by</span> <span class="string">&#x27;YOUR PASSWORD HERE&#x27;</span>;</span><br><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> plugin <span class="operator">=</span> <span class="string">&#x27;&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span> <span class="operator">=</span> <span class="string">&#x27;root&#x27;</span> <span class="keyword">and</span> host <span class="operator">=</span> <span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>如果你使用的是 Ubuntu 等 Debian 系系统，还需要打开 <em>&#x2F;etc&#x2F;mysql&#x2F;debian.cnf</em> 。如果其中的 <code>user</code> 字段是 <code>root</code> ，则需要将其中对应的 <code>password</code> 字段设置为你刚才设置的密码。 如果 <code>user</code> 字段不是 <code>root</code> ，则无需修改。</p>
 
     </div>
 
@@ -382,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text"> 原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text"> 解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql"><span class="nav-number">2.1.</span> <span class="nav-text"> MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#57"><span class="nav-number">2.1.1.</span> <span class="nav-text"> 5.7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#80"><span class="nav-number">2.1.2.</span> <span class="nav-text"> 8.0</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mariadb"><span class="nav-number">2.2.</span> <span class="nav-text"> MariaDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#102"><span class="nav-number">2.2.1.</span> <span class="nav-text"> &lt;10.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#102-2"><span class="nav-number">2.2.2.</span> <span class="nav-text"> ≥10.2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text"> 注意事项</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL"><span class="nav-number">2.1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-7"><span class="nav-number">2.1.1.</span> <span class="nav-text">5.7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-0"><span class="nav-number">2.1.2.</span> <span class="nav-text">8.0</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MariaDB"><span class="nav-number">2.2.</span> <span class="nav-text">MariaDB</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-10-2"><span class="nav-number">2.2.1.</span> <span class="nav-text">&lt;10.2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%89%A510-2"><span class="nav-number">2.2.2.</span> <span class="nav-text">≥10.2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">3.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -397,20 +396,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -531,8 +530,6 @@
 
 
 
-
-  
 
   
 

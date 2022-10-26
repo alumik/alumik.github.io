@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言 在 Matplotlib 中一般有三种绘图方式： matplotlib.pyplot 、 pylab 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。 官方教程中说：              The pyplot API is generally less-flexible than the object-oriented API. Most of">
+  <meta name="description" content="前言在 Matplotlib 中一般有三种绘图方式： matplotlib.pyplot 、 pylab 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。 官方教程中说：              The pyplot API is generally less-flexible than the object-oriented API. Most of th">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Matplotlib 面向对象编程简介">
 <meta property="og:url" content="https://blog.alumik.cn/posts/44/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="前言 在 Matplotlib 中一般有三种绘图方式： matplotlib.pyplot 、 pylab 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。 官方教程中说：              The pyplot API is generally less-flexible than the object-oriented API. Most of">
+<meta property="og:description" content="前言在 Matplotlib 中一般有三种绘图方式： matplotlib.pyplot 、 pylab 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。 官方教程中说：              The pyplot API is generally less-flexible than the object-oriented API. Most of th">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.alumik.cn/posts/44/anatomy-of-a-figure.webp">
 <meta property="og:image" content="https://blog.alumik.cn/posts/44/myplot-1.png">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://blog.alumik.cn/posts/44/myplot-7.png">
 <meta property="og:image" content="https://blog.alumik.cn/posts/44/myplot-8.png">
 <meta property="article:published_time" content="2020-02-20T15:58:48.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.500Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.809Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Matplotlib">
 <meta name="twitter:card" content="summary">
@@ -141,12 +141,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -240,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,72 +284,80 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
-<p>在 Matplotlib 中一般有三种绘图方式： <code>matplotlib.pyplot</code> 、 <code>pylab</code> 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Matplotlib 中一般有三种绘图方式： <code>matplotlib.pyplot</code> 、 <code>pylab</code> 和面向对象编程。在绘图时推荐使用面向对象编程的方法，因为它可以更好地控制和自定义绘图。</p>
 <p>官方教程中说：</p>
 <div class="note info">
             <p>The pyplot API is generally less-flexible than the object-oriented API. Most of the function calls you see here can also be called as methods from an Axes object. We recommend browsing the tutorials and examples to see how this works.</p>
           </div>
+
 <p>下图展示了大部分绘图元素：</p>
 <img src="/posts/44/anatomy-of-a-figure.webp" class="" width="600" title="Anatomy of a Figure">
+
 <span id="more"></span>
-<h2 id="三种绘图方式的联系与区别"><a class="markdownIt-Anchor" href="#三种绘图方式的联系与区别"></a> 三种绘图方式的联系与区别</h2>
-<p><code>matplotlib</code> 是整个包， <code>matplotlib.pyplot</code> 是 Matplotlib 中的一个模块， <code>pylab</code> 是一个与 Matplotlib 一起安装的模块。</p>
-<h3 id="matplotlibpyplot"><a class="markdownIt-Anchor" href="#matplotlibpyplot"></a> matplotlib.pyplot</h3>
-<p><code>matplotlib.pyplot</code> 为底层面向对象的绘图库提供状态机接口。状态机隐式地自动创建图像和坐标轴，以实现所需的功能，例如：</p>
+
+<h2 id="三种绘图方式的联系与区别"><a href="#三种绘图方式的联系与区别" class="headerlink" title="三种绘图方式的联系与区别"></a>三种绘图方式的联系与区别</h2><p><code>matplotlib</code> 是整个包， <code>matplotlib.pyplot</code> 是 Matplotlib 中的一个模块， <code>pylab</code> 是一个与 Matplotlib 一起安装的模块。</p>
+<h3 id="matplotlib-pyplot"><a href="#matplotlib-pyplot" class="headerlink" title="matplotlib.pyplot"></a>matplotlib.pyplot</h3><p><code>matplotlib.pyplot</code> 为底层面向对象的绘图库提供状态机接口。状态机隐式地自动创建图像和坐标轴，以实现所需的功能，例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xlabel(<span class="string">&#x27;x label&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;y label&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Simple Plot&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/44/myplot-1.png" class="">
+
 <p>第一次调用 <code>plt.plot</code> 将自动创建必要的图像和坐标轴以实现所需的绘图。随后对 <code>plt.plot</code> 的调用会重新使用当前坐标轴。设置标题，图例和轴标签也会自动针对当前坐标轴进行设置。<code>matplotlib.pyplot</code> 接口简单易用，交互使用时方便，可以根据命令实时作图，但底层定制能力不足。</p>
 <div class="note warning">
             <p>本文中的“坐标轴”特指 Matplotlib 中的 <code>Axes</code> 对象（后文会提到），并不是严格数学意义上的坐标轴。</p>
           </div>
-<h3 id="pylab"><a class="markdownIt-Anchor" href="#pylab"></a> pylab</h3>
-<p><code>pylab</code> 是一个便利模块，相当于在单个名称空间中批量导入 <code>matplotlib.pyplot</code> （用于绘图）和 <code>numpy</code> （用于数学运算和使用数组）。不过由于它会导致命名空间污染，强烈建议不要使用它。</p>
+
+<h3 id="pylab"><a href="#pylab" class="headerlink" title="pylab"></a>pylab</h3><p><code>pylab</code> 是一个便利模块，相当于在单个名称空间中批量导入 <code>matplotlib.pyplot</code> （用于绘图）和 <code>numpy</code> （用于数学运算和使用数组）。不过由于它会导致命名空间污染，强烈建议不要使用它。</p>
 <p>示例代码：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pylab <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">x = linspace(<span class="number">0</span>, <span class="number">2</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line">plot(x, x ** <span class="number">3</span>, label=<span class="string">&#x27;cubic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">xlabel(<span class="string">&#x27;x label&#x27;</span>)</span><br><span class="line">ylabel(<span class="string">&#x27;y label&#x27;</span>)</span><br><span class="line">title(<span class="string">&quot;Simple Plot&quot;</span>)</span><br><span class="line">legend()</span><br><span class="line"></span><br><span class="line">show()</span><br></pre></td></tr></table></figure>
-<h3 id="面向对象编程"><a class="markdownIt-Anchor" href="#面向对象编程"></a> 面向对象编程</h3>
-<p>面向对象编程的绘图方式，接近 Matplotlib 的基础和底层，难度稍大，但定制能力强，而且是 Matplotlib 的精髓。</p>
-<h2 id="matplotlib-中的面向对象编程"><a class="markdownIt-Anchor" href="#matplotlib-中的面向对象编程"></a> Matplotlib 中的面向对象编程</h2>
-<p>Matplotlib 中的对象主要有三种， <code>FigureCanvas</code> （画布）， <code>Figure</code> （图像）和 <code>Axes</code> （坐标轴）。而 <code>FigureCanvas</code> 涉及到底层操作，暂时不必深究。</p>
+
+<h3 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h3><p>面向对象编程的绘图方式，接近 Matplotlib 的基础和底层，难度稍大，但定制能力强，而且是 Matplotlib 的精髓。</p>
+<h2 id="Matplotlib-中的面向对象编程"><a href="#Matplotlib-中的面向对象编程" class="headerlink" title="Matplotlib 中的面向对象编程"></a>Matplotlib 中的面向对象编程</h2><p>Matplotlib 中的对象主要有三种， <code>FigureCanvas</code> （画布）， <code>Figure</code> （图像）和 <code>Axes</code> （坐标轴）。而 <code>FigureCanvas</code> 涉及到底层操作，暂时不必深究。</p>
 <p>使用 Matplotlib 绘图需要搞清楚图像和坐标轴两个对象。只有真正理解这两个概念，才能获得对整个绘图过程的控制权。</p>
-<h3 id="figure-对象与-axes-对象"><a class="markdownIt-Anchor" href="#figure-对象与-axes-对象"></a> Figure 对象与 Axes 对象</h3>
-<p>下列代码使用 <code>plt.figure</code> 创建一个空的 <code>Figure</code> 对象，并通过 <code>plt.show</code> 显示出来：</p>
+<h3 id="Figure-对象与-Axes-对象"><a href="#Figure-对象与-Axes-对象" class="headerlink" title="Figure 对象与 Axes 对象"></a>Figure 对象与 Axes 对象</h3><p>下列代码使用 <code>plt.figure</code> 创建一个空的 <code>Figure</code> 对象，并通过 <code>plt.show</code> 显示出来：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.figure()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/44/myplot-2.png" class="">
+
 <p>有了图像，接下来就在图像上绘图。我们首先需要创建一个坐标轴，可以调用 <code>Figure</code> 实例的 <code>add_axes</code> 方法：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])  <span class="comment"># [左边距，下边距，坐标轴宽度，坐标轴高度] 范围 (0, 1)</span></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
 <p><code>[0.1, 0.1, 0.8, 0.8]</code> 表示的是在图像中，坐标轴距离画布左边 0.1 倍的位置，距离画布下边 0.1 倍的位置。确定了这两个位置后，坐标轴的整体宽度和高度占 0.8 倍的大小。得到如下结果：</p>
 <img src="/posts/44/myplot-3.png" class="">
-<h3 id="创建对象"><a class="markdownIt-Anchor" href="#创建对象"></a> 创建对象</h3>
-<p>如果你之前就接触过一些绘图的命令，你会发现：</p>
+
+<h3 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h3><p>如果你之前就接触过一些绘图的命令，你会发现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">plt.plot([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p>直接使用这两个命令就能绘图，并没有手动创建图像和坐标轴。得到如下图：</p>
 <img src="/posts/44/myplot-4.png" class="">
+
 <p>这是因为 Matplotlib 会在最近使用过的图像和坐标轴上进行绘图，如果没有的话，会自动创建一个图像或坐标轴。</p>
 <p>但是，显式地创建图像和坐标轴能让我们对绘图过程有完全的控制权（比如可以指定在什么地方绘图），而且绘图过程的逻辑性更强。接下来我们通过绘制一张“图中图”来理解这个过程：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot  <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0</span>, <span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">y = np.sin(x)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line">ax1 = fig.add_axes([<span class="number">0.1</span>, <span class="number">0.1</span>, <span class="number">0.8</span>, <span class="number">0.8</span>])  <span class="comment"># 第一个坐标轴的范围</span></span><br><span class="line">ax2 = fig.add_axes([<span class="number">0.2</span>, <span class="number">0.5</span>, <span class="number">0.4</span>, <span class="number">0.3</span>])  <span class="comment"># 第二个坐标轴的范围</span></span><br><span class="line">ax1.plot(x, y, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">ax2.plot(x, y, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
 <p>我们得到了如下图像：</p>
 <img src="/posts/44/myplot-5.png" class="">
+
 <p>这里我们创建了两个坐标轴 <code>ax1</code> 和 <code>ax2</code> ，分别对两个坐标轴指定范围并作图。</p>
-<h3 id="axessubplot-对象"><a class="markdownIt-Anchor" href="#axessubplot-对象"></a> AxesSubplot 对象</h3>
-<p>AxesSubplot 对象即子图。子图是自带坐标轴的。下列代码会在图像上创建两个子图（一行两列）：</p>
+<h3 id="AxesSubplot-对象"><a href="#AxesSubplot-对象" class="headerlink" title="AxesSubplot 对象"></a>AxesSubplot 对象</h3><p>AxesSubplot 对象即子图。子图是自带坐标轴的。下列代码会在图像上创建两个子图（一行两列）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig = plt.figure()</span><br><span class="line"></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">121</span>)</span><br><span class="line">ax1.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">ax1.grid(color=<span class="string">&#x27;g&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)  <span class="comment"># 设置网格</span></span><br><span class="line">ax1.legend()                         <span class="comment"># 设置图例</span></span><br><span class="line"></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">122</span>)</span><br><span class="line">ax2.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
 <p>此处可以与使用 <code>matplotlib.pyplot</code> 接口绘图的方式简单对比一下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">100</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">121</span>)</span><br><span class="line">plt.plot(x, x, label=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">plt.grid(color=<span class="string">&#x27;g&#x27;</span>, linestyle=<span class="string">&#x27;--&#x27;</span>)  <span class="comment"># 设置网格</span></span><br><span class="line">plt.legend()                         <span class="comment"># 设置图例</span></span><br><span class="line"></span><br><span class="line">plt.subplot(<span class="number">122</span>)</span><br><span class="line">plt.plot(x, x ** <span class="number">2</span>, label=<span class="string">&#x27;quadratic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 <p>上面两种方式都能得到同样的结果：</p>
 <img src="/posts/44/myplot-6.png" class="">
+
 <div class="note warning">
             <p>这里 <code>plt.subplot</code> 和 <code>fig.add_subplot</code> 稍有差别。若参数传入 <code>121</code> 和 <code>335</code> ，显然不匹配，若用 <code>plt.subplot</code> 则只会显示后者，若用 <code>fig.add_subplot</code> 则两者都会显示出来，但是会重叠，且靠后绘制的显示在上方。</p><p>使用 <code>plt.subplot</code> 可得到：</p><img src="/posts/44/myplot-7.png" class=""><p>使用 <code>fig.add_subplot</code> 可得到：</p><img src="/posts/44/myplot-8.png" class="">
           </div>
-<h3 id="设置图像尺寸"><a class="markdownIt-Anchor" href="#设置图像尺寸"></a> 设置图像尺寸</h3>
-<p>在创建 <code>Figure</code> 对象的时候，我们可以使用 <code>figsize</code> 和 <code>dpi</code> 控制图像的尺寸。比如：</p>
+
+<h3 id="设置图像尺寸"><a href="#设置图像尺寸" class="headerlink" title="设置图像尺寸"></a>设置图像尺寸</h3><p>在创建 <code>Figure</code> 对象的时候，我们可以使用 <code>figsize</code> 和 <code>dpi</code> 控制图像的尺寸。比如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig = plt.figure(figsize=(<span class="number">16</span>,<span class="number">8</span>), dpi=<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
 <p><code>figsize</code> 表示图像长宽大小，单位为英寸。 <code>dpi</code> 表示每英寸的像素值。因此上面的命令创建了一张 1600*800 像素的图像。</p>
-<h3 id="保存图像"><a class="markdownIt-Anchor" href="#保存图像"></a> 保存图像</h3>
-<p>从上面输出的结果来看， <code>plt.show</code> 仅仅是将图像显示了出来。如果要保存图像，还需要通过 <code>savefig</code> 保存。没有显式指定图像和坐标轴，直接使用 <code>plt.savefig</code> 保存也可以，若显式指定了图像可以用 <code>Figure</code> 实例的 <code>savefig</code> 方法。 Matplotlib 可以将图像保存为多种格式的高质量图片，包括 PNG ， JPG ， EPS ， SVG ， PGF 和 PDF 等，只要写好后缀名即可。例如：</p>
+<h3 id="保存图像"><a href="#保存图像" class="headerlink" title="保存图像"></a>保存图像</h3><p>从上面输出的结果来看， <code>plt.show</code> 仅仅是将图像显示了出来。如果要保存图像，还需要通过 <code>savefig</code> 保存。没有显式指定图像和坐标轴，直接使用 <code>plt.savefig</code> 保存也可以，若显式指定了图像可以用 <code>Figure</code> 实例的 <code>savefig</code> 方法。 Matplotlib 可以将图像保存为多种格式的高质量图片，包括 PNG ， JPG ， EPS ， SVG ， PGF 和 PDF 等，只要写好后缀名即可。例如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fig.savefig(<span class="string">&#x27;result.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="其他差别"><a class="markdownIt-Anchor" href="#其他差别"></a> 其他差别</h3>
-<p>下表展示了一些常用方法的对比：</p>
+<h3 id="其他差别"><a href="#其他差别" class="headerlink" title="其他差别"></a>其他差别</h3><p>下表展示了一些常用方法的对比：</p>
 <table>
 <thead>
 <tr>
@@ -357,8 +365,7 @@
 <th><code>matplotlib.pyplot</code> 接口</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>ax.set_title</td>
 <td>plt.title</td>
 </tr>
@@ -378,10 +385,8 @@
 <td>ax.set_ylim</td>
 <td>plt.ylim</td>
 </tr>
-</tbody>
-</table>
-<h2 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h2>
-<p>建议按照面向对象编程的方式去绘图：先创建图像，再创建坐标轴，最后在坐标轴上绘图。这种编码方式会让绘图逻辑更加清晰，能够随心所欲地修改图片的每个地方。</p>
+</tbody></table>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>建议按照面向对象编程的方式去绘图：先创建图像，再创建坐标轴，最后在坐标轴上绘图。这种编码方式会让绘图逻辑更加清晰，能够随心所欲地修改图片的每个地方。</p>
 
     </div>
 
@@ -476,7 +481,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text"> 前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E7%BB%98%E5%9B%BE%E6%96%B9%E5%BC%8F%E7%9A%84%E8%81%94%E7%B3%BB%E4%B8%8E%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text"> 三种绘图方式的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#matplotlibpyplot"><span class="nav-number">2.1.</span> <span class="nav-text"> matplotlib.pyplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pylab"><span class="nav-number">2.2.</span> <span class="nav-text"> pylab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">2.3.</span> <span class="nav-text"> 面向对象编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matplotlib-%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text"> Matplotlib 中的面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#figure-%E5%AF%B9%E8%B1%A1%E4%B8%8E-axes-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.</span> <span class="nav-text"> Figure 对象与 Axes 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.</span> <span class="nav-text"> 创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#axessubplot-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.3.</span> <span class="nav-text"> AxesSubplot 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%9B%BE%E5%83%8F%E5%B0%BA%E5%AF%B8"><span class="nav-number">3.4.</span> <span class="nav-text"> 设置图像尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E5%9B%BE%E5%83%8F"><span class="nav-number">3.5.</span> <span class="nav-text"> 保存图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B7%AE%E5%88%AB"><span class="nav-number">3.6.</span> <span class="nav-text"> 其他差别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text"> 小结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E7%BB%98%E5%9B%BE%E6%96%B9%E5%BC%8F%E7%9A%84%E8%81%94%E7%B3%BB%E4%B8%8E%E5%8C%BA%E5%88%AB"><span class="nav-number">2.</span> <span class="nav-text">三种绘图方式的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#matplotlib-pyplot"><span class="nav-number">2.1.</span> <span class="nav-text">matplotlib.pyplot</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pylab"><span class="nav-number">2.2.</span> <span class="nav-text">pylab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">2.3.</span> <span class="nav-text">面向对象编程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Matplotlib-%E4%B8%AD%E7%9A%84%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">Matplotlib 中的面向对象编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Figure-%E5%AF%B9%E8%B1%A1%E4%B8%8E-Axes-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.1.</span> <span class="nav-text">Figure 对象与 Axes 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.2.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AxesSubplot-%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.3.</span> <span class="nav-text">AxesSubplot 对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%9B%BE%E5%83%8F%E5%B0%BA%E5%AF%B8"><span class="nav-number">3.4.</span> <span class="nav-text">设置图像尺寸</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E5%AD%98%E5%9B%BE%E5%83%8F"><span class="nav-number">3.5.</span> <span class="nav-text">保存图像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%B7%AE%E5%88%AB"><span class="nav-number">3.6.</span> <span class="nav-text">其他差别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,20 +496,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -625,8 +630,6 @@
 
 
 
-
-  
 
   
 

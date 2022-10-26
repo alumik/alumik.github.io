@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="问题描述 通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。  解决办法 这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑工">
+  <meta name="description" content="问题描述通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。 解决办法这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程桌面使用 MATLAB 报错 License Manager Error -103 的解决办法">
 <meta property="og:url" content="https://blog.alumik.cn/posts/35/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="问题描述 通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。  解决办法 这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑工">
+<meta property="og:description" content="问题描述通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。 解决办法这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。 修改 安装目录&#x2F;licenses 目录下的许可证文件，用任何编辑">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.alumik.cn/posts/35/20180726200007776.png">
 <meta property="article:published_time" content="2019-06-24T13:19:51.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.496Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.809Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="MATLAB">
 <meta name="twitter:card" content="summary">
@@ -133,12 +133,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -232,7 +232,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,12 +276,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
-<p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
-<h2 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h2>
-<p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
-<p>修改 <em>安装目录/licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>通过远程桌面访问 Windows 上安装好的 MATLAB 的时候，出现了 License Manager Error -103 的错误。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>这是由于 MATLAB 使用了 FLEXlm 进行 license 管理，而 FLEXlm 不支持从远程桌面访问。不过，对 license 文件稍加修改，就能够使用了。</p>
+<p>修改 <em>安装目录&#x2F;licenses</em> 目录下的许可证文件，用任何编辑工具打开 <em>.lic</em> 文件，然后在每一行的 <code>SIGN=xxxxxxxxxx</code> 前面，加入 <code>TS_OK</code> 这个参数（注意 OK 后面有一个空格）。</p>
 <img src="/posts/35/20180726200007776.png" class="" title="修改示例">
+
 <p>修改之后即可使用。</p>
 
     </div>
@@ -374,7 +373,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text"> 问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text"> 解决办法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">解决办法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,20 +388,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -523,8 +522,6 @@
 
 
 
-
-  
 
   
 

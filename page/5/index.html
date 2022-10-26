@@ -127,12 +127,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,8 +260,9 @@
       
           <p>You would have to run this as root (hence the <code>sudo</code>):</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> $(<span class="built_in">cut</span> -f1 -d: /etc/passwd); <span class="keyword">do</span> <span class="built_in">echo</span> <span class="variable">$user</span>; sudo crontab -u <span class="variable">$user</span> -l; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
 <p>will loop over each user name listing out their crontab.
-The crontabs are owned by the respective users so you won't be able to see another user's crontab w/o being them or root.</p>
+The crontabs are owned by the respective users so you won&#39;t be able to see another user&#39;s crontab w&#x2F;o being them or root.</p>
 
       
     </div>
@@ -312,7 +313,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,8 +345,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题现象"><a class="markdownIt-Anchor" href="#问题现象"></a> 问题现象</h2>
-<p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
+          <h2 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h2><p>Windows 10 系统在线升级到 1909 (18363.1139)、20H1 (19041.572) 或 20H2 (19042.572) 后出现磁盘分区的卷标名称丢失，导致无法 F10 恢复出厂设置。故障现象图片如下：</p>
 <img src="/posts/75/1.png" class="" width="500">
 <img src="/posts/75/2.png" class="" width="500">
           <!--noindex-->
@@ -405,7 +405,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -439,9 +439,12 @@ The crontabs are owned by the respective users so you won't be able to see anoth
       
           <p>Use <code>leftmargin=*</code></p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step <span class="keyword">\arabic</span>*:,leftmargin=*]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation :</span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/74/1.png" class="" width="520">
+
 <p>Or set a proper itemindent if you want to control the indent.</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;enumitem&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;showframe&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate&#125;[label=<span class="keyword">\bfseries</span> Step~<span class="keyword">\arabic</span>*:,itemindent=3em]</span><br><span class="line">  <span class="keyword">\item</span> Elliptic Key Creation : </span><br><span class="line">  <span class="keyword">\item</span> Exchange of Public Elliptic keys</span><br><span class="line">  <span class="keyword">\item</span> MasterSecret Computation</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/74/2.png" class="" width="520">
 
       
@@ -493,7 +496,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -527,6 +530,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
       
           <p>The <code>enumitem</code> package has an <code>inline</code> option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other <code>enumitem</code> lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[inline]&#123;enumitem&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line">Text before list.</span><br><span class="line"><span class="keyword">\begin</span>&#123;enumerate*&#125;</span><br><span class="line">  <span class="keyword">\item</span> My first in list.</span><br><span class="line">  <span class="keyword">\item</span> My second in list.</span><br><span class="line"><span class="keyword">\end</span>&#123;enumerate*&#125;</span><br><span class="line">Text after list.</span><br><span class="line"></span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/73/1.png" class="" width="600">
 
       
@@ -578,7 +582,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -610,20 +614,18 @@ The crontabs are owned by the respective users so you won't be able to see anoth
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="journal-indexes"><a class="markdownIt-Anchor" href="#journal-indexes"></a> Journal Indexes</h2>
-<p><strong>SCIE/SSCI/AHCI/ESCI</strong> Journals: <a target="_blank" rel="noopener" href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
+          <h2 id="Journal-Indexes"><a href="#Journal-Indexes" class="headerlink" title="Journal Indexes"></a>Journal Indexes</h2><p><strong>SCIE&#x2F;SSCI&#x2F;AHCI&#x2F;ESCI</strong> Journals: <a target="_blank" rel="noopener" href="https://mjl.clarivate.com/home">https://mjl.clarivate.com/home</a></p>
 <p><strong>ISI</strong> Journals: <a target="_blank" rel="noopener" href="https://isindexing.com/isi/journals.php">https://isindexing.com/isi/journals.php</a></p>
 <p><strong>Ei Compendex</strong>: <a target="_blank" rel="noopener" href="https://www.elsevier.com/solutions/engineering-village/content/compendex">https://www.elsevier.com/solutions/engineering-village/content/compendex</a></p>
 <div class="note info">
             <p>To download the list of Ei journals and proceedings in Excel format:</p><ol><li>Click on this <a target="_blank" rel="noopener" href="https://www.elsevier.com/solutions/engineering-village/content/compendex">link</a>.</li><li>Click on &quot;Compendex source list&quot;.</li></ol>
           </div>
-<h2 id="journal-ranking-and-impact-factors"><a class="markdownIt-Anchor" href="#journal-ranking-and-impact-factors"></a> Journal Ranking and Impact Factors</h2>
-<p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a target="_blank" rel="noopener" href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
+
+<h2 id="Journal-Ranking-and-Impact-Factors"><a href="#Journal-Ranking-and-Impact-Factors" class="headerlink" title="Journal Ranking and Impact Factors"></a>Journal Ranking and Impact Factors</h2><p>Check the <strong>JCR (Journal Citation Report) ranking</strong> of a journal and its impact factor (requires a subscription): <a target="_blank" rel="noopener" href="https://jcr.clarivate.com/jcr/home">https://jcr.clarivate.com/jcr/home</a></p>
 <p>Check <strong>SCImago Journal Ranking (SJR)</strong> in terms of quartile Q1, Q2, Q3, Q4: <a target="_blank" rel="noopener" href="https://www.scimagojr.com/">https://www.scimagojr.com/</a></p>
 <p>Check <strong>Chinese Academy of Science journal ranking</strong> (中科院分区) using LetPub in terms of quartile Q1, Q2, Q3, Q4: <a target="_blank" rel="noopener" href="http://www.letpub.com.cn/index.php?page=journalapp">http://www.letpub.com.cn/index.php?page=journalapp</a></p>
-<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a target="_blank" rel="noopener" href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
-<h2 id="citations"><a class="markdownIt-Anchor" href="#citations"></a> Citations</h2>
-<p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a target="_blank" rel="noopener" href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
+<p>Check the <strong>Chinese Computer Federation (CCF) recommended list of international conferences and periodicals</strong>: <a target="_blank" rel="noopener" href="https://www.ccf.org.cn/Academic_Evaluation/By_category/">https://www.ccf.org.cn/Academic_Evaluation&#x2F;By_category&#x2F;</a></p>
+<h2 id="Citations"><a href="#Citations" class="headerlink" title="Citations"></a>Citations</h2><p>Search for citations in the Web of Science (also called Web of Knowledge, requires a subscription): <a target="_blank" rel="noopener" href="http://www.webofknowledge.com/">http://www.webofknowledge.com/</a></p>
 
       
     </div>
@@ -674,7 +676,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -706,7 +708,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>如果误删除了 <em>/var/log/auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
+          <p>如果误删除了 <em>&#x2F;var&#x2F;log&#x2F;auth.log</em> 等系统日志，可以通过重新启动 <code>rsyslog</code> 服务重建日志文件。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service rsyslog restart</span><br></pre></td></tr></table></figure>
 
       
@@ -758,7 +760,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -790,7 +792,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>When using Windows PowerShell, it's possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
+          <p>When using Windows PowerShell, it&#39;s possible to use a PowerShell module. Copy and paste the following PowerShell script that retrieves the latest version of the desired module and then recursively uninstalls the previous versions installed. Interesting to note, you can use the <code>-WhatIf</code> parameter at the end to simulate and preview the changes without doing them (remember to remove <code>-WhatIf</code> parameter when you want to apply the changes and to set the <code>$ModuleName</code> to the desired PowerShell module).</p>
 <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ModuleName</span> = <span class="string">&#x27;oh-my-posh&#x27;</span>;</span><br><span class="line"><span class="variable">$Latest</span> = <span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span>; </span><br><span class="line"><span class="built_in">Get-InstalledModule</span> <span class="variable">$ModuleName</span> <span class="literal">-AllVersions</span> | ? &#123;<span class="variable">$_</span>.Version <span class="operator">-ne</span> <span class="variable">$Latest</span>.Version&#125; | <span class="built_in">Uninstall-Module</span> <span class="literal">-WhatIf</span></span><br></pre></td></tr></table></figure>
 
       
@@ -842,7 +844,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -874,10 +876,11 @@ The crontabs are owned by the respective users so you won't be able to see anoth
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Here's how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
+          <p>Here&#39;s how you can do; which one to choose between the second and third example is a matter of taste and of what your pictures contain.</p>
 <p>The <code>frame</code> option draws a frame with rule of width <code>\fboxrule</code> (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the <code>frame</code> option).</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[export]&#123;adjustbox&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>&#123;graphicx&#125;</span><br><span class="line"><span class="keyword">\setlength</span>&#123;<span class="keyword">\parindent</span>&#125;&#123;0pt&#125; <span class="comment">% just for the example</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">\begin</span>&#123;document&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\footnotesize</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% first example: bad, there&#x27;s an overfull of twice the rule width    </span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% second example: good, the frame is drawn outside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\dimexpr\textwidth-2\fboxrule,frame=&#123;\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>-2<span class="keyword">\fboxrule</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">\medskip</span></span><br><span class="line"></span><br><span class="line"><span class="comment">% third example: good, the frame is drawn inside the picture</span></span><br><span class="line"><span class="keyword">\verb</span>|<span class="string">\includegraphics[width=\textwidth,frame=&#123;\fboxrule&#125; &#123;-\fboxrule&#125;]&#123;tiger&#125;</span>|<span class="keyword">\\</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;minipage&#125;&#123;4cm&#125;</span><br><span class="line"><span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>,frame=&#123;<span class="keyword">\fboxrule</span>&#125; &#123;-<span class="keyword">\fboxrule</span>&#125;]&#123;tiger&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;minipage&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>Don't include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that's reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
+
+<p>Don&#39;t include the <code>minipage</code> environments, they are just to show the effect while using <code>\textwidth</code> (that&#39;s reset in a <code>minipage</code>) and not having a huge picture of the result.</p>
 
       
     </div>
@@ -928,7 +931,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -961,8 +964,9 @@ The crontabs are owned by the respective users so you won't be able to see anoth
 
       
           <p>You can use something called &quot;bash parameter expansion&quot; to accomplish this.</p>
-<p>To get the assigned value, or default if it's missing:</p>
+<p>To get the assigned value, or default if it&#39;s missing:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, use default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:-default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
 <p>Or to assign default to <code>VARIABLE</code> at the same time:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If variable not set or null, set it to default.</span></span><br><span class="line">FOO=<span class="string">&quot;<span class="variable">$&#123;VARIABLE:=default&#125;</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -1015,7 +1019,7 @@ The crontabs are owned by the respective users so you won't be able to see anoth
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1050,9 +1054,12 @@ The crontabs are owned by the respective users so you won't be able to see anoth
           <p>当 Windows 10 连接过某个 Wi-Fi 后，这个 Wi-Fi 热点的 SSID、密码等信息就会保存到系统当中，之后再度进入到 Wi-Fi 范围可以自动连接。然而，已经保存在系统的 Wi-Fi，却不能直接查看密码。</p>
 <p>使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh wlan show profile name=&lt;SSID&gt; key=clear</span><br></pre></td></tr></table></figure>
+
 <p>其中，<code>SSID</code> 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 <code>HUAWEI Mate 30</code> 这个热点的密码，则输入：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;HUAWEI Mate 30&quot; key=clear</span><br></pre></td></tr></table></figure>
+
 <img src="/posts/67/01.png" class="" width="400">
+
 <p>在显示出来的“安全设置”一栏当中，“关键内容”所显示的，就是该 Wi-Fi 热点对应的密码了。</p>
 
       
@@ -1139,20 +1146,20 @@ The crontabs are owned by the respective users so you won't be able to see anoth
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1273,8 +1280,6 @@ The crontabs are owned by the respective users so you won't be able to see anoth
 
 
 
-
-  
 
   
 

@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://blog.alumik.cn/posts/53/2-Regedit.webp">
 <meta property="og:image" content="https://blog.alumik.cn/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp">
 <meta property="article:published_time" content="2020-08-30T07:01:43.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.504Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.813Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -138,12 +138,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -281,28 +281,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you're on a shared PC or if you just want a fresh start. We already showed you <a target="_blank" rel="noopener" href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
+        <p>Windows will keep a history of the items you have searched over time. So, each time you type in a search query, you will see a list of recently searched items. You might want to clear this from time to time, especially if you&#39;re on a shared PC or if you just want a fresh start. We already showed you <a target="_blank" rel="noopener" href="https://www.groovypost.com/howto/turn-autocomplete-windows-10-file-explorer-on-off/">how to turn off autocomplete in File Explorer</a>. For even more control over file navigation, here is a look at how to clear recent File Explorer search history or disable it altogether.</p>
 <img src="/posts/53/Search-History-Windows-10-File-Explorer.webp" class="">
+
 <span id="more"></span>
-<h2 id="clear-file-explorer-search-history"><a class="markdownIt-Anchor" href="#clear-file-explorer-search-history"></a> Clear File Explorer Search History</h2>
-<p>You can simply clear your recent search history by selecting the Search tab in File Explorer and going to <em>Recent Searches &gt; Clear search History</em>.</p>
+
+<h2 id="Clear-File-Explorer-Search-History"><a href="#Clear-File-Explorer-Search-History" class="headerlink" title="Clear File Explorer Search History"></a>Clear File Explorer Search History</h2><p>You can simply clear your recent search history by selecting the Search tab in File Explorer and going to <em>Recent Searches &gt; Clear search History</em>.</p>
 <img src="/posts/53/Clear-Search-history.webp" class="">
-<h2 id="disable-file-explorer-search-history"><a class="markdownIt-Anchor" href="#disable-file-explorer-search-history"></a> Disable File Explorer Search History</h2>
-<p>If you don't want to clear your history all the time, you can completely disable it from keeping track of your searches. In Windows 10 Pro, you can turn off search history in Group Policy, but for Windows 10 Home, you need to do a bit of tweaking in the Registry.</p>
-<h3 id="in-windows-10-pro"><a class="markdownIt-Anchor" href="#in-windows-10-pro"></a> In Windows 10 Pro</h3>
-<p>If you're running Windows 10 Professional, you can turn it off via Group Policy. Hit the keyboard combo <strong>Windows Key + R</strong> and type <code>gpedit.msc</code> in the Run dialog and hit Enter or click OK.</p>
+
+<h2 id="Disable-File-Explorer-Search-History"><a href="#Disable-File-Explorer-Search-History" class="headerlink" title="Disable File Explorer Search History"></a>Disable File Explorer Search History</h2><p>If you don&#39;t want to clear your history all the time, you can completely disable it from keeping track of your searches. In Windows 10 Pro, you can turn off search history in Group Policy, but for Windows 10 Home, you need to do a bit of tweaking in the Registry.</p>
+<h3 id="In-Windows-10-Pro"><a href="#In-Windows-10-Pro" class="headerlink" title="In Windows 10 Pro"></a>In Windows 10 Pro</h3><p>If you&#39;re running Windows 10 Professional, you can turn it off via Group Policy. Hit the keyboard combo <strong>Windows Key + R</strong> and type <code>gpedit.msc</code> in the Run dialog and hit Enter or click OK.</p>
 <img src="/posts/53/1-gpedit.webp" class="">
+
 <p>Then navigate to <code>User Configuration\Administrative Templates\Windows Components\File Explorer</code>. Double-click on &quot;Turn off display of recent search entries in the File Explorer search box&quot; policy in the right pane and set it to Enabled, click OK, and close out of Group Policy Editor.</p>
 <img src="/posts/53/2-group-policy-editor-search-box-policy.webp" class="">
-<h3 id="in-windows-10-home"><a class="markdownIt-Anchor" href="#in-windows-10-home"></a> In Windows 10 Home</h3>
-<div class="note info">
-            <p>Windows 10 Home doesn't include Group Policy, so you need to hack the Registry. Before making any changes to the Registry make sure to do a full system backup or create a Restore Point first.</p>
+
+<h3 id="In-Windows-10-Home"><a href="#In-Windows-10-Home" class="headerlink" title="In Windows 10 Home"></a>In Windows 10 Home</h3><div class="note info">
+            <p>Windows 10 Home doesn&#39;t include Group Policy, so you need to hack the Registry. Before making any changes to the Registry make sure to do a full system backup or create a Restore Point first.</p>
           </div>
+
 <p>Hit <strong>Windows Key + R</strong> and type <code>regedit</code> in the Run line and hit Enter or click OK.</p>
 <img src="/posts/53/2-Regedit.webp" class="">
+
 <p>Then head to <code>HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Explorer</code>. Right-click in the right pane and create a new DWORD (32-bit) Value and name it <code>DisableSearchBoxSuggestions</code> and give it a value of <code>1</code>.</p>
 <img src="/posts/53/disable-file-explorer-search-history-collection-Windows-10.webp" class="">
-<p>After you're done, close out of the Registry, and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
+
+<p>After you&#39;re done, close out of the Registry, and you will need to log off or restart your system before you will see the change. You will no longer see the history of past searches in File Explorer. If you want to enable it later, just go back and change the value of <code>DisableSearchBoxSuggestions</code> to <code>0</code>.</p>
 
     </div>
 
@@ -390,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clear-file-explorer-search-history"><span class="nav-number">1.</span> <span class="nav-text"> Clear File Explorer Search History</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#disable-file-explorer-search-history"><span class="nav-number">2.</span> <span class="nav-text"> Disable File Explorer Search History</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#in-windows-10-pro"><span class="nav-number">2.1.</span> <span class="nav-text"> In Windows 10 Pro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#in-windows-10-home"><span class="nav-number">2.2.</span> <span class="nav-text"> In Windows 10 Home</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Clear-File-Explorer-Search-History"><span class="nav-number">1.</span> <span class="nav-text">Clear File Explorer Search History</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Disable-File-Explorer-Search-History"><span class="nav-number">2.</span> <span class="nav-text">Disable File Explorer Search History</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#In-Windows-10-Pro"><span class="nav-number">2.1.</span> <span class="nav-text">In Windows 10 Pro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#In-Windows-10-Home"><span class="nav-number">2.2.</span> <span class="nav-text">In Windows 10 Home</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -405,20 +409,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -539,8 +543,6 @@
 
 
 
-
-  
 
   
 

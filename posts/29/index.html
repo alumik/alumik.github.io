@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="首先安装并配置好 adb 工具，并选择以下命令中的一条执行。 将 PACKAGE 替换为应用包名。 123adb shell pm block PACKAGE # Kitkat 可用adb shell pm hide PACKAGE # Lollipop 可用adb shell pm uninstall --user 0 PACKAGE # Marshmallow 和 Nougat 可用 注意第三">
+  <meta name="description" content="首先安装并配置好 adb 工具，并选择以下命令中的一条执行。 将 PACKAGE 替换为应用包名。 123adb shell pm block PACKAGE # Kitkat 可用adb shell pm hide PACKAGE # Lollipop 可用adb shell pm uninstall --user 0 PACKAGE # Marshmallow 和 Nougat 可用  注意第">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在没有 Root 权限的情况下删除或禁用 Android 系统应用">
 <meta property="og:url" content="https://blog.alumik.cn/posts/29/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="首先安装并配置好 adb 工具，并选择以下命令中的一条执行。 将 PACKAGE 替换为应用包名。 123adb shell pm block PACKAGE # Kitkat 可用adb shell pm hide PACKAGE # Lollipop 可用adb shell pm uninstall --user 0 PACKAGE # Marshmallow 和 Nougat 可用 注意第三">
+<meta property="og:description" content="首先安装并配置好 adb 工具，并选择以下命令中的一条执行。 将 PACKAGE 替换为应用包名。 123adb shell pm block PACKAGE # Kitkat 可用adb shell pm hide PACKAGE # Lollipop 可用adb shell pm uninstall --user 0 PACKAGE # Marshmallow 和 Nougat 可用  注意第">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-06-24T12:28:11.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.496Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.809Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,6 +277,7 @@
         <p>首先安装并配置好 adb 工具，并选择以下命令中的一条执行。</p>
 <p>将 <code>PACKAGE</code> 替换为应用包名。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adb shell pm block PACKAGE <span class="comment"># Kitkat 可用</span></span><br><span class="line">adb shell pm hide PACKAGE <span class="comment"># Lollipop 可用</span></span><br><span class="line">adb shell pm uninstall --user 0 PACKAGE <span class="comment"># Marshmallow 和 Nougat 可用</span></span><br></pre></td></tr></table></figure>
+
 <p>注意第三种命令可能会失效，而且在重新安装或恢复出厂设置之前无法找回被删除的软件。</p>
 
     </div>
@@ -374,20 +375,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -508,8 +509,6 @@
 
 
 
-
-  
 
   
 

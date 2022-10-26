@@ -127,12 +127,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -259,20 +259,24 @@
 
       
           <p>During the installation of a few packages, Ubuntu usually installs the <code>tzdata</code> package.
-It's usually included in some PHP or Python packages dependencies.
+It&#39;s usually included in some PHP or Python packages dependencies.
 The issue with it is that it hangs and waits for user input to continue the installation.
-It's ok until we are using Docker and trying to build images (it's hanging or even throwing errors in newer versions of Ubuntu).
+It&#39;s ok until we are using Docker and trying to build images (it&#39;s hanging or even throwing errors in newer versions of Ubuntu).
 We will try to reproduce the situation and try to fix it.</p>
 <p>To reproduce the hanging situation, we can use this Docker image:</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
+
 <p>Here is the logs that we see in terminal:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Step 1/3 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/3 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 174ce3e1bb84</span><br><span class="line">Step 3/3 : RUN apt install -y tzdata</span><br><span class="line">...</span><br><span class="line">Configuring tzdata</span><br><span class="line">------------------</span><br><span class="line"></span><br><span class="line">Please select the geographic area in which you live. Subsequent configuration</span><br><span class="line">questions will narrow this down by presenting a list of cities, representing</span><br><span class="line">the time zones in which they are located.</span><br><span class="line"></span><br><span class="line">  1. Africa      4. Australia  7. Atlantic  10. Pacific  13. Etc</span><br><span class="line">  2. America     5. Arctic     8. Europe    11. SystemV</span><br><span class="line">  3. Antarctica  6. Asia       9. Indian    12. US</span><br><span class="line">Geographic area: </span><br></pre></td></tr></table></figure>
-<p>And here it hangs waiting for us enter data, and even after you'll enter a region — the process will not resume.</p>
+
+<p>And here it hangs waiting for us enter data, and even after you&#39;ll enter a region — the process will not resume.</p>
 <p>To fix this situation we need to add lines 3 and 4 to our Dockerfile. We will create a variable called <code>$TZ</code> which will hold our timezone, and the create a <code>/etc/timezone</code> file:</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> TZ=Asia/Dubai</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">ln</span> -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
+
 <p>And after building image we will see this output:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Step 1/5 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/5 : ENV TZ=Asia/Dubai</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 7f4c85bd0d3e</span><br><span class="line">Step 3/5 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; f6f784dfbad5</span><br><span class="line">Step 4/5 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 5b1b5617eaa5</span><br><span class="line">Step 5/5 : RUN apt install -y tzdata</span><br><span class="line"> ---&gt; Running in e71a917a9b6b</span><br><span class="line">Current default time zone: &#x27;Asia/Dubai&#x27;</span><br><span class="line">Local time is now:      Tue Aug  4 12:14:55 +04 2020.</span><br><span class="line">Universal Time is now:  Tue Aug  4 08:14:55 UTC 2020.</span><br><span class="line">Run &#x27;dpkg-reconfigure tzdata&#x27; if you wish to change it.</span><br><span class="line"></span><br><span class="line">Removing intermediate container e71a917a9b6b</span><br><span class="line"> ---&gt; 3d29f4e8f7eb</span><br><span class="line">Successfully built 3d29f4e8f7eb</span><br><span class="line">Successfully tagged tzdata:latest</span><br></pre></td></tr></table></figure>
-<p>So it's used the timezone that we provide and nothing hangs.</p>
+
+<p>So it&#39;s used the timezone that we provide and nothing hangs.</p>
 
       
     </div>
@@ -323,7 +327,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -357,8 +361,7 @@ We will try to reproduce the situation and try to fix it.</p>
       
           <p>从 Windows 10开始，微软在操作系统中设置了一个 HDR 模式。如果用户的显示器支持 HDR，打开系统中的 HDR 开关就能让整个 Windows 处于 HDR 的画面状态下。但是几乎所有人都发现，无论 HDR 的显示器亮度有多高，打开 HDR 模式后整个画面都会显得发灰，同时亮度似乎也低了一些。这个现象在亮度低色域差的显示器上会更为明显。但哪怕是 LG 的 OLED 显示器，同样会出现类似的问题，只是情况会稍微好一些。</p>
 <p>关于这个问题网友的争论已久，也想出各种办法进行调试，但都没得到一个很好的结果。那么这个问题到底是怎么产生的呢？又有没有什么办法让显示器在 Windows 的 HDR 模式下显示出正常的颜色呢？</p>
-<h2 id="先看看微软怎么说"><a class="markdownIt-Anchor" href="#先看看微软怎么说"></a> 先看看微软怎么说</h2>
-<p>因为这个问题牵涉太多，而且现在的显示器几乎全部无解，所以很多人也希望不管是啥原因，微软最好给一个好的解决方案出来。而在微软的官方页面中，的确也有 HDR 相关的说法。其实无非是两方面，一个是开启 HDR 后画面亮度降低，一个就是开启 HDR 后颜色显示不准确，这两种问题加起来就是我们常说的画面发灰。针对亮度变化的情况，微软也有自己的说法，微软表示如果遇到所有 SDR 内容和应用，在支持 HDR 的显示器上出现显示亮度过高或过低的情况时，可以在 HDR 的选项中，在“HDR/SDR 亮度平衡”下面，拖动滑块以在 HDR 和 SDR 内容之间获得正确的亮度平衡。这个方法的确有效，可以调整桌面的亮度，但很明显会让整个画面呈现过曝或者曝光不足的状态，而且实际上桌面整体发灰颜色暗淡的问题并没有解决，只是可以让视觉上得到一些观感的改善。而在颜色部分，微软也单独说明了，如果遇到支持 HDR 的外部显示器上无法正确显示颜色时，应该如何做。当然微软说的都是废话，微软表示支持 HDR 的显示器支持比 sRGB 更宽的色域，所以在打开“使用 HDR”后，HDR 显示器应该会正确再现桌面应用中使用的 sRGB 颜色。如果某些支持 HDR 的显示器未正确再现这些颜色，那么用户要考虑购买经过 VESA DisplayHDR 认证的显示器……</p>
+<h2 id="先看看微软怎么说"><a href="#先看看微软怎么说" class="headerlink" title="先看看微软怎么说"></a>先看看微软怎么说</h2><p>因为这个问题牵涉太多，而且现在的显示器几乎全部无解，所以很多人也希望不管是啥原因，微软最好给一个好的解决方案出来。而在微软的官方页面中，的确也有 HDR 相关的说法。其实无非是两方面，一个是开启 HDR 后画面亮度降低，一个就是开启 HDR 后颜色显示不准确，这两种问题加起来就是我们常说的画面发灰。针对亮度变化的情况，微软也有自己的说法，微软表示如果遇到所有 SDR 内容和应用，在支持 HDR 的显示器上出现显示亮度过高或过低的情况时，可以在 HDR 的选项中，在“HDR&#x2F;SDR 亮度平衡”下面，拖动滑块以在 HDR 和 SDR 内容之间获得正确的亮度平衡。这个方法的确有效，可以调整桌面的亮度，但很明显会让整个画面呈现过曝或者曝光不足的状态，而且实际上桌面整体发灰颜色暗淡的问题并没有解决，只是可以让视觉上得到一些观感的改善。而在颜色部分，微软也单独说明了，如果遇到支持 HDR 的外部显示器上无法正确显示颜色时，应该如何做。当然微软说的都是废话，微软表示支持 HDR 的显示器支持比 sRGB 更宽的色域，所以在打开“使用 HDR”后，HDR 显示器应该会正确再现桌面应用中使用的 sRGB 颜色。如果某些支持 HDR 的显示器未正确再现这些颜色，那么用户要考虑购买经过 VESA DisplayHDR 认证的显示器……</p>
 <p>但这显然并不正确，因为我们在使用经过 VESA 认证的 HDR 显示器上，同样会遇到颜色不准确的情况，色彩暗淡即使调整亮度也无法解决，无论是 HDR400 还是 HDR1000 的显示器上都是如此。LCD也好，Mini LED 也好，OLED 也好，各种类型的显示器我们都试过了，全部都会在 Windows 的 HDR 模式下，无法显示出精准的色彩，特别是颜色亮度会明显下降，而这和实际显示器的亮度关系已经不大了。</p>
 <p>那么要如何解决这个问题呢？</p>
           <!--noindex-->
@@ -418,7 +421,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -452,8 +455,10 @@ We will try to reproduce the situation and try to fix it.</p>
       
           <p>使用 <code>root</code> 用户运行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo 0 &gt; /proc/sys/kernel/yama/ptrace_scope</span><br></pre></td></tr></table></figure>
+
 <p>要使得该修改在重启后不被覆盖</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/sysctl.d/10-ptrace.conf</span><br></pre></td></tr></table></figure>
+
 <p>修改使得 <code>kernel.yama.ptrace = 0</code>。
 然后用 <code>sysctl -p /etc/sysctl.d/10-ptrace.conf</code> 执行生效。</p>
 
@@ -506,7 +511,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -538,7 +543,7 @@ We will try to reproduce the situation and try to fix it.</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Windows 安全中心基于声誉的保护如果提示有威胁，但是点开发现什么都没有，这是因为该威胁已经由于手动或者其他原因（杀毒/清理类软件）被删除了，而 Windows 安全中心的的提醒里并没有把这个威胁删掉。所以需要我们手动清理一下这个历史记录。</p>
+          <p>Windows 安全中心基于声誉的保护如果提示有威胁，但是点开发现什么都没有，这是因为该威胁已经由于手动或者其他原因（杀毒&#x2F;清理类软件）被删除了，而 Windows 安全中心的的提醒里并没有把这个威胁删掉。所以需要我们手动清理一下这个历史记录。</p>
 <p>首先打开 <span class="label info">C:\ProgramData\Microsoft\Windows Defender\Scans</span> 这个时候提示需要系统权限，授权后，继续打开 <span class="label info">History\Service\DetectionHistory</span>。最终路径：<span class="label info">C:\ProgramData\Microsoft\Windows Defender\Scans\History\Service\DetectionHistory</span>。不能直接复制最终路径，系统会提示无权限打开。接着，把里面的文件全部删除，即可解决问题。</p>
 
       
@@ -590,7 +595,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -624,11 +629,13 @@ We will try to reproduce the situation and try to fix it.</p>
       
           <p>You can check the width of the character using <code>unicodedata.east_asian_width(unichr)</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> unicodedata</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> string:</span><br><span class="line">    status = unicodedata.east_asian_width(char)</span><br><span class="line">    <span class="keyword">if</span> status == <span class="string">&#x27;F&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; is full-width.&#x27;</span>.<span class="built_in">format</span>(char))</span><br><span class="line">    <span class="keyword">elif</span> status == <span class="string">&#x27;H&#x27;</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;&#123;0&#125; is half-width.&#x27;</span>.<span class="built_in">format</span>(char))</span><br></pre></td></tr></table></figure>
+
 <p>It has the following returned values:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># East_Asian_Width (ea)</span><br><span class="line"></span><br><span class="line">ea ; A         ; Ambiguous</span><br><span class="line">ea ; F         ; Fullwidth</span><br><span class="line">ea ; H         ; Halfwidth</span><br><span class="line">ea ; N         ; Neutral</span><br><span class="line">ea ; Na        ; Narrow</span><br><span class="line">ea ; W         ; Wide</span><br></pre></td></tr></table></figure>
-<p>Returned values of <code>'W'</code>, <code>'F'</code> and <code>'A'</code> should be considered as full-width on Windows.</p>
+
+<p>Returned values of <code>&#39;W&#39;</code>, <code>&#39;F&#39;</code> and <code>&#39;A&#39;</code> should be considered as full-width on Windows.</p>
 <p>Reference: <a target="_blank" rel="noopener" href="http://www.unicode.org/reports/tr44/tr44-4.html#Validation_of_Enumerated">http://www.unicode.org/reports/tr44/tr44-4.html#Validation_of_Enumerated</a></p>
-<p>On POSIX platform, the quote characters (<code>u'“'</code> and <code>u'”'</code>) are considered as ambiguous, which are actually 1 character width in console. For console usage, you may try a 3rd-party library urwid:</p>
+<p>On POSIX platform, the quote characters (<code>u&#39;“&#39;</code> and <code>u&#39;”&#39;</code>) are considered as ambiguous, which are actually 1 character width in console. For console usage, you may try a 3rd-party library urwid:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> urwid.util <span class="keyword">import</span> str_util</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str_util.get_width(<span class="built_in">ord</span>(<span class="string">u&#x27;x&#x27;</span>))</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str_util.get_width(<span class="built_in">ord</span>(<span class="string">u&#x27;“&#x27;</span>))</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>str_util.get_width(<span class="built_in">ord</span>(<span class="string">u&#x27;你&#x27;</span>))</span><br><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure>
 
       
@@ -680,7 +687,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -765,7 +772,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -799,16 +806,14 @@ We will try to reproduce the situation and try to fix it.</p>
       
           <p>NVIDIA is providing a user-space daemon on Linux to support persistence of driver state across Cuda job runs. The daemon approach provides a more elegant and robust solution to this problem than persistence mode.</p>
 <p>NVIDIA will support both solutions for the near future (likely through Cuda 8.0), but will focus all future development and bug fixes on the daemon.</p>
-<p>The daemon is installed in /usr/bin, while sample installation and init scripts are included with the driver in the documentation directory. The scripts are provided as a guide for installing the daemon to run on system startup for some common init systems; they may require some changes for certain distributions, due to the wide variety of init system configurations.</p>
+<p>The daemon is installed in &#x2F;usr&#x2F;bin, while sample installation and init scripts are included with the driver in the documentation directory. The scripts are provided as a guide for installing the daemon to run on system startup for some common init systems; they may require some changes for certain distributions, due to the wide variety of init system configurations.</p>
 <p>NVIDIA encourages customers to shift to this daemon approach at their earliest availability.</p>
-<h2 id="supported-environments"><a class="markdownIt-Anchor" href="#supported-environments"></a> Supported Environments</h2>
-<ul>
+<h2 id="Supported-Environments"><a href="#Supported-Environments" class="headerlink" title="Supported Environments"></a>Supported Environments</h2><ul>
 <li>Drivers: R319 and higher</li>
 <li>OSes: All standard driver-supported Linux platforms</li>
 <li>GPUs: All shipping Tesla, Quadro and GRID products</li>
 </ul>
-<h2 id="implementation-details"><a class="markdownIt-Anchor" href="#implementation-details"></a> Implementation Details</h2>
-<p>On Linux systems running the NVIDIA GPU driver, clients attach a GPU by opening its device file. Conversely, the GPU is detached by closing the device file. The GPU state remains loaded in the driver whenever one or more clients have the device file open. Once all clients have closed the device file, the GPU state will be unloaded unless persistence mode is enabled.</p>
+<h2 id="Implementation-Details"><a href="#Implementation-Details" class="headerlink" title="Implementation Details"></a>Implementation Details</h2><p>On Linux systems running the NVIDIA GPU driver, clients attach a GPU by opening its device file. Conversely, the GPU is detached by closing the device file. The GPU state remains loaded in the driver whenever one or more clients have the device file open. Once all clients have closed the device file, the GPU state will be unloaded unless persistence mode is enabled.</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/100/#more" rel="contents">
@@ -866,7 +871,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -901,9 +906,11 @@ We will try to reproduce the situation and try to fix it.</p>
           <p>这是由于 <code>systemd-timesyncd</code> 被误认为是一个用户 ID 而不是进程名。
 使用 <code>ps -ef</code> 命令可以发现该问题。例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root     20366   779  0 21:05 ?        00:00:00 [autocleanStatus] &lt;defunct&gt;</span><br><span class="line">root     20385   757  0 21:05 ?        00:00:00 sshd: git [priv]</span><br><span class="line">&lt;long hang&gt;</span><br><span class="line">62583    20396     1  2 21:06 ?        00:00:00 /lib/systemd/systemd-timesyncd</span><br></pre></td></tr></table></figure>
+
 <p>要解决该问题，一般重启即可。
 也可以禁用 <code>systemd-timesyncd</code> 服务。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop systemd-timesyncd</span><br><span class="line">sudo systemctl disable systemd-timesyncd</span><br></pre></td></tr></table></figure>
+
 <p>要想恢复被禁用的服务，可以使用：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable systemd-timesyncd</span><br><span class="line">sudo systemctl start systemd-timesyncd</span><br></pre></td></tr></table></figure>
 
@@ -956,7 +963,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -993,8 +1000,10 @@ We will try to reproduce the situation and try to fix it.</p>
 用户可以利用 IPMI 监视服务器的物理特征，如温度、电压、电扇工作状态、电源供应以及机箱入侵等。</p>
 <p>安装 <code>impitool</code>：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install impitool</span><br></pre></td></tr></table></figure>
+
 <p>配置启用：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe ipmi_msghandler</span><br><span class="line">sudo modprobe ipmi_devintf</span><br><span class="line">sudo modprobe ipmi_si</span><br></pre></td></tr></table></figure>
+
 <p>接着，使用如下命令查看 iDRAC 地址：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipmitool lan print</span><br></pre></td></tr></table></figure>
 
@@ -1047,7 +1056,7 @@ We will try to reproduce the situation and try to fix it.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1079,11 +1088,10 @@ We will try to reproduce the situation and try to fix it.</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="解决办法"><a class="markdownIt-Anchor" href="#解决办法"></a> 解决办法</h2>
-<p>使用 <code>chattr</code> 删除 <code>ia</code> 参数：</p>
+          <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>使用 <code>chattr</code> 删除 <code>ia</code> 参数：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr -ia files...</span><br></pre></td></tr></table></figure>
-<h2 id="chattr-命令"><a class="markdownIt-Anchor" href="#chattr-命令"></a> chattr 命令</h2>
-<p><code>chattr</code> 命令用于改变文件属性，这些属性共有以下8种模式：</p>
+
+<h2 id="chattr-命令"><a href="#chattr-命令" class="headerlink" title="chattr 命令"></a>chattr 命令</h2><p><code>chattr</code> 命令用于改变文件属性，这些属性共有以下8种模式：</p>
 <ul>
 <li><code>a</code> 让文件或目录仅供附加用途。</li>
 <li><code>b</code> 不更新文件或目录的最后存取时间。</li>
@@ -1097,10 +1105,10 @@ We will try to reproduce the situation and try to fix it.</p>
 <div class="note info">
             <p>注意：文件属性为 <code>a</code> 时，追加文件内容需要使用 <code>echo</code> 命令，不能使用 <code>vim</code>。原因是 <code>vim</code> 会生成新的文件，<code>echo</code> 是在源文件上追加。</p>
           </div>
-<h3 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h3>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RVf ] [ -v version ] [ -p project ] [ mode ] files...</span><br></pre></td></tr></table></figure>
-<h3 id="参数"><a class="markdownIt-Anchor" href="#参数"></a> 参数</h3>
-<ul>
+
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RVf ] [ -v version ] [ -p project ] [ mode ] files...</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><ul>
 <li><code>-R</code> 递归处理，将指定目录下的所有文件及子目录一并处理。</li>
 <li><code>-V</code> 显示指令执行过程。</li>
 <li><code>-f</code> 忽略大多数错误信息。</li>
@@ -1195,20 +1203,20 @@ We will try to reproduce the situation and try to fix it.</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1329,8 +1337,6 @@ We will try to reproduce the situation and try to fix it.</p>
 
 
 
-
-  
 
   
 

@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Problems of popular approaches Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in">
+  <meta name="description" content="Problems of popular approachesMost of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope i">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Add Local JAR files to a Maven Project">
 <meta property="og:url" content="https://blog.alumik.cn/posts/45/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="Problems of popular approaches Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in">
+<meta property="og:description" content="Problems of popular approachesMost of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope i">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-22T01:56:11.000Z">
-<meta property="article:modified_time" content="2022-10-26T05:55:46.504Z">
+<meta property="article:modified_time" content="2022-10-26T07:47:29.813Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Maven">
 <meta name="twitter:card" content="summary">
@@ -131,12 +131,12 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">57</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">56</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">17</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">16</span></a>
 
   </li>
         <li class="menu-item menu-item-收藏">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+                <time title="修改时间：2022-10-26 15:47:29" itemprop="dateModified" datetime="2022-10-26T15:47:29+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,23 +274,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="problems-of-popular-approaches"><a class="markdownIt-Anchor" href="#problems-of-popular-approaches"></a> Problems of popular approaches</h2>
-<p>Most of the answers you'll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
-<h3 id="why-you-shouldnt-apply-the-install-to-local-repo-approach"><a class="markdownIt-Anchor" href="#why-you-shouldnt-apply-the-install-to-local-repo-approach"></a> Why you shouldn't apply the &quot;Install to Local Repo&quot; approach</h3>
-<p>When you install a dependency to your local repository it remains there. Your distribution artifact will do fine as long as it has access to this repository. The problem is in most cases this repository will reside on your local machine, so there'll be no way to resolve this dependency on any other machine. Clearly making your artifact depend on a specific machine is not a way to handle things. Otherwise this dependency will have to be locally installed on every machine working with that project which is not any better.</p>
-<h3 id="why-you-shouldnt-apply-the-system-scope-approach"><a class="markdownIt-Anchor" href="#why-you-shouldnt-apply-the-system-scope-approach"></a> Why you shouldn't apply the &quot;System Scope&quot; approach</h3>
-<p>The jars you depend on with the &quot;System Scope&quot; approach neither get installed to any repository or attached to your target packages. That's why your distribution package won't have a way to resolve that dependency when used. That I believe was the reason why the use of system scope even got deprecated. Anyway you don't want to rely on a deprecated feature.</p>
+        <h2 id="Problems-of-popular-approaches"><a href="#Problems-of-popular-approaches" class="headerlink" title="Problems of popular approaches"></a>Problems of popular approaches</h2><p>Most of the answers you&#39;ll find around the internet will suggest you to either install the dependency to your local repository or specify a &quot;system&quot; scope in the <code>pom</code> and distribute the dependency with the source of your project. But both of these solutions are actually flawed.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach"></a>Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</h3><p>When you install a dependency to your local repository it remains there. Your distribution artifact will do fine as long as it has access to this repository. The problem is in most cases this repository will reside on your local machine, so there&#39;ll be no way to resolve this dependency on any other machine. Clearly making your artifact depend on a specific machine is not a way to handle things. Otherwise this dependency will have to be locally installed on every machine working with that project which is not any better.</p>
+<h3 id="Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach"><a href="#Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach" class="headerlink" title="Why you shouldn&#39;t apply the &quot;System Scope&quot; approach"></a>Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</h3><p>The jars you depend on with the &quot;System Scope&quot; approach neither get installed to any repository or attached to your target packages. That&#39;s why your distribution package won&#39;t have a way to resolve that dependency when used. That I believe was the reason why the use of system scope even got deprecated. Anyway you don&#39;t want to rely on a deprecated feature.</p>
 <span id="more"></span>
-<h2 id="the-static-in-project-repository-solution"><a class="markdownIt-Anchor" href="#the-static-in-project-repository-solution"></a> The static in-project repository solution</h2>
-<p>After putting this in your <code>pom</code>:</p>
+
+<h2 id="The-static-in-project-repository-solution"><a href="#The-static-in-project-repository-solution" class="headerlink" title="The static in-project repository solution"></a>The static in-project repository solution</h2><p>After putting this in your <code>pom</code>:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">checksumPolicy</span>&gt;</span>ignore<span class="tag">&lt;/<span class="name">checksumPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="name">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>for each artifact with a group id of form x.y.z Maven will include the following location inside your project dir in its search for artifacts:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">repo/</span><br><span class="line">| - x/</span><br><span class="line">|   | - y/</span><br><span class="line">|   |   | - z/</span><br><span class="line">|   |   |   | - $&#123;artifactId&#125;/</span><br><span class="line">|   |   |   |   | - $&#123;version&#125;/</span><br><span class="line">|   |   |   |   |   | - $&#123;artifactId&#125;-$&#123;version&#125;.jar</span><br></pre></td></tr></table></figure>
+
 <p>To elaborate more on this you can read <a target="_blank" rel="noopener" href="http://blog.dub.podval.org/2010/01/maven-in-project-repository.html">this blog post</a>.</p>
-<h2 id="use-maven-to-install-to-project-repo"><a class="markdownIt-Anchor" href="#use-maven-to-install-to-project-repo"></a> Use Maven to install to project repo</h2>
-<p>Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under <code>repo</code> folder execute:</p>
+<h2 id="Use-Maven-to-install-to-project-repo"><a href="#Use-Maven-to-install-to-project-repo" class="headerlink" title="Use Maven to install to project repo"></a>Use Maven to install to project repo</h2><p>Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under <code>repo</code> folder execute:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=[your-jar] -DgroupId=[...] -DartifactId=[...] -Dversion=[...]</span><br></pre></td></tr></table></figure>
-<p>If you'll choose this approach you'll be able to simplify the repository declaration in <code>pom</code> to:</p>
+
+<p>If you&#39;ll choose this approach you&#39;ll be able to simplify the repository declaration in <code>pom</code> to:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">repository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>repo<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>file://$&#123;project.basedir&#125;/repo<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">repository</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -383,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#problems-of-popular-approaches"><span class="nav-number">1.</span> <span class="nav-text"> Problems of popular approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#why-you-shouldnt-apply-the-install-to-local-repo-approach"><span class="nav-number">1.1.</span> <span class="nav-text"> Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why-you-shouldnt-apply-the-system-scope-approach"><span class="nav-number">1.2.</span> <span class="nav-text"> Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-static-in-project-repository-solution"><span class="nav-number">2.</span> <span class="nav-text"> The static in-project repository solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-maven-to-install-to-project-repo"><span class="nav-number">3.</span> <span class="nav-text"> Use Maven to install to project repo</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problems-of-popular-approaches"><span class="nav-number">1.</span> <span class="nav-text">Problems of popular approaches</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-you-shouldn-39-t-apply-the-quot-Install-to-Local-Repo-quot-approach"><span class="nav-number">1.1.</span> <span class="nav-text">Why you shouldn&#39;t apply the &quot;Install to Local Repo&quot; approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-you-shouldn-39-t-apply-the-quot-System-Scope-quot-approach"><span class="nav-number">1.2.</span> <span class="nav-text">Why you shouldn&#39;t apply the &quot;System Scope&quot; approach</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-static-in-project-repository-solution"><span class="nav-number">2.</span> <span class="nav-text">The static in-project repository solution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-Maven-to-install-to-project-repo"><span class="nav-number">3.</span> <span class="nav-text">Use Maven to install to project repo</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -398,20 +397,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">115</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">57</span>
+        <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -532,8 +531,6 @@
 
 
 
-
-  
 
   
 
