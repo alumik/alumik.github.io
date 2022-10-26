@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,10 +258,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Matroska-MKV"><a href="#Matroska-MKV" class="headerlink" title="Matroska (MKV)"></a>Matroska (MKV)</h2><p>This will stream copy (re-mux) all streams:</p>
+          <h2 id="matroska-mkv"><a class="markdownIt-Anchor" href="#matroska-mkv"></a> Matroska (MKV)</h2>
+<p>This will stream copy (re-mux) all streams:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.ts -map 0 -c copy output.mkv</span><br></pre></td></tr></table></figure>
 <p>The <code>-map 0</code> option is used to include all streams. Otherwise it will use the default stream selection behavior which would only result in one stream per stream type being selected. Since Matroska can handle most arbitrary streams I included <code>-map 0</code>.</p>
-<h2 id="MP4"><a href="#MP4" class="headerlink" title="MP4"></a>MP4</h2><p>This will stream copy (re-mux) all streams:</p>
+<h2 id="mp4"><a class="markdownIt-Anchor" href="#mp4"></a> MP4</h2>
+<p>This will stream copy (re-mux) all streams:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.ts -map 0 -c copy output.mp4</span><br></pre></td></tr></table></figure>
 <p>If your inputs formats are not compatible with MP4 you will get an error. Your player/device may not support all arbitrary, less common, or legacy formats even if they are supported by MP4. If in doubt re-encode to H.264 + AAC as shown below.</p>
 <p>This will re-encode the video to H.264 and stream copy the audio:</p>
@@ -321,7 +323,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -355,12 +357,12 @@
       
           <p>For example I have two dicts:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict_a = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line">dict_b = &#123;<span class="string">&#x27;b&#x27;</span>: <span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
-<p>I need a pythonic way of &#39;combining&#39; two dicts such that the result is:</p>
+<p>I need a pythonic way of 'combining' two dicts such that the result is:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">7</span>, <span class="string">&#x27;d&#x27;</span>: <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
 <p>That is to say: if a key appears in both dicts, add their values, if it appears in only one dict, keep its value.</p>
 <p>Use <code>collections.Counter</code>:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line">a = Counter(&#123;<span class="string">&#x27;a&#x27;</span>:<span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>:<span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">3</span>&#125;)</span><br><span class="line">b = Counter(&#123;<span class="string">&#x27;b&#x27;</span>:<span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>:<span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>:<span class="number">5</span>&#125;)</span><br><span class="line">c = a + b  <span class="comment"># c = Counter(&#123;&#x27;c&#x27;: 7, &#x27;b&#x27;: 5, &#x27;d&#x27;: 5, &#x27;a&#x27;: 1&#125;)</span></span><br></pre></td></tr></table></figure>
-<p>Counters are basically a subclass of dict, so you can still do everything else with them you&#39;d normally do with that type, such as iterate over their keys and values.</p>
+<p>Counters are basically a subclass of dict, so you can still do everything else with them you'd normally do with that type, such as iterate over their keys and values.</p>
 
       
     </div>
@@ -411,7 +413,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -501,7 +503,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -539,14 +541,14 @@
 <li><code>\newcommand</code> checks whether or not the command already exists.</li>
 <li><code>\newcommand</code> allows you to define an optional argument.</li>
 </ol>
-<p>In general, anything that <code>\newcommand</code> does can be done by <code>\def</code>, but it usually involves a little trickery and unless you want something that <code>\newcommand</code> can&#39;t do, there&#39;s no point in reinventing the wheel.</p>
-<hr>
+<p>In general, anything that <code>\newcommand</code> does can be done by <code>\def</code>, but it usually involves a little trickery and unless you want something that <code>\newcommand</code> can't do, there's no point in reinventing the wheel.</p>
+<hr />
 <p><strong>Q1:</strong> Is it possible to have parameters passed to \defed commands, both optional and required?</p>
-<p><strong>A1:</strong> Yes and No. A command defined using <code>\def</code> has to know exactly what its options are, and how they will be presented to it. However, a TeX command can be a bit clever and examine things other than its arguments. The way that optional commands are handled is to look at the next character in the stream and if it is [ then one version of the command is called, whereas if it isn&#39;t then another is called. So if you&#39;re prepared to do some hackery, then optional arguments are possible via <code>\def</code>, but it isn&#39;t half so easy as <code>\newcommand</code>.</p>
-<hr>
+<p><strong>A1:</strong> Yes and No. A command defined using <code>\def</code> has to know exactly what its options are, and how they will be presented to it. However, a TeX command can be a bit clever and examine things other than its arguments. The way that optional commands are handled is to look at the next character in the stream and if it is [ then one version of the command is called, whereas if it isn't then another is called. So if you're prepared to do some hackery, then optional arguments are possible via <code>\def</code>, but it isn't half so easy as <code>\newcommand</code>.</p>
+<hr />
 <p><strong>Q2:</strong> Is there a <code>\redef</code> command equivalent to <code>\renewcommand</code>?</p>
-<p><strong>A2:</strong> No. Since <code>\def</code> doesn&#39;t check for a command already being defined, you can redefine stuff simply using <code>\def</code> again. To get the checking, you need to use the <code>\@ifundefined</code> command (note the ampersat (<code>@</code>) sign!).</p>
-<hr>
+<p><strong>A2:</strong> No. Since <code>\def</code> doesn't check for a command already being defined, you can redefine stuff simply using <code>\def</code> again. To get the checking, you need to use the <code>\@ifundefined</code> command (note the ampersat (<code>@</code>) sign!).</p>
+<hr />
 <p><strong>Q3:</strong> I have only ever used <code>\newcommand</code> -- is there any reason I should change that habit?</p>
 <p><strong>A3:</strong> No.</p>
 
@@ -599,7 +601,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -636,7 +638,7 @@
 <p>Should give you &quot;1,234,567,890&quot;.</p>
 <p>Also you can use this as a package option like so:</p>
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>[group-separator=&#123;,&#125;]&#123;siunitx&#125;</span><br></pre></td></tr></table></figure>
-<p>Be warned, this doesn&#39;t seem to work with older versions of <code>siunitx</code>.</p>
+<p>Be warned, this doesn't seem to work with older versions of <code>siunitx</code>.</p>
 
       
     </div>
@@ -687,7 +689,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -772,7 +774,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -810,7 +812,7 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> data_table</span><br><span class="line">    <span class="keyword">WHERE</span> TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) <span class="operator">/</span> <span class="number">3600</span> <span class="operator">&gt;=</span> <span class="number">24</span></span><br></pre></td></tr></table></figure>
 <p>因为 <code>timediff()</code> 可接受参数的取值范围和 <code>time</code> 数据类型的范围一致，这样写可能会遇到 <code>Truncated incorrect time value</code> 错误。</p>
 <blockquote>
-<p>MySQL retrieves and displays TIME values in &#39;HH:MM:SS&#39; format (or &#39;HHH:MM:SS&#39; format for large hours values). TIME values may range from &#39;-838:59:59&#39; to &#39;838:59:59&#39;.</p>
+<p>MySQL retrieves and displays TIME values in 'HH:MM:SS' format (or 'HHH:MM:SS' format for large hours values). TIME values may range from '-838:59:59' to '838:59:59'.</p>
 </blockquote>
 
       
@@ -862,7 +864,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -946,7 +948,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -979,7 +981,7 @@
 
       
           <p>The Docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user <code>root</code> and other users can only access it using <code>sudo</code>. The Docker daemon always runs as the <code>root</code> user.</p>
-<p>If you don&#39;t want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
+<p>If you don't want to preface the <code>docker</code> command with <code>sudo</code>, create a Unix group called <code>docker</code> and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the <code>docker</code> group.</p>
 <div class="note danger">
             <p>The <code>docker</code> group grants privileges equivalent to the <code>root</code> user. For details on how this impacts security in your system, see <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker Daemon Attack Surface</a>.</p>
           </div>
@@ -988,27 +990,31 @@
           </div>
 <p>To create the <code>docker</code> group and add your user:</p>
 <ol>
-<li><p>Create the <code>docker</code> group.</p>
+<li>
+<p>Create the <code>docker</code> group.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Add your user to the <code>docker</code> group.</p>
+<li>
+<p>Add your user to the <code>docker</code> group.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $USER</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Log out and log back in so that your group membership is re-evaluated.</p>
-<p> If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
-<p> On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
-<p> On Linux, you can also run the following command to activate the changes to groups:</p>
+<li>
+<p>Log out and log back in so that your group membership is re-evaluated.</p>
+<p>If testing on a virtual machine, it may be necessary to restart the virtual machine for changes to take effect.</p>
+<p>On a desktop Linux environment such as X Windows, log out of your session completely and then log back in.</p>
+<p>On Linux, you can also run the following command to activate the changes to groups:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
+<li>
+<p>Verify that you can run <code>docker</code> commands without <code>sudo</code>.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
-<p> This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
-<p> If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
+<p>This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.</p>
+<p>If you initially ran Docker CLI commands using <code>sudo</code> before adding your user to the <code>docker</code> group, you may see the following error, which indicates that your <code>~/.docker/</code> directory was created with incorrect permissions due to the <code>sudo</code> commands.</p>
 <blockquote>
 <p>WARNING: Error loading config file: /home/user/.docker/config.json -
 stat /home/user/.docker/config.json: permission denied</p>
 </blockquote>
-<p> To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
+<p>To fix this problem, either remove the <code>~/.docker/</code> directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown &quot;$USER&quot;:&quot;$USER&quot; /home/&quot;$USER&quot;/.docker -R</span><br><span class="line">sudo chmod g+rwx &quot;$HOME/.docker&quot; -R</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -1062,7 +1068,7 @@ stat /home/user/.docker/config.json: permission denied</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1094,7 +1100,7 @@ stat /home/user/.docker/config.json: permission denied</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。 </p>
+          <p>如果您有基于登录的身份验证，则可以使用 <code>ssh-copy-id</code> 将您的公钥附加到远程服务器。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
 
       

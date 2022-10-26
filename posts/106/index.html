@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="During the installation of a few packages, Ubuntu usually installs the tzdata package. It&#39;s usually included in some PHP or Python packages dependencies. The issue with it is that it hangs and wai">
+  <meta name="description" content="During the installation of a few packages, Ubuntu usually installs the tzdata package. It&#39;s usually included in some PHP or Python packages dependencies. The issue with it is that it hangs and waits f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fix: tzdata Hangs During Docker Image Build">
 <meta property="og:url" content="https://blog.alumik.cn/posts/106/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="During the installation of a few packages, Ubuntu usually installs the tzdata package. It&#39;s usually included in some PHP or Python packages dependencies. The issue with it is that it hangs and wai">
+<meta property="og:description" content="During the installation of a few packages, Ubuntu usually installs the tzdata package. It&#39;s usually included in some PHP or Python packages dependencies. The issue with it is that it hangs and waits f">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-09T09:58:32.000Z">
-<meta property="article:modified_time" content="2022-10-25T12:39:27.358Z">
+<meta property="article:modified_time" content="2022-10-26T05:55:46.512Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="tzdata">
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -276,20 +276,20 @@
 
       
         <p>During the installation of a few packages, Ubuntu usually installs the <code>tzdata</code> package.
-It&#39;s usually included in some PHP or Python packages dependencies.
+It's usually included in some PHP or Python packages dependencies.
 The issue with it is that it hangs and waits for user input to continue the installation.
-It&#39;s ok until we are using Docker and trying to build images (it&#39;s hanging or even throwing errors in newer versions of Ubuntu).
+It's ok until we are using Docker and trying to build images (it's hanging or even throwing errors in newer versions of Ubuntu).
 We will try to reproduce the situation and try to fix it.</p>
 <p>To reproduce the hanging situation, we can use this Docker image:</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
 <p>Here is the logs that we see in terminal:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Step 1/3 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/3 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 174ce3e1bb84</span><br><span class="line">Step 3/3 : RUN apt install -y tzdata</span><br><span class="line">...</span><br><span class="line">Configuring tzdata</span><br><span class="line">------------------</span><br><span class="line"></span><br><span class="line">Please select the geographic area in which you live. Subsequent configuration</span><br><span class="line">questions will narrow this down by presenting a list of cities, representing</span><br><span class="line">the time zones in which they are located.</span><br><span class="line"></span><br><span class="line">  1. Africa      4. Australia  7. Atlantic  10. Pacific  13. Etc</span><br><span class="line">  2. America     5. Arctic     8. Europe    11. SystemV</span><br><span class="line">  3. Antarctica  6. Asia       9. Indian    12. US</span><br><span class="line">Geographic area: </span><br></pre></td></tr></table></figure>
-<p>And here it hangs waiting for us enter data, and even after you&#39;ll enter a region — the process will not resume.</p>
+<p>And here it hangs waiting for us enter data, and even after you'll enter a region — the process will not resume.</p>
 <p>To fix this situation we need to add lines 3 and 4 to our Dockerfile. We will create a variable called <code>$TZ</code> which will hold our timezone, and the create a <code>/etc/timezone</code> file:</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> TZ=Asia/Dubai</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">ln</span> -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt update</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt install -y tzdata</span></span><br></pre></td></tr></table></figure>
 <p>And after building image we will see this output:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Step 1/5 : FROM ubuntu:20.04</span><br><span class="line"> ---&gt; 1e4467b07108</span><br><span class="line">Step 2/5 : ENV TZ=Asia/Dubai</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 7f4c85bd0d3e</span><br><span class="line">Step 3/5 : RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime &amp;&amp; echo $TZ &gt; /etc/timezone</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; f6f784dfbad5</span><br><span class="line">Step 4/5 : RUN apt update</span><br><span class="line"> ---&gt; Using cache</span><br><span class="line"> ---&gt; 5b1b5617eaa5</span><br><span class="line">Step 5/5 : RUN apt install -y tzdata</span><br><span class="line"> ---&gt; Running in e71a917a9b6b</span><br><span class="line">Current default time zone: &#x27;Asia/Dubai&#x27;</span><br><span class="line">Local time is now:      Tue Aug  4 12:14:55 +04 2020.</span><br><span class="line">Universal Time is now:  Tue Aug  4 08:14:55 UTC 2020.</span><br><span class="line">Run &#x27;dpkg-reconfigure tzdata&#x27; if you wish to change it.</span><br><span class="line"></span><br><span class="line">Removing intermediate container e71a917a9b6b</span><br><span class="line"> ---&gt; 3d29f4e8f7eb</span><br><span class="line">Successfully built 3d29f4e8f7eb</span><br><span class="line">Successfully tagged tzdata:latest</span><br></pre></td></tr></table></figure>
-<p>So it&#39;s used the timezone that we provide and nothing hangs.</p>
+<p>So it's used the timezone that we provide and nothing hangs.</p>
 
     </div>
 

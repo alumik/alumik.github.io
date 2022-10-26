@@ -28,7 +28,7 @@
 <meta property="og:description" content="Most modern Linux distro uses systemd as init replacement. It is a suite of basic building blocks for Linux distros such as RHEL&#x2F;CentOS, OpenSUSE&#x2F;SUSE, Fedora, Arch, Debian, Ubuntu, and more. By defau">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-10T10:57:39.000Z">
-<meta property="article:modified_time" content="2022-10-25T12:39:27.358Z">
+<meta property="article:modified_time" content="2022-10-26T05:55:46.512Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="systemd">
@@ -231,7 +231,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -284,109 +284,74 @@ However, <code>systemd</code> uses the concept of targets instead of runlevels.
 This page explains procedures to implement runlevel like config when working with <code>systemd</code> targets.
 In other words, you will learn how to switch between text or GUI mode using <code>systemd</code> instead of <code>init</code> levels on modern Linux distros.</p>
 <span id="more"></span>
-<h2 id="Switch-Boot-Target-to-Text"><a href="#Switch-Boot-Target-to-Text" class="headerlink" title="Switch Boot Target to Text"></a>Switch Boot Target to Text</h2><p>The procedure is as follows to change into a text mode runlevel under <code>systemd</code>:</p>
+<h2 id="switch-boot-target-to-text"><a class="markdownIt-Anchor" href="#switch-boot-target-to-text"></a> Switch Boot Target to Text</h2>
+<p>The procedure is as follows to change into a text mode runlevel under <code>systemd</code>:</p>
 <ol>
-<li>Open the terminal application.</li>
-<li>For remote Linux servers, use the SSH command.</li>
-<li><p>Find which target unit is used by default:</p>
+<li>
+<p>Open the terminal application.</p>
+</li>
+<li>
+<p>For remote Linux servers, use the SSH command.</p>
+</li>
+<li>
+<p>Find which target unit is used by default:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>To change boot target to the text mode:</p>
+<li>
+<p>To change boot target to the text mode:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Reboot the system using the reboot command:</p>
+<li>
+<p>Reboot the system using the reboot command:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Switch-Boot-Target-to-GUI-Graphical-UI"><a href="#Switch-Boot-Target-to-GUI-Graphical-UI" class="headerlink" title="Switch Boot Target to GUI (Graphical UI)"></a>Switch Boot Target to GUI (Graphical UI)</h2><p>Want to revert change boot to GUI instead of console/text mode? Try:</p>
+<h2 id="switch-boot-target-to-gui-graphical-ui"><a class="markdownIt-Anchor" href="#switch-boot-target-to-gui-graphical-ui"></a> Switch Boot Target to GUI (Graphical UI)</h2>
+<p>Want to revert change boot to GUI instead of console/text mode? Try:</p>
 <ol>
-<li>Open the Linux terminal application.</li>
-<li>Again, for remote Linux servers, use the SSH command.</li>
-<li><p>Find which target unit is used by default:</p>
+<li>
+<p>Open the Linux terminal application.</p>
+</li>
+<li>
+<p>Again, for remote Linux servers, use the SSH command.</p>
+</li>
+<li>
+<p>Find which target unit is used by default:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>To change boot target to the GUI mode:</p>
+<li>
+<p>To change boot target to the GUI mode:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl set-default graphical.target</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Make sure you reboot the Linux box using the reboot command:</p>
+<li>
+<p>Make sure you reboot the Linux box using the reboot command:</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Understanding-Boot-Targets-Under-systemd"><a href="#Understanding-Boot-Targets-Under-systemd" class="headerlink" title="Understanding Boot Targets Under systemd"></a>Understanding Boot Targets Under systemd</h2><p>The default target is set by <code>/etc/systemd/system/default.target</code>.
+<h2 id="understanding-boot-targets-under-systemd"><a class="markdownIt-Anchor" href="#understanding-boot-targets-under-systemd"></a> Understanding Boot Targets Under systemd</h2>
+<p>The default target is set by <code>/etc/systemd/system/default.target</code>.
 Run the following <code>ls</code> command to verify it using the symbolic link:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l /etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
 <p>Of course, we can use the <code>systemctl</code> command itself too:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl get-default</span><br></pre></td></tr></table></figure>
-<h3 id="Listing-all-systemd-targets"><a href="#Listing-all-systemd-targets" class="headerlink" title="Listing all systemd targets"></a>Listing all systemd targets</h3><p>Execute the following command:</p>
+<h3 id="listing-all-systemd-targets"><a class="markdownIt-Anchor" href="#listing-all-systemd-targets"></a> Listing all systemd targets</h3>
+<p>Execute the following command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-units --type target</span><br><span class="line"># list all loaded units in any state #</span><br><span class="line">systemctl list-units --type target --all</span><br></pre></td></tr></table></figure>
 <p>Here is a list of all currently loaded target units on Ubuntu Linux 20.04 LTS desktop:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">  UNIT                                 LOAD   ACTIVE SUB    DESCRIPTION                                       </span><br><span class="line">  basic.target                         loaded active active Basic System                                      </span><br><span class="line">  blockdev@dev-mapper-md1_crypt.target loaded active active Block Device Preparation for /dev/mapper/md1_crypt</span><br><span class="line">  bluetooth.target                     loaded active active Bluetooth                                         </span><br><span class="line">  cryptsetup.target                    loaded active active Local Encrypted Volumes                           </span><br><span class="line">  getty.target                         loaded active active Login Prompts                                     </span><br><span class="line">  graphical.target                     loaded active active Graphical Interface                               </span><br><span class="line">  local-fs-pre.target                  loaded active active Local File Systems (Pre)                          </span><br><span class="line">  local-fs.target                      loaded active active Local File Systems                                </span><br><span class="line">  machines.target                      loaded active active Containers                                        </span><br><span class="line">  multi-user.target                    loaded active active Multi-User System                                 </span><br><span class="line">  network-online.target                loaded active active Network is Online                                 </span><br><span class="line">  network-pre.target                   loaded active active Network (Pre)                                     </span><br><span class="line">  network.target                       loaded active active Network                                           </span><br><span class="line">  nss-user-lookup.target               loaded active active User and Group Name Lookups                       </span><br><span class="line">  paths.target                         loaded active active Paths                                             </span><br><span class="line">  remote-fs-pre.target                 loaded active active Remote File Systems (Pre)                         </span><br><span class="line">  remote-fs.target                     loaded active active Remote File Systems                               </span><br><span class="line">  slices.target                        loaded active active Slices                                            </span><br><span class="line">  sockets.target                       loaded active active Sockets                                           </span><br><span class="line">  sound.target                         loaded active active Sound Card                                        </span><br><span class="line">  swap.target                          loaded active active Swap                                              </span><br><span class="line">  sysinit.target                       loaded active active System Initialization                             </span><br><span class="line">  time-set.target                      loaded active active System Time Set                                   </span><br><span class="line">  time-sync.target                     loaded active active System Time Synchronized                          </span><br><span class="line">  timers.target                        loaded active active Timers                                            </span><br><span class="line">  virt-guest-shutdown.target           loaded active active Libvirt guests shutdown                           </span><br><span class="line"></span><br><span class="line">LOAD   = Reflects whether the unit definition was properly loaded.</span><br><span class="line">ACTIVE = The high-level unit activation state, i.e. generalization of SUB.</span><br><span class="line">SUB    = The low-level unit activation state, values depend on unit type.</span><br><span class="line"></span><br><span class="line">26 loaded units listed. Pass --all to see loaded but inactive units, too.</span><br><span class="line">To show all installed unit files use &#x27;systemctl list-unit-files&#x27;.</span><br></pre></td></tr></table></figure>
-<h2 id="SysV-Runleves-vs-systemd-Targets"><a href="#SysV-Runleves-vs-systemd-Targets" class="headerlink" title="SysV Runleves vs systemd Targets"></a>SysV Runleves vs systemd Targets</h2><p>Let us understand older SysV runlevels and their equivalents under <code>systemd</code>.</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>systemd Target</th>
-<th>runlevel</th>
-<th>Description</th>
-<th>Old Command</th>
-<th>New command</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>runlevel0.target</code>, <code>poweroff.target</code></td>
-<td>0</td>
-<td>Power off the Linux box.</td>
-<td><code>init 0</code></td>
-<td><code>systemctl isolate poweroff.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel1.target</code>, <code>rescue.target</code></td>
-<td>1</td>
-<td>Boot into emergency rescue mode (single user mode).</td>
-<td><code>init 1</code></td>
-<td><code>systemctl isolate rescue.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel2.target</code>, <code>multi-user.target</code></td>
-<td>2</td>
-<td>Text based multi-user system that does not configure network interfaces and does not export networks services.</td>
-<td><code>init 2</code></td>
-<td><code>systemctl isolate runlevel2.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel3.target</code>, <code>multi-user.target</code></td>
-<td>3</td>
-<td>Starts the system normally in multi-user text mode for the Linux server usage.</td>
-<td><code>init 3</code></td>
-<td><code>systemctl isolate runlevel3.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel4.target</code>, <code>multi-user.target</code></td>
-<td>4</td>
-<td>For special purposes text mode.</td>
-<td><code>init 4</code></td>
-<td><code>systemctl isolate runlevel4.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel5.target</code>, <code>graphical.target</code></td>
-<td>5</td>
-<td>Same as runlevel 3 and boot into GUI display manager.</td>
-<td><code>init 5</code></td>
-<td><code>systemctl isolate graphical.target</code></td>
-</tr>
-<tr>
-<td><code>runlevel6.target</code>, <code>reboot.target</code></td>
-<td>6</td>
-<td>Reboot the Linux desktop or laptop.</td>
-<td><code>init 6</code></td>
-<td><code>systemctl isolate reboot.target</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="How-to-change-the-default-systemd-target-using-symbolic-link"><a href="#How-to-change-the-default-systemd-target-using-symbolic-link" class="headerlink" title="How to change the default systemd target using symbolic link"></a>How to change the default systemd target using symbolic link</h3><p>Earlier I explained how to use the <code>systemctl</code> command.
+<h2 id="sysv-runleves-vs-systemd-targets"><a class="markdownIt-Anchor" href="#sysv-runleves-vs-systemd-targets"></a> SysV Runleves vs systemd Targets</h2>
+<p>Let us understand older SysV runlevels and their equivalents under <code>systemd</code>.</p>
+<p>| systemd Target                          | runlevel | Description                                                                                                    | Old Command   | New command                          |
+| --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- | ---------  -- | ----------------------  ------------ |
+| <code>runlevel0.target</code>, <code>poweroff.target</code>   | 0        | Power off the Linux box.                                                                                       | <code>init 0</code>      | <code>systemctl isolate poweroff.target</code>  |
+| <code>runlevel1.target</code>, <code>rescue.target</code>     | 1        | Boot into emergency rescue mode (single user mode).                                                            | <code>init 1</code>      | <code>systemctl isolate rescue.target</code>    |
+| <code>runlevel2.target</code>, <code>multi-user.target</code> | 2        | Text based multi-user system that does not configure network interfaces and does not export networks services. | <code>init 2</code>      | <code>systemctl isolate runlevel2.target</code> |
+| <code>runlevel3.target</code>, <code>multi-user.target</code> | 3        | Starts the system normally in multi-user text mode for the Linux server usage.                                 | <code>init 3</code>      | <code>systemctl isolate runlevel3.target</code> |
+| <code>runlevel4.target</code>, <code>multi-user.target</code> | 4        | For special purposes text mode.                                                                                | <code>init 4</code>      | <code>systemctl isolate runlevel4.target</code> |
+| <code>runlevel5.target</code>, <code>graphical.target</code>  | 5        | Same as runlevel 3 and boot into GUI display manager.                                                          | <code>init 5</code>      | <code>systemctl isolate graphical.target</code> |
+| <code>runlevel6.target</code>, <code>reboot.target</code>     | 6        | Reboot the Linux desktop or laptop.                                                                            | <code>init 6</code>      | <code>systemctl isolate reboot.target</code>    |</p>
+<h3 id="how-to-change-the-default-systemd-target-using-symbolic-link"><a class="markdownIt-Anchor" href="#how-to-change-the-default-systemd-target-using-symbolic-link"></a> How to change the default systemd target using symbolic link</h3>
+<p>Earlier I explained how to use the <code>systemctl</code> command.
 But one can use other commands.
 Therefore, use the <code>ln</code> command as follows to switch to the GUI mode:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s -f -v \</span><br><span class="line">/lib/systemd/system/graphical.target \</span><br><span class="line">/etc/systemd/system/default.target</span><br></pre></td></tr></table></figure>
@@ -486,7 +451,7 @@ Therefore, use the <code>ln</code> command as follows to switch to the GUI mode:
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-Boot-Target-to-Text"><span class="nav-number">1.</span> <span class="nav-text">Switch Boot Target to Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Switch-Boot-Target-to-GUI-Graphical-UI"><span class="nav-number">2.</span> <span class="nav-text">Switch Boot Target to GUI (Graphical UI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-Boot-Targets-Under-systemd"><span class="nav-number">3.</span> <span class="nav-text">Understanding Boot Targets Under systemd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Listing-all-systemd-targets"><span class="nav-number">3.1.</span> <span class="nav-text">Listing all systemd targets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SysV-Runleves-vs-systemd-Targets"><span class="nav-number">4.</span> <span class="nav-text">SysV Runleves vs systemd Targets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-change-the-default-systemd-target-using-symbolic-link"><span class="nav-number">4.1.</span> <span class="nav-text">How to change the default systemd target using symbolic link</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#switch-boot-target-to-text"><span class="nav-number">1.</span> <span class="nav-text"> Switch Boot Target to Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch-boot-target-to-gui-graphical-ui"><span class="nav-number">2.</span> <span class="nav-text"> Switch Boot Target to GUI (Graphical UI)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-boot-targets-under-systemd"><span class="nav-number">3.</span> <span class="nav-text"> Understanding Boot Targets Under systemd</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#listing-all-systemd-targets"><span class="nav-number">3.1.</span> <span class="nav-text"> Listing all systemd targets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sysv-runleves-vs-systemd-targets"><span class="nav-number">4.</span> <span class="nav-text"> SysV Runleves vs systemd Targets</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-to-change-the-default-systemd-target-using-symbolic-link"><span class="nav-number">4.1.</span> <span class="nav-text"> How to change the default systemd target using symbolic link</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -218,10 +218,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-25 20:16:23 / 修改时间：20:39:27" itemprop="dateCreated datePublished" datetime="2022-10-25T20:16:23+08:00">2022-10-25</time>
+              <time title="创建时间：2022-10-25 20:16:23" itemprop="dateCreated datePublished" datetime="2022-10-25T20:16:23+08:00">2022-10-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -253,7 +259,7 @@
 
       
           <p>I found a great tip in GitHub to compact a VHD file without Hyper-V tools and it works great.
-The Dynamic VHD don&#39;t reduce their size even if the files were deleted from the hard drive, to fix it the &quot;compact&quot; operation is needed.
+The Dynamic VHD don't reduce their size even if the files were deleted from the hard drive, to fix it the &quot;compact&quot; operation is needed.
 This is included into the Hyper-V tools but this is only available in Windows 10/11 Pro.</p>
 <p>There are another way to do this in Windows 10/11 Home, using the next commands:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">diskpart</span><br><span class="line"> </span><br><span class="line"># Open window Diskpart </span><br><span class="line"> </span><br><span class="line">select vdisk file=&quot;C:\path\to\file.vhd&quot;</span><br><span class="line">attach vdisk readonly</span><br><span class="line">compact vdisk</span><br><span class="line">detach vdisk</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
@@ -299,10 +305,16 @@ This is included into the Hyper-V tools but this is only available in Windows 10
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-25 20:14:39 / 修改时间：20:39:27" itemprop="dateCreated datePublished" datetime="2022-10-25T20:14:39+08:00">2022-10-25</time>
+              <time title="创建时间：2022-10-25 20:14:39" itemprop="dateCreated datePublished" datetime="2022-10-25T20:14:39+08:00">2022-10-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -377,10 +389,16 @@ This is included into the Hyper-V tools but this is only available in Windows 10
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-25 20:07:25 / 修改时间：20:39:27" itemprop="dateCreated datePublished" datetime="2022-10-25T20:07:25+08:00">2022-10-25</time>
+              <time title="创建时间：2022-10-25 20:07:25" itemprop="dateCreated datePublished" datetime="2022-10-25T20:07:25+08:00">2022-10-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -411,23 +429,26 @@ This is included into the Hyper-V tools but this is only available in Windows 10
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Hello World, </p>
+          <p>Hello World,</p>
 <p>We have noticed that a lot of people hit the same issue over and over again.
 When trying to connect via remote desktop protocol (rdp) to the Ubuntu machine, and after providing the credentials in the xRDP Login page, the user will only see a black screen displayed and the desktop interface is never loaded and displayed.
 This post will basically explain why this happens and how to reproduce the issue.</p>
 <p>The &quot;problem&quot; is actually well known and there is really an simple and easy fix for that.
-So, let&#39;s explain the situation.</p>
-<h2 id="Reproducing-the-quot-Black-Screen-quot-Situation"><a href="#Reproducing-the-quot-Black-Screen-quot-Situation" class="headerlink" title="Reproducing the &quot;Black Screen&quot; Situation"></a>Reproducing the &quot;Black Screen&quot; Situation</h2><p>Let&#39;s assume that you have performed a successful xRDP installation and you are ready to test your rdp connection to your Ubuntu machine.
-Let&#39;s also assume that you are still logged on into your Ubuntu machine system locally with your user account (which could be called User1).
+So, let's explain the situation.</p>
+<h2 id="reproducing-the-black-screen-situation"><a class="markdownIt-Anchor" href="#reproducing-the-black-screen-situation"></a> Reproducing the &quot;Black Screen&quot; Situation</h2>
+<p>Let's assume that you have performed a successful xRDP installation and you are ready to test your rdp connection to your Ubuntu machine.
+Let's also assume that you are still logged on into your Ubuntu machine system locally with your user account (which could be called User1).
 So, you move to your Windows machine (or Linux machine), fire up your favorite remote desktop client and provide the ip address or the hostname.</p>
 <p>Since xRDP installation has been successful, you will be presented with the xRDP Login page where you will need to provide the user credentials on the Ubuntu machine.
 In our example, User1 (yes the one currently logged on locally on the ubuntu machine) account will be used.</p>
 <p>If the credentials are correct, you will see your remote desktop session showing a black screen and that’s it !!!!!
 The desktop interface will never load within your remote session.</p>
-<h2 id="Black-Screen-Situation-Explained"><a href="#Black-Screen-Situation-Explained" class="headerlink" title="Black Screen Situation Explained"></a>Black Screen Situation Explained</h2><p>As mentioned and explained multiple times, this situation will happen (or can happen) when the same user account is used concurrently locally and remotely.
+<h2 id="black-screen-situation-explained"><a class="markdownIt-Anchor" href="#black-screen-situation-explained"></a> Black Screen Situation Explained</h2>
+<p>As mentioned and explained multiple times, this situation will happen (or can happen) when the same user account is used concurrently locally and remotely.
 In other words, the problem is related to the fact that the same user account is already logged in locally and a remote connection is attempted at the same time.
-With xRDP software solution, a specific user account can be logged on either locally or remotely but not both. </p>
-<h2 id="The-Standard-Solution"><a href="#The-Standard-Solution" class="headerlink" title="The (Standard) Solution"></a>The (Standard) Solution</h2><p>To solve this issue, there is a simple fix.
+With xRDP software solution, a specific user account can be logged on either locally or remotely but not both.</p>
+<h2 id="the-standard-solution"><a class="markdownIt-Anchor" href="#the-standard-solution"></a> The (Standard) Solution</h2>
+<p>To solve this issue, there is a simple fix.
 You need to ensure the account you are using to login via the remote desktop client is not currently logged on locally on the Ubuntu target machine.
 If this is the case, perform a logout operation.</p>
 <p>Try again the remote desktop session and you will see that magically, you will be able to perform your remote desktop connection and that your desktop interface will be loaded and made available for you.</p>
@@ -473,10 +494,16 @@ If this is the case, perform a logout operation.</p>
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-10-25 20:04:58 / 修改时间：20:39:27" itemprop="dateCreated datePublished" datetime="2022-10-25T20:04:58+08:00">2022-10-25</time>
+              <time title="创建时间：2022-10-25 20:04:58" itemprop="dateCreated datePublished" datetime="2022-10-25T20:04:58+08:00">2022-10-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -559,7 +586,7 @@ If this is the case, perform a logout operation.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -644,7 +671,7 @@ If this is the case, perform a logout operation.</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -679,27 +706,33 @@ If this is the case, perform a logout operation.</p>
           <p>A proxy act as an intermediary host where you could tunnel your connection through the proxy to access another host.
 Tunneling your SSH connection via a proxy, among other things, could allow you to access hosts in a private network or under a NAT.
 As such, a proxy avoids the need to set up a more complex infrastructure such as a VPN.</p>
-<p>OpenSSH&#39;s SSH client supports connecting through both SOCKS and HTTPS proxy.
+<p>OpenSSH's SSH client supports connecting through both SOCKS and HTTPS proxy.
 It is achieved with the <code>ProxyCommand</code> option alongside third-party programs such as <code>nc</code> or <code>netcat</code>.</p>
 <p>Steps to connect to SSH server via SOCKS or HTTPS proxy:</p>
 <ol>
-<li>Create SOCKS or HTTPS proxy if you don&#39;t already have one.</li>
-<li><p>Test if the SOCKS or HTTPS proxy is reachable from the SSH client&#39;s host (optional).</p>
+<li>
+<p>Create SOCKS or HTTPS proxy if you don't already have one.</p>
+</li>
+<li>
+<p>Test if the SOCKS or HTTPS proxy is reachable from the SSH client's host (optional).</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nc -zv 127.0.0.1 2222</span><br><span class="line">Connection to 127.0.0.1 2222 port [tcp/*] succeeded!</span><br></pre></td></tr></table></figure>
  <div class="note info">
             <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-v      Produce more verbose output.</span><br><span class="line">-z      Only scan for listening daemons, without sending any data to</span><br><span class="line">        them.  Cannot be used together with -l.</span><br></pre></td></tr></table></figure>
           </div>
 </li>
-<li><p>Use <code>ProxyCommand</code> as option for SSH client.</p>
+<li>
+<p>Use <code>ProxyCommand</code> as option for SSH client.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -o ProxyCommand=&#x27;nc -X4 -x 127.0.0.1:2222 %h %p&#x27; remoteuser@remotehost</span><br></pre></td></tr></table></figure>
  <div class="note info">
             <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">-X proxy_protocol</span><br><span class="line">        Use proxy_protocol when talking to the proxy server.  Supported</span><br><span class="line">        protocols are 4 (SOCKS v.4), 5 (SOCKS v.5) and connect (HTTPS</span><br><span class="line">        proxy).  If the protocol is not specified, SOCKS version 5 is</span><br><span class="line">        used.</span><br><span class="line"></span><br><span class="line">-x proxy_address[:port]</span><br><span class="line">        Connect to destination using a proxy at proxy_address and port.</span><br><span class="line">        If port is not specified, the well-known port for the proxy pro‐</span><br><span class="line">        tocol is used (1080 for SOCKS, 3128 for HTTPS).  An IPv6 address</span><br><span class="line">        can be specified unambiguously by enclosing proxy_address in</span><br><span class="line">        square brackets.  A proxy cannot be used with any of the options</span><br><span class="line">        -lsuU.</span><br></pre></td></tr></table></figure>
           </div>
 </li>
-<li><p>Add <code>ProxyCommand</code> to SSH client configuration file for persistence.</p>
+<li>
+<p>Add <code>ProxyCommand</code> to SSH client configuration file for persistence.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ cat .ssh/config</span><br><span class="line">Host remotehost</span><br><span class="line">    hostname 192.168.1.10</span><br><span class="line">    user remoteuser</span><br><span class="line">    ProxyCommand nc -X4 -x 127.0.0.1:2222 %h %p</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Connect again using SSH client with just the Host name as parameter.</p>
+<li>
+<p>Connect again using SSH client with just the Host name as parameter.</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh remotehost</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -753,7 +786,7 @@ It is achieved with the <code>ProxyCommand</code> option alongside third-party p
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -850,7 +883,7 @@ In other words, you will learn how to switch between text or GUI mode using <cod
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -938,7 +971,7 @@ We can fix this by combining it with modinfo:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1022,7 +1055,7 @@ We can fix this by combining it with modinfo:</p>
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1054,10 +1087,13 @@ We can fix this by combining it with modinfo:</p>
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在 Ubuntu 22.04 LTS 的容器里面运行 <code>apt update</code> 的时候出现了以下报错：</p>
+          <h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<p>在 Ubuntu 22.04 LTS 的容器里面运行 <code>apt update</code> 的时候出现了以下报错：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[root@VM-16-9-centos docker-kubuntu]# docker run --rm -it ubuntu:22.04 bash</span><br><span class="line">root@8ac245b487e6:/# apt update</span><br><span class="line">Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]</span><br><span class="line">Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]                    </span><br><span class="line">Err:1 http://security.ubuntu.com/ubuntu jammy-security InRelease                   </span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Err:2 http://archive.ubuntu.com/ubuntu jammy InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Get:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [109 kB]</span><br><span class="line">Err:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Get:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [90.7 kB]</span><br><span class="line">Err:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease</span><br><span class="line">  The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">Reading package lists... Done</span><br><span class="line">W: http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://security.ubuntu.com/ubuntu/dists/jammy-security/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://security.ubuntu.com/ubuntu jammy-security InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://security.ubuntu.com/ubuntu jammy-security InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-updates/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy-updates InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy-updates InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2012-cdimage.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: http://archive.ubuntu.com/ubuntu/dists/jammy-backports/InRelease: The key(s) in the keyring /etc/apt/trusted.gpg.d/ubuntu-keyring-2018-archive.gpg are ignored as the file is not readable by user &#x27;_apt&#x27; executing apt-key.</span><br><span class="line">W: GPG error: http://archive.ubuntu.com/ubuntu jammy-backports InRelease: The following signatures couldn&#x27;t be verified because the public key is not available: NO_PUBKEY 871920D1991BC93C</span><br><span class="line">E: The repository &#x27;http://archive.ubuntu.com/ubuntu jammy-backports InRelease&#x27; is not signed.</span><br><span class="line">N: Updating from such a repository can&#x27;t be done securely, and is therefore disabled by default.</span><br><span class="line">N: See apt-secure(8) manpage for repository creation and user configuration details.</span><br><span class="line">E: Problem executing scripts APT::Update::Post-Invoke &#x27;rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true&#x27;</span><br><span class="line">E: Sub-process returned an error code</span><br></pre></td></tr></table></figure>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>经过查询，发现是 Ubuntu 21.10 和 Fedora 35 开始使用 <code>glibc&gt;=2.34</code> 甚至更高的版本。在 <code>glibc</code> 新版本里面，开始使用一个名为 <code>clone3</code> 的系统调用。通常情况下，容器里面所有的系统调用都会被 Docker 捕获，然后 Docker 决定如何处理它们。如果 Docker 中没有为特定系统调用指定策略，则默认的策略会通知容器这边&quot;Permission Denied&quot;。但是，如果 <code>glibc</code> 收到此错误，它不会回退。它仅在收到响应“此系统调用不可用”时才执行此操作。</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>办法一：</p>
+<h2 id="原因"><a class="markdownIt-Anchor" href="#原因"></a> 原因</h2>
+<p>经过查询，发现是 Ubuntu 21.10 和 Fedora 35 开始使用 <code>glibc&gt;=2.34</code> 甚至更高的版本。在 <code>glibc</code> 新版本里面，开始使用一个名为 <code>clone3</code> 的系统调用。通常情况下，容器里面所有的系统调用都会被 Docker 捕获，然后 Docker 决定如何处理它们。如果 Docker 中没有为特定系统调用指定策略，则默认的策略会通知容器这边&quot;Permission Denied&quot;。但是，如果 <code>glibc</code> 收到此错误，它不会回退。它仅在收到响应“此系统调用不可用”时才执行此操作。</p>
+<h2 id="解决"><a class="markdownIt-Anchor" href="#解决"></a> 解决</h2>
+<p>办法一：</p>
 <p>运行容器的时候，加上这个参数来绕过 Docker 系统调用限制</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--security-opt seccomp=unconfined</span><br></pre></td></tr></table></figure>
 <p>不过这会有很大的问题，一个是你的容器将变得不安全，另一个是这些参数在构建镜像的时候是不可用的。所以，请参考办法二。</p>

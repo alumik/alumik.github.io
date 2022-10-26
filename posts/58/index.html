@@ -28,7 +28,7 @@
 <meta property="og:description" content="When building a binary or library, specifying the rpath, i.e. 1-Wl,-rpath,&lt;path&#x2F;to&#x2F;lib&gt; tells the linker where to find the required library at runtime. In the case of rpath, it makes no sense to">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-11T08:54:49.000Z">
-<meta property="article:modified_time" content="2022-10-25T12:39:27.350Z">
+<meta property="article:modified_time" content="2022-10-26T05:55:46.504Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="计算机技术,软件工程,博客">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,8 +277,8 @@
         <p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path/to/lib&gt;</span><br></pre></td></tr></table></figure>
 <p>tells the linker where to find the required library at runtime.</p>
-<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
-<p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
+<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won't work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
+<p>Instead, you can use the <code> $ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,'$ORIGIN'</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code> $$</code> to avoid having make interpret the <code> $</code> as well.</p>
 <p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
 
     </div>

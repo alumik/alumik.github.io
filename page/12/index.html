@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -320,7 +320,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,11 +352,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本镜像仅包含 32/64 位 x86 架构处理器的软件包，在 ARM(arm64, armhf)、PowerPC(ppc64el)、RISC-V(riscv64) 和 S390x 等架构的设备上（对应官方源为ports.ubuntu.com）请使用 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/">ubuntu-ports 镜像</a>。</p>
-<h2 id="命令替换"><a href="#命令替换" class="headerlink" title="命令替换"></a>命令替换</h2><p>执行如下命令自动替换</p>
+          <p>本镜像仅包含 32/64 位 x86 架构处理器的软件包，在 ARM(arm64, armhf)、PowerPC(ppc64el)、RISC-V(riscv64) 和 S390x 等架构的设备上（<a target="_blank" rel="noopener" href="http://xn--ports-dq1hn21ffwa45pvwui3w.ubuntu.com">对应官方源为ports.ubuntu.com</a>）请使用 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/">ubuntu-ports 镜像</a>。</p>
+<h2 id="命令替换"><a class="markdownIt-Anchor" href="#命令替换"></a> 命令替换</h2>
+<p>执行如下命令自动替换</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo sed -i &quot;s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot; /etc/apt/sources.list</span><br><span class="line">sudo sed -i &quot;s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g&quot; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-<h2 id="手动替换"><a href="#手动替换" class="headerlink" title="手动替换"></a>手动替换</h2><p>Ubuntu 的软件源配置文件是 <span class="label info">/etc/apt/sources.list</span>。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 TUNA 的软件源镜像。</p>
-<h3 id="22-04-LTS"><a href="#22-04-LTS" class="headerlink" title="22.04 LTS"></a>22.04 LTS</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<h2 id="手动替换"><a class="markdownIt-Anchor" href="#手动替换"></a> 手动替换</h2>
+<p>Ubuntu 的软件源配置文件是 <span class="label info">/etc/apt/sources.list</span>。将系统自带的该文件做个备份，将该文件替换为下面内容，即可使用 TUNA 的软件源镜像。</p>
+<h3 id="2204-lts"><a class="markdownIt-Anchor" href="#2204-lts"></a> 22.04 LTS</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"># 预发布软件源，不建议启用</span><br><span class="line"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br><span class="line"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/posts/5/#more" rel="contents">
@@ -414,7 +417,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -507,7 +510,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -539,7 +542,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：</p>
+          <h2 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h2>
+<p>升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">    File &quot;/usr/bin/ssserver&quot;, line 9, in</span><br><span class="line">        load_entry_point(&#x27;shadowsocks==2.8.2&#x27;, &#x27;console_scripts&#x27;, &#x27;ssserver&#x27;)()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/server.py&quot;, line 34, in main</span><br><span class="line">        config = shell.get_config(False)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 262, in get_config</span><br><span class="line">        check_config(config, is_local)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/shell.py&quot;, line 124, in check_config</span><br><span class="line">        encrypt.try_cipher(config[&#x27;password&#x27;], config[&#x27;method&#x27;])</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 44, in try_cipher</span><br><span class="line">        Encryptor(key, method)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 83, in __init__</span><br><span class="line">        random_string(self._method_info[1]))</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/encrypt.py&quot;, line 109, in get_cipher</span><br><span class="line">        return m[2](method, key, iv, op)</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 76, in __init__</span><br><span class="line">        load_openssl()</span><br><span class="line">    File &quot;/usr/lib/python2.7/site-packages/shadowsocks/crypto/openssl.py&quot;, line 52, in load_openssl</span><br><span class="line">        libcrypto.EVP_CIPHER_CTX_cleanup.argtypes = (c_void_p,)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 373, in __getattr__</span><br><span class="line">        func = self.__getitem__(name)</span><br><span class="line">    File &quot;/usr/lib64/python2.7/ctypes/__init__.py&quot;, line 378, in __getitem__</span><br><span class="line">        func = self._FuncPtr((name_or_ordinal, self))</span><br><span class="line">AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup</span><br><span class="line">shadowsocks start failed</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -598,7 +602,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -634,12 +638,15 @@
             <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p>
           </div>
 <p>gdrive 是一个好用的 Linux 平台 Google Drive 客户端。</p>
-<h2 id="安装-gdrive"><a href="#安装-gdrive" class="headerlink" title="安装 gdrive"></a>安装 gdrive</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O /usr/bin/gdrive &quot;//docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&amp;export=download&quot;</span><br><span class="line">chmod +x /usr/bin/gdrive</span><br></pre></td></tr></table></figure>
-<h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdrive about</span><br></pre></td></tr></table></figure>
+<h2 id="安装-gdrive"><a class="markdownIt-Anchor" href="#安装-gdrive"></a> 安装 gdrive</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -O /usr/bin/gdrive &quot;//docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&amp;export=download&quot;</span><br><span class="line">chmod +x /usr/bin/gdrive</span><br></pre></td></tr></table></figure>
+<h2 id="授权"><a class="markdownIt-Anchor" href="#授权"></a> 授权</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdrive about</span><br></pre></td></tr></table></figure>
 <p>然后会出现一个网址并询问验证码。将地址粘贴到浏览器并登录账号，会返回一串代码。</p>
 <p>将代码粘贴到控制台下，然后会返回你的 Google 账户信息。</p>
 <p>gdrive 会自动将你的 token 保存在用户目录下的 <em>.gdrive</em> 目录中，所以如果不需要了记得把这个文件删掉。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdrive help</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a class="markdownIt-Anchor" href="#使用"></a> 使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdrive help</span><br></pre></td></tr></table></figure>
 <p>可以查看帮助。</p>
 
       
@@ -691,7 +698,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -723,8 +730,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="下载-PHP"><a href="#下载-PHP" class="headerlink" title="下载 PHP"></a>下载 PHP</h2><p>从 <a target="_blank" rel="noopener" href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
-<h2 id="添加模块映射"><a href="#添加模块映射" class="headerlink" title="添加模块映射"></a>添加模块映射</h2><p>进入 <em>控制面板 &gt; 系统和安全 &gt; 管理工具 &gt; Internet信息服务(IIS)管理器</em>。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
+          <h2 id="下载-php"><a class="markdownIt-Anchor" href="#下载-php"></a> 下载 PHP</h2>
+<p>从 <a target="_blank" rel="noopener" href="http://windows.php.net/download/">http://windows.php.net/download/</a> 下载 Non Thread Safe 版 PHP 并解压到你希望安装的位置。</p>
+<h2 id="添加模块映射"><a class="markdownIt-Anchor" href="#添加模块映射"></a> 添加模块映射</h2>
+<p>进入 <em>控制面板 &gt; 系统和安全 &gt; 管理工具 &gt; Internet信息服务(IIS)管理器</em>。中间窗口打开“处理程序映射”，然后最右边打开“添加模块映射”，按图中步骤填写相关信息。</p>
 <img src="/posts/1/01.png" class="">
           <!--noindex-->
             <div class="post-button">

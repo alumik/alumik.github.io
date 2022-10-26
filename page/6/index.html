@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,7 +312,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -347,12 +347,14 @@
           <p>The <code>$@</code> variable expands to all command-line parameters separated by spaces. Here is an example.</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abc <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br></pre></td></tr></table></figure>
 <p>When using <code>$@</code>, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.</p>
-<p>It is also worth nothing that <code>$0</code> (generally the script&#39;s name or path) is not in <code>$@</code>.</p>
+<p>It is also worth nothing that <code>$0</code> (generally the script's name or path) is not in <code>$@</code>.</p>
 <p>The <a target="_blank" rel="noopener" href="https://www.gnu.org/software/bash/manual/bash.html#Special-Parameters">Bash Reference Manual Special Parameters Section</a> says that <code>$@</code> expands to the positional parameters starting from one. When the expansion occurs within double quotes, each parameter expands to a separate word. That is <code>&quot;$@&quot;</code> is equivalent to <code>&quot;$1&quot; &quot;$2&quot; &quot;$3&quot;...</code>.</p>
-<h2 id="Passing-Some-Arguments"><a href="#Passing-Some-Arguments" class="headerlink" title="Passing Some Arguments"></a>Passing Some Arguments</h2><p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
-<h2 id="Things-You-Probably-Don-39-t-Want-to-Do"><a href="#Things-You-Probably-Don-39-t-Want-to-Do" class="headerlink" title="Things You Probably Don&#39;t Want to Do"></a>Things You Probably Don&#39;t Want to Do</h2><p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don&#39;t care about preserving the space within/between distinction.</p>
-<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don&#39;t have arrays at all.</p>
-<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn&#39;t take place by default.)</p>
+<h2 id="passing-some-arguments"><a class="markdownIt-Anchor" href="#passing-some-arguments"></a> Passing Some Arguments</h2>
+<p>If you want to pass all but the first arguments, you can first use <code>shift</code> to &quot;consume&quot; the first argument and then pass <code>&quot;$@&quot;</code> to pass the remaining arguments to another command. In bash (and zsh and ksh, but not in plain POSIX shells like dash), you can do this without messing with the argument list using a variant of array slicing: <code>&quot;$&#123;@:3&#125;&quot;</code> will get you the arguments starting with <code>&quot;$3&quot;</code>. <code>&quot;$&#123;@:3:4&#125;&quot;</code> will get you up to four arguments starting at <code>&quot;$3&quot;</code> (i.e. <code>&quot;$3&quot; &quot;$4&quot; &quot;$5&quot; &quot;$6&quot;</code>), if that many arguments were passed.</p>
+<h2 id="things-you-probably-dont-want-to-do"><a class="markdownIt-Anchor" href="#things-you-probably-dont-want-to-do"></a> Things You Probably Don't Want to Do</h2>
+<p><code>&quot;$*&quot;</code> gives all the arguments stuck together into a single string (separated by spaces, or whatever the first character of <code>$IFS</code> is). This looses the distinction between spaces within arguments and the spaces between arguments, so is generally a bad idea. Although it might be ok for printing the arguments, e.g. <code>echo &quot;$*&quot;</code>, provided you don't care about preserving the space within/between distinction.</p>
+<p>Assigning the arguments to a regular variable (as in <code>args=&quot;$@&quot;</code>) mashes all the arguments together like <code>&quot;$*&quot;</code> does. If you want to store the arguments in a variable, use an array with <code>args=(&quot;$@&quot;)</code> (the parentheses make it an array), and then reference them as e.g. <code>&quot;$&#123;args[0]&#125;&quot;</code> etc. Note that in bash and ksh, array indexes start at 0, so <code>$1</code> will be in <code>args[0]</code>, etc. zsh, on the other hand, starts array indexes at 1, so <code>$1</code> will be in <code>args[1]</code>. More basic shells like dash don't have arrays at all.</p>
+<p>Leaving off the double-quotes, with either <code>$@</code> or <code>$*</code>, will try to split each argument up into separate words (based on whitespace or whatever is in <code>$IFS</code>), and also try to expand anything that looks like a filename wildcard into a list of matching filenames. This can have really weird effects, and should almost always be avoided. (Except in zsh, where this expansion doesn't take place by default.)</p>
 
       
     </div>
@@ -403,7 +405,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -491,7 +493,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -524,15 +526,17 @@
 
       
           <div class="note danger">
-            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven&#39;t been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
+            <p>If you have any local changes, they will be lost. With or without <code>--hard</code> option, any local commits that haven't been pushed will be lost. If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.</p>
           </div>
 <p>First, run a fetch to update all <code>origin/&lt;branch&gt;</code> refs to latest:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br></pre></td></tr></table></figure>
 <p>Then, reset the current branch:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard origin/&lt;branch&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h2><p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
+<h2 id="explanation"><a class="markdownIt-Anchor" href="#explanation"></a> Explanation</h2>
+<p><code>git fetch</code> downloads the latest from remote without trying to merge or rebase anything.</p>
 <p>Then the <code>git reset</code> resets the master branch to what you just fetched. The <code>--hard</code> option changes all the files in your working tree to match the files in <code>origin/&lt;branch&gt;</code>.</p>
-<h2 id="Uncommitted-Changes"><a href="#Uncommitted-Changes" class="headerlink" title="Uncommitted Changes"></a>Uncommitted Changes</h2><p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
+<h2 id="uncommitted-changes"><a class="markdownIt-Anchor" href="#uncommitted-changes"></a> Uncommitted Changes</h2>
+<p>Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
 <p>Then to reapply these uncommitted changes:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
@@ -586,7 +590,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -670,7 +674,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -762,7 +766,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -846,7 +850,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -882,14 +886,16 @@
 <p>E.g., jumps would be generated as relative rather than absolute.</p>
 <p>Pseudo-assembly:</p>
 <ul>
-<li><p>PIC: This would work whether the code was at address 100 or 1000</p>
+<li>
+<p>PIC: This would work whether the code was at address 100 or 1000</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL CURRENT+10</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Non-PIC: This will only work if the code is at address 100</p>
+<li>
+<p>Non-PIC: This will only work if the code is at address 100</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">100: COMPARE REG1, REG2</span><br><span class="line">101: JUMP_IF_EQUAL 111</span><br><span class="line">...</span><br><span class="line">111: NOP</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>If your code is compiled with <code>-fPIC</code>, it&#39;s suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
+<p>If your code is compiled with <code>-fPIC</code>, it's suitable for inclusion in a library. The library must be able to be relocated from its preferred location in memory to another address, there could be another already loaded library at the address your library prefers.</p>
 
       
     </div>
@@ -940,7 +946,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -975,8 +981,8 @@
           <p>When building a binary or library, specifying the <code>rpath</code>, i.e.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-Wl,-rpath,&lt;path/to/lib&gt;</span><br></pre></td></tr></table></figure>
 <p>tells the linker where to find the required library at runtime.</p>
-<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won&#39;t work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
-<p>Instead, you can use the <code>$ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,&#39;$ORIGIN&#39;</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code>$$</code> to avoid having make interpret the <code>$</code> as well.</p>
+<p>In the case of <code>rpath</code>, it makes no sense to use a relative path, since a relative path will be relative to the current working directory, <strong>NOT</strong> relative to the directory where the binary/library was found. So it simply won't work for executables found in <code>$PATH</code> or libraries in pretty much any case.</p>
+<p>Instead, you can use the <code> $ORIGIN</code> &quot;special&quot; path to have a path relative to the executable with <code>-Wl,-rpath,'$ORIGIN'</code>. Note that you need quotes around it to avoid having the shell interpret it as a variable, and if you try to do this in a Makefile, you need <code> $$</code> to avoid having make interpret the <code> $</code> as well.</p>
 <p>You normally want to pass two arguments to the linker (<code>-rpath</code> and the actual path argument), thus the comma between them. GNU ld will accept it as either two arguments or a single argument with an <code>=</code>, so either can work. Other linkers, e.g., Solaris, only accept it as two arguments.</p>
 
       
@@ -1028,7 +1034,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1069,7 +1075,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> -euxo pipefail</span><br></pre></td></tr></table></figure>
 <p><code>-e</code> exits on error, <code>-u</code> errors on undefined variables, and <code>-o (for option) pipefail</code> exits on command pipe failures.</p>
 <div class="note warning">
-            <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command&#39;s return value is being inverted with <code>!</code>.</p>
+            <p>The shell does <strong>not</strong> exit if the command that fails is part of the command list immediately following a <code>while</code> or <code>until</code> keyword, part of the test following the <code>if</code> or <code>elif</code> reserved words, part of any command executed in a <code>&amp;&amp;</code> or <code>||</code> list except the command following the final <code>&amp;&amp;</code> or <code>||</code>, any command in a pipeline but the last, or if the command's return value is being inverted with <code>!</code>.</p>
           </div>
 
       

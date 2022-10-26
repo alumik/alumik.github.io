@@ -226,7 +226,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,16 +261,19 @@
           <div class="note danger">
             <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p>
           </div>
-<h2 id="下载并解压内核源码"><a href="#下载并解压内核源码" class="headerlink" title="下载并解压内核源码"></a>下载并解压内核源码</h2><p>首先获取 root 权限方便操作</p>
+<h2 id="下载并解压内核源码"><a class="markdownIt-Anchor" href="#下载并解压内核源码"></a> 下载并解压内核源码</h2>
+<p>首先获取 root 权限方便操作</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
 <p>从<a target="_blank" rel="noopener" href="https://www.kernel.org/">官方网站</a>下载 4.19.1 版本的 Linux 内核源码。此时我们把它放在 <em>~/linux-4.19.1.tar.xz</em> 。</p>
 <p>移动到 <em>/usr/src</em></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/src</span><br></pre></td></tr></table></figure>
 <p>将文件解压到此处</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvJf ~/linux-4.19.1.tar.xz</span><br></pre></td></tr></table></figure>
-<h2 id="安装相关依赖"><a href="#安装相关依赖" class="headerlink" title="安装相关依赖"></a>安装相关依赖</h2><p>运行以下命令安装依赖</p>
+<h2 id="安装相关依赖"><a class="markdownIt-Anchor" href="#安装相关依赖"></a> 安装相关依赖</h2>
+<p>运行以下命令安装依赖</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install g++ make libncurses5-dev libssl-dev build-essential</span><br><span class="line">apt install openssl zlibc minizip libidn11-dev libidn11</span><br><span class="line">apt install bison flex pkg-config libelf-dev</span><br></pre></td></tr></table></figure>
-<h2 id="编译内核"><a href="#编译内核" class="headerlink" title="编译内核"></a>编译内核</h2><p>复制老的配置文件到目录</p>
+<h2 id="编译内核"><a class="markdownIt-Anchor" href="#编译内核"></a> 编译内核</h2>
+<p>复制老的配置文件到目录</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -vi /boot/config-`uname -r` .config</span><br></pre></td></tr></table></figure>
 <p>配置新版本内核新增特性</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make oldconfig</span><br></pre></td></tr></table></figure>
@@ -283,7 +286,8 @@
 <p>完成之后运行</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make modules_install</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>安装新内核。之后重启系统即可自动使用新内核启动。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>内核编译需求的硬盘空间至少为 40GB 。</p>
+<h2 id="注意事项"><a class="markdownIt-Anchor" href="#注意事项"></a> 注意事项</h2>
+<p>内核编译需求的硬盘空间至少为 40GB 。</p>
 
       
     </div>
@@ -334,7 +338,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -418,7 +422,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -450,10 +454,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="配置路由属性"><a href="#配置路由属性" class="headerlink" title="配置路由属性"></a>配置路由属性</h2><p>可以简单地在路由中设置 <code>meta</code> 属性。</p>
+          <h2 id="配置路由属性"><a class="markdownIt-Anchor" href="#配置路由属性"></a> 配置路由属性</h2>
+<p>可以简单地在路由中设置 <code>meta</code> 属性。</p>
 <p>例如在 <em>src/router/index.js</em> 中</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">routes</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&#x27;...&#x27;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">&#x27;...&#x27;</span> &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;...&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="使用路由钩子"><a href="#使用路由钩子" class="headerlink" title="使用路由钩子"></a>使用路由钩子</h2><p>利用路由的 <code>beforeEach</code> 方法修改网站标题。</p>
+<h2 id="使用路由钩子"><a class="markdownIt-Anchor" href="#使用路由钩子"></a> 使用路由钩子</h2>
+<p>利用路由的 <code>beforeEach</code> 方法修改网站标题。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">beforeEach</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">title</span> = to.<span class="property">meta</span>.<span class="property">title</span></span><br><span class="line">    <span class="title function_">next</span>()</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
@@ -505,7 +511,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -596,7 +602,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -628,11 +634,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><h3 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h3><p>采用居中对齐，如左图</p>
+          <h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<h3 id="源代码"><a class="markdownIt-Anchor" href="#源代码"></a> 源代码</h3>
+<p>采用居中对齐，如左图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;:^9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <p>采用左对齐，如右图</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;&#123;:&lt;9&#125;\t&#x27;</span>.<span class="built_in">format</span>(string_var), end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><img src="/posts/22/python-aligin-01.png" class="" title="运行结果">
+<h3 id="运行结果"><a class="markdownIt-Anchor" href="#运行结果"></a> 运行结果</h3>
+<img src="/posts/22/python-aligin-01.png" class="" title="运行结果">
 <p>未能正确对齐。</p>
           <!--noindex-->
             <div class="post-button">
@@ -691,7 +700,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -723,13 +732,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="Vue-js-路由-history-mode-中页面无法渲染的原因"><a href="#Vue-js-路由-history-mode-中页面无法渲染的原因" class="headerlink" title="Vue.js 路由 history mode 中页面无法渲染的原因"></a>Vue.js 路由 history mode 中页面无法渲染的原因</h2><p>用 Vue.js + vue-router 创建单页应用，是非常简单的。使用 Vue.js ，我们已经可以通过组合组件来组成应用程序，当你要把 vue-router 添加进来，我们需要做的是，将组件（components）映射到路由（routes），然后告诉 vue-router 在哪里渲染它们。</p>
+          <h2 id="vuejs-路由-history-mode-中页面无法渲染的原因"><a class="markdownIt-Anchor" href="#vuejs-路由-history-mode-中页面无法渲染的原因"></a> Vue.js 路由 history mode 中页面无法渲染的原因</h2>
+<p>用 Vue.js + vue-router 创建单页应用，是非常简单的。使用 Vue.js ，我们已经可以通过组合组件来组成应用程序，当你要把 vue-router 添加进来，我们需要做的是，将组件（components）映射到路由（routes），然后告诉 vue-router 在哪里渲染它们。</p>
 <p>一般开发的单页应用的 URL 都是带有 # 号的 hash 模式，因为整个应用本身而言就只有一个 HTML ，其他的都是通过 router 来渲染。如果因为业务需要，或者单纯是觉得带 # 号不美观，那么可以使用 history 模式，简单而言就是在 router 的配置文件 index.js 中添加如下一行代码</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mode</span>: <span class="string">&#x27;history&#x27;</span></span><br></pre></td></tr></table></figure>
 <p>没错，这样 URL 不再会有 # 号，你会发现整个地址栏回到了你熟悉的那个样子，不过接下来介绍的就非常的重要了。</p>
-<h2 id="404-错误"><a href="#404-错误" class="headerlink" title="404 错误"></a>404 错误</h2><p>在 history mode 下，如果直接通过地址栏访问路径，那么会出现 404 错误，这是因为调用了 history.pushState API 所以所有的跳转之类的操作都是通过 router 来实现的。要解决这个问题很简单，只需要在后台配置如果 URL 匹配不到任何静态资源，就跳转到默认的 <em>index.html</em> 。以 Apache2 为例，具体配置如下</p>
+<h2 id="404-错误"><a class="markdownIt-Anchor" href="#404-错误"></a> 404 错误</h2>
+<p>在 history mode 下，如果直接通过地址栏访问路径，那么会出现 404 错误，这是因为调用了 history.pushState API 所以所有的跳转之类的操作都是通过 router 来实现的。要解决这个问题很简单，只需要在后台配置如果 URL 匹配不到任何静态资源，就跳转到默认的 <em>index.html</em> 。以 Apache2 为例，具体配置如下</p>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;IfModule mod_rewrite.c&gt;</span></span><br><span class="line">    <span class="attribute">RewriteEngine</span> <span class="literal">On</span></span><br><span class="line">    <span class="attribute">RewriteBase</span> /</span><br><span class="line">    <span class="attribute">RewriteRule</span> ^index\.html$ -<span class="meta"> [L]</span></span><br><span class="line">    <span class="attribute">RewriteCond</span> <span class="variable">%&#123;REQUEST_FILENAME&#125;</span> !-f</span><br><span class="line">    <span class="attribute">RewriteCond</span> <span class="variable">%&#123;REQUEST_FILENAME&#125;</span> !-d</span><br><span class="line">    <span class="attribute">RewriteRule</span> . /index.html<span class="meta"> [L]</span></span><br><span class="line"><span class="section">&lt;/IfModule&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="每次点击链接都要刷新页面的问题"><a href="#每次点击链接都要刷新页面的问题" class="headerlink" title="每次点击链接都要刷新页面的问题"></a>每次点击链接都要刷新页面的问题</h2><p>众所周知，开发单页应用就是因为那丝般顺滑的体验效果。出现这个的原因是因为使用了 <code>window.location</code> 来跳转，只需要使用使用 router 提供的方法，就能够解决这个问题：</p>
+<h2 id="每次点击链接都要刷新页面的问题"><a class="markdownIt-Anchor" href="#每次点击链接都要刷新页面的问题"></a> 每次点击链接都要刷新页面的问题</h2>
+<p>众所周知，开发单页应用就是因为那丝般顺滑的体验效果。出现这个的原因是因为使用了 <code>window.location</code> 来跳转，只需要使用使用 router 提供的方法，就能够解决这个问题：</p>
 <p>在 <em>main.js</em> 中配置中将 router 绑定到全局</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">router</span> = router</span><br></pre></td></tr></table></figure>
 <p>之后都使用如下的方式来控制跳转</p>
@@ -784,7 +796,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -817,9 +829,11 @@
 
       
           <p>PyPI 镜像在每次同步成功后间隔 5 分钟同步一次。</p>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</span><br></pre></td></tr></table></figure>
+<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package</span><br></pre></td></tr></table></figure>
 <p>注意，<code>simple</code> 不能少, 是 <code>https</code> 而不是 <code>http</code>。</p>
-<h2 id="设为默认"><a href="#设为默认" class="headerlink" title="设为默认"></a>设为默认</h2><p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
+<h2 id="设为默认"><a class="markdownIt-Anchor" href="#设为默认"></a> 设为默认</h2>
+<p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
 <p>如果您到 pip 默认源的网络连接较差，临时使用镜像站来升级 pip：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip</span><br></pre></td></tr></table></figure>
@@ -873,7 +887,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -910,11 +924,14 @@
           </div>
 <p><a target="_blank" rel="noopener" href="http://npm.taobao.org/">淘宝 npm 地址</a></p>
 <p>有很多方法来配置 npm 的 registry 地址，下面根据不同情境列出几种比较常用的方法。以淘宝 npm 镜像举例。</p>
-<h2 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install xxx</span><br></pre></td></tr></table></figure>
-<h2 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install xxx</span><br></pre></td></tr></table></figure>
+<h2 id="持久使用"><a class="markdownIt-Anchor" href="#持久使用"></a> 持久使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 <p>配置后可通过下面方式来验证是否成功</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
-<h2 id="通过-cnpm-使用"><a href="#通过-cnpm-使用" class="headerlink" title="通过 cnpm 使用"></a>通过 cnpm 使用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="通过-cnpm-使用"><a class="markdownIt-Anchor" href="#通过-cnpm-使用"></a> 通过 cnpm 使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -965,7 +982,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1003,7 +1020,8 @@
 <p>在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
 <p>免密码使用数据库 root 用户登录数据库。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在 <code>user</code> 表中有一列叫做 <code>plugin</code> ：</p>
+<h2 id="原因"><a class="markdownIt-Anchor" href="#原因"></a> 原因</h2>
+<p>在 <code>user</code> 表中有一列叫做 <code>plugin</code> ：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">user</span>, authentication_string, plugin <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| user | authentication_string | plugin      |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">| root | *                     | auth_socket |</span><br><span class="line">+------+-----------------------+-------------+</span><br><span class="line">1 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>其中的 <code>auth_socket</code> 让你能方便地作为 root 用户从控制台免密码登录。但这同时也禁用了密码登录，而且你不能使用其它客户端进行登录。</p>
@@ -1064,7 +1082,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1099,7 +1117,8 @@
           <div class="note danger">
             <p>该文章内容<strong>已过期</strong>或<strong>不再适用</strong>。</p><p>建议使用 <a target="_blank" rel="noopener" href="https://www.anaconda.com/">Conda</a> 安装任意版本的 Python。</p>
           </div>
-<h2 id="系统准备"><a href="#系统准备" class="headerlink" title="系统准备"></a>系统准备</h2><p>安装一些必要的依赖包</p>
+<h2 id="系统准备"><a class="markdownIt-Anchor" href="#系统准备"></a> 系统准备</h2>
+<p>安装一些必要的依赖包</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install libffi-dev libbz2-dev libssl-dev</span><br><span class="line">apt install libreadline7 libreadline-dev libsqlite3-dev</span><br><span class="line">apt install libncurses5 libncurses5-dev libncursesw5</span><br><span class="line">apt install libgdbm-dev liblzma-dev uuid-dev zlib1g-dev</span><br></pre></td></tr></table></figure>
 <p>如果 lib 名称不确认的话，可以使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache search</span><br></pre></td></tr></table></figure>

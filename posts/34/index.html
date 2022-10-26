@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"blog.alumik.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Concatenation of Files with Same CodecsThere are two methods within FFmpeg that can be used to concatenate files of the same type: the concat demuxer &amp; the concat protocol The demuxer is more flex">
+  <meta name="description" content="Concatenation of Files with Same Codecs There are two methods within FFmpeg that can be used to concatenate files of the same type: the concat demuxer &amp; the concat protocol The demuxer is more fl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Merge Two Videos without Re-encoding">
 <meta property="og:url" content="https://blog.alumik.cn/posts/34/">
 <meta property="og:site_name" content="突突唧之家">
-<meta property="og:description" content="Concatenation of Files with Same CodecsThere are two methods within FFmpeg that can be used to concatenate files of the same type: the concat demuxer &amp; the concat protocol The demuxer is more flex">
+<meta property="og:description" content="Concatenation of Files with Same Codecs There are two methods within FFmpeg that can be used to concatenate files of the same type: the concat demuxer &amp; the concat protocol The demuxer is more fl">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-06-24T13:07:43.000Z">
-<meta property="article:modified_time" content="2022-10-25T12:39:27.342Z">
+<meta property="article:modified_time" content="2022-10-26T05:55:46.496Z">
 <meta property="article:author" content="闪现开心心">
 <meta property="article:tag" content="FFmpeg">
 <meta name="twitter:card" content="summary">
@@ -230,7 +230,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-10-25 20:39:27" itemprop="dateModified" datetime="2022-10-25T20:39:27+08:00">2022-10-25</time>
+                <time title="修改时间：2022-10-26 13:55:46" itemprop="dateModified" datetime="2022-10-26T13:55:46+08:00">2022-10-26</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,23 +274,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Concatenation-of-Files-with-Same-Codecs"><a href="#Concatenation-of-Files-with-Same-Codecs" class="headerlink" title="Concatenation of Files with Same Codecs"></a>Concatenation of Files with Same Codecs</h2><p>There are two methods within FFmpeg that can be used to concatenate files of the same type: <a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
+        <h2 id="concatenation-of-files-with-same-codecs"><a class="markdownIt-Anchor" href="#concatenation-of-files-with-same-codecs"></a> Concatenation of Files with Same Codecs</h2>
+<p>There are two methods within FFmpeg that can be used to concatenate files of the same type: <a target="_blank" rel="noopener" href="https://ffmpeg.org/ffmpeg-formats.html#concat">the concat demuxer &amp; the concat protocol</a></p>
 <p>The demuxer is more flexible – it requires the same codecs, but different container formats can be used; and it can be used with any container formats, while the concat protocol only works with a select few containers.</p>
-<h3 id="The-Concat-Demuxer"><a href="#The-Concat-Demuxer" class="headerlink" title="The Concat Demuxer"></a>The Concat Demuxer</h3><p>create a text file named vidlist.txt in the following format:</p>
+<h3 id="the-concat-demuxer"><a class="markdownIt-Anchor" href="#the-concat-demuxer"></a> The Concat Demuxer</h3>
+<p>create a text file named vidlist.txt in the following format:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">file &#x27;/path/to/clip1&#x27;</span><br><span class="line">file &#x27;/path/to/clip2&#x27;</span><br><span class="line">file &#x27;/path/to/clip3&#x27;</span><br></pre></td></tr></table></figure>
 <p>Note that these can be either relative or absolute paths.</p>
 <p>Then issue the command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output</span><br></pre></td></tr></table></figure>
 <p>The files will be stream copied in the order they appear in the vidlist.txt into the output container. the &quot;copy codec&quot; is <strong>blazing fast</strong>.</p>
-<p>Edit: Note that although the docs say you don&#39;t need <code>-safe 0</code> if the paths are relative, my testing indicates it&#39;s a requirement. It&#39;s possible that this may vary with your version of FFmpeg.</p>
+<p>Edit: Note that although the docs say you don't need <code>-safe 0</code> if the paths are relative, my testing indicates it's a requirement. It's possible that this may vary with your version of FFmpeg.</p>
 <p>There are tips for auto generating the file available in <a target="_blank" rel="noopener" href="https://trac.ffmpeg.org/wiki/Concatenate">the docs</a>.</p>
-<p>Note: All the clips must already exist or the command will fail because decoding won&#39;t start until the whole list is read.</p>
-<h3 id="The-Concat-Protocol"><a href="#The-Concat-Protocol" class="headerlink" title="The Concat Protocol"></a>The Concat Protocol</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
+<p>Note: All the clips must already exist or the command will fail because decoding won't start until the whole list is read.</p>
+<h3 id="the-concat-protocol"><a class="markdownIt-Anchor" href="#the-concat-protocol"></a> The Concat Protocol</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &quot;concat:video1.ts|video2.ts|video3.ts&quot; -c copy output.ts</span><br></pre></td></tr></table></figure>
 <p>Note: as mentioned above the concat protocol is severely limited in what streams and containers it supports so I never use it. The above is only included in an attempt to create a thorough answer. The concat demuxer is a far better choice for most projects.</p>
-<p><strong>An alternative suggestion:</strong> Personally I prefer using the Matroska container due to it&#39;s flexibility and low overhead and join videos with the same encoding using</p>
+<p><strong>An alternative suggestion:</strong> Personally I prefer using the Matroska container due to it's flexibility and low overhead and join videos with the same encoding using</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvmerge -o output.mkv input1.mkv + input2.mkv</span><br></pre></td></tr></table></figure>
-<h2 id="Concatenation-of-Files-with-Different-Codecs"><a href="#Concatenation-of-Files-with-Different-Codecs" class="headerlink" title="Concatenation of Files with Different Codecs"></a>Concatenation of Files with Different Codecs</h2><p>If your clips don&#39;t use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.</p>
-<p>Note that <a target="_blank" rel="noopener" href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you&#39;ll need to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
+<h2 id="concatenation-of-files-with-different-codecs"><a class="markdownIt-Anchor" href="#concatenation-of-files-with-different-codecs"></a> Concatenation of Files with Different Codecs</h2>
+<p>If your clips don't use the same codecs for audio and video and/or have different rates, your stuck re-encoding to intermediate files prior to joining which as we all know is both time and resource consuming.</p>
+<p>Note that <a target="_blank" rel="noopener" href="http://www.tldp.org/LDP/abs/html/special-chars.html">special characters</a> can break things so if you have these in your filenames you'll need to <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash">deal with them</a>.</p>
 
     </div>
 
@@ -377,7 +381,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Concatenation-of-Files-with-Same-Codecs"><span class="nav-number">1.</span> <span class="nav-text">Concatenation of Files with Same Codecs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Concat-Demuxer"><span class="nav-number">1.1.</span> <span class="nav-text">The Concat Demuxer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Concat-Protocol"><span class="nav-number">1.2.</span> <span class="nav-text">The Concat Protocol</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Concatenation-of-Files-with-Different-Codecs"><span class="nav-number">2.</span> <span class="nav-text">Concatenation of Files with Different Codecs</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#concatenation-of-files-with-same-codecs"><span class="nav-number">1.</span> <span class="nav-text"> Concatenation of Files with Same Codecs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-concat-demuxer"><span class="nav-number">1.1.</span> <span class="nav-text"> The Concat Demuxer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#the-concat-protocol"><span class="nav-number">1.2.</span> <span class="nav-text"> The Concat Protocol</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#concatenation-of-files-with-different-codecs"><span class="nav-number">2.</span> <span class="nav-text"> Concatenation of Files with Different Codecs</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
