@@ -126,8 +126,6 @@ theme: next
 deploy:
   type: ''
 
-# hexo-renderer-kramed
-kramed:
-  smartypants: false
-  gfm: true
+markdown_it_plus:
   breaks: false
+  typographer: false
