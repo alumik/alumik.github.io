@@ -126,6 +126,6 @@ theme: next
 deploy:
   type: ''
 
-markdown_it_plus:
+marked:
   breaks: false
-  typographer: false
+  smartypants: false
