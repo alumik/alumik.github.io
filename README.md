@@ -5,8 +5,6 @@
 
 A blog in computer science and software engineering.
 
-Note: The Gitee mirror is outdated due to regulatory reasons.
-
 ## Status
 
 <table>
