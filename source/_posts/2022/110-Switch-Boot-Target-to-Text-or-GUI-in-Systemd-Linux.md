@@ -137,8 +137,8 @@ To show all installed unit files use 'systemctl list-unit-files'.
 
 Let us understand older SysV runlevels and their equivalents under `systemd`.
 
-| systemd Target                          | runlevel | Description                                                                                                    | Old Command   | New command                          |
-| --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- | ---------  -- | ----------------------  ------------ |
+| `systemd` Target                          | `runlevel` | Description                                                                                                    | Old Command   | New Command                          |
+| --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------- |
 | `runlevel0.target`, `poweroff.target`   | 0        | Power off the Linux box.                                                                                       | `init 0`      | `systemctl isolate poweroff.target`  |
 | `runlevel1.target`, `rescue.target`     | 1        | Boot into emergency rescue mode (single user mode).                                                            | `init 1`      | `systemctl isolate rescue.target`    |
 | `runlevel2.target`, `multi-user.target` | 2        | Text based multi-user system that does not configure network interfaces and does not export networks services. | `init 2`      | `systemctl isolate runlevel2.target` |
