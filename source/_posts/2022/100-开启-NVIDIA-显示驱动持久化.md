@@ -7,9 +7,9 @@ abbrlink: 100
 references:
   - https://docs.nvidia.com/deploy/driver-persistence/index.html
 ---
-NVIDIA is providing a user-space daemon on Linux to support persistence of driver state across Cuda job runs. The daemon approach provides a more elegant and robust solution to this problem than persistence mode.
+NVIDIA is providing a user-space daemon on Linux to support persistence of driver state across CUDA job runs. The daemon approach provides a more elegant and robust solution to this problem than persistence mode.
 
-NVIDIA will support both solutions for the near future (likely through Cuda 8.0), but will focus all future development and bug fixes on the daemon.
+NVIDIA will support both solutions for the near future (likely through CUDA 8.0), but will focus all future development and bug fixes on the daemon.
 
 The daemon is installed in /usr/bin, while sample installation and init scripts are included with the driver in the documentation directory. The scripts are provided as a guide for installing the daemon to run on system startup for some common init systems; they may require some changes for certain distributions, due to the wide variety of init system configurations.
 

@@ -137,15 +137,15 @@ To show all installed unit files use 'systemctl list-unit-files'.
 
 Let us understand older SysV runlevels and their equivalents under `systemd`.
 
-| `systemd` Target                          | `runlevel` | Description                                                                                                    | Old Command   | New Command                          |
-| --------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------- | ----------- | ---------------------------------- |
-| `runlevel0.target`, `poweroff.target`   | 0        | Power off the Linux box.                                                                                       | `init 0`      | `systemctl isolate poweroff.target`  |
-| `runlevel1.target`, `rescue.target`     | 1        | Boot into emergency rescue mode (single user mode).                                                            | `init 1`      | `systemctl isolate rescue.target`    |
-| `runlevel2.target`, `multi-user.target` | 2        | Text based multi-user system that does not configure network interfaces and does not export networks services. | `init 2`      | `systemctl isolate runlevel2.target` |
-| `runlevel3.target`, `multi-user.target` | 3        | Starts the system normally in multi-user text mode for the Linux server usage.                                 | `init 3`      | `systemctl isolate runlevel3.target` |
-| `runlevel4.target`, `multi-user.target` | 4        | For special purposes text mode.                                                                                | `init 4`      | `systemctl isolate runlevel4.target` |
-| `runlevel5.target`, `graphical.target`  | 5        | Same as runlevel 3 and boot into GUI display manager.                                                          | `init 5`      | `systemctl isolate graphical.target` |
-| `runlevel6.target`, `reboot.target`     | 6        | Reboot the Linux desktop or laptop.                                                                            | `init 6`      | `systemctl isolate reboot.target`    |
+| `systemd` Target                        | `runlevel` | Description                                                                                                    | Old Command | New Command                          |
+| --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------ |
+| `runlevel0.target`, `poweroff.target`   | 0          | Power off the Linux box.                                                                                       | `init 0`      | `systemctl isolate poweroff.target`  |
+| `runlevel1.target`, `rescue.target`     | 1          | Boot into emergency rescue mode (single user mode).                                                            | `init 1`      | `systemctl isolate rescue.target`    |
+| `runlevel2.target`, `multi-user.target` | 2          | Text based multi-user system that does not configure network interfaces and does not export networks services. | `init 2`      | `systemctl isolate runlevel2.target` |
+| `runlevel3.target`, `multi-user.target` | 3          | Starts the system normally in multi-user text mode for the Linux server usage.                                 | `init 3`      | `systemctl isolate runlevel3.target` |
+| `runlevel4.target`, `multi-user.target` | 4          | For special purposes text mode.                                                                                | `init 4`      | `systemctl isolate runlevel4.target` |
+| `runlevel5.target`, `graphical.target`  | 5          | Same as runlevel 3 and boot into GUI display manager.                                                          | `init 5`      | `systemctl isolate graphical.target` |
+| `runlevel6.target`, `reboot.target`     | 6          | Reboot the Linux desktop or laptop.                                                                            | `init 6`      | `systemctl isolate reboot.target`    |
 
 ### How to change the default systemd target using symbolic link
 

@@ -9,7 +9,7 @@ abbrlink: 96
 references:
   - https://www.cyberciti.biz/faq/howto-linux-unix-start-restart-cron/
 ---
-## Task: Ubuntu Start Cron Service
+## Start Cron Service
 
 To start the cron service, use:
 
@@ -23,7 +23,7 @@ OR
 sudo service cron start
 ```
 
-## Task: Ubuntu Stop Cron Service
+## Stop Cron Service
 
 To stop the cron service, use:
 
@@ -38,7 +38,7 @@ OR
 sudo service cron stop
 ```
 
-## Task: Ubuntu Restart Cron Service
+## Restart Cron Service
 
 To restart the cron service, use:
 

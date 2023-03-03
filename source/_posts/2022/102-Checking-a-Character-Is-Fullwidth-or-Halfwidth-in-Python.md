@@ -37,7 +37,7 @@ Returned values of `'W'`, `'F'` and `'A'` should be considered as full-width on 
 
 Reference: http://www.unicode.org/reports/tr44/tr44-4.html#Validation_of_Enumerated
 
-On POSIX platform, the quote characters (`u'“'` and `u'”'`) are considered as ambiguous, which are actually 1 character width in console. For console usage, you may try a 3rd-party library urwid:
+On POSIX platform, the quote characters (`u'“'` and `u'”'`) are considered as ambiguous, which are actually 1 character width in console. For console usage, you may try a 3rd-party library `urwid`:
 
 ```python
 >>> from urwid.util import str_util
