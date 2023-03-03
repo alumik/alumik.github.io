@@ -1,7 +1,7 @@
 ---
 title: 关于
 date: 2021-08-29 15:49:34
-comments: true
+comments: false
 toc:
   enable: true
   number: false
