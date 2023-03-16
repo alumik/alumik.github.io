@@ -45,7 +45,7 @@ Through this website, I have documented some of the challenges that I have faced
 
 <img src="https://img.shields.io/badge/-C-black?logo=c&logoColor=A8B9CC" />
 <img src="https://img.shields.io/badge/-C++-00599C?logo=c%2B%2B&logoColor=white" />
-<img src="https://img.shields.io/badge/-Java-007396?logo=java&logoColor=white" />
+<img src="https://img.shields.io/badge/-Java-007396?logo=OpenJDK&logoColor=white" />
 <img src="https://img.shields.io/badge/-Python-3776AB?logo=Python&logoColor=white" />
 <img src="https://img.shields.io/badge/-JavaScript-black?logo=javascript" />
 <img src="https://img.shields.io/badge/-PHP-777BB4?logo=php&logoColor=white" />
