@@ -116,31 +116,36 @@ hr {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+#bing-image-button .btn {
+  transition: .2s ease-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 10px 0 3px;
+}
+
 // 图片
 // --------------------------------------------------
 .post-body img {
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
 }
 
-// 一言
+// 一言和背景图片
 // --------------------------------------------------
-.hitokoto {
+.hitokoto, .bing-image {
   color: #555;
   font-size: 12px;
 }
 
-.hitokoto-title {
+.hitokoto-title, .bing-image-title {
   margin-top: 20px;
-  text-align: center;
   font-size: 12px;
 }
 
-#hitokoto-content {
+#hitokoto-content, #bing-image-content {
   text-align: left;
 }
 
 #hitokoto-from {
-  float: right;
+  text-align: right;
 }
 
 // Valine 评论区
