@@ -20,18 +20,7 @@ toc:
   }
 </style>
 
-## 👋 你好, 我是钟震宇 Hi, there! I'm Zhong Zhenyu
-
-<p>
-  <a href="https://github.com/alumik">
-    <img src="https://img.shields.io/badge/GitHub-github.com/alumik-DEDEDE?logo=github&logoColor=white&labelColor=181717" />
-  </a>
-  <a href="mailto:nczzy1997@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-nczzy1997@gmail%2Ecom-DEDEDE?logo=gmail&logoColor=white&labelColor=D14836" />
-  </a>
-</p>
-<img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=AlumiK&hide=Jupyter%20Notebook&layout=compact&locale=cn" />
-<img width="140" align="right" src="https://www.svgrepo.com/show/235199/chip-ai.svg" />
+## 你好, 我是钟震宇
 
 我是钟震宇 (AlumiK)，一个来自中国四川的程序员，目前生活在天津。我主攻深度学习、智能运维、高性能计算以及自然语言处理等研究领域。
 
@@ -41,8 +30,10 @@ My name is Zhong Zhenyu (also known as alumik), and I am a programmer from Sichu
 
 Through this website, I have documented some of the challenges that I have faced during my scientific research work, along with their corresponding solutions. My goal is to offer assistance to others who may be encountering similar issues.
 
-## 💻 我使用哪些编程语言？ What programming languages do I use?
+## 我使用哪些编程语言？
 
+<img src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/top-langs/?username=AlumiK&hide=Jupyter%20Notebook&layout=compact&locale=cn" />
+</br>
 <img src="https://img.shields.io/badge/-C-black?logo=c&logoColor=A8B9CC" />
 <img src="https://img.shields.io/badge/-C++-00599C?logo=c%2B%2B&logoColor=white" />
 <img src="https://img.shields.io/badge/-Java-007396?logo=OpenJDK&logoColor=white" />
@@ -58,7 +49,7 @@ Through this website, I have documented some of the challenges that I have faced
 <img src="https://img.shields.io/badge/-Markdown-000000?logo=markdown&logoColor=white" />
 <img src="https://img.shields.io/badge/-JSON-000000?logo=json&logoColor=white" />
 
-## ⚡ 我使用哪些工具？ What tools do I use?
+## 我使用哪些工具？
 
 <img src="https://img.shields.io/badge/-Windows-0078D6?logo=windows&logoColor=white" />
 <img src="https://img.shields.io/badge/-Linux-black?logo=linux" />
