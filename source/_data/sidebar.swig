@@ -12,6 +12,7 @@
     <b>今日背景</b>
   </div>
   <div id="bing-image-image-title">无</div>
+  <div id="bing-image-location"></div>
   <div id="bing-image-copyright"><i></i></div>
   <div id="bing-image-button">
     <a class="btn" href="#" target="_blank">了解更多</a>
@@ -34,13 +35,13 @@ $(function() {
     }
   })
   $.ajax({
-    url: 'https://peapix.com/bing/feed?country=cn',
+    url: 'https://cors-anywhere.herokuapp.com/https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN',
     type: 'GET',
     dataType: 'json',
     success: function (data) {
-      $('#bing-image-image-title').html(data[0].title)
-      $('#bing-image-copyright>i').html(data[0].copyright)
-      $('#bing-image-button>a').attr('href', data[0].pageUrl)
+      $('#bing-image-image-title').html(data.images[0].title)
+      $('#bing-image-copyright>i').html(data.images[0].copyright)
+      $('#bing-image-button>a').attr('href', data.images[0].copyrightlink)
     },
     error: function (err) {
       console.error(err)
