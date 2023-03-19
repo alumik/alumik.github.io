@@ -13,7 +13,8 @@
   </div>
   <div id="bing-image-copyright"><i></i></div>
   <div id="bing-image-button">
-    <a class="btn" href="#" target="_blank">了解更多</a>
+    <a id="bing-image-copyright-link" class="btn" href="#" target="_blank">了解更多</a>
+    <div id="bing-image-switch-display" class="btn">切换显示</div>
   </div>
 </div>
 
@@ -39,11 +40,14 @@ $(function() {
     success: function (data) {
       $('#bing-image-title>b').html(data.images[0].title)
       $('#bing-image-copyright>i').html(data.images[0].copyright)
-      $('#bing-image-button>a').attr('href', data.images[0].copyrightlink)
+      $('#bing-image-copyrightlink').attr('href', data.images[0].copyrightlink)
     },
     error: function (err) {
       console.error(err)
     }
+  })
+  $('#bing-image-switch-display').on('click', function() {
+    $('.content').toggle()
   })
 }) 
 </script>
