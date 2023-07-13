@@ -12,10 +12,6 @@
     <b>暂无背景信息</b>
   </div>
   <div id="bing-image-copyright"><i></i></div>
-  <div id="bing-image-button">
-    <a id="bing-image-copyright-link" class="btn" href="#" target="_blank">了解更多</a>
-    <div id="bing-image-switch-display" class="btn">切换显示</div>
-  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
@@ -45,9 +41,6 @@ $(function() {
     error: function (err) {
       console.error(err)
     }
-  })
-  $('#bing-image-switch-display').on('click', function() {
-    $('.content').toggle()
   })
 }) 
 </script>

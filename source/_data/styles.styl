@@ -36,16 +36,25 @@ hr {
 
 // 代码块
 // --------------------------------------------------
-.highlight-container {
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+.highlight {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-// Note 图标位置
+code {
+    background: #fcf1f2;
+    color: #c7254e;
+}
+
+// Note 图标和背景
 // --------------------------------------------------
 .post-body .note:not(.no-icon):before {
   font-size: larger;
   top: 13px;
   left: 15px;
+}
+
+.post-body .note {
+  background: #fff;
 }
 
 // 全局圆角
@@ -69,7 +78,13 @@ hr {
 
 // 背景模糊透明
 // --------------------------------------------------
-.post-block, .pagination, .comments, .sidebar-inner {
+
+.main-inner .sub-menu, .main-inner .post-block, .main-inner .tabs-comment, .main-inner > .comments, .main-inner .comment-position .comments, .main-inner .pagination {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.sidebar-inner {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
 }
@@ -129,7 +144,7 @@ hr {
 // 图片
 // --------------------------------------------------
 .post-body img {
-  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 // 一言和背景图片
@@ -150,46 +165,6 @@ hr {
 
 #hitokoto-from {
   text-align: right;
-}
-
-// Valine 评论区
-// --------------------------------------------------
-.v[data-class] .vwrap {
-  border: 1px solid #ccc !important;
-  border-radius: 10px !important;
-  background: white;
-}
-
-.v[data-class] .vwrap .vheader .vinput {
-  border-bottom: 1px dashed #ccc !important;
-}
-
-.v[data-class=v] .vbtn {
-  background: var(--btn-default-bg) !important;
-  border: 2px solid var(--btn-default-border-color) !important;
-  border-radius: 10px !important;
-  color: var(--btn-default-color) !important;
-  display: inline-block !important;
-  font-size: 0.875em !important;
-  line-height: 2 !important;
-  padding: 0 20px !important;
-  text-decoration: none !important;
-  transition-property: background-color !important;
-  transition-delay: 0s !important;
-  transition-duration: 0.2s !important;
-  transition-timing-function: ease-in-out !important;
-  transition: 0.2s ease-out !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
-}
-
-.v[data-class=v] .vbtn:hover {
-  background: var(--btn-default-hover-bg) !important;
-  border-color: var(--btn-default-hover-border-color) !important;
-  color: var(--btn-default-hover-color) !important;
-}
-
-.vpower {
-  display: none;
 }
 
 // 表格

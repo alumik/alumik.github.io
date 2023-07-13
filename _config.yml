@@ -5,7 +5,7 @@
 # Site
 title: 突突唧之家
 subtitle: 我的疑问 & 我的解决方案
-description: 
+description: ''
 keywords: 计算机技术,软件工程,博客
 author: 闪现开心心
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.alumik.cn
+url: https://blog.alumik.cn/
 permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
