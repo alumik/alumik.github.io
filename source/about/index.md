@@ -22,11 +22,11 @@ toc:
 
 ## 你好, 我是钟震宇
 
-我是钟震宇 (AlumiK)，一个来自中国四川的程序员，目前生活在天津。我主攻深度学习、智能运维、高性能计算以及自然语言处理等研究领域。
+我是钟震宇 (GitHub 用户名：alumik)，一个来自中国四川的程序员，目前生活在天津。我主攻深度学习、智能运维、高性能计算以及自然语言处理等研究领域。
 
 在这个网站里，我记录了一些在我的科研工作中遇到的问题以及一些解决方案，希望能帮助到你们。
 
-My name is Zhong Zhenyu (also known as alumik), and I am a programmer from Sichuan, China. Currently, I am residing in Tianjin and focusing primarily on deep learning, AIOps, high-performance computing, natural language processing, and other related research fields.
+My name is Zhong Zhenyu (GitHub username: alumik), and I am a programmer from Sichuan, China. Currently, I am residing in Tianjin and focusing primarily on deep learning, AIOps, high-performance computing, natural language processing, and other related research fields.
 
 Through this website, I have documented some of the challenges that I have faced during my scientific research work, along with their corresponding solutions. My goal is to offer assistance to others who may be encountering similar issues.
 
