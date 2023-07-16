@@ -9,13 +9,13 @@ references:
 ---
 If it's the first time you check-out a repo you need to use `--init` first:
 
-```
+```sh
 git submodule update --init --recursive
 ```
 
 For git 1.8.2 or above, the option `--remote` was added to support updating to latest tips of remote branches:
 
-```
+```sh
 git submodule update --recursive --remote
 ```
 

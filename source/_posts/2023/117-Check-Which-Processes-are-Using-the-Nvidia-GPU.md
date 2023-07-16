@@ -10,7 +10,7 @@ references:
 ---
 Apart from `nvidia-smi`, on Linux you can check which processes might be using the GPU using the command
 
-```
+```sh
 sudo fuser -v /dev/nvidia*
 ```
 

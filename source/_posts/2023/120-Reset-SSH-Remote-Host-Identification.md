@@ -9,13 +9,13 @@ references:
 ---
 Here is the simplest solution:
 
-```
+```sh
 ssh-keygen -R <host>
 ```
 
 For example,
 
-```
+```sh
 ssh-keygen -R 192.168.3.10
 ```
 

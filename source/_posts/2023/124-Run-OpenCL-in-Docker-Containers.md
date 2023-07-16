@@ -11,14 +11,14 @@ references:
 ---
 After installing the NVIDIA container runtime, you should install all necessary packages:
 
-```
+```sh
 apt update
 apt install ocl-icd-libopencl1 opencl-headers clinfo
 ```
 
 Enable OpenCL by:
 
-```
+```sh
 mkdir -p /etc/OpenCL/vendors
 echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd
 ```

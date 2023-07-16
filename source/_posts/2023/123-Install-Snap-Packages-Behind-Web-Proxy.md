@@ -9,7 +9,7 @@ references:
 ---
 A system option was added in snap 2.28 to specify the proxy server.
 
-```
+```sh
 sudo snap set system proxy.http="http://<proxy_addr>:<proxy_port>"
 sudo snap set system proxy.https="http://<proxy_addr>:<proxy_port>"
 ```

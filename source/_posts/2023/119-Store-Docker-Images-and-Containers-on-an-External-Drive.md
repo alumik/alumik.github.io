@@ -27,7 +27,7 @@ The location of Docker's data directory is controlled by the `data-root` setting
 
 Find or add the relevant key inside the config file. Set your desired directory path as its value. Here's a Linux example that'll store Docker data to an external drive mounted in the filesystem:
 
-```
+```json
 {
     "data-root": "/mnt/docker-data"
 }
@@ -35,7 +35,7 @@ Find or add the relevant key inside the config file. Set your desired directory 
 
 You must restart the Docker daemon after you make the change:
 
-```
+```sh
 sudo service docker restart
 ```
 
@@ -43,7 +43,7 @@ Docker Desktop can be restarted on Windows and Mac by exiting it and then launch
 
 You should copy the contents of your current data directory to the new path if you want to retain your existing content. Otherwise you'll start with a clean slate, unable to access previously created containers and images.
 
-```
+```sh
 sudo rsync -aSv /var/lib/docker/ /mnt/docker-data
 ```
 
@@ -53,13 +53,13 @@ You can move your data directory without restarting the daemon by creating a sym
 
 Copy your existing Docker data to your new directory:
 
-```
+```sh
 sudo rsync -aSv /var/lib/docker/ /mnt/docker-data
 ```
 
 Then create a symlink that resolves `/var/lib/docker` to the target location:
 
-```
+```sh
 sudo ln -s /mnt/docker-data/ /var/lib/docker
 ```
 
@@ -77,7 +77,7 @@ In the absence of per-type data path support, pruning unused resources can be a 
 
 You can manually start Docker Engine with a specific data directory by passing the `--data-root` flag when you start the daemon. This can be used to switch between data directories or run a clean instance without your existing data.
 
-```
+```sh
 sudo /usr/bin/dockerd --data-root /mnt/docker-data
 ```
 

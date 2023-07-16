@@ -9,7 +9,7 @@ references:
 ---
 使用命令
 
-```
+```sh
 ssh -o ProxyCommand='"C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:1080 %h %p' remoteuser@remotehost
 ```
 
