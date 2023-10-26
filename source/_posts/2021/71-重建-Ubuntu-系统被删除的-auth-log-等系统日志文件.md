@@ -9,6 +9,6 @@ references:
 ---
 如果误删除了 */var/log/auth.log* 等系统日志，可以通过重新启动 `rsyslog` 服务重建日志文件。
 
-```
+{% code %}
 sudo service rsyslog restart
-```
+{% endcode %}

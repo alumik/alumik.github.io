@@ -9,18 +9,18 @@ references:
 ---
 Open terminal and edit */etc/mysql/mysql.conf.d/mysqld.cnf*. Underneath the `[mysqld]` section, add:
 
-```
+{% code %}
 lower_case_table_names = 1
-```
+{% endcode %}
 
 Restart MySQL:
 
-```
+{% code %}
 sudo service mysql restart
-```
+{% endcode %}
 
 Then check it here:
 
-```
+{% code %}
 mysqladmin -u root -p variables
-```
+{% endcode %}

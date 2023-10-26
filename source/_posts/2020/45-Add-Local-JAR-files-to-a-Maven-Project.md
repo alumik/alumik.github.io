@@ -25,7 +25,7 @@ The jars you depend on with the "System Scope" approach neither get installed to
 
 After putting this in your `pom`:
 
-```xml
+{% code lang:xml %}
 <repository>
     <id>repo</id>
     <releases>
@@ -37,11 +37,11 @@ After putting this in your `pom`:
     </snapshots>
     <url>file://${project.basedir}/repo</url>
 </repository>
-```
+{% endcode %}
 
 for each artifact with a group id of form x.y.z Maven will include the following location inside your project dir in its search for artifacts:
 
-```
+{% code %}
 repo/
 | - x/
 |   | - y/
@@ -49,7 +49,7 @@ repo/
 |   |   |   | - ${artifactId}/
 |   |   |   |   | - ${version}/
 |   |   |   |   |   | - ${artifactId}-${version}.jar
-```
+{% endcode %}
 
 To elaborate more on this you can read [this blog post](http://blog.dub.podval.org/2010/01/maven-in-project-repository.html).
 
@@ -57,15 +57,15 @@ To elaborate more on this you can read [this blog post](http://blog.dub.podval.o
 
 Instead of creating this structure by hand I recommend to use a Maven plugin to install your jars as artifacts. So, to install an artifact to an in-project repository under `repo` folder execute:
 
-```
+{% code %}
 mvn install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar -Dfile=[your-jar] -DgroupId=[...] -DartifactId=[...] -Dversion=[...]
-```
+{% endcode %}
 
 If you'll choose this approach you'll be able to simplify the repository declaration in `pom` to:
 
-```xml
+{% code lang:xml %}
 <repository>
     <id>repo</id>
     <url>file://${project.basedir}/repo</url>
 </repository>
-```
+{% endcode %}

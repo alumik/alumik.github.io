@@ -9,31 +9,31 @@ Ubuntu 多次升级以后系统中会存在大量不同版本的内核，而每�
 
 首先查询当前我们使用的是内核是哪个版本的：
 
-```bash
+{% code lang:bash %}
 uname -a
-```
+{% endcode %}
 
 查询系统中装了哪些内核：
 
-```bash
+{% code lang:bash %}
 dpkg --get-selections | grep linux
-```
+{% endcode %}
 多余的内核可以通过命令删除：
 
-```bash
+{% code lang:bash %}
 apt remove <内核文件名称>
-```
+{% endcode %}
 
 执行完上面命令后接着执行以下命令查看内核是否都删除干净了：
 
-```bash
+{% code lang:bash %}
 dpkg --get-selections | grep linux
-```
+{% endcode %}
 
 如果没干净继续删除。有的内核后面会显示是 `deinstall` ，那需要通过：
 
-```
+{% code %}
 dpkg --get-selections | grep deinstall | sed 's/deinstall/\lpurge/' | dpkg --set-selections; dpkg -Pa
-```
+{% endcode %}
 
 进行删除。

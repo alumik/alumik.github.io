@@ -43,7 +43,7 @@ date: 2020-02-19 17:52:45
 
 ## 完整代码
 
-```python
+{% code lang:python %}
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -72,11 +72,11 @@ new_handles = [Line2D([], [], c=h.get_edgecolor()) for h in handles]
 ax.legend(handles=new_handles, labels=labels)
 
 fig.show()
-```
+{% endcode %}
 
 ## 附：测试数据
 
-```
+{% code %}
 Series A,Series B
 0.55,0.6
 0.59,0.632
@@ -113,4 +113,4 @@ Series A,Series B
 0.944,0.95
 0.955,0.95
 0.97,1
-```
+{% endcode %}

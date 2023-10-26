@@ -9,7 +9,7 @@ references:
 ---
 Use `leftmargin=*`
 
-```tex
+{% code lang:tex %}
 \documentclass{article}
 \usepackage{enumitem}
 \usepackage{showframe}
@@ -20,13 +20,13 @@ Use `leftmargin=*`
   \item MasterSecret Computation
 \end{enumerate}
 \end{document}
-```
+{% endcode %}
 
 {% asset_img 1.png 520 %}
 
 Or set a proper itemindent if you want to control the indent.
 
-```tex
+{% code lang:tex %}
 \documentclass{article}
 \usepackage{enumitem}
 \usepackage{showframe}
@@ -37,6 +37,6 @@ Or set a proper itemindent if you want to control the indent.
   \item MasterSecret Computation
 \end{enumerate}
 \end{document}
-```
+{% endcode %}
 
 {% asset_img 2.png 520 %}

@@ -17,24 +17,24 @@ npm 现在的下载速度已经足够快，无需再使用镜像源。
 
 ## 临时使用
 
-```
+{% code %}
 npm --registry https://registry.npm.taobao.org install xxx
-```
+{% endcode %}
 
 ## 持久使用
 
-```
+{% code %}
 npm config set registry https://registry.npm.taobao.org
-```
+{% endcode %}
 
 配置后可通过下面方式来验证是否成功
 
-```
+{% code %}
 npm config get registry
-```
+{% endcode %}
 
 ## 通过 cnpm 使用
 
-```
+{% code %}
 npm install -g cnpm --registry=https://registry.npm.taobao.org
-```
+{% endcode %}

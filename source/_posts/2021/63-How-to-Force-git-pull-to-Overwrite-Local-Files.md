@@ -13,15 +13,15 @@ If you have any local changes, they will be lost. With or without `--hard` optio
 
 First, run a fetch to update all `origin/<branch>` refs to latest:
 
-```
+{% code %}
 git fetch --all
-```
+{% endcode %}
 
 Then, reset the current branch:
 
-```
+{% code %}
 git reset --hard origin/<branch>
-```
+{% endcode %}
 
 ## Explanation
 
@@ -33,12 +33,12 @@ Then the `git reset` resets the master branch to what you just fetched. The `--h
 
 Uncommitted changes, however (even staged), will be lost. Make sure to stash and commit anything you need. For that you can run the following:
 
-```
+{% code %}
 git stash
-```
+{% endcode %}
 
 Then to reapply these uncommitted changes:
 
-```
+{% code %}
 git stash pop
-```
+{% endcode %}

@@ -9,7 +9,7 @@ references:
 ---
 Try this:
 
-```latex
+{% code lang:latex %}
 \documentclass{article}
 \usepackage[T1]{fontenc}
 \usepackage{listings,xcolor}
@@ -34,4 +34,4 @@ Try this:
 \end{lstlisting}
 
 \end{document}
-```
+{% endcode %}

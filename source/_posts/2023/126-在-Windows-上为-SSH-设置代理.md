@@ -9,9 +9,9 @@ references:
 ---
 使用命令
 
-```sh
+{% code lang:sh %}
 ssh -o ProxyCommand='"C:\Program Files\Git\mingw64\bin\connect.exe" -S 127.0.0.1:1080 %h %p' remoteuser@remotehost
-```
+{% endcode %}
 
 这里 Git 的安装路径和后面的代理自己看着填，不要用相对路径。
 参数中 `-S` 指是 socks 代理，默认是 socks5。如果要使用 HTTP 代理，就写 `-H`。

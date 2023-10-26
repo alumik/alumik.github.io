@@ -14,20 +14,20 @@ references:
 
 Use the following command to uninstall a Toolkit runfile installation:
 
-```
+{% code %}
 sudo /usr/local/cuda-X.Y/bin/cuda-uninstaller
-```
+{% endcode %}
 
 Use the following command to uninstall a Driver runfile installation:
 
-```
+{% code %}
 sudo /usr/bin/nvidia-uninstall
-```
+{% endcode %}
 
 ## 卸载通过包管理器安装的程序和驱动
 
-```
+{% code %}
 sudo apt-get remove --purge '^nvidia-.*'
 sudo apt-get remove --purge '^libnvidia-.*'
 sudo apt-get remove --purge '^cuda-.*'
-```
+{% endcode %}

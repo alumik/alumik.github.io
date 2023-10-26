@@ -11,7 +11,7 @@ With Docker 1.8.1 (August 2015), a `docker inspect -f '{{ .Volumes }}' container
 
 You now need to check `Mounts`, which is a list of mounted paths like:
 
-```json
+{% code lang:json %}
 {
   "Mounts": [
       {
@@ -24,7 +24,7 @@ You now need to check `Mounts`, which is a list of mounted paths like:
       }
   ]
 }
-```
+{% endcode %}
 
 If you want the path of the first mount (for instance), that would be (using index 0):
 

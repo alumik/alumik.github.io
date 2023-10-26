@@ -9,18 +9,18 @@ date: 2019-06-24 16:19:59
 
 添加上游仓库：
 
-```
+{% code %}
 git remote add upstream <上游仓库 URL>
-```
+{% endcode %}
 
 拉取上游仓库（可选使用 `rebase` 参数）：
 
-```
+{% code %}
 git pull --rebase upstream master
-```
+{% endcode %}
 
 将本地仓库上传到个人远程仓库：
 
-```
+{% code %}
 git push origin master
-```
+{% endcode %}

@@ -9,15 +9,15 @@ references:
 ---
 Try `mkdir -p`:
 
-```
+{% code %}
 mkdir -p foo
-```
+{% endcode %}
 
 Note that this will also create any intermediate directories that don't exist; for instance,
 
-```
+{% code %}
 mkdir -p foo/bar/baz
-```
+{% endcode %}
 
 will create directories *foo*, *foo/bar*, and *foo/bar/baz* if they don't exist.
 

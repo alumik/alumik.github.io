@@ -9,12 +9,12 @@ references:
 ---
 Use `os.popen()`:
 
-```python
+{% code lang:python %}
 output = os.popen('ls').read()
-```
+{% endcode %}
 
 The newer way (> Python 2.6) to do this is to use `subprocess`:
 
-```python
+{% code lang:python %}
 output = subprocess.Popen('ls', stdout=subprocess.PIPE).stdout.read()
-```
+{% endcode %}

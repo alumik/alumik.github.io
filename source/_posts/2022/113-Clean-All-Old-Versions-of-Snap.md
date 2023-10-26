@@ -9,6 +9,6 @@ references:
 ---
 To clean all old versions of snaps, try:
 
-```
+{% code %}
 LANG=C snap list --all | while read snapname ver rev trk pub notes; do if [[ $notes = *disabled* ]]; then sudo snap remove "$snapname" --revision="$rev"; fi; done
-```
+{% endcode %}

@@ -17,15 +17,15 @@ We will try to reproduce the situation and try to fix it.
 
 To reproduce the hanging situation, we can use this Docker image:
 
-```dockerfile
+{% code lang:dockerfile %}
 FROM ubuntu:20.04
 RUN apt update
 RUN apt install -y tzdata
-```
+{% endcode %}
 
 Here is the logs that we see in terminal:
 
-```
+{% code %}
 Step 1/3 : FROM ubuntu:20.04
  ---> 1e4467b07108
 Step 2/3 : RUN apt update
@@ -44,13 +44,13 @@ the time zones in which they are located.
   2. America     5. Arctic     8. Europe    11. SystemV
   3. Antarctica  6. Asia       9. Indian    12. US
 Geographic area: 
-```
+{% endcode %}
 
 And here it hangs waiting for us enter data, and even after you'll enter a region — the process will not resume.
 
 To fix this situation we need to add lines 3 and 4 to our Dockerfile. We will create a variable called `$TZ` which will hold our timezone, and the create a `/etc/timezone` file:
 
-```dockerfile
+{% code lang:dockerfile %}
 FROM ubuntu:20.04
 
 ENV TZ=Asia/Dubai
@@ -58,11 +58,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt update
 RUN apt install -y tzdata
-```
+{% endcode %}
 
 And after building image we will see this output:
 
-```
+{% code %}
 Step 1/5 : FROM ubuntu:20.04
  ---> 1e4467b07108
 Step 2/5 : ENV TZ=Asia/Dubai
@@ -85,6 +85,6 @@ Removing intermediate container e71a917a9b6b
  ---> 3d29f4e8f7eb
 Successfully built 3d29f4e8f7eb
 Successfully tagged tzdata:latest
-```
+{% endcode %}
 
 So it's used the timezone that we provide and nothing hangs.

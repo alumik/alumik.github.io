@@ -11,15 +11,15 @@ references:
 ---
 使用 `root` 用户运行
 
-```
+{% code %}
 echo 0 > /proc/sys/kernel/yama/ptrace_scope
-```
+{% endcode %}
 
 要使得该修改在重启后不被覆盖
 
-```
+{% code %}
 nano /etc/sysctl.d/10-ptrace.conf
-```
+{% endcode %}
 
 修改使得 `kernel.yama.ptrace = 0`。
 然后用 `sysctl -p /etc/sysctl.d/10-ptrace.conf` 执行生效。

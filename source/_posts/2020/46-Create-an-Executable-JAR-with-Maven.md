@@ -21,13 +21,13 @@ In our example, we created Java class named `ExecutableMavenJar`.
 
 We also need to make sure that our *pom.xml* contains the following elements:
 
-```xml
+{% code lang:xml %}
 <modelVersion>4.0.0</modelVersion>
 <groupId>com.baeldung</groupId>
 <artifactId>core-java</artifactId>
 <version>0.1.0-SNAPSHOT</version>
 <packaging>jar</packaging>
-```
+{% endcode %}
 
 The most important aspect here is the type – to create an executable jar, double-check the configuration uses a `jar` type.
 
@@ -41,7 +41,7 @@ Let's start with a manual approach – with the help of the `maven-dependency-pl
 
 First, we'll copy all required dependencies into the folder that we'll specify:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-dependency-plugin</artifactId>
@@ -60,7 +60,7 @@ First, we'll copy all required dependencies into the folder that we'll specify:
         </execution>
     </executions>
 </plugin>
-```
+{% endcode %}
 
 There are two important aspects to notice. First, we specify the goal `copy-dependencies`, which tells Maven to copy these dependencies into the specified `outputDirectory`.
 
@@ -68,7 +68,7 @@ In our case, we'll create a folder named `libs`, inside the project build direct
 
 In the second step, we are going to create executable and class path aware jar, with the link to the dependencies copied in the first step:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-jar-plugin</artifactId>
@@ -84,7 +84,7 @@ In the second step, we are going to create executable and class path aware jar, 
         </archive>
     </configuration>
 </plugin>
-```
+{% endcode %}
 
 The most important part of above-mentioned is the manifest configuration. We add a classpath, with all dependencies (folder *libs/*), and provide the information about the main class.
 
@@ -103,7 +103,7 @@ The main goal in the assembly plugin is the [single](https://maven.apache.org/pl
 
 Let's take a look at the configuration in *pom.xml*:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-assembly-plugin</artifactId>
@@ -128,7 +128,7 @@ Let's take a look at the configuration in *pom.xml*:
         </execution>
     </executions>
 </plugin>
-```
+{% endcode %}
 
 Similarly to the manual approach, we need to provide the information about the main class; the difference is that the Maven Assembly Plugin will automatically copy all required dependencies into a jar file.
 
@@ -145,7 +145,7 @@ Apache Maven Shade Plugin provides the capability to package the artifact in an 
 
 Let's take a look at the configuration:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-shade-plugin</artifactId>
@@ -166,7 +166,7 @@ Let's take a look at the configuration:
         </execution>
     </executions>
 </plugin>
-```
+{% endcode %}
 
 There are three main parts of this configuration:
 
@@ -189,7 +189,7 @@ This provides custom classloader that knows how to load classes and resources fr
 
 Let's take a look at the configuration:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>com.jolira</groupId>
     <artifactId>onejar-maven-plugin</artifactId>
@@ -209,7 +209,7 @@ Let's take a look at the configuration:
         </execution>
     </executions>
 </plugin>
-```
+{% endcode %}
 
 As it is shown in the configuration, we need to specify the main class and attach all dependencies to build, by using `attachToBuild = true`.
 
@@ -228,7 +228,7 @@ To use it we need to use at least Maven version 3.2. The detailed description is
 
 Let's have a look at the config:
 
-```xml
+{% code lang:xml %}
 <plugin>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
@@ -246,7 +246,7 @@ Let's have a look at the config:
         </execution>
     </executions>
 </plugin>
-```
+{% endcode %}
 
 There are two differences between Spring plugin and the others. First, the goal of the execution is called `repackage`, and the classifier is named `spring-boot`.
 

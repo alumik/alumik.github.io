@@ -12,21 +12,21 @@ Use `find`.
 
 To see exactly which files you will remove:
 
-```
+{% code %}
 find . -name "*.bak" -type f
-```
+{% endcode %}
 
 To count the number of files:
 
-```
+{% code %}
 find . -name "*.bak" -type f | wc -l
-```
+{% endcode %}
 
 To delete these files:
 
-```
+{% code %}
 find . -name "*.bak" -type f -delete
-```
+{% endcode %}
 
 {% note danger %}
 Make sure that `-delete` is the last argument in your command. If you put it before the `-name "*.bak"` argument, it will delete **everything**.

@@ -9,26 +9,26 @@ references:
 ---
 Use the `set -e` builtin:
 
-```sh
+{% code lang:sh %}
 #!/bin/bash
 
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
-```
+{% endcode %}
 
 Alternatively, you can pass `-e` on the command line:
 
-```
+{% code %}
 bash -e my_script.sh
-```
+{% endcode %}
 
 You can also disable this behavior with `set +e`.
 
 You may also want to employ all or some of the the `-e` `-u` `-x` and `-o pipefail` options like so:
 
-```sh
+{% code lang:sh %}
 set -euxo pipefail
-```
+{% endcode %}
 
 `-e` exits on error, `-u` errors on undefined variables, and `-o (for option) pipefail` exits on command pipe failures.
 

@@ -23,15 +23,15 @@ To create the `docker` group and add your user:
 
 1. Create the `docker` group.
 
-    ```
+    {% code %}
     sudo groupadd docker
-    ```
+    {% endcode %}
 
 2. Add your user to the `docker` group.
 
-    ```
+    {% code %}
     sudo usermod -aG docker $USER
-    ```
+    {% endcode %}
 
 3. Log out and log back in so that your group membership is re-evaluated.
 
@@ -41,15 +41,15 @@ To create the `docker` group and add your user:
 
     On Linux, you can also run the following command to activate the changes to groups:
 
-    ```
+    {% code %}
     newgrp docker
-    ```
+    {% endcode %}
 
 4. Verify that you can run `docker` commands without `sudo`.
 
-    ```
+    {% code %}
     docker run hello-world
-    ```
+    {% endcode %}
 
     This command downloads a test image and runs it in a container. When the container runs, it prints a message and exits.
 
@@ -60,7 +60,7 @@ To create the `docker` group and add your user:
 
     To fix this problem, either remove the `~/.docker/` directory (it is recreated automatically, but any custom settings are lost), or change its ownership and permissions using the following commands:
 
-    ```
+    {% code %}
     sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
     sudo chmod g+rwx "$HOME/.docker" -R
-    ```
+    {% endcode %}

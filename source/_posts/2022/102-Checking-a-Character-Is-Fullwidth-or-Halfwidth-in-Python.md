@@ -9,7 +9,7 @@ references:
 ---
 You can check the width of the character using `unicodedata.east_asian_width(unichr)`:
 
-```python
+{% code lang:python %}
 import unicodedata
 
 for char in string:
@@ -18,11 +18,11 @@ for char in string:
         print('{0} is full-width.'.format(char))
     elif status == 'H':
         print('{0} is half-width.'.format(char))
-```
+{% endcode %}
 
 It has the following returned values:
 
-```
+{% code %}
 # East_Asian_Width (ea)
 
 ea ; A         ; Ambiguous
@@ -31,7 +31,7 @@ ea ; H         ; Halfwidth
 ea ; N         ; Neutral
 ea ; Na        ; Narrow
 ea ; W         ; Wide
-```
+{% endcode %}
 
 Returned values of `'W'`, `'F'` and `'A'` should be considered as full-width on Windows.
 
@@ -39,7 +39,7 @@ Reference: http://www.unicode.org/reports/tr44/tr44-4.html#Validation_of_Enumera
 
 On POSIX platform, the quote characters (`u'“'` and `u'”'`) are considered as ambiguous, which are actually 1 character width in console. For console usage, you may try a 3rd-party library `urwid`:
 
-```python
+{% code lang:python %}
 >>> from urwid.util import str_util
 >>> str_util.get_width(ord(u'x'))
 1
@@ -47,4 +47,4 @@ On POSIX platform, the quote characters (`u'“'` and `u'”'`) are considered a
 1
 >>> str_util.get_width(ord(u'你'))
 2
-```
+{% endcode %}

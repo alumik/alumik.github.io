@@ -9,6 +9,6 @@ references:
 ---
 使用命令
 
-```
+{% code %}
 git config --global core.editor "nano"
-```
+{% endcode %}

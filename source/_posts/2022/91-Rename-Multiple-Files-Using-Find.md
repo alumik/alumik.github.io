@@ -9,6 +9,6 @@ references:
 ---
 Use the following command to recursively rename files matching a specific pattern (`file*` here).
 
-```
+{% code %}
 find . -type f -name 'file*' -execdir mv {} {}_renamed ';'
-```
+{% endcode %}

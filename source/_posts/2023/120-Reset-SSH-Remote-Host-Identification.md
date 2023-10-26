@@ -9,15 +9,15 @@ references:
 ---
 Here is the simplest solution:
 
-```sh
+{% code lang:sh %}
 ssh-keygen -R <host>
-```
+{% endcode %}
 
 For example,
 
-```sh
+{% code lang:sh %}
 ssh-keygen -R 192.168.3.10
-```
+{% endcode %}
 
 From the `ssh-keygen` man page:
 

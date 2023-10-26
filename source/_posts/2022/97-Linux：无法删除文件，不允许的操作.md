@@ -11,9 +11,9 @@ references:
 
 使用 `chattr` 删除 `ia` 参数：
 
-```
+{% code %}
 chattr -ia files...
-```
+{% endcode %}
 
 ## chattr 命令
 
@@ -35,9 +35,9 @@ chattr -ia files...
 
 ### 语法
 
-```
+{% code %}
 chattr [ -RVf ] [ -v version ] [ -p project ] [ mode ] files...
-```
+{% endcode %}
 
 ### 参数
 

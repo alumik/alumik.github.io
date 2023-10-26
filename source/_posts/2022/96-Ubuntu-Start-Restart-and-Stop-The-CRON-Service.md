@@ -13,41 +13,41 @@ references:
 
 To start the cron service, use:
 
-```
+{% code %}
 sudo /etc/init.d/cron start
-```
+{% endcode %}
 
 OR
 
-```
+{% code %}
 sudo service cron start
-```
+{% endcode %}
 
 ## Stop Cron Service
 
 To stop the cron service, use:
 
 
-```
+{% code %}
 sudo /etc/init.d/cron stop
-```
+{% endcode %}
 
 OR
 
-```
+{% code %}
 sudo service cron stop
-```
+{% endcode %}
 
 ## Restart Cron Service
 
 To restart the cron service, use:
 
-```
+{% code %}
 sudo /etc/init.d/cron restart
-```
+{% endcode %}
 
 OR
 
-```
+{% code %}
 sudo service cron restart
-```
+{% endcode %}

@@ -12,7 +12,7 @@ references:
 ---
 CMake has a [standard module](https://cmake.org/cmake/help/latest/module/FindOpenMP.html) for testing if the compiler supports OpenMP.
 
-```cmake
+{% code lang:cmake %}
 cmake_minimum_required(VERSION 3.17)
 project(OpenMPTest)
 
@@ -22,4 +22,4 @@ add_executable(${PROJECT_NAME} main.cpp)
 
 find_package(OpenMP REQUIRED)  # Find the package
 target_link_libraries(${PROJECT_NAME} PRIVATE OpenMP::OpenMP_CXX)  # Link against it for C++
-```
+{% endcode %}

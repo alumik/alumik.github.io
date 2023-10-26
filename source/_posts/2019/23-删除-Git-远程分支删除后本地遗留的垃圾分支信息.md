@@ -11,7 +11,7 @@ date: 2019-06-24 17:28:55
 
 <!-- more -->
 
-```
+{% code %}
 $ git branch -a
 
   movtop
@@ -33,11 +33,11 @@ $ git branch -a
   remotes/origin/task_yqj
   remotes/origin/weibo
   remotes/origin/weixin_temp
-```
+{% endcode %}
 
 使用命令 `git remote show origin` ，可以查看 remote 地址，远程分支，还有本地分支与之相对应关系等信息。
 
-```
+{% code %}
 $ git remote show origin
 
 * remote origin
@@ -66,11 +66,11 @@ $ git remote show origin
     weibo        merges with remote weibo
   Local ref configured for 'git push':
     task_develop pushes to task_develop (up to date)
-```
+{% endcode %}
 
 此时我们可以看到那些远程仓库已经不存在的分支。根据提示，使用 `git remote prune origin` 命令。
 
-```
+{% code %}
 $ git remote prune origin
 
 Pruning origin
@@ -84,6 +84,6 @@ URL: https://xxx@gitlab.com/xxx/xxx.git
  * [pruned] origin/stuff_web_fix
  * [pruned] origin/task_temp
  * [pruned] origin/weibo
-```
+{% endcode %}
 
 这样就删除了那些远程仓库不存在的分支。

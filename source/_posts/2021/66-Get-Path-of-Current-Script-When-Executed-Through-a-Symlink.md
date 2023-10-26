@@ -9,12 +9,12 @@ references:
 ---
 Try this as a general purpose solution:
 
-```sh
+{% code lang:sh %}
 DIR="$(cd "$(dirname "$0")" && pwd)"
-```
+{% endcode %}
 
 In the specific case of following symlinks, you could also do this:
 
-```sh
+{% code lang:sh %}
 DIR="$(dirname "$(readlink -f "$0")")"
-```
+{% endcode %}

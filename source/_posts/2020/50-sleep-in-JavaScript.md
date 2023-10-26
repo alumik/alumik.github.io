@@ -7,7 +7,7 @@ abbrlink: 50
 references:
   - https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep
 ---
-```javascript
+{% code lang:javascript %}
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -26,15 +26,15 @@ async function demo() {
 }
 
 demo()
-```
+{% endcode %}
 
 This is it. `await sleep(<duration>)`.
 
 Or as a one-liner:
 
-```javascript
+{% code lang:javascript %}
 await new Promise(r => setTimeout(r, 2000))
-```
+{% endcode %}
 
 ## Note
 

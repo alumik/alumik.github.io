@@ -13,11 +13,11 @@ Remove unused packages and caches.
 
 Options:
 
-```
+{% code %}
 usage: conda clean [-h] [-a] [-i] [-p] [-t] [-f]
                    [-c [TEMPFILES [TEMPFILES ...]]] [-l] [-d] [--json] [-q]
                    [-v] [-y]
-```
+{% endcode %}
 
 ## Removal Targets
 

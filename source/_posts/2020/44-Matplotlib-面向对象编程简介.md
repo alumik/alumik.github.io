@@ -34,7 +34,7 @@ The pyplot API is generally less-flexible than the object-oriented API. Most of 
 
 `matplotlib.pyplot` 为底层面向对象的绘图库提供状态机接口。状态机隐式地自动创建图像和坐标轴，以实现所需的功能，例如：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -50,7 +50,7 @@ plt.title("Simple Plot")
 plt.legend()
 
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-1.png %}
 
@@ -66,7 +66,7 @@ plt.show()
 
 示例代码：
 
-```python
+{% code lang:python %}
 from pylab import *
 
 x = linspace(0, 2, 100)
@@ -81,7 +81,7 @@ title("Simple Plot")
 legend()
 
 show()
-```
+{% endcode %}
 
 ### 面向对象编程
 
@@ -97,24 +97,24 @@ Matplotlib 中的对象主要有三种， `FigureCanvas` （画布）， `Figure
 
 下列代码使用 `plt.figure` 创建一个空的 `Figure` 对象，并通过 `plt.show` 显示出来：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 plt.figure()
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-2.png %}
 
 有了图像，接下来就在图像上绘图。我们首先需要创建一个坐标轴，可以调用 `Figure` 实例的 `add_axes` 方法：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 fig = plt.figure()
 ax = fig.add_axes([0.1, 0.1, 0.8, 0.8])  # [左边距，下边距，坐标轴宽度，坐标轴高度] 范围 (0, 1)
 fig.show()
-```
+{% endcode %}
 
 `[0.1, 0.1, 0.8, 0.8]` 表示的是在图像中，坐标轴距离画布左边 0.1 倍的位置，距离画布下边 0.1 倍的位置。确定了这两个位置后，坐标轴的整体宽度和高度占 0.8 倍的大小。得到如下结果：
 
@@ -124,12 +124,12 @@ fig.show()
 
 如果你之前就接触过一些绘图的命令，你会发现：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 plt.plot([0, 1, 2])
 plt.show()
-```
+{% endcode %}
 
 直接使用这两个命令就能绘图，并没有手动创建图像和坐标轴。得到如下图：
 
@@ -139,7 +139,7 @@ plt.show()
 
 但是，显式地创建图像和坐标轴能让我们对绘图过程有完全的控制权（比如可以指定在什么地方绘图），而且绘图过程的逻辑性更强。接下来我们通过绘制一张“图中图”来理解这个过程：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot  as plt
 
@@ -153,7 +153,7 @@ ax1.plot(x, y, 'r')
 ax2.plot(x, y, 'g')
 
 fig.show()
-```
+{% endcode %}
 
 我们得到了如下图像：
 
@@ -165,7 +165,7 @@ fig.show()
 
 AxesSubplot 对象即子图。子图是自带坐标轴的。下列代码会在图像上创建两个子图（一行两列）：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -182,11 +182,11 @@ ax2 = fig.add_subplot(122)
 ax2.plot(x, x ** 2, label='quadratic')
 
 fig.show()
-```
+{% endcode %}
 
 此处可以与使用 `matplotlib.pyplot` 接口绘图的方式简单对比一下：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -201,7 +201,7 @@ plt.subplot(122)
 plt.plot(x, x ** 2, label='quadratic')
 
 plt.show()
-```
+{% endcode %}
 
 上面两种方式都能得到同样的结果：
 
@@ -223,9 +223,9 @@ plt.show()
 
 在创建 `Figure` 对象的时候，我们可以使用 `figsize` 和 `dpi` 控制图像的尺寸。比如：
 
-```python
+{% code lang:python %}
 fig = plt.figure(figsize=(16,8), dpi=100)
-```
+{% endcode %}
 
 `figsize` 表示图像长宽大小，单位为英寸。 `dpi` 表示每英寸的像素值。因此上面的命令创建了一张 1600*800 像素的图像。
 
@@ -233,9 +233,9 @@ fig = plt.figure(figsize=(16,8), dpi=100)
 
 从上面输出的结果来看， `plt.show` 仅仅是将图像显示了出来。如果要保存图像，还需要通过 `savefig` 保存。没有显式指定图像和坐标轴，直接使用 `plt.savefig` 保存也可以，若显式指定了图像可以用 `Figure` 实例的 `savefig` 方法。 Matplotlib 可以将图像保存为多种格式的高质量图片，包括 PNG ， JPG ， EPS ， SVG ， PGF 和 PDF 等，只要写好后缀名即可。例如：
 
-```python
+{% code lang:python %}
 fig.savefig('result.png')
-```
+{% endcode %}
 ### 其他差别
 
 下表展示了一些常用方法的对比：

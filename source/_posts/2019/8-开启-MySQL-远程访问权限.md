@@ -9,11 +9,11 @@ date: 2019-06-24 15:28:12
 
 使用 root 用户执行：
 
-```sql
+{% code lang:sql %}
 CREATE USER 'your_username'@'%' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON `your_schema_name`.`your_table_name` TO 'your_username'@'%';
 FLUSH PRIVILEGES;
-```
+{% endcode %}
 
 ## 允许所有地址访问
 
@@ -21,6 +21,6 @@ FLUSH PRIVILEGES;
 
 重启 MySQL：
 
-```bash
+{% code lang:bash %}
 service mysql restart
-```
+{% endcode %}

@@ -16,20 +16,20 @@ IPMI（Intelligent Platform Management Interface）即智能平台管理接口,�
 
 安装 `impitool`：
 
-```
+{% code %}
 sudo apt install impitool
-```
+{% endcode %}
 
 配置启用：
 
-```
+{% code %}
 sudo modprobe ipmi_msghandler
 sudo modprobe ipmi_devintf
 sudo modprobe ipmi_si
-```
+{% endcode %}
 
 接着，使用如下命令查看 iDRAC 地址：
 
-```
+{% code %}
 ipmitool lan print
-```
+{% endcode %}

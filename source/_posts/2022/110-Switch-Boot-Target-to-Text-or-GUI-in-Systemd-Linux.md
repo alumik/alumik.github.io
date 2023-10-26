@@ -29,21 +29,21 @@ The procedure is as follows to change into a text mode runlevel under `systemd`:
 2. For remote Linux servers, use the SSH command.
 3. Find which target unit is used by default:
 
-    ```
+    {% code %}
     systemctl get-default
-    ```
+    {% endcode %}
 
 4. To change boot target to the text mode:
 
-    ```
+    {% code %}
     sudo systemctl set-default multi-user.target
-    ```
+    {% endcode %}
 
 5. Reboot the system using the reboot command:
 
-    ```
+    {% code %}
     sudo reboot
-    ```
+    {% endcode %}
 
 ## Switch Boot Target to GUI (Graphical UI)
 
@@ -53,50 +53,50 @@ Want to revert change boot to GUI instead of console/text mode? Try:
 2. Again, for remote Linux servers, use the SSH command.
 3. Find which target unit is used by default:
 
-    ```
+    {% code %}
     systemctl get-default
-    ```
+    {% endcode %}
 
 4. To change boot target to the GUI mode:
 
-    ```
+    {% code %}
     sudo systemctl set-default graphical.target
-    ```
+    {% endcode %}
 
 5. Make sure you reboot the Linux box using the reboot command:
 
-    ```
+    {% code %}
     sudo reboot
-    ```
+    {% endcode %}
 
 ## Understanding Boot Targets Under systemd
 
 The default target is set by `/etc/systemd/system/default.target`.
 Run the following `ls` command to verify it using the symbolic link:
 
-```
+{% code %}
 ls -l /etc/systemd/system/default.target
-```
+{% endcode %}
 
 Of course, we can use the `systemctl` command itself too:
 
-```
+{% code %}
 systemctl get-default
-```
+{% endcode %}
 
 ### Listing all systemd targets
 
 Execute the following command:
 
-```
+{% code %}
 systemctl list-units --type target
 # list all loaded units in any state #
 systemctl list-units --type target --all
-```
+{% endcode %}
 
 Here is a list of all currently loaded target units on Ubuntu Linux 20.04 LTS desktop:
 
-```
+{% code %}
   UNIT                                 LOAD   ACTIVE SUB    DESCRIPTION                                       
   basic.target                         loaded active active Basic System                                      
   blockdev@dev-mapper-md1_crypt.target loaded active active Block Device Preparation for /dev/mapper/md1_crypt
@@ -131,7 +131,7 @@ SUB    = The low-level unit activation state, values depend on unit type.
 
 26 loaded units listed. Pass --all to see loaded but inactive units, too.
 To show all installed unit files use 'systemctl list-unit-files'.
-```
+{% endcode %}
 
 ## SysV Runleves vs systemd Targets
 
@@ -153,22 +153,22 @@ Earlier I explained how to use the `systemctl` command.
 But one can use other commands.
 Therefore, use the `ln` command as follows to switch to the GUI mode:
 
-```
+{% code %}
 sudo ln -s -f -v \
 /lib/systemd/system/graphical.target \
 /etc/systemd/system/default.target
-```
+{% endcode %}
 
 Want to go back to the text mode:
 
-```
+{% code %}
 sudo ln -s -f -v \
 /lib/systemd/system/multi-user.target \
 /etc/systemd/system/default.target
-```
+{% endcode %}
 
 Verify it using the `ls` command
 
-```
+{% code %}
 ls -l /etc/systemd/system/default.target
-```
+{% endcode %}

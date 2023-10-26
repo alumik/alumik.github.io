@@ -17,7 +17,7 @@ date: 2019-06-24 20:47:40
 
 ### TestJUnit.java
 
-```java
+{% code lang:java %}
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -28,11 +28,11 @@ public class TestJUnit {
         assertEquals("Junit is working fine.", str);
     }
 }
-```
+{% endcode %}
 
 ### TestRunner.java
 
-```java
+{% code lang:java %}
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -46,10 +46,10 @@ public class TestRunner {
     System.out.println(result.wasSuccessful());
     }
 }
-```
+{% endcode %}
 
 期望输出
 
-```
+{% code %}
 true
-```
+{% endcode %}

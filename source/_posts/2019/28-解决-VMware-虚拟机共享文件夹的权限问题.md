@@ -7,8 +7,8 @@ date: 2019-06-24 20:27:02
 ---
 在文件 */etc/fstab* 中加入新的一行
 
-```
+{% code %}
 .host:/ /mnt/hgfs fuse.vmhgfs-fuse allow_other,defaults 0 0
-```
+{% endcode %}
 
 即可。

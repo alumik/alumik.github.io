@@ -12,9 +12,9 @@ When using images for API 27 or later, the emulator can render the Android UI wi
 
 To enable Skia rendering, use the following commands in adb shell:
 
-```
+{% code %}
 su
 setprop debug.hwui.renderer skiagl
 stop
 start
-```
+{% endcode %}

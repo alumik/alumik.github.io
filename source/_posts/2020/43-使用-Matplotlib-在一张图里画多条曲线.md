@@ -21,7 +21,7 @@ Python 中 Matplotlib 的作图功能很强大。本文教你将多条数据曲�
 
 例如：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -31,14 +31,14 @@ plt.plot(x, 2 * x)
 plt.plot(x, 3 * x)
 plt.plot(x, 4 * x)
 plt.show()
-```
+{% endcode %}
 <!-- more -->
 
 {% asset_img myplot-1.png %}
 
 而且，正如你可能已经知道的那样，你可以轻松添加图例：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -49,13 +49,13 @@ plt.plot(x, 3 * x)
 plt.plot(x, 4 * x)
 plt.legend(['$y = x$', '$y = 2x$', '$y = 3x$', '$y = 4x$'], loc='upper left')
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-2.png %}
 
 你还可以控制循环的颜色：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -67,7 +67,7 @@ plt.plot(x, 3 * x)
 plt.plot(x, 4 * x)
 plt.legend(['$y = x$', '$y = 2x$', '$y = 3x$', '$y = 4x$'], loc='upper left')
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-3.png %}
 
@@ -78,7 +78,7 @@ plt.show()
 
 否则，你将陷入一个非常混乱的境地！许多人在不同程度上都是色盲，区分众多微妙不同的颜色对于更多的人来说比你意识到的要困难。如果你真的想在一张图上放 20 条线，并且有 20 种相对不同的颜色，可以用如下方法：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -102,13 +102,13 @@ plt.legend(ncol=4, loc='upper center',
            fancybox=True, shadow=True)
 
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-4.png %}
 
 如果你事先不知道要绘制的线条数量，可以在绘制它们之后从图形中获取曲线数量并更改颜色：
 
-```python
+{% code lang:python %}
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -122,7 +122,7 @@ for i, j in enumerate(plt.gca().lines):
 
 plt.legend(loc='upper left')
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-5.png %}
 
@@ -130,14 +130,14 @@ plt.show()
 
 Matplotlib 中的每个子图，即 `axes` ，都有自己独立的颜色循环，即 `prop_cycle` ，如下：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 fig, axes = plt.subplots(2, 3)
 for ax in axes.flatten():
     ax.plot((0, 1), (0, 1))
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-6.png %}
 
@@ -145,20 +145,20 @@ plt.show()
 
 如果这些字图是由一个循环自动产生的（通常是这样），我们必须使用另一个循环变量去自动覆盖默认颜色设置：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 fig, axes = plt.subplots(2, 3)
 for ax, short_color_name in zip(axes.flatten(), 'brgkyc'):
     ax.plot((0, 1), (0, 1), short_color_name)
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-7.png %}
 
 另一种方法是创建一个属性循环对象：
 
-```python
+{% code lang:python %}
 import matplotlib.pyplot as plt
 
 from cycler import cycler
@@ -170,7 +170,7 @@ actual_cycler = my_cycler()
 for ax in axes.flat:
     ax.plot((0, 1), (0, 1), **next(actual_cycler))
 plt.show()
-```
+{% endcode %}
 
 {% asset_img myplot-8.png %}
 

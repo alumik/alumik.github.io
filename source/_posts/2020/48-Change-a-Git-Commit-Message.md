@@ -25,9 +25,9 @@ To change the message of the most recent commit that has not been pushed to the 
 
 2. Run the following command to amend (change) the message of the latest commit:
 
-    ```
+    {% code %}
     git commit --amend -m "New commit message."
-    ```
+    {% endcode %}
 
     What the command does is overwriting the most recent commit with the new one.
 
@@ -35,10 +35,10 @@ To change the message of the most recent commit that has not been pushed to the 
 
 Before changing the commit message, you can also add other changes you previously forgot:
 
-```
+{% code %}
 git add .
 git commit --amend -m "New commit message."
-```
+{% endcode %}
 
 ### Pushed commit
 
@@ -51,15 +51,15 @@ If you changed the message of most recently pushed commit, you would have to for
 
 2. Amend the message of the latest pushed commit:
 
-    ```
+    {% code %}
     git commit --amend -m "New commit message."
-    ```
+    {% endcode %}
 
     Force push to update the history of the remote repository:
 
-    ```
+    {% code %}
     git push --force branch-name
-    ```
+    {% endcode %}
 
 ## Changing an Older or Multiple Commits
 
@@ -71,13 +71,13 @@ The `rebase` command rewrites the commit history, and it is strongly discouraged
 
 2. Type `git rebase -i HEAD~N`, where `N` is the number of commits to perform a rebase on. For example, if you want to change the 4th and the 5th latest commits you would type:
 
-    ```
+    {% code %}
     git rebase -i HEAD~5
-    ```
+    {% endcode %}
 
     The command will display the latest `X` commits in your [default text editor](https://linuxize.com/post/how-to-use-nano-text-editor/):
 
-    ```
+    {% code %}
     pick 43f8707f9 fix: update dependency json5 to ^2.1.1
     pick cea1fb88a fix: update dependency verdaccio to ^4.3.3
     pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2
@@ -85,11 +85,11 @@ The `rebase` command rewrites the commit history, and it is strongly discouraged
     pick 11ce0ab34 fix: Fix spelling.
 
     # Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)
-    ```
+    {% endcode %}
 
 3. Move to the lines of the commit message you want to change and replace `pick` with `reword`:
 
-    ```
+    {% code %}
     reword 43f8707f9 fix: update dependency json5 to ^2.1.1
     reword cea1fb88a fix: update dependency verdaccio to ^4.3.3
     pick aa540c364 fix: update dependency webpack-dev-server to ^3.8.2
@@ -97,7 +97,7 @@ The `rebase` command rewrites the commit history, and it is strongly discouraged
     pick 11ce0ab34 fix: Fix spelling.
 
     # Rebase 7e59e8ead..11ce0ab34 onto 7e59e8ead (5 commands)
-    ```
+    {% endcode %}
 
 4. Save the changes and close the editor.
 
@@ -105,9 +105,9 @@ The `rebase` command rewrites the commit history, and it is strongly discouraged
 
 6. Force push the changes to the remote repository:
 
-    ```
+    {% code %}
     git push --force branch-name
-    ```
+    {% endcode %}
 
 ## Conclusion
 

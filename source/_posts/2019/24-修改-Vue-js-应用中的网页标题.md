@@ -11,7 +11,7 @@ date: 2019-06-24 17:33:12
 
 例如在 *src/router/index.js* 中
 
-```javascript
+{% code lang:javascript %}
 routes: [
     {
         path: '...',
@@ -20,15 +20,15 @@ routes: [
         component: () => import('...')
     }
 ]
-```
+{% endcode %}
 
 ## 使用路由钩子
 
 利用路由的 `beforeEach` 方法修改网站标题。
 
-```javascript
+{% code lang:javascript %}
 router.beforeEach((to, from, next) => {
     document.title = to.meta.title
     next()
 })
-```
+{% endcode %}

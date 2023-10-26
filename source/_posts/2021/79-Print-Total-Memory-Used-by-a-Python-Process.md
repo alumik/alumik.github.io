@@ -9,8 +9,8 @@ references:
 ---
 Here is a useful solution that works for various operating systems, including Linux, Windows, etc.:
 
-```python
+{% code lang:python %}
 import psutil
 process = psutil.Process()
 print(process.memory_info().rss)  # in bytes
-```
+{% endcode %}

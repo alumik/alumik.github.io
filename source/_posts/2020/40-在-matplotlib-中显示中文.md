@@ -13,10 +13,10 @@ references:
 
 在 Python 中使用 Matplotlib 显示中文时，如果遇到字体显示不全等问题，可以添加如下代码片段解决。
 
-```python
+{% code lang:python %}
 # 用来正常显示中文汉字
 plt.rcParams['font.sans-serif'] = ['SimHei']
 
 # 用来正常显示负号
 plt.rcParams['axes.unicode_minus'] = False
-```
+{% endcode %}

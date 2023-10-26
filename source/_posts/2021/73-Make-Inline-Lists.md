@@ -9,7 +9,7 @@ references:
 ---
 The `enumitem` package has an `inline` option which implements inline versions of the standard lists using starred versions of the basic list environments. As with other `enumitem` lists, labels and (horizontal) spacing can be set with key values as well as custom settings for the elements between the list items (typically punctuation).
 
-```tex
+{% code lang:tex %}
 \documentclass{article}
 \usepackage[inline]{enumitem}
 
@@ -23,6 +23,6 @@ Text before list.
 Text after list.
 
 \end{document}
-```
+{% endcode %}
 
 {% asset_img 1.png 600 %}

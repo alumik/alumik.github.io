@@ -7,9 +7,9 @@ date: 2019-06-24 15:40:21
 ---
 用管理员身份打开 PowerShell，执行以下命令：
 
-```
+{% code %}
 <WSL 发行版代号> config --default-user root
-```
+{% endcode %}
 
 目前可用的发行版代号不完全列表如下：
 

@@ -10,15 +10,15 @@ references:
 The `--first-time` flag causes modprobe to fail if the module is already loaded.
 That in conjunction with the `--dry-run` (or the shorthand `-n`) flag makes a nice test:
 
-```
+{% code %}
 modprobe -n --first-time $MODULE && echo "Not loaded" || echo "Loaded"
-```
+{% endcode %}
 
 This also prints `Loaded` if the module does not exist.
 We can fix this by combining it with modinfo:
 
-```
+{% code %}
 modinfo $MODULE >/dev/null 2>/dev/null &&
 ! modprobe -n --first-time $MODULE 2>/dev/null &&
 echo "Loaded" || echo "Not loaded"
-```
+{% endcode %}

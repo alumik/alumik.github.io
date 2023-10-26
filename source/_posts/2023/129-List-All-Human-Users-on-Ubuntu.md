@@ -23,33 +23,33 @@ Or maybe for some other reason you must ensure only the entries in `/home` that 
 In that case, I suggest passing the names of everything in `/home` to getent (to retrieve the passwd entries of users with those names), then isolate and display just the username field (with grep, sed, or awk, as per your preference).
 Any one of these will do:
 
-```sh
+{% code lang:sh %}
 getent passwd $(ls /home) | grep -o '^[^:]*'
-```
+{% endcode %}
 
-```sh
+{% code lang:sh %}
 getent passwd $(ls /home) | sed 's/:.*//'
-```
+{% endcode %}
 
-```sh
+{% code lang:sh %}
 getent passwd $(ls /home) | awk -F: '{print $1}'
-```
+{% endcode %}
 
 This should work well, as you shouldn't have user accounts with whitespace or control characters in their names; cannot, without reconfiguring Ubuntu to allow it; and if you do, you have bigger problems.
 Thus the usual problems with parsing `ls` are inapplicable.
 But even though it's really okay here, if you consider command substitutions with `ls` aesthetically displeasing or just a bad habit, you may prefer:
 
-```sh
+{% code lang:sh %}
 getent passwd $(basename -a /home/*) | grep -o '^[^:]*'
-```
+{% endcode %}
 
-```sh
+{% code lang:sh %}
 getent passwd $(basename -a /home/*) | sed 's/:.*//'
-```
+{% endcode %}
 
-```sh
+{% code lang:sh %}
 getent passwd $(basename -a /home/*) | awk -F: '{print $1}'
-```
+{% endcode %}
 
 These don't accommodate whitespace or control characters either.
 I provide them only because `$(ls /home)` looks wrong even when it is right, and thus rubs many users the wrong way.

@@ -11,8 +11,8 @@ date: 2019-06-24 15:38:11
 
 具体到 Apache2 ，修改网站的配置文件，添加：
 
-```apache
+{% code lang:apache %}
 <Directory /var/www/example>
     DirectoryIndex index.php
 </Directory>
-```
+{% endcode %}

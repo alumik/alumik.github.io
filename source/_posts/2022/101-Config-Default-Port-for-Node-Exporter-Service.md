@@ -11,6 +11,6 @@ Just add `--web.listen-address=:9100` behind `ExecStart=/usr/local/bin/node_expo
 
 It looks like
 
-```
+{% code %}
 ExecStart=/usr/local/bin/node_exporter --web.listen-address=:[custum port]
-```
+{% endcode %}

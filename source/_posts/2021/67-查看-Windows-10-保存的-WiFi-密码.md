@@ -9,15 +9,15 @@ abbrlink: 67
 
 使用下列命令可以查看 Windows 10 保存的 Wi-Fi 密码：
 
-```
+{% code %}
 netsh wlan show profile name=<SSID> key=clear
-```
+{% endcode %}
 
 其中，`SSID` 就填写你想要查看密码的 Wi-Fi 热点的名称。例如笔者想要查看 `HUAWEI Mate 30` 这个热点的密码，则输入：
 
-```
+{% code %}
 netsh wlan show profile name="HUAWEI Mate 30" key=clear
-```
+{% endcode %}
 
 {% asset_img 01.png 400 %}
 

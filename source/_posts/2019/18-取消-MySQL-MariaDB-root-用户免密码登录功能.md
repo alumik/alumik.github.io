@@ -13,9 +13,9 @@ tags:
 
 在使用 MySQL/MariaDB 时，如果使用的是系统 root 用户，可以直接在控制台中输入
 
-```
+{% code %}
 mysql
-```
+{% endcode %}
 
 免密码使用数据库 root 用户登录数据库。
 
@@ -23,18 +23,18 @@ mysql
 
 在 `user` 表中有一列叫做 `plugin` ：
 
-```sql
+{% code lang:sql %}
 select user, authentication_string, plugin from user;
-```
+{% endcode %}
 
-```
+{% code %}
 +------+-----------------------+-------------+
 | user | authentication_string | plugin      |
 +------+-----------------------+-------------+
 | root | *                     | auth_socket |
 +------+-----------------------+-------------+
 1 rows in set (0.00 sec)
-```
+{% endcode %}
 
 其中的 `auth_socket` 让你能方便地作为 root 用户从控制台免密码登录。但这同时也禁用了密码登录，而且你不能使用其它客户端进行登录。
 
@@ -48,11 +48,11 @@ select user, authentication_string, plugin from user;
 
 #### 5.7
 
-```sql
+{% code lang:sql %}
 alter user 'root'@'localhost' identified by 'YOUR PASSWORD HERE';
 update mysql.user set plugin = 'mysql_native_password' where user = 'root' and host = 'localhost';
 flush privileges;
-```
+{% endcode %}
 
 #### 8.0
 
@@ -62,19 +62,19 @@ flush privileges;
 
 #### <10.2
 
-```sql
+{% code lang:sql %}
 set password for 'root'@'localhost' = password('YOUR PASSWORD HERE');
 update mysql.user set plugin = '' where user = 'root' and host = 'localhost';
 flush privileges;
-```
+{% endcode %}
 
 #### ≥10.2
 
-```sql
+{% code lang:sql %}
 alter user 'root'@'localhost' identified by 'YOUR PASSWORD HERE';
 update mysql.user set plugin = '' where user = 'root' and host = 'localhost';
 flush privileges;
-```
+{% endcode %}
 
 ## 注意事项
 

@@ -10,8 +10,8 @@ references:
 ---
 Apart from `nvidia-smi`, on Linux you can check which processes might be using the GPU using the command
 
-```sh
+{% code lang:sh %}
 sudo fuser -v /dev/nvidia*
-```
+{% endcode %}
 
 This will list processes that have NVIDIA GPU device nodes open.

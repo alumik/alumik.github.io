@@ -9,9 +9,9 @@ references:
 ---
 You would have to run this as root (hence the `sudo`):
 
-```sh
+{% code lang:sh %}
 for user in $(cut -f1 -d: /etc/passwd); do echo $user; sudo crontab -u $user -l; done
-```
+{% endcode %}
 
 will loop over each user name listing out their crontab.
 The crontabs are owned by the respective users so you won't be able to see another user's crontab w/o being them or root.

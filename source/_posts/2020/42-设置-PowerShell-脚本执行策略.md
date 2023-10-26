@@ -63,6 +63,6 @@ references:
 
 一般来说，使用如下命令后能够正常使用第三方脚本：
 
-```powershell
+{% code lang:powershell %}
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
+{% endcode %}

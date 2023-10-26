@@ -9,17 +9,17 @@ references:
 ---
 可以直接使用：
 
-```sql
+{% code lang:sql %}
 SELECT * FROM data_table
     WHERE created_at < NOW() - INTERVAL 1 DAY;
-```
+{% endcode %}
 
 下面是一个常见的错误写法：
 
-```sql
+{% code lang:sql %}
 DELETE FROM data_table
     WHERE TIME_TO_SEC(TIMEDIFF(NOW(), created_at)) / 3600 >= 24
-```
+{% endcode %}
 
 因为 `timediff()` 可接受参数的取值范围和 `time` 数据类型的范围一致，这样写可能会遇到 `Truncated incorrect time value` 错误。
 

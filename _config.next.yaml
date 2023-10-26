@@ -19,7 +19,7 @@ minify: true
 # Define custom file paths.
 # Create your custom files in site directory `source/_data` and uncomment needed files below.
 custom_file_path:
-  #head: source/_data/head.njk
+  head: source/_data/head.njk
   #header: source/_data/header.njk
   sidebar: source/_data/sidebar.njk
   #postMeta: source/_data/post-meta.njk
@@ -364,7 +364,7 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: stackoverflow-dark
+    light: default
     dark: stackoverflow-dark
   prism:
     light: prism
@@ -424,7 +424,7 @@ font:
   enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
-  host: https://fonts.loli.net
+  host: https://google-fonts.mirrors.sjtug.sjtu.edu.cn
 
   # Font options:
   # `external: true` will load this font family from `host` above.
@@ -434,7 +434,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Noto Serif SC
+    family: Jetbrains Sans, Noto Serif SC
     size:
 
   # Font settings for site title (.site-title).
@@ -457,7 +457,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
+    family: Jetbrains Mono
 
 
 # ---------------------------------------------------------------

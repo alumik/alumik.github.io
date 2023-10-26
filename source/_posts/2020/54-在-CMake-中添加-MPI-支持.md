@@ -7,7 +7,7 @@ tags:
     - CMake
 abbrlink: 54
 ---
-```cmake
+{% code lang:cmake %}
 cmake_minimum_required(VERSION 3.17)
 project(MPITest)
 
@@ -19,4 +19,4 @@ set(CMAKE_CXX_COMPILER mpicxx)
 set(CMAKE_C_COMPILER mpicc)
 
 add_executable(${PROJECT_NAME} main.cpp)
-```
+{% endcode %}

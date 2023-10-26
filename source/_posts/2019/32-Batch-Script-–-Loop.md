@@ -7,35 +7,35 @@ date: 2019-06-24 20:50:19
 ---
 `for /l` is your friend:
 
-```bat
+{% code lang:bat %}
 for /l %x in (1, 1, 100) do echo %x
-```
+{% endcode %}
 
 Starts at 1, steps by one, and finishes at 100.
 
 Use two `%`s if it's in a batch file:
 
-```bat
+{% code lang:bat %}
 for /l %%x in (1, 1, 100) do echo %%x
-```
+{% endcode %}
 
 If you have multiple commands for each iteration of the loop, do this:
 
-```bat
+{% code lang:bat %}
 for /l %x in (1, 1, 100) do (
    echo %x
    copy %x.txt z:\whatever\etc
 )
-```
+{% endcode %}
 
 or in a batch file:
 
-```bat
+{% code lang:bat %}
 for /l %%x in (1, 1, 100) do (
    echo %%x
    copy %%x.txt z:\whatever\etc
 )
-```
+{% endcode %}
 
 Key:
 

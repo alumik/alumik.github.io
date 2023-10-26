@@ -11,7 +11,7 @@ date: 2019-06-24 14:15:42
 
 升级 OpenSSL 后 Shadowsocks 可能无法启动，报错如下：
 
-```
+{% code %}
 Traceback (most recent call last):
     File "/usr/bin/ssserver", line 9, in
         load_entry_point('shadowsocks==2.8.2', 'console_scripts', 'ssserver')()
@@ -37,7 +37,7 @@ Traceback (most recent call last):
         func = self._FuncPtr((name_or_ordinal, self))
 AttributeError: /usr/local/ssl/lib/libcrypto.so.1.1: undefined symbol: EVP_CIPHER_CTX_cleanup
 shadowsocks start failed
-```
+{% endcode %}
 
 <!-- more -->
 

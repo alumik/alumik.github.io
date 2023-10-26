@@ -9,8 +9,8 @@ references:
 ---
 The class `acmart` allows to set the number of authors per row by inserting e.g.
 
-```tex
+{% code lang:tex %}
 \settopmatter{authorsperrow=4}
-```
+{% endcode %}
 
 after `\documentclass{acmart}`.

@@ -7,8 +7,8 @@ abbrlink: 60
 ---
 使用如下命令：
 
-```sh
+{% code lang:sh %}
 for scr in $(screen -ls | awk '{print $1}'); do
   screen -S "$scr" -X stuff "^C"
 done
-```
+{% endcode %}

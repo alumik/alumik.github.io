@@ -11,9 +11,9 @@ PyPI 镜像在每次同步成功后间隔 5 分钟同步一次。
 
 ## 临时使用
 
-```
+{% code %}
 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
-```
+{% endcode %}
 
 注意，`simple` 不能少, 是 `https` 而不是 `http`。
 
@@ -21,13 +21,13 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 
 升级 pip 到最新的版本 (>=10.0.0) 后进行配置：
 
-```
+{% code %}
 python -m pip install --upgrade pip
 pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-```
+{% endcode %}
 
 如果您到 pip 默认源的网络连接较差，临时使用镜像站来升级 pip：
 
-```
+{% code %}
 python -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple --upgrade pip
-```
+{% endcode %}

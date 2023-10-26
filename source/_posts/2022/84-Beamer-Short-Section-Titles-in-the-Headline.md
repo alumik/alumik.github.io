@@ -9,27 +9,27 @@ references:
 ---
 I have a beamer template for a presentation. In this template, the headline shows the section name and the subsection to which the current slide belongs to. However, even if I have defined a short title as in
 
-```tex
+{% code lang:tex %}
 \section[Short title]{The very long title that surely is way too long}
-```
+{% endcode %}
 
 the headline always shows the long title.
 
 Here is the code from the style file which shows the section name
 
-```tex
-\pgftext[at=\pgfpoint{\beamer@headline@lmargin}{-0.55\beamer@headline@height},left,center]{%
+{% code lang:tex %}
+\pgftext[at=\pgfpoint{\beamer@headline@lmargin}{-0.55\beamer@headline@height},left,center]{
     \begin{beamercolorbox}[dp=0.5ex]{section in head/foot}
         \shadowtextline{\insertsection}
     \end{beamercolorbox}
 }
-```
+{% endcode %}
 
 So my question: Is there any other command for `\insertsection` in order to show the short title?
 
 The outer theme should use `\insertsectionhead` instead of `\insertsection`:
 
-```tex
+{% code lang:tex %}
 \documentclass{beamer}
 
 \begin{document}
@@ -43,4 +43,4 @@ The outer theme should use `\insertsectionhead` instead of `\insertsection`:
 \end{frame}
 
 \end{document}
-```
+{% endcode %}

@@ -51,23 +51,23 @@ The source code for the daemon is also available under the MIT license, to allow
 
 To run the NVIDIA Persistence Daemon, simply run (as root):
 
-```
+{% code %}
 sudo nvidia-persistenced --user foo
-```
+{% endcode %}
 
 After doing a minimal amount of setup tasks that require super-user privileges, the daemon will drop super-user privileges and run as user 'foo'.
 
 You may use NVIDIA SMI to change the persistence mode setting. For example, to disable persistence mode on all GPUs, simply run (again, as root):
 
-```
+{% code %}
 sudo nvidia-smi -pm 0
-```
+{% endcode %}
 
 Please see the nvidia-persistenced(1) manpage, which is installed by the NVIDIA GPU driver installer, or the output of:
 
-```
+{% code %}
 nvidia-persistenced --help
-```
+{% endcode %}
 
 for detailed usage information.
 

@@ -9,9 +9,9 @@ references:
 ---
 When building a binary or library, specifying the `rpath`, i.e.
 
-```
+{% code %}
 -Wl,-rpath,<path/to/lib>
-```
+{% endcode %}
 
 tells the linker where to find the required library at runtime.
 

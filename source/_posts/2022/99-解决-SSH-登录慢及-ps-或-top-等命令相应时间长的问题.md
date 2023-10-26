@@ -11,24 +11,24 @@ references:
 这是由于 `systemd-timesyncd` 被误认为是一个用户 ID 而不是进程名。
 使用 `ps -ef` 命令可以发现该问题。例如：
 
-```
+{% code %}
 root     20366   779  0 21:05 ?        00:00:00 [autocleanStatus] <defunct>
 root     20385   757  0 21:05 ?        00:00:00 sshd: git [priv]
 <long hang>
 62583    20396     1  2 21:06 ?        00:00:00 /lib/systemd/systemd-timesyncd
-```
+{% endcode %}
 
 要解决该问题，一般重启即可。
 也可以禁用 `systemd-timesyncd` 服务。
 
-```
+{% code %}
 sudo systemctl stop systemd-timesyncd
 sudo systemctl disable systemd-timesyncd
-```
+{% endcode %}
 
 要想恢复被禁用的服务，可以使用：
 
-```
+{% code %}
 sudo systemctl enable systemd-timesyncd
 sudo systemctl start systemd-timesyncd
-```
+{% endcode %}

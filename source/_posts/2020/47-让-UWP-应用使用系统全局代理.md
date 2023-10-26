@@ -11,14 +11,14 @@ references:
 
 以管理员身份启动 PowerShell 后运行下列命令：
 
-```powershell
+{% code lang:powershell %}
 foreach($f in Get-ChildItem $env:LOCALAPPDATA\Packages) {CheckNetIsolation.exe LoopbackExempt -a "-n=$($f.Name)"}
-```
+{% endcode %}
 
 如果只需要少量应用：
 
-```powershell
+{% code lang:powershell %}
 CheckNetIsolation.exe LoopbackExempt –a –n=<App Directory>
-```
+{% endcode %}
 
 将 `<App Directory>` 替换成出现在 *%LOCALAPPDATA%\Packages* 目录中的应用目录名即可。

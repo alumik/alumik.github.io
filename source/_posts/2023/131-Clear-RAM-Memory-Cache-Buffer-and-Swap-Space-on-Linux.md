@@ -18,21 +18,21 @@ As the `root` user:
 
 1. Clear PageCache only.
 
-```sh
+{% code lang:sh %}
 sync; echo 1 > /proc/sys/vm/drop_caches
-```
+{% endcode %}
 
 2. Clear dentries and inodes.
 
-```sh
+{% code lang:sh %}
 sync; echo 2 > /proc/sys/vm/drop_caches
-```
+{% endcode %}
 
 3. Clear pagecache, dentries, and inodes.
 
-```sh
+{% code lang:sh %}
 sync; echo 3 > /proc/sys/vm/drop_caches 
-```
+{% endcode %}
 
 ## Explanation of the above command
 
@@ -48,6 +48,6 @@ It is not recommended to use the third option above `...echo 3 >...` in producti
 
 If you want to clear Swap space, you may like to run the below command.
 
-```sh
+{% code lang:sh %}
 swapoff -a && swapon -a
-```
+{% endcode %}

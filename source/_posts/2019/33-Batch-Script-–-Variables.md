@@ -13,34 +13,34 @@ Batch scripts support the concept of command line arguments wherein arguments ca
 
 The following example shows a batch file which accepts 3 command line arguments and `echo`s them to the command line screen.
 
-```bat
+{% code lang:bat %}
 @echo off
 echo %1
 echo %2
 echo %3
-```
+{% endcode %}
 
 <!-- more -->
 
 If the above batch script is stored in a file called *test.bat* and we were to run the batch as
 
-```
+{% code %}
 Test.bat 1 2 3
-```
+{% endcode %}
 
 The above command produces the following output.
 
-```
+{% code %}
 1
 2
 3
-```
+{% endcode %}
 
 If we were to run the batch as
 
-```
+{% code %}
 Example 1 2 3 4
-```
+{% endcode %}
 
 The output would still remain the same as above. However, the fourth parameter would be ignored.
 
@@ -50,9 +50,9 @@ The other way in which variables can be initialized is via the `set` command. Fo
 
 ### Syntax
 
-```bat
+{% code lang:bat %}
 set /A variable-name=value
-```
+{% endcode %}
 
 where,
 
@@ -64,12 +64,12 @@ The following example shows a simple way the set command can be used.
 
 ### Example
 
-```bat
+{% code lang:bat %}
 
 @echo off
 set message=Hello World
 echo %message%
-```
+{% endcode %}
 
 + In the above code snippet, a variable called message is defined and set with the value of "Hello World".
 + To display the value of the variable, note that the variable needs to be enclosed in the `%` sign.
@@ -78,9 +78,9 @@ echo %message%
 
 The above command produces the following output.
 
-```
+{% code %}
 Hello World
-```
+{% endcode %}
 
 ## Working with Numeric Values
 
@@ -88,13 +88,13 @@ In batch script, it is also possible to define a variable to hold a numeric valu
 
 The following code shows a simple way in which numeric values can be set with the `/A` switch.
 
-```bat
+{% code lang:bat %}
 @echo off
 SET /A a = 5
 SET /A b = 10
 SET /A c = %a% + %b%
 echo %c%
-```
+{% endcode %}
 
 + We are first setting the value of 2 variables, `a` and `b` to `5` and `10` respectively.
 + We are adding those values and storing in the variable `c`.
@@ -104,7 +104,7 @@ The output of the above program would be `15`.
 
 All of the arithmetic operators work in batch files. The following example shows arithmetic operators can be used in batch files.
 
-```bat
+{% code lang:bat %}
 @echo off
 SET /A a = 5
 SET /A b = 10
@@ -116,16 +116,16 @@ SET /A c = %b% / %a%
 echo %c%
 SET /A c = %b% * %a%
 echo %c%
-```
+{% endcode %}
 
 The above command produces the following output.
 
-```
+{% code %}
 15
 -5
 2
 50
-```
+{% endcode %}
 
 ## Local vs Global Variables
 
@@ -135,7 +135,7 @@ DOS scripting also has a definition for locally and globally scoped variables. B
 
 ### Example
 
-```bat
+{% code lang:bat %}
 @echo off
 set globalvar = 5
 SETLOCAL
@@ -144,7 +144,7 @@ set /A var = %var% + 5
 echo %var%
 echo %globalvar%
 ENDLOCAL
-```
+{% endcode %}
 
 Few key things to note about the above program.
 
@@ -155,10 +155,10 @@ Few key things to note about the above program.
 
 The above command produces the following output.
 
-```
+{% code %}
 13150
 5
-```
+{% endcode %}
 
 You will notice that the command `echo %var%` will not yield anything because after the `ENDLOCAL` statement, the `var` variable will no longer exist.
 
@@ -166,13 +166,13 @@ You will notice that the command `echo %var%` will not yield anything because af
 
 If you have variables that would be used across batch files, then it is always preferable to use environment variables. Once the environment variable is defined, it can be accessed via the `%` sign. The following example shows how to see the `JAVA_HOME` defined on a system. The `JAVA_HOME` variable is a key component that is normally used by a wide variety of applications.
 
-```bat
+{% code lang:bat %}
 @echo off
 echo %JAVA_HOME%
-```
+{% endcode %}
 
 The output would show the `JAVA_HOME` directory which would depend from system to system. Following is an example of an output.
 
-```
+{% code %}
 C:\Atlassian\Bitbucket\4.0.1\jre
-```
+{% endcode %}

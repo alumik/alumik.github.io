@@ -41,11 +41,11 @@ date: 2019-06-24 11:25:57
 
 接着激活需要的扩展选项，即将相应语句前的分号删除，例如
 
-```
+{% code %}
 extension=mysqli
 extension=pdo_mysql
 extension=gd2
-```
+{% endcode %}
 
 再将 `; extension_dir = "ext"` 前的分号去掉，保存。
 
@@ -53,9 +53,9 @@ extension=gd2
 
 PHP 环境配置好了，我们就可以测试一下了。在 IIS 中建立一个新网站，网站根目录下新建一个 {% label info@index.php %} 文件：
 
-```php
+{% code lang:php %}
 <?php phpinfo(); ?>
-```
+{% endcode %}
 
 然后在浏览器中打开该网页，即可出现类似如下界面。
 

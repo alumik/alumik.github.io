@@ -15,19 +15,19 @@ The demuxer is more flexible – it requires the same codecs, but different cont
 
 create a text file named vidlist.txt in the following format:
 
-```
+{% code %}
 file '/path/to/clip1'
 file '/path/to/clip2'
 file '/path/to/clip3'
-```
+{% endcode %}
 
 Note that these can be either relative or absolute paths.
 
 Then issue the command:
 
-```
+{% code %}
 ffmpeg -f concat -safe 0 -i vidlist.txt -c copy output
-```
+{% endcode %}
 
 The files will be stream copied in the order they appear in the vidlist.txt into the output container. the "copy codec" is **blazing fast**.
 
@@ -39,17 +39,17 @@ Note: All the clips must already exist or the command will fail because decoding
 
 ### The Concat Protocol
 
-```
+{% code %}
 ffmpeg -i "concat:video1.ts|video2.ts|video3.ts" -c copy output.ts
-```
+{% endcode %}
 
 Note: as mentioned above the concat protocol is severely limited in what streams and containers it supports so I never use it. The above is only included in an attempt to create a thorough answer. The concat demuxer is a far better choice for most projects.
 
 **An alternative suggestion:** Personally I prefer using the Matroska container due to it's flexibility and low overhead and join videos with the same encoding using
 
-```
+{% code %}
 mkvmerge -o output.mkv input1.mkv + input2.mkv
-```
+{% endcode %}
 
 ## Concatenation of Files with Different Codecs
 

@@ -27,25 +27,25 @@ The location of Docker's data directory is controlled by the `data-root` setting
 
 Find or add the relevant key inside the config file. Set your desired directory path as its value. Here's a Linux example that'll store Docker data to an external drive mounted in the filesystem:
 
-```json
+{% code lang:json %}
 {
     "data-root": "/mnt/docker-data"
 }
-```
+{% endcode %}
 
 You must restart the Docker daemon after you make the change:
 
-```sh
+{% code lang:sh %}
 sudo service docker restart
-```
+{% endcode %}
 
 Docker Desktop can be restarted on Windows and Mac by exiting it and then launching a new instance.
 
 You should copy the contents of your current data directory to the new path if you want to retain your existing content. Otherwise you'll start with a clean slate, unable to access previously created containers and images.
 
-```sh
+{% code lang:sh %}
 sudo rsync -aSv /var/lib/docker/ /mnt/docker-data
-```
+{% endcode %}
 
 ## Changing the Data Directory Without a Restart
 
@@ -53,15 +53,15 @@ You can move your data directory without restarting the daemon by creating a sym
 
 Copy your existing Docker data to your new directory:
 
-```sh
+{% code lang:sh %}
 sudo rsync -aSv /var/lib/docker/ /mnt/docker-data
-```
+{% endcode %}
 
 Then create a symlink that resolves `/var/lib/docker` to the target location:
 
-```sh
+{% code lang:sh %}
 sudo ln -s /mnt/docker-data/ /var/lib/docker
-```
+{% endcode %}
 
 Don't use this technique for workloads that rapidly modify filesystem data. There's a risk of inconsistencies occurring if data gets written in the time between you copying the existing directory and creating the symlink.
 
@@ -77,9 +77,9 @@ In the absence of per-type data path support, pruning unused resources can be a 
 
 You can manually start Docker Engine with a specific data directory by passing the `--data-root` flag when you start the daemon. This can be used to switch between data directories or run a clean instance without your existing data.
 
-```sh
+{% code lang:sh %}
 sudo /usr/bin/dockerd --data-root /mnt/docker-data
-```
+{% endcode %}
 
 The flag will override the directory path specified by the `daemon.json` file. The configured directory will remain intact so you can revert to that instance in the future.
 

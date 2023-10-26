@@ -11,15 +11,15 @@ tags:
 
 采用居中对齐，如左图
 
-```python
+{% code lang:python %}
 print('{:^9}\t'.format(string_var), end = '')
-```
+{% endcode %}
 
 采用左对齐，如右图
 
-```python
+{% code lang:python %}
 print('{:<9}\t'.format(string_var), end = '')
-```
+{% endcode %}
 
 ### 运行结果
 
@@ -49,15 +49,15 @@ print('{:<9}\t'.format(string_var), end = '')
 
 居中对齐，如左图
 
-```python
+{% code lang:python %}
 print('{0:{1}^9}\t'.format(string_var, chr(12288)), end = '')
-```
+{% endcode %}
 
 左对齐，如右图
 
-```python
+{% code lang:python %}
 print('{0:{1}<9}\t'.format(string_var, chr(12288)), end = '')
-```
+{% endcode %}
 
 ## 修改后
 

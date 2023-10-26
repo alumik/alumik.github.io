@@ -9,6 +9,6 @@ references:
 ---
 如果您有基于登录的身份验证，则可以使用 `ssh-copy-id` 将您的公钥附加到远程服务器。 
 
-```
+{% code %}
 ssh-copy-id user@host
-```
+{% endcode %}

@@ -9,16 +9,16 @@ references:
 ---
 The `siunitx` package has this sort of facility.
 
-```tex
+{% code lang:tex %}
 \num[group-separator={,}]{1234567890}
-```
+{% endcode %}
 
 Should give you "1,234,567,890".
 
 Also you can use this as a package option like so:
 
-```tex
+{% code lang:tex %}
 \usepackage[group-separator={,}]{siunitx}
-```
+{% endcode %}
 
 Be warned, this doesn't seem to work with older versions of `siunitx`.

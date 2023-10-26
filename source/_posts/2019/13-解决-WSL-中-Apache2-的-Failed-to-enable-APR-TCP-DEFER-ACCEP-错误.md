@@ -11,22 +11,22 @@ date: 2019-06-24 15:53:26
 
 WSL 安装 Apache2 后启动服务会报出以下错误：
 
-```
+{% code %}
 Invalid argument: AH00076: Failed to enable APR_TCP_DEFER_ACCEP
-```
+{% endcode %}
 
 ## 解决办法
 
 打开 Apache2 配置文件：
 
-```
+{% code %}
 nano /etc/apache2/apache2.conf
-```
+{% endcode %}
 
 在文件的最底部添加以下内容：
 
-```apache
+{% code lang:apache %}
 AcceptFilter http none
-```
+{% endcode %}
 
 然后重启 Apache2 。

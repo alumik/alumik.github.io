@@ -15,7 +15,7 @@ references:
 
 通过执行下面的命令可能可以解决该问题：
 
-```
+{% code %}
 sudo mv /var/lib/dpkg/info/ /var/lib/dpkg/info_old/
 
 sudo mkdir /var/lib/dpkg/info/
@@ -29,4 +29,4 @@ sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info_old/
 sudo rm -rf /var/lib/dpkg/info
 
 sudo mv /var/lib/dpkg/info_old/ /var/lib/dpkg/info/
-```
+{% endcode %}

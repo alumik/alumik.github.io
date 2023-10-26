@@ -13,16 +13,16 @@ gdrive 是一个好用的 Linux 平台 Google Drive 客户端。
 
 ## 安装 gdrive
 
-```
+{% code %}
 wget -O /usr/bin/gdrive "//docs.google.com/uc?id=0B3X9GlR6EmbnQ0FtZmJJUXEyRTA&export=download"
 chmod +x /usr/bin/gdrive
-```
+{% endcode %}
 
 ## 授权
 
-```
+{% code %}
 gdrive about
-```
+{% endcode %}
 
 然后会出现一个网址并询问验证码。将地址粘贴到浏览器并登录账号，会返回一串代码。
 
@@ -32,8 +32,8 @@ gdrive 会自动将你的 token 保存在用户目录下的 *.gdrive* 目录中�
 
 ## 使用
 
-```
+{% code %}
 gdrive help
-```
+{% endcode %}
 
 可以查看帮助。

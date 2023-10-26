@@ -15,7 +15,7 @@ references:
 
 在 Ubuntu 22.04 LTS 的容器里面运行 `apt update` 的时候出现了以下报错：
 
-```
+{% code %}
 [root@VM-16-9-centos docker-kubuntu]# docker run --rm -it ubuntu:22.04 bash
 root@8ac245b487e6:/# apt update
 Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
@@ -57,7 +57,7 @@ N: Updating from such a repository can't be done securely, and is therefore disa
 N: See apt-secure(8) manpage for repository creation and user configuration details.
 E: Problem executing scripts APT::Update::Post-Invoke 'rm -f /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin || true'
 E: Sub-process returned an error code
-```
+{% endcode %}
 
 ## 原因
 
@@ -69,9 +69,9 @@ E: Sub-process returned an error code
 
 运行容器的时候，加上这个参数来绕过 Docker 系统调用限制
 
-```
+{% code %}
 --security-opt seccomp=unconfined
-```
+{% endcode %}
 
 不过这会有很大的问题，一个是你的容器将变得不安全，另一个是这些参数在构建镜像的时候是不可用的。所以，请参考办法二。
 

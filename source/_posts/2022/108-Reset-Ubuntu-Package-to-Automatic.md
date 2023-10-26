@@ -11,6 +11,6 @@ references:
 ---
 If the state of the package got changed to manual from automatic, you can set it back to automatic in the following manner:
 
-```
+{% code %}
 sudo apt-mark auto package_name
-```
+{% endcode %}

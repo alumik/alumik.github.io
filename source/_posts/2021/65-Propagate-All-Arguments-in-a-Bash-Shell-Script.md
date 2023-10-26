@@ -9,9 +9,9 @@ references:
 ---
 The `$@` variable expands to all command-line parameters separated by spaces. Here is an example.
 
-```sh
+{% code lang:sh %}
 abc "$@"
-```
+{% endcode %}
 
 When using `$@`, you should (almost) always put it in double-quotes to avoid misparsing of arguments containing spaces or wildcards (see below). This works for multiple arguments. It is also portable to all POSIX-compliant shells.
 

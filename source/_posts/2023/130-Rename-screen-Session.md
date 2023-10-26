@@ -9,9 +9,9 @@ references:
 ---
 ## TL;DR
 
-```
+{% code %}
 C-a :sessionname mySessionName
-```
+{% endcode %}
 
 ## Details
 
@@ -26,6 +26,6 @@ This is,
 
 Screen's `-X` switch lets you rename a session without attaching it.
 
-```sh
+{% code lang:sh %}
 screen -S 8890.foo -X sessionname bar
-```
+{% endcode %}

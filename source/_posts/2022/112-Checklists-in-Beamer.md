@@ -9,7 +9,7 @@ references:
 ---
 Some checkbox alternatives using `bbding`, `wasysym`, or nothing.
 
-```tex
+{% code lang:tex %}
 \documentclass{beamer}
 
 \usepackage{bbding}
@@ -37,6 +37,6 @@ Some checkbox alternatives using `bbding`, `wasysym`, or nothing.
 \end{frame}
 
 \end{document}
-```
+{% endcode %}
 
 {% asset_img main.png %}

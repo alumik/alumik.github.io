@@ -13,7 +13,7 @@ This is included into the Hyper-V tools but this is only available in Windows 10
 
 There are another way to do this in Windows 10/11 Home, using the next commands:
 
-```
+{% code %}
 diskpart
  
 # Open window Diskpart 
@@ -23,4 +23,4 @@ attach vdisk readonly
 compact vdisk
 detach vdisk
 exit
-```
+{% endcode %}

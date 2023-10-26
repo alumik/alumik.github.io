@@ -15,9 +15,9 @@ Windows Terminal 某次更新以后，透明效果消失。在系统“颜色”
 
 运行注册表编辑器 `regedit`，定位到：
 
-```
+{% code %}
 HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize
-```
+{% endcode %}
 
 有一个值名称为 `EnableTransparency`，如果已经启用透明，数据应该是 `1`。
 

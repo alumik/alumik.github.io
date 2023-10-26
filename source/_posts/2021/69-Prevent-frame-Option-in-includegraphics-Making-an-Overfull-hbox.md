@@ -11,7 +11,7 @@ Here's how you can do; which one to choose between the second and third example 
 
 The `frame` option draws a frame with rule of width `\fboxrule` (by default) and zero space between the frame and the box. But the rule width is added to the width of the box, so you have to do something about it: either reduce a bit the width of the box, or draw the frame inside the box, by specifying a negative separation (second parameter to the `frame` option).
 
-```tex
+{% code lang:tex %}
 \documentclass{article}
 \usepackage[export]{adjustbox}
 \usepackage{graphicx}
@@ -43,6 +43,6 @@ The `frame` option draws a frame with rule of width `\fboxrule` (by default) and
 \includegraphics[width=\textwidth,frame={\fboxrule} {-\fboxrule}]{tiger}
 \end{minipage}
 \end{document}
-```
+{% endcode %}
 
 Don't include the `minipage` environments, they are just to show the effect while using `\textwidth` (that's reset in a `minipage`) and not having a huge picture of the result.
