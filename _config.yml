@@ -43,8 +43,8 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+syntax_highlighter: highlight.js
 highlight:
-  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -52,7 +52,6 @@ highlight:
   hljs: false
   line_threshold: 5
 prismjs:
-  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''

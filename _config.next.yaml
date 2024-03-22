@@ -222,7 +222,7 @@ footer:
   # Powered by Hexo & NexT
   powered: false
 
-  # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
+  # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, https://beian.mps.gov.cn
   beian:
     enable: false
     icp:
@@ -230,7 +230,7 @@ footer:
     gongan_id:
     # The full num of gongan beian.
     gongan_num:
-    # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+    # The icon for gongan beian. Login and See: https://beian.mps.gov.cn/web/business/businessHome/website
     gongan_icon_url:
 
 
@@ -374,6 +374,10 @@ codeblock:
     enable: true
     # Available values: default | flat | mac
     style: flat
+  # Fold code block
+  fold:
+    enable: false
+    height: 500
 
 back2top:
   enable: true
@@ -767,6 +771,8 @@ google_analytics:
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
+  # only needed if you are using `only_pageview` mode, https://developers.google.com/analytics/devguides/collection/protocol/ga4
+  measure_protocol_api_secret:
 
 # Baidu Analytics
 # See: https://tongji.baidu.com
@@ -893,12 +899,6 @@ chatra:
 tidio:
   enable: false
   key: # Public Key, get it from dashboard. See: https://www.tidio.com/panel/settings/developer
-
-# Gitter is a chat and networking platform.
-# For more information: https://gitter.im
-gitter:
-  enable: false
-  room:
 
 
 # ---------------------------------------------------------------
