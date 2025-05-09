@@ -1,7 +1,6 @@
 # AlumiK's Blog
 
 [![Netlify](https://img.shields.io/netlify/4afb5d9b-95f3-4c45-b5a6-6358f6180b4e?logo=netlify)](https://app.netlify.com/sites/blog-alumik-cn/deploys)
-![license CC-BY-NC-SA 4.0](https://img.shields.io/badge/license-CC--BY--NC--SA_4.0-ED592F)
 
 A blog in computer science and software engineering.
 
